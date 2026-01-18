@@ -66,8 +66,8 @@ export default function Footer() {
                 <Link href="#" className="hover:text-gray-600">Terms of Service</Link>
                 <Link href="#" className="hover:text-gray-600">Cookie Policy</Link>
             </div>
-            <div className="mt-4 md:mt-0">
-                Designed with <span className="text-red-500">♥</span> for Innovation
+            <div className="mt-4 md:mt-0 font-medium">
+                All content &copy; David Kim.
             </div>
         </div>
       </div>
