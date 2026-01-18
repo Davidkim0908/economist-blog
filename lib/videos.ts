@@ -22,6 +22,13 @@ export const videos: Video[] = [
     youtubeId: "elCdXJnUfC4"
   },
   {
+    id: "kb-radio-250829",
+    title: "[성기영의 경제쇼] 국내 증시 약세와 700조 원대 슈퍼 예산 편성 분석",
+    date: "2025-08-29",
+    description: "KBS 1라디오 경제쇼 출연분. 외국인 매도로 인한 증시 하락 전환과 정부의 전면적 확장 재정 정책에 대한 심층 분석.",
+    youtubeId: "gocSvFhDkiY"
+  },
+  {
     id: "tesla-optimus-mijangwon",
     title: "[테슬라] 춤추는 테슬라 옵티머스, 핵심은 '발가락' (EP.2) | 강정수 | 김동영 | 미장원",
     date: "2024-10-21",
@@ -76,6 +83,27 @@ export const videos: Video[] = [
     date: "2024-01-18",
     description: "대한민국 저출산 문제와 정책의 실효성에 대한 심층 분석. 380조 원의 예산 투입에도 불구하고 개선되지 않는 원인과 대안을 논의합니다.",
     youtubeId: "f4FlkaXXAkU"
+  },
+  {
+    id: "maeil-goodmorning-wall-street",
+    title: "[Talk&theCity] 굿모닝 월가월부: 숨겨진 보석 같은 경제 정보를 즐겁게 캐치해보자",
+    date: "2023-12-18",
+    description: "매일경제TV 출연. 시장의 노이즈 속에서 진정한 가치를 지닌 경제 정보를 선별하고, 투자와 경제 지표를 읽는 법에 대해 논의합니다.",
+    youtubeId: "JOE79hU2QY0"
+  },
+  {
+    id: "kb-radio-unfair-algorithm",
+    title: "[성기영의 경제쇼] 디지털 경제 - 불공정 꼬리표 단 알고리즘",
+    date: "2023-12-13",
+    description: "플랫폼 알고리즘의 공정성 논란과 '자사 우대' 문제에 대한 경제학적 분석. 디지털 경제에서 공정 경쟁을 위한 알고리즘 규제 방향을 논의합니다.",
+    youtubeId: "Hc9Q1FZoC0U"
+  },
+  {
+    id: "kb-radio-doctors-platforms",
+    title: "[성기영의 경제쇼] 의사와 플랫폼, 달콤살벌한 동거",
+    date: "2023-11-23",
+    description: "전문직 시장에 진입하는 플랫폼 기업들과 기존 직역 단체 간의 갈등과 공존에 대한 심층 분석. 디지털 전환 시대의 전문 서비스 시장 변화를 다룹니다.",
+    youtubeId: "i6X9IHADfbs"
   },
   {
     id: "obs-taxi-fare-debate",
