@@ -15,6 +15,20 @@ export const videos: Video[] = [
     youtubeId: "19nfIagMu48"
   },
   {
+    id: "tesla-optimus-mijangwon",
+    title: "[테슬라] 춤추는 테슬라 옵티머스, 핵심은 '발가락' (EP.2) | 강정수 | 김동영 | 미장원",
+    date: "2024-10-21",
+    description: "휴머노이드 로봇 옵티머스의 진화와 테슬라의 AI 로보틱스 비전에 대한 심층 토론. '미장원' 출연분.",
+    youtubeId: "jrF3F5UrLYk"
+  },
+  {
+    id: "tesla-optimus-mijangwon-ep1",
+    title: "[테슬라] 춤추는 테슬라 옵티머스, 핵심은 '발가락' (EP.1) | 강정수 | 김동영 | 미장원",
+    date: "2024-10-21",
+    description: "테슬라 로봇 옵티머스의 기술적 진보와 휴머노이드 로봇 시장의 미래에 대한 토론 1부.",
+    youtubeId: "kT1W8470dQQ"
+  },
+  {
     id: "kbs-chang-ev",
     title: "내가 이미 중국차를 타봤다고?…‘진격의 중국 전기차’ [창+]",
     date: "2024-07-07",
