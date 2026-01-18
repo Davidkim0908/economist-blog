@@ -543,3 +543,10 @@
 ✓ Compiled in 250ms
 ✓ Compiled in 24ms
 ✓ Compiled in 25ms
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.0.205:3001
+
+✓ Starting...
+✓ Ready in 659ms
