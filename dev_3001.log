@@ -1,0 +1,22 @@
+
+> economist-blog@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.102:3001
+
+✓ Starting...
+✓ Ready in 286ms
+ HEAD / 200 in 201ms (compile: 107ms, render: 94ms)
+ GET / 200 in 76ms (compile: 7ms, render: 69ms)
+ GET /topics/history 200 in 234ms (compile: 222ms, generate-params: 179ms, render: 12ms)
+ GET /videos 200 in 52ms (compile: 38ms, render: 14ms)
+ GET /topics/mobility 200 in 36ms (compile: 10ms, generate-params: 5ms, render: 27ms)
+ GET /topics/history 200 in 29ms (compile: 8ms, generate-params: 4ms, render: 21ms)
+ GET /topics/digital-transformation 200 in 42ms (compile: 8ms, generate-params: 4ms, render: 33ms)
+ GET /topics/digital-transformation 200 in 111ms (compile: 10ms, generate-params: 4ms, render: 101ms)
+ GET /posts/digital-transformation/algorithm-fairness 200 in 372ms (compile: 277ms, generate-params: 233ms, render: 95ms)
+ GET /topics/digital-transformation 200 in 74ms (compile: 11ms, generate-params: 4ms, render: 63ms)
+ GET /topics/digital-transformation 200 in 46ms (compile: 5ms, generate-params: 2ms, render: 41ms)
+[?25h
