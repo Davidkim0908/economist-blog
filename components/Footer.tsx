@@ -62,9 +62,9 @@ export default function Footer() {
         {/* Bottom Legal Line */}
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
             <div className="flex space-x-6">
-                <Link href="#" className="hover:text-gray-600">Privacy Policy</Link>
-                <Link href="#" className="hover:text-gray-600">Terms of Service</Link>
-                <Link href="#" className="hover:text-gray-600">Cookie Policy</Link>
+                <Link href="/legal/privacy" className="hover:text-gray-600">Privacy Policy</Link>
+                <Link href="/legal/terms" className="hover:text-gray-600">Terms of Service</Link>
+                <Link href="/legal/cookies" className="hover:text-gray-600">Cookie Policy</Link>
             </div>
             <div className="mt-4 md:mt-0 font-medium">
                 All content &copy; David Kim.
