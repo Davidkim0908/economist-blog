@@ -520,3 +520,5 @@
  GET /posts/digital-transformation/ai-system-reform 200 in 119ms (compile: 88ms, generate-params: 1519µs, render: 31ms)
  GET /topics/digital-transformation 200 in 110ms (compile: 84ms, generate-params: 936µs, render: 27ms)
  GET / 200 in 56ms (compile: 5ms, render: 51ms)
+✓ Compiled in 1912ms
+ GET / 200 in 53ms (compile: 7ms, render: 46ms)
