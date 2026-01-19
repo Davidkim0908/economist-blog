@@ -11,30 +11,30 @@ export default function Navbar() {
   return (
     <header className="w-full bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-20">
           
           {/* Left: Brand / Logo - Hybrid Style (Original Colors) */}
           <div className="flex items-center h-full z-50 relative">
             <Link href="/" className="flex items-center gap-4 group h-full">
               {/* Symbol */}
-              <div className="w-12 h-12 border-2 border-gray-900 flex items-center justify-center group-hover:bg-gray-900 group-hover:text-white transition-all duration-300 shadow-sm bg-white">
+              <div className="w-11 h-11 border-2 border-gray-900 flex items-center justify-center group-hover:bg-gray-900 group-hover:text-white transition-all duration-300 shadow-sm bg-white">
                 <div className="flex items-baseline">
-                    <span className="font-serif font-black text-2xl leading-none text-gray-900 group-hover:text-white transition-colors">D</span>
-                    <span className="text-primary font-black text-xl leading-none">.</span>
+                    <span className="font-serif font-black text-xl leading-none text-gray-900 group-hover:text-white transition-colors">D</span>
+                    <span className="text-primary font-black text-lg leading-none">.</span>
                 </div>
               </div>
               
               {/* Text */}
-              <div className="flex flex-col justify-center h-full py-6">
-                <span className="font-serif font-black text-xl tracking-tight text-gray-900 leading-none uppercase">
+              <div className="flex flex-col justify-center h-full py-4">
+                <span className="font-serif font-black text-lg tracking-tight text-gray-900 leading-none uppercase">
                   David&apos;s
                 </span>
-                <div className="h-[1px] w-full bg-gray-200 my-1 group-hover:bg-primary transition-colors" />
+                <div className="h-[1px] w-full bg-gray-200 my-0.5 group-hover:bg-primary transition-colors" />
                 <div className="flex items-baseline w-full">
-                    <span className="font-sans text-[11px] font-black uppercase tracking-[0.2em] text-gray-500 leading-none flex-grow flex justify-between mr-0.5">
+                    <span className="font-sans text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 leading-none flex-grow flex justify-between mr-0.5">
                     <span>N</span><span>O</span><span>T</span><span>E</span><span>S</span>
                     </span>
-                    <span className="text-primary font-black text-[11px] leading-none">.</span>
+                    <span className="text-primary font-black text-[10px] leading-none">.</span>
                 </div>
               </div>
             </Link>
@@ -42,15 +42,15 @@ export default function Navbar() {
           
           {/* Center: Navigation Links (Expanded Black Pill Box) */}
           <div className="hidden lg:flex items-center justify-center flex-grow px-4">
-            <div className="bg-black text-white w-full max-w-6xl py-3 px-10 rounded-full flex items-center justify-center space-x-10 shadow-lg">
+            <div className="bg-black text-white w-full max-w-6xl py-2 px-10 rounded-full flex items-center justify-center space-x-10 shadow-lg">
                 
                 {/* 1. Meet David Dropdown */}
                 <div className="relative group flex items-center h-full">
-                  <button className="text-xs font-bold tracking-widest hover:text-primary transition-colors flex items-center gap-1 py-1">
+                  <button className="text-sm font-bold tracking-widest hover:text-primary transition-colors flex items-center gap-1 py-1">
                     Meet David
                   </button>
                   {/* Mega Menu Panel */}
-                  <div className="fixed left-0 top-24 w-full bg-white border-t border-gray-100 shadow-2xl py-12 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60] text-gray-900">
+                  <div className="fixed left-0 top-20 w-full bg-white border-t border-gray-100 shadow-2xl py-12 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60] text-gray-900">
                     <div className="container mx-auto px-4 lg:px-8">
                         <div className="grid grid-cols-12 gap-12">
                             {/* Column 1: Title & Intro */}
@@ -101,11 +101,11 @@ export default function Navbar() {
 
                 {/* 2. Focus Dropdown */}
                 <div className="relative group flex items-center h-full">
-                  <button className="text-xs font-bold tracking-widest hover:text-primary transition-colors flex items-center gap-1 py-1">
+                  <button className="text-sm font-bold tracking-widest hover:text-primary transition-colors flex items-center gap-1 py-1">
                     Focus
                   </button>
                   {/* Mega Menu Panel */}
-                  <div className="fixed left-0 top-24 w-full bg-white border-t border-gray-100 shadow-2xl py-12 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60] text-gray-900">
+                  <div className="fixed left-0 top-20 w-full bg-white border-t border-gray-100 shadow-2xl py-12 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60] text-gray-900">
                     <div className="container mx-auto px-4 lg:px-8">
                         <div className="grid grid-cols-12 gap-8">
                             {/* Header */}
@@ -124,7 +124,7 @@ export default function Navbar() {
                                         <Brain className="w-12 h-12 text-gray-400 group-hover/topic:text-primary transition-colors" />
                                     </div>
                                     <div className="flex items-center gap-2 mb-2">
-                                        <span className="text-xs font-black text-primary tracking-widest">AT</span>
+                                        <span className="text-xs font-black text-primary tracking-widest uppercase">AT</span>
                                         <h4 className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">AI Transformation</h4>
                                     </div>
                                     <p className="text-xs text-gray-500 leading-relaxed">
@@ -138,7 +138,7 @@ export default function Navbar() {
                                         <CarFront className="w-12 h-12 text-gray-400 group-hover/topic:text-primary transition-colors" />
                                     </div>
                                     <div className="flex items-center gap-2 mb-2">
-                                        <span className="text-xs font-black text-primary tracking-widest">MT</span>
+                                        <span className="text-xs font-black text-primary tracking-widest uppercase">MT</span>
                                         <h4 className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">Mobility Transformation</h4>
                                     </div>
                                     <p className="text-xs text-gray-500 leading-relaxed">
@@ -152,7 +152,7 @@ export default function Navbar() {
                                         <TrendingUp className="w-12 h-12 text-gray-400 group-hover/topic:text-primary transition-colors" />
                                     </div>
                                     <div className="flex items-center gap-2 mb-2">
-                                        <span className="text-xs font-black text-primary tracking-widest">GT</span>
+                                        <span className="text-xs font-black text-primary tracking-widest uppercase">GT</span>
                                         <h4 className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">Growth Trajectory</h4>
                                     </div>
                                     <p className="text-xs text-gray-500 leading-relaxed">
@@ -166,12 +166,12 @@ export default function Navbar() {
                 </div>
 
                 {/* 3. Books */}
-                <Link href="/books" className="text-xs font-bold tracking-widest hover:text-primary transition-colors py-1">
+                <Link href="/books" className="text-sm font-bold tracking-widest hover:text-primary transition-colors py-1">
                   Books
                 </Link>
 
                 {/* 4. On My Desk */}
-                <Link href="/desk" className="text-xs font-bold tracking-widest hover:text-primary transition-colors py-1">
+                <Link href="/desk" className="text-sm font-bold tracking-widest hover:text-primary transition-colors py-1">
                   On My Desk
                 </Link>
             </div>

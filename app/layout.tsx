@@ -28,14 +28,16 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body 
-        className={`${sourceSans.variable} ${playfair.variable} ${notoSerifKr.variable} flex flex-col min-h-screen`}
+        className={`${sourceSans.variable} ${playfair.variable} ${notoSerifKr.variable} flex flex-col min-h-screen bg-white`}
         suppressHydrationWarning
       >
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <div className="flex-grow w-full max-w-[1440px] mx-auto bg-[#FBFBFA] shadow-[0_0_50px_rgba(0,0,0,0.02)] min-h-screen flex flex-col relative border-x border-gray-100/30">
+            <Navbar />
+            <main className="flex-grow">
+            {children}
+            </main>
+            <Footer />
+        </div>
       </body>
     </html>
   );
