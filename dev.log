@@ -669,3 +669,69 @@ File not found: /Users/davidkim/Desktop/blog/economist-blog/posts/digital-transf
  GET / 200 in 70ms (compile: 5ms, render: 64ms)
 ✓ Compiled in 31ms
  GET / 200 in 317ms (compile: 87ms, render: 230ms)
+ GET / 200 in 289ms (compile: 64ms, render: 225ms)
+ GET / 200 in 184ms (compile: 1300µs, render: 183ms)
+ GET / 200 in 169ms (compile: 1353µs, render: 168ms)
+ GET / 200 in 167ms (compile: 937µs, render: 166ms)
+ GET / 200 in 203ms (compile: 911µs, render: 202ms)
+ GET / 200 in 198ms (compile: 1020µs, render: 197ms)
+ GET / 200 in 186ms (compile: 1736µs, render: 184ms)
+ GET / 200 in 181ms (compile: 1829µs, render: 179ms)
+ GET / 200 in 192ms (compile: 2ms, render: 190ms)
+ GET / 200 in 210ms (compile: 1646µs, render: 209ms)
+ GET / 200 in 214ms (compile: 1975µs, render: 212ms)
+ GET / 200 in 212ms (compile: 1017µs, render: 211ms)
+ GET / 200 in 210ms (compile: 1486µs, render: 208ms)
+ GET / 200 in 67ms (compile: 1452µs, render: 66ms)
+ GET / 200 in 187ms (compile: 1064µs, render: 186ms)
+ GET / 200 in 153ms (compile: 1900µs, render: 151ms)
+ GET / 200 in 49ms (compile: 1522µs, render: 48ms)
+ GET / 200 in 108ms (compile: 3ms, render: 105ms)
+✓ Compiled in 50ms
+✓ Compiled in 75ms
+ GET / 200 in 195ms (compile: 1753µs, render: 193ms)
+ GET / 200 in 237ms (compile: 3ms, render: 235ms)
+ GET / 200 in 149ms (compile: 890µs, render: 149ms)
+ GET / 200 in 175ms (compile: 963µs, render: 174ms)
+ GET / 200 in 130ms (compile: 885µs, render: 129ms)
+ GET / 200 in 105ms (compile: 1195µs, render: 104ms)
+ GET /topics/digital-transformation 200 in 255ms (compile: 88ms, generate-params: 2ms, render: 167ms)
+ GET /topics/digital-transformation 200 in 14ms (compile: 3ms, generate-params: 1191µs, render: 12ms)
+⨯ [Error: [next-mdx-remote] error compiling MDX:
+Expected a closing tag for `<더>` (14:66-14:87) before the end of `paragraph`
+
+  12 | 한편 지난 세 차례의 산업혁명은 모두 후대에 의해 평가되고 규정되었다. 증기기관의 발명으로 촉발된 1차 산업혁명이나 전기의 발명과 보급으로 인해 진행된 2차 산업혁명, 기계의 자동화로 인한 3차 산업혁명 모두 처음부터 혁명을 염두에 둔 변화는 아니었다. 하지만 4차 산업혁명은 후세의 평가를 기다리지 않고 스스로 '혁명'임을 자처하고 있다.
+  13 |
+> 14 | '무어의 법칙'은 이러한 4차 산업혁명의 자신감을 설명할 수 있는 핵심 개념이다. 인텔의 공동 창업자인 고든 무어는 <더 많은 부품을 집적회로에 몰아넣기>란 논문에서 동일한 크기의 공간에 담을 수 있는 부품이 매년 약 두 배씩 늘어난다는 점을 간파했다. 부품의 집적도가 높을수록 연산능력이 높아지므로 컴퓨터의 연산능력은 매년 두 배씩 늘어난다는 예측이었다. 즉 10년 뒤에는 오늘날보다 무려 500배나 빠른 연산능력의 컴퓨터가 등장한다는 것이다. 다소 과감해 보인 그의 예측은 무려 40년간 디지털 분야에서 정확하게 재현되었다.
+     |                                                                  ^
+  15 |
+  16 | ## 디지털 기술의 기하급수적 확산
+
+More information: https://mdxjs.com/docs/troubleshooting-mdx] {
+  digest: '3230578425'
+}
+ GET /posts/digital-transformation/4ir-reimagine 200 in 112ms (compile: 77ms, generate-params: 995µs, render: 35ms)
+ GET / 200 in 236ms (compile: 7ms, render: 229ms)
+ GET /topics/digital-transformation 200 in 49ms (compile: 11ms, generate-params: 4ms, render: 39ms)
+ GET /posts/digital-transformation/4ir-digital-twin 200 in 64ms (compile: 11ms, generate-params: 4ms, render: 53ms)
+ GET /posts/digital-transformation/4ir-reimagine 200 in 35ms (compile: 7ms, generate-params: 2ms, render: 28ms)
+ GET /topics/digital-transformation 200 in 192ms (compile: 15ms, generate-params: 8ms, render: 176ms)
+ GET /topics/digital-transformation 200 in 180ms (compile: 9ms, generate-params: 4ms, render: 171ms)
+ GET /topics/digital-transformation 200 in 214ms (compile: 11ms, generate-params: 4ms, render: 203ms)
+ GET /topics/digital-transformation 200 in 155ms (compile: 10ms, generate-params: 5ms, render: 145ms)
+ GET /topics/digital-transformation 200 in 182ms (compile: 10ms, generate-params: 5ms, render: 172ms)
+ GET /topics/digital-transformation 200 in 234ms (compile: 16ms, generate-params: 5ms, render: 218ms)
+ GET /posts/digital-transformation/4ir-winner-takes-all 200 in 46ms (compile: 11ms, generate-params: 3ms, render: 35ms)
+ GET /topics/digital-transformation 200 in 87ms (compile: 9ms, generate-params: 3ms, render: 77ms)
+ GET /posts/digital-transformation/4ir-human-machine-collaboration 200 in 44ms (compile: 9ms, generate-params: 3ms, render: 35ms)
+ GET / 200 in 267ms (compile: 6ms, render: 261ms)
+ GET /topics/digital-transformation 200 in 53ms (compile: 8ms, generate-params: 4ms, render: 45ms)
+ GET /posts/digital-transformation/4ir-human-machine-collaboration 200 in 35ms (compile: 7ms, generate-params: 3ms, render: 28ms)
+ GET /topics/digital-transformation 200 in 164ms (compile: 5ms, generate-params: 3ms, render: 159ms)
+ GET /posts/digital-transformation/4ir-human-machine-collaboration 200 in 38ms (compile: 8ms, generate-params: 3ms, render: 30ms)
+ GET /topics/digital-transformation 200 in 46ms (compile: 11ms, generate-params: 4ms, render: 35ms)
+ GET /topics/digital-transformation 200 in 191ms (compile: 8ms, generate-params: 5ms, render: 183ms)
+ GET /topics/digital-transformation 200 in 183ms (compile: 4ms, generate-params: 1811µs, render: 179ms)
+ GET /posts/digital-transformation/4ir-bigdata-value 200 in 39ms (compile: 9ms, generate-params: 3ms, render: 30ms)
+ GET /books 200 in 68ms (compile: 47ms, render: 21ms)
+ GET /topics/digital-transformation 200 in 42ms (compile: 7ms, generate-params: 3ms, render: 35ms)

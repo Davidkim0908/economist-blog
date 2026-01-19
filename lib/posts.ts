@@ -14,6 +14,8 @@ export type Post = {
   content: string;
   rating?: number; // for books
   author?: string; // for books
+  series?: string; // for series grouping
+  seriesOrder?: number; // for ordering within a series
 };
 
 function getPostFiles(dir: string): string[] {
@@ -65,6 +67,8 @@ export function getAllPosts(): Post[] {
       coverImage: data.coverImage,
       rating: data.rating,
       author: data.author,
+      series: data.series,
+      seriesOrder: data.seriesOrder,
       content,
     };
   }).filter(post => post !== null) as Post[];
