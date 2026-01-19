@@ -667,3 +667,5 @@ File not found: /Users/davidkim/Desktop/blog/economist-blog/posts/digital-transf
  GET /posts/digital-transformation/structural-reform-2026 200 in 43ms (compile: 7ms, generate-params: 2ms, render: 37ms)
  GET /topics/history 200 in 36ms (compile: 10ms, generate-params: 4ms, render: 26ms)
  GET / 200 in 70ms (compile: 5ms, render: 64ms)
+✓ Compiled in 31ms
+ GET / 200 in 317ms (compile: 87ms, render: 230ms)
