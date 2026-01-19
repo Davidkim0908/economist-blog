@@ -5,13 +5,13 @@ import { notFound } from "next/navigation";
 
 // Define custom components for MDX (optional)
 const components = {
-  h1: (props: any) => <h1 className="text-3xl font-serif font-bold mt-8 mb-4" {...props} />,
-  h2: (props: any) => <h2 className="text-2xl font-serif font-bold mt-8 mb-4 border-b pb-2" {...props} />,
-  h3: (props: any) => <h3 className="text-xl font-serif font-bold mt-6 mb-3" {...props} />,
-  p: (props: any) => <p className="mb-6 leading-relaxed text-gray-700 text-lg" {...props} />,
+  h1: (props: any) => <h1 className="text-2xl font-serif font-bold mt-8 mb-4" {...props} />,
+  h2: (props: any) => <h2 className="text-xl font-serif font-bold mt-8 mb-4 border-b pb-2" {...props} />,
+  h3: (props: any) => <h3 className="text-lg font-serif font-bold mt-6 mb-3" {...props} />,
+  p: (props: any) => <p className="mb-6 leading-relaxed text-gray-700 text-base" {...props} />,
   ul: (props: any) => <ul className="list-disc list-inside mb-6 pl-4" {...props} />,
   ol: (props: any) => <ol className="list-decimal list-inside mb-6 pl-4" {...props} />,
-  li: (props: any) => <li className="mb-2" {...props} />,
+  li: (props: any) => <li className="mb-2 text-base" {...props} />,
   strong: (props: any) => <strong className="font-bold text-gray-900" {...props} />,
   blockquote: (props: any) => (
     <blockquote className="border-l-4 border-primary pl-4 italic my-6 text-gray-600 bg-gray-50 py-4 pr-4 rounded-r-lg" {...props} />
@@ -57,11 +57,11 @@ export default async function PostPage({ params }: Props) {
           {categoryLabel}
         </div>
         
-        <h1 className="text-5xl md:text-6xl font-serif font-black mb-6 leading-[1.1] text-gray-900 tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-serif font-black mb-6 leading-[1.1] text-gray-900 tracking-tight">
           {post.title}
         </h1>
         
-        <p className="text-xl text-gray-600 mb-8 leading-relaxed font-sans">
+        <p className="text-lg text-gray-600 mb-8 leading-relaxed font-sans">
            {post.excerpt}
         </p>
 
@@ -105,7 +105,7 @@ export default async function PostPage({ params }: Props) {
       </div>
 
       {/* Main Content with Drop Cap */}
-      <div className="prose prose-lg prose-gray max-w-none 
+      <div className="prose prose-gray max-w-none 
            prose-p:font-serif prose-p:leading-loose prose-p:text-gray-800
            prose-headings:font-sans prose-headings:font-bold prose-headings:text-gray-900
            drop-cap-content">
