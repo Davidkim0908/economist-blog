@@ -32,7 +32,7 @@ export default function Hero({ post }: { post: Post }) {
             </h1>
           </Link>
           
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed tracking-tight">
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed tracking-tighter">
             {post.excerpt}
           </p>
           

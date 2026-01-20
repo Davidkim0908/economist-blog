@@ -46,7 +46,7 @@ export default function Navbar() {
                 
                 {/* 1. Meet David Dropdown */}
                 <div className="relative group flex items-center h-full">
-                  <button className="text-sm font-bold tracking-widest hover:text-primary transition-colors flex items-center gap-1 py-1">
+                  <button className="text-sm font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-1 py-1">
                     Meet David
                   </button>
                   {/* Mega Menu Panel */}
@@ -101,7 +101,7 @@ export default function Navbar() {
 
                 {/* 2. Focus Dropdown */}
                 <div className="relative group flex items-center h-full">
-                  <button className="text-sm font-bold tracking-widest hover:text-primary transition-colors flex items-center gap-1 py-1">
+                  <button className="text-sm font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-1 py-1">
                     Focus
                   </button>
                   {/* Mega Menu Panel */}
@@ -166,12 +166,12 @@ export default function Navbar() {
                 </div>
 
                 {/* 3. Books */}
-                <Link href="/books" className="text-sm font-bold tracking-widest hover:text-primary transition-colors py-1">
+                <Link href="/books" className="text-sm font-bold tracking-tight hover:text-primary transition-colors py-1">
                   Books
                 </Link>
 
                 {/* 4. On My Desk */}
-                <Link href="/desk" className="text-sm font-bold tracking-widest hover:text-primary transition-colors py-1">
+                <Link href="/desk" className="text-sm font-bold tracking-tight hover:text-primary transition-colors py-1">
                   On My Desk
                 </Link>
             </div>
