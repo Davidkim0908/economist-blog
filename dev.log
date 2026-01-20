@@ -820,3 +820,4 @@ More information: https://mdxjs.com/docs/troubleshooting-mdx] {
  GET /topics/digital-transformation 200 in 64ms (compile: 10ms, generate-params: 4ms, render: 54ms)
  GET /posts/digital-transformation/4ir-5g-evolution 200 in 40ms (compile: 9ms, generate-params: 3ms, render: 31ms)
  GET /topics/digital-transformation 200 in 89ms (compile: 7ms, generate-params: 4ms, render: 82ms)
+ GET /topics/digital-transformation 200 in 64ms (compile: 7ms, generate-params: 3ms, render: 57ms)
