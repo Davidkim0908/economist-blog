@@ -821,3 +821,11 @@ More information: https://mdxjs.com/docs/troubleshooting-mdx] {
  GET /posts/digital-transformation/4ir-5g-evolution 200 in 40ms (compile: 9ms, generate-params: 3ms, render: 31ms)
  GET /topics/digital-transformation 200 in 89ms (compile: 7ms, generate-params: 4ms, render: 82ms)
  GET /topics/digital-transformation 200 in 64ms (compile: 7ms, generate-params: 3ms, render: 57ms)
+✓ Compiled in 29ms
+ GET /topics/digital-transformation 200 in 37ms (compile: 2ms, generate-params: 778µs, render: 34ms)
+ GET / 200 in 179ms (compile: 76ms, render: 103ms)
+ GET / 200 in 141ms (compile: 38ms, render: 103ms)
+ GET / 200 in 145ms (compile: 41ms, render: 104ms)
+ GET / 200 in 147ms (compile: 41ms, render: 106ms)
+ GET / 200 in 126ms (compile: 43ms, render: 83ms)
+ GET / 200 in 110ms (compile: 3ms, render: 106ms)

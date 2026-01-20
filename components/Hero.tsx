@@ -27,12 +27,12 @@ export default function Hero({ post }: { post: Post }) {
           </div>
           
           <Link href={`/posts/${post.category}/${post.slug}`}>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold mb-4 leading-tight hover:text-gray-700 transition-colors tracking-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold mb-4 leading-tight hover:text-gray-700 transition-colors tracking-tighter">
                 {post.title}
             </h1>
           </Link>
           
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed tracking-tight">
             {post.excerpt}
           </p>
           

@@ -28,7 +28,7 @@ export default function Home() {
       {/* 2. Latest Stories - Batch 1 */}
       <section className="mb-20">
         <div className="flex items-center justify-between mb-8 border-b border-gray-200 pb-4">
-            <h2 className="text-2xl font-serif font-bold">Latest Stories</h2>
+            <h2 className="text-2xl font-serif font-bold tracking-tighter">Latest Stories</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {batch1.map((post) => (
@@ -68,7 +68,7 @@ export default function Home() {
       <section className="bg-gray-50 -mx-4 px-4 py-16 mb-20">
          <div className="container mx-auto">
             <div className="flex items-center justify-between mb-8">
-                <h2 className="text-2xl font-serif font-bold">Books I&apos;m Reading</h2>
+                <h2 className="text-2xl font-serif font-bold tracking-tighter">Books I&apos;m Reading</h2>
                 <Link href="/books" className="text-primary font-bold text-sm hover:underline">VIEW LIBRARY</Link>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -81,7 +81,7 @@ export default function Home() {
                         <div className="flex flex-col justify-center">
                             <span className="text-xs font-bold tracking-wider uppercase text-primary mb-2">Book Review</span>
                             <Link href={`/posts/${post.category}/${post.slug}`}>
-                                <h3 className="text-xl font-serif font-bold mb-2 hover:text-primary transition-colors">{post.title}</h3>
+                                <h3 className="text-xl font-serif font-bold mb-2 hover:text-primary transition-colors tracking-tighter">{post.title}</h3>
                             </Link>
                             {post.author && <p className="text-sm text-gray-500 mb-2">by {post.author}</p>}
                             <div className="flex text-yellow-500 text-sm mb-4">
