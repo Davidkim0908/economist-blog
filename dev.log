@@ -905,3 +905,181 @@ More information: https://mdxjs.com/docs/troubleshooting-mdx] {
  GET /news 200 in 77ms (compile: 64ms, render: 13ms)
  GET / 200 in 118ms (compile: 5ms, render: 113ms)
 ✓ Compiled in 29ms
+ GET /topics/digital-transformation 200 in 86ms (compile: 19ms, generate-params: 5ms, render: 67ms)
+ GET /topics/digital-transformation 200 in 64ms (compile: 9ms, generate-params: 4ms, render: 56ms)
+ GET /posts/digital-transformation/4ir-vr-ar-mr 200 in 48ms (compile: 12ms, generate-params: 3ms, render: 37ms)
+ GET /topics/digital-transformation 200 in 66ms (compile: 10ms, generate-params: 5ms, render: 57ms)
+ GET /posts/digital-transformation/4ir-vr-ar-mr 200 in 41ms (compile: 11ms, generate-params: 3ms, render: 30ms)
+ GET /topics/digital-transformation 200 in 81ms (compile: 10ms, generate-params: 3ms, render: 71ms)
+ GET /topics/digital-transformation 200 in 73ms (compile: 7ms, generate-params: 3ms, render: 66ms)
+ GET /topics/digital-transformation 200 in 77ms (compile: 8ms, generate-params: 1827µs, render: 69ms)
+ GET /posts/digital-transformation/4ir-ict-job-landscape 200 in 42ms (compile: 9ms, generate-params: 3ms, render: 34ms)
+ GET /topics/digital-transformation 200 in 119ms (compile: 13ms, generate-params: 4ms, render: 106ms)
+ GET /posts/digital-transformation/4ir-ict-competition-shift 200 in 39ms (compile: 7ms, generate-params: 2ms, render: 32ms)
+ GET /topics/digital-transformation 200 in 63ms (compile: 8ms, generate-params: 4ms, render: 55ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 7ms, generate-params: 3ms, render: 61ms)
+ GET /topics/digital-transformation 200 in 64ms (compile: 8ms, generate-params: 3ms, render: 57ms)
+ GET /topics/digital-transformation 200 in 67ms (compile: 8ms, generate-params: 3ms, render: 58ms)
+ GET /posts/digital-transformation/4ir-iot-blockchain 200 in 43ms (compile: 10ms, generate-params: 3ms, render: 33ms)
+ GET /topics/digital-transformation 200 in 72ms (compile: 9ms, generate-params: 3ms, render: 63ms)
+ GET /desk 200 in 52ms (compile: 5ms, render: 47ms)
+ GET /news 200 in 86ms (compile: 75ms, render: 11ms)
+ GET / 200 in 115ms (compile: 5ms, render: 110ms)
+ GET /topics/digital-transformation 200 in 80ms (compile: 8ms, generate-params: 3ms, render: 72ms)
+ GET /posts/digital-transformation/4ir-data-labor 200 in 39ms (compile: 7ms, generate-params: 3ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-digital-currency-evolution 200 in 36ms (compile: 5ms, generate-params: 2ms, render: 31ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 10ms, generate-params: 4ms, render: 58ms)
+ GET /topics/digital-transformation 200 in 78ms (compile: 11ms, generate-params: 3ms, render: 67ms)
+ GET /posts/digital-transformation/4ir-sharing-collaboration 200 in 37ms (compile: 8ms, generate-params: 3ms, render: 29ms)
+ GET /topics/digital-transformation 200 in 77ms (compile: 9ms, generate-params: 3ms, render: 68ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 6ms, generate-params: 2ms, render: 62ms)
+ GET /topics/digital-transformation 200 in 80ms (compile: 11ms, generate-params: 3ms, render: 69ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 9ms, generate-params: 4ms, render: 60ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 8ms, generate-params: 4ms, render: 60ms)
+ GET /topics/digital-transformation 200 in 66ms (compile: 7ms, generate-params: 3ms, render: 59ms)
+ GET /topics/digital-transformation 200 in 67ms (compile: 9ms, generate-params: 2ms, render: 58ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 7ms, generate-params: 4ms, render: 61ms)
+ GET /topics/digital-transformation 200 in 68ms (compile: 7ms, generate-params: 3ms, render: 61ms)
+ GET /topics/digital-transformation 200 in 83ms (compile: 13ms, generate-params: 4ms, render: 70ms)
+ GET /topics/digital-transformation 200 in 72ms (compile: 6ms, generate-params: 2ms, render: 66ms)
+ GET /topics/digital-transformation 200 in 72ms (compile: 11ms, generate-params: 3ms, render: 61ms)
+ GET /topics/digital-transformation 200 in 80ms (compile: 9ms, generate-params: 4ms, render: 70ms)
+ GET /topics/digital-transformation 200 in 169ms (compile: 11ms, generate-params: 3ms, render: 158ms)
+ GET /posts/digital-transformation/4ir-gdp-underestimation 200 in 47ms (compile: 8ms, generate-params: 3ms, render: 40ms)
+ GET /topics/digital-transformation 200 in 74ms (compile: 12ms, generate-params: 4ms, render: 62ms)
+ GET /topics/digital-transformation 200 in 75ms (compile: 9ms, generate-params: 4ms, render: 66ms)
+ GET / 200 in 134ms (compile: 5ms, render: 129ms)
+ GET /topics/digital-transformation 200 in 79ms (compile: 15ms, generate-params: 4ms, render: 64ms)
+ GET /topics/digital-transformation 200 in 140ms (compile: 7ms, generate-params: 3ms, render: 132ms)
+ GET /topics/digital-transformation 200 in 72ms (compile: 10ms, generate-params: 4ms, render: 62ms)
+ GET /topics/digital-transformation 200 in 85ms (compile: 11ms, generate-params: 3ms, render: 74ms)
+ GET /topics/digital-transformation 200 in 83ms (compile: 9ms, generate-params: 3ms, render: 75ms)
+ GET /topics/digital-transformation 200 in 81ms (compile: 8ms, generate-params: 3ms, render: 74ms)
+ GET /topics/digital-transformation 200 in 91ms (compile: 14ms, generate-params: 3ms, render: 77ms)
+ GET /topics/digital-transformation 200 in 86ms (compile: 9ms, generate-params: 3ms, render: 78ms)
+ GET / 200 in 192ms (compile: 5ms, render: 188ms)
+ GET /topics/digital-transformation 200 in 86ms (compile: 10ms, generate-params: 4ms, render: 77ms)
+ GET /topics/digital-transformation 200 in 80ms (compile: 8ms, generate-params: 3ms, render: 72ms)
+ GET /topics/digital-transformation 200 in 85ms (compile: 11ms, generate-params: 3ms, render: 74ms)
+ GET /topics/digital-transformation 200 in 75ms (compile: 5ms, generate-params: 1740µs, render: 71ms)
+ GET /topics/digital-transformation 200 in 72ms (compile: 6ms, generate-params: 3ms, render: 66ms)
+ GET /topics/mobility 200 in 40ms (compile: 4ms, generate-params: 2ms, render: 36ms)
+ GET /topics/digital-transformation 200 in 77ms (compile: 6ms, generate-params: 2ms, render: 70ms)
+ GET / 200 in 140ms (compile: 5ms, render: 135ms)
+ GET /topics/digital-transformation 200 in 81ms (compile: 6ms, generate-params: 2ms, render: 74ms)
+ GET /topics/digital-transformation 200 in 70ms (compile: 6ms, generate-params: 3ms, render: 64ms)
+ GET /posts/digital-transformation/4ir-patents-duality 200 in 41ms (compile: 7ms, generate-params: 3ms, render: 34ms)
+ GET /posts/digital-transformation/rnd-to-rni 200 in 37ms (compile: 6ms, generate-params: 2ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-digital-service-trade 200 in 37ms (compile: 8ms, generate-params: 4ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-decline-of-social-capital 200 in 31ms (compile: 6ms, generate-params: 3ms, render: 25ms)
+ GET /posts/digital-transformation/4ir-dinosaur-companies 200 in 34ms (compile: 7ms, generate-params: 3ms, render: 27ms)
+ GET /posts/digital-transformation/4ir-platform-labor 200 in 37ms (compile: 9ms, generate-params: 4ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-income-inequality 200 in 39ms (compile: 8ms, generate-params: 4ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-flexible-organization 200 in 38ms (compile: 8ms, generate-params: 4ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-gdp-underestimation 200 in 37ms (compile: 8ms, generate-params: 3ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-unmeasured-value 200 in 35ms (compile: 9ms, generate-params: 3ms, render: 26ms)
+ GET /posts/digital-transformation/4ir-signal-noise 200 in 35ms (compile: 7ms, generate-params: 4ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-platform-business-model 200 in 36ms (compile: 7ms, generate-params: 5ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-platform-monopoly 200 in 39ms (compile: 8ms, generate-params: 4ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-cashless-society-finance 200 in 40ms (compile: 9ms, generate-params: 4ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-platform-finance-reason 200 in 39ms (compile: 7ms, generate-params: 3ms, render: 32ms)
+ GET /posts/digital-transformation/4ir-platform-labor 200 in 41ms (compile: 9ms, generate-params: 4ms, render: 32ms)
+ GET /posts/digital-transformation/4ir-platform-labor-shadow 200 in 40ms (compile: 10ms, generate-params: 4ms, render: 30ms)
+ GET /topics/digital-transformation 200 in 92ms (compile: 12ms, generate-params: 5ms, render: 80ms)
+ GET /posts/digital-transformation/4ir-platform-labor 200 in 41ms (compile: 7ms, generate-params: 3ms, render: 33ms)
+ GET /posts/digital-transformation/4ir-platform-labor-shadow 200 in 43ms (compile: 8ms, generate-params: 3ms, render: 34ms)
+ GET /posts/digital-transformation/4ir-ondemand-innovation-paradox 200 in 39ms (compile: 7ms, generate-params: 2ms, render: 33ms)
+ GET /posts/digital-transformation/4ir-tech-capitalism 200 in 33ms (compile: 6ms, generate-params: 2ms, render: 27ms)
+⨯ [Error: [next-mdx-remote] error compiling MDX:
+Expected a closing tag for `<파이브>` (14:445-14:454) before the end of `paragraph`
+
+  12 | 다양한 영역에서 아날로그가 사라지지 않는 것은 역설적이게도 디지털 기술 발전이 고도화되었기 때문이다. 분명 디지털이 가져다주는 편리함과 효율성은 아날로그의 가치를 떨어뜨렸다. 하지만 디지털의 근간은 아날로그다. 아날로그의 단점을 디지털을 통해 보완했지만, 아날로그의 장점까지 디지털이 흉내 내지는 못했다. 아날로그가 주는 경험적 만족을 디지털이 대신할 수 없다. 아이디어를 자유롭게 기록할 때 키보드가 펜을 대신하지 못하는 것과 같다. 디지털 펜슬이 등장했고, 기능적으로는 펜과 다를 바 없을 정도로 발전했지만, 동일한 감성을 느끼기에는 부족함이 많다.
+  13 |
+> 14 | 서점이 다시 등장하고, LP 앨범과 필름이 다시 사용되는 이유도 동일하다. 온라인 서점에서는 최저가를 제안하고, 취향에 맞는 책을 자동으로 추천해주기도 하지만 책을 구입하기 전에 누군가와 진지하게 책에 대해 이야기할 수는 없다. 하지만 최근 오프라인 서점들에서는 필요한 책을 전문인력과 상담하여 구입할 수 있다. 그 과정에서 전혀 예상하지 못한 책을 만나기도 하고, 타인과 생각의 교환을 통해 교감한다. 킨들에서 수많은 도서 평가 페이지를 넘겨보며 책을 선택할 때는 느낄 수 없는 감성이다. LP 앨범도 마찬가지다. 아날로그 녹음방식으로 기록되는 LP 앨범은 동일한 부분을 반복하여 녹음한 뒤 좋은 것만 골라낼 수 없다. 처음부터 끝까지 녹음을 완료해야만 한다. 음질은 디지털에 비해 떨어질지 모르지만, 0과 1로 표현해낼 수 없는 감성을 담아낼 수 있다. 디지털 음반이었다면 데이비드 보위의 <파이브 이어스> 마지막에 떨리는 목소리를 담아낼 수는 없었을 것이다. 필름 역시 마찬가지다. 디지털 기술이 발전한 덕분에 그래픽과 디지털 필름으로 구현한 영상의 격차가 작아지고 있다. 감독들은 다시 아날로그 필름으로 돌아가고 있다. '컴퓨터 특유의 완벽함'이 감동을 반감시킨다고 판단했기 때문이다.
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+  15 |
+  16 | ## 디지털 기업과 아날로그 기업
+
+More information: https://mdxjs.com/docs/troubleshooting-mdx] {
+  digest: '2040889490'
+}
+ GET /posts/digital-transformation/4ir-analog-value 200 in 36ms (compile: 7ms, generate-params: 3ms, render: 29ms)
+ GET / 200 in 497ms (compile: 4ms, render: 493ms)
+ GET /topics/digital-transformation 200 in 73ms (compile: 9ms, generate-params: 4ms, render: 64ms)
+⨯ [Error: [next-mdx-remote] error compiling MDX:
+Expected a closing tag for `<파이브>` (14:445-14:454) before the end of `paragraph`
+
+  12 | 다양한 영역에서 아날로그가 사라지지 않는 것은 역설적이게도 디지털 기술 발전이 고도화되었기 때문이다. 분명 디지털이 가져다주는 편리함과 효율성은 아날로그의 가치를 떨어뜨렸다. 하지만 디지털의 근간은 아날로그다. 아날로그의 단점을 디지털을 통해 보완했지만, 아날로그의 장점까지 디지털이 흉내 내지는 못했다. 아날로그가 주는 경험적 만족을 디지털이 대신할 수 없다. 아이디어를 자유롭게 기록할 때 키보드가 펜을 대신하지 못하는 것과 같다. 디지털 펜슬이 등장했고, 기능적으로는 펜과 다를 바 없을 정도로 발전했지만, 동일한 감성을 느끼기에는 부족함이 많다.
+  13 |
+> 14 | 서점이 다시 등장하고, LP 앨범과 필름이 다시 사용되는 이유도 동일하다. 온라인 서점에서는 최저가를 제안하고, 취향에 맞는 책을 자동으로 추천해주기도 하지만 책을 구입하기 전에 누군가와 진지하게 책에 대해 이야기할 수는 없다. 하지만 최근 오프라인 서점들에서는 필요한 책을 전문인력과 상담하여 구입할 수 있다. 그 과정에서 전혀 예상하지 못한 책을 만나기도 하고, 타인과 생각의 교환을 통해 교감한다. 킨들에서 수많은 도서 평가 페이지를 넘겨보며 책을 선택할 때는 느낄 수 없는 감성이다. LP 앨범도 마찬가지다. 아날로그 녹음방식으로 기록되는 LP 앨범은 동일한 부분을 반복하여 녹음한 뒤 좋은 것만 골라낼 수 없다. 처음부터 끝까지 녹음을 완료해야만 한다. 음질은 디지털에 비해 떨어질지 모르지만, 0과 1로 표현해낼 수 없는 감성을 담아낼 수 있다. 디지털 음반이었다면 데이비드 보위의 <파이브 이어스> 마지막에 떨리는 목소리를 담아낼 수는 없었을 것이다. 필름 역시 마찬가지다. 디지털 기술이 발전한 덕분에 그래픽과 디지털 필름으로 구현한 영상의 격차가 작아지고 있다. 감독들은 다시 아날로그 필름으로 돌아가고 있다. '컴퓨터 특유의 완벽함'이 감동을 반감시킨다고 판단했기 때문이다.
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+  15 |
+  16 | ## 디지털 기업과 아날로그 기업
+
+More information: https://mdxjs.com/docs/troubleshooting-mdx] {
+  digest: '2040889490'
+}
+ GET /posts/digital-transformation/4ir-analog-value 200 in 37ms (compile: 8ms, generate-params: 3ms, render: 29ms)
+ GET / 200 in 463ms (compile: 6ms, render: 457ms)
+ GET /topics/digital-transformation 200 in 83ms (compile: 9ms, generate-params: 3ms, render: 74ms)
+ GET /posts/digital-transformation/4ir-innovation-system 200 in 21ms (compile: 3ms, generate-params: 1187µs, render: 18ms)
+⨯ [Error: [next-mdx-remote] error compiling MDX:
+Expected a closing tag for `<파이브>` (14:445-14:454) before the end of `paragraph`
+
+  12 | 다양한 영역에서 아날로그가 사라지지 않는 것은 역설적이게도 디지털 기술 발전이 고도화되었기 때문이다. 분명 디지털이 가져다주는 편리함과 효율성은 아날로그의 가치를 떨어뜨렸다. 하지만 디지털의 근간은 아날로그다. 아날로그의 단점을 디지털을 통해 보완했지만, 아날로그의 장점까지 디지털이 흉내 내지는 못했다. 아날로그가 주는 경험적 만족을 디지털이 대신할 수 없다. 아이디어를 자유롭게 기록할 때 키보드가 펜을 대신하지 못하는 것과 같다. 디지털 펜슬이 등장했고, 기능적으로는 펜과 다를 바 없을 정도로 발전했지만, 동일한 감성을 느끼기에는 부족함이 많다.
+  13 |
+> 14 | 서점이 다시 등장하고, LP 앨범과 필름이 다시 사용되는 이유도 동일하다. 온라인 서점에서는 최저가를 제안하고, 취향에 맞는 책을 자동으로 추천해주기도 하지만 책을 구입하기 전에 누군가와 진지하게 책에 대해 이야기할 수는 없다. 하지만 최근 오프라인 서점들에서는 필요한 책을 전문인력과 상담하여 구입할 수 있다. 그 과정에서 전혀 예상하지 못한 책을 만나기도 하고, 타인과 생각의 교환을 통해 교감한다. 킨들에서 수많은 도서 평가 페이지를 넘겨보며 책을 선택할 때는 느낄 수 없는 감성이다. LP 앨범도 마찬가지다. 아날로그 녹음방식으로 기록되는 LP 앨범은 동일한 부분을 반복하여 녹음한 뒤 좋은 것만 골라낼 수 없다. 처음부터 끝까지 녹음을 완료해야만 한다. 음질은 디지털에 비해 떨어질지 모르지만, 0과 1로 표현해낼 수 없는 감성을 담아낼 수 있다. 디지털 음반이었다면 데이비드 보위의 <파이브 이어스> 마지막에 떨리는 목소리를 담아낼 수는 없었을 것이다. 필름 역시 마찬가지다. 디지털 기술이 발전한 덕분에 그래픽과 디지털 필름으로 구현한 영상의 격차가 작아지고 있다. 감독들은 다시 아날로그 필름으로 돌아가고 있다. '컴퓨터 특유의 완벽함'이 감동을 반감시킨다고 판단했기 때문이다.
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                                             ^
+  15 |
+  16 | ## 디지털 기업과 아날로그 기업
+
+More information: https://mdxjs.com/docs/troubleshooting-mdx] {
+  digest: '2040889490'
+}
+ GET /posts/digital-transformation/4ir-analog-value 200 in 35ms (compile: 7ms, generate-params: 2ms, render: 28ms)
+ GET / 200 in 480ms (compile: 4ms, render: 476ms)
+ GET /topics/digital-transformation 200 in 92ms (compile: 9ms, generate-params: 3ms, render: 83ms)
+ GET /posts/digital-transformation/4ir-algorithm-transparency 200 in 40ms (compile: 9ms, generate-params: 3ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-collective-innovation 200 in 39ms (compile: 8ms, generate-params: 4ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-digital-service-trade 200 in 41ms (compile: 9ms, generate-params: 3ms, render: 32ms)
+ GET /posts/digital-transformation/4ir-dematerialization 200 in 36ms (compile: 7ms, generate-params: 2ms, render: 29ms)
+ GET /posts/digital-transformation/4ir-tech-capitalism 200 in 34ms (compile: 4ms, generate-params: 1838µs, render: 30ms)
+ GET /topics/digital-transformation 200 in 76ms (compile: 8ms, generate-params: 2ms, render: 69ms)
+ GET /posts/digital-transformation/4ir-feedback-market-concentration 200 in 36ms (compile: 9ms, generate-params: 3ms, render: 27ms)
+ GET /posts/digital-transformation/4ir-redesign-economic-rules 200 in 35ms (compile: 8ms, generate-params: 3ms, render: 27ms)
+ GET /posts/digital-transformation/4ir-collective-innovation 200 in 40ms (compile: 9ms, generate-params: 4ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-algorithm-transparency 200 in 33ms (compile: 9ms, generate-params: 4ms, render: 24ms)
+ GET /posts/digital-transformation/4ir-feedback-market-concentration 200 in 35ms (compile: 9ms, generate-params: 3ms, render: 27ms)
+ GET /posts/digital-transformation/4ir-analog-value 200 in 40ms (compile: 8ms, generate-params: 4ms, render: 32ms)
+ GET /topics/mobility 200 in 50ms (compile: 8ms, generate-params: 2ms, render: 43ms)
+ GET /topics/digital-transformation 200 in 84ms (compile: 6ms, generate-params: 2ms, render: 77ms)
+ GET /topics/digital-transformation 200 in 85ms (compile: 7ms, generate-params: 3ms, render: 78ms)
+ GET /posts/digital-transformation/4ir-crowd-intelligence 200 in 36ms (compile: 9ms, generate-params: 3ms, render: 27ms)
+ GET /posts/digital-transformation/4ir-reputation-economy 200 in 39ms (compile: 10ms, generate-params: 3ms, render: 29ms)
+ GET /posts/digital-transformation/4ir-feedback-market-concentration 200 in 36ms (compile: 8ms, generate-params: 4ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-crowd-intelligence 200 in 37ms (compile: 7ms, generate-params: 3ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-feedback-market-concentration 200 in 37ms (compile: 8ms, generate-params: 3ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-reputation-economy 200 in 33ms (compile: 6ms, generate-params: 3ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-crowd-intelligence 200 in 31ms (compile: 6ms, generate-params: 3ms, render: 24ms)
+ GET /topics/digital-transformation 200 in 138ms (compile: 6ms, generate-params: 3ms, render: 132ms)
+ GET /posts/digital-transformation/4ir-crowd-intelligence 200 in 39ms (compile: 7ms, generate-params: 4ms, render: 32ms)
+ GET /posts/digital-transformation/4ir-reputation-economy 200 in 35ms (compile: 7ms, generate-params: 3ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-digital-david-goliath 200 in 39ms (compile: 8ms, generate-params: 4ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-pandemic-transformation 200 in 34ms (compile: 6ms, generate-params: 3ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-imitation-innovation 200 in 37ms (compile: 7ms, generate-params: 3ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-musk-first-principles 200 in 37ms (compile: 7ms, generate-params: 3ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-trust-in-digital-age 200 in 39ms (compile: 8ms, generate-params: 3ms, render: 31ms)
+ GET /posts/digital-transformation/4ir-overcoming-economic-disruption 200 in 43ms (compile: 10ms, generate-params: 4ms, render: 33ms)
+ GET /posts/digital-transformation/4ir-redesign-economic-rules 200 in 34ms (compile: 7ms, generate-params: 3ms, render: 27ms)
+ GET /posts/digital-transformation/4ir-flexible-organization 200 in 38ms (compile: 8ms, generate-params: 4ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-data-labor 200 in 39ms (compile: 7ms, generate-params: 3ms, render: 32ms)
+ GET /topics/digital-transformation 200 in 93ms (compile: 8ms, generate-params: 3ms, render: 85ms)
+ GET /topics/digital-transformation 200 in 102ms (compile: 11ms, generate-params: 4ms, render: 91ms)
+ GET /posts/digital-transformation/4ir-crowd-intelligence 200 in 39ms (compile: 11ms, generate-params: 3ms, render: 28ms)
+ GET /posts/digital-transformation/4ir-digital-david-goliath 200 in 40ms (compile: 6ms, generate-params: 3ms, render: 34ms)
+ GET /posts/digital-transformation/4ir-pandemic-transformation 200 in 40ms (compile: 7ms, generate-params: 3ms, render: 32ms)
+ GET /posts/digital-transformation/4ir-imitation-innovation 200 in 38ms (compile: 8ms, generate-params: 4ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-musk-first-principles 200 in 36ms (compile: 6ms, generate-params: 3ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-trust-in-digital-age 200 in 36ms (compile: 6ms, generate-params: 2ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-ai-trust-human-judgment 200 in 40ms (compile: 10ms, generate-params: 4ms, render: 30ms)
+ GET /posts/digital-transformation/4ir-overcoming-economic-disruption 200 in 62ms (compile: 5ms, generate-params: 2ms, render: 57ms)
