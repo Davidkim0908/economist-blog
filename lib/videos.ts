@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "sbs-money-show-260331",
+    title: "[SBS 머니쇼] 삼성전자·현대차 지원, '퍼주기' 아닌 국가 생존 전략인 이유",
+    date: "2026-03-31",
+    description: "SBS 머니쇼 출연. 주요국 보조금 전쟁 속에서 한국의 산업정책 방향과 핵심 기업 지원이 국가 생존에 직결되는 이유를 분석합니다.",
+    youtubeId: "Vh2TY6T6C-M"
+  },
+  {
     id: "kb-radio-260311",
     title: "[성기영의 경제쇼] 고물가 속 금리 인하 기대와 실물 경제 진단 (26.03.11)",
     date: "2026-03-11",
