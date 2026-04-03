@@ -19,18 +19,18 @@ export type Post = {
 };
 
 function getPostFiles(dir: string): string[] {
+  if (!fs.existsSync(dir)) return [];
+  
   let results: string[] = [];
   const list = fs.readdirSync(dir);
   list.forEach(file => {
-    file = path.join(dir, file);
-    const stat = fs.statSync(file);
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
     if (stat && stat.isDirectory()) { 
-      /* Recurse into a subdirectory */
-      results = results.concat(getPostFiles(file));
+      results = results.concat(getPostFiles(filePath));
     } else { 
-      /* Is a file */
-      if (file.endsWith('.mdx')) {
-        results.push(file);
+      if (filePath.endsWith('.mdx')) {
+        results.push(filePath);
       }
     }
   });
@@ -41,39 +41,38 @@ export function getAllPosts(): Post[] {
   const files = getPostFiles(postsDirectory);
   
   const posts = files.map((filePath) => {
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
-    
-    // filePath is like /Users/.../posts/mobility/slug.mdx
-    // we want category = mobility, slug = slug
-    const relativePath = path.relative(postsDirectory, filePath);
-    const parts = relativePath.split(path.sep);
-    
-    if (parts.length < 2) {
-        // Skip files directly in posts root or handle them differently
-        console.warn(`Skipping file not in category subdirectory: ${relativePath}`);
-        return null;
+    try {
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const { data, content } = matter(fileContents);
+      
+      const relativePath = path.relative(postsDirectory, filePath);
+      const parts = relativePath.split(path.sep);
+      
+      if (parts.length < 2) return null;
+
+      const category = parts[0];
+      const slug = parts[1].replace(/\.mdx$/, '');
+
+      return {
+        slug,
+        category,
+        title: data.title || 'Untitled',
+        date: data.date || '2000-01-01',
+        excerpt: data.excerpt || '',
+        coverImage: data.coverImage || '',
+        rating: data.rating,
+        author: data.author,
+        series: data.series,
+        seriesOrder: data.seriesOrder,
+        content,
+      };
+    } catch (e) {
+      console.error(`Error parsing ${filePath}:`, e);
+      return null;
     }
-
-    const category = parts[0];
-    const slug = parts[1].replace(/\.mdx$/, '');
-
-    return {
-      slug,
-      category,
-      title: data.title,
-      date: data.date,
-      excerpt: data.excerpt,
-      coverImage: data.coverImage,
-      rating: data.rating,
-      author: data.author,
-      series: data.series,
-      seriesOrder: data.seriesOrder,
-      content,
-    };
   }).filter(post => post !== null) as Post[];
 
-  return posts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
+  return posts.sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 }
 
 export function getPostsByCategory(category: string): Post[] {
@@ -81,30 +80,15 @@ export function getPostsByCategory(category: string): Post[] {
 }
 
 export function getPostBySlug(category: string, slug: string): Post | undefined {
-  if (!category || !slug) {
-      console.error(`getPostBySlug called with missing args. category: ${category}, slug: ${slug}`);
-      return undefined;
-  }
-  const fullPath = path.join(postsDirectory, category, `${slug}.mdx`);
-  if (!fs.existsSync(fullPath)) {
-      console.warn(`File not found: ${fullPath}`);
-      return undefined;
-  }
-
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
-  return {
-    slug,
-    category,
-    title: data.title,
-    date: data.date,
-    excerpt: data.excerpt,
-    coverImage: data.coverImage,
-    rating: data.rating,
-    author: data.author,
-    content,
-  };
+  if (!category || !slug) return undefined;
+  
+  // Find all posts and look for the one with matching category and slug
+  // This is safer on case-sensitive file systems like Vercel (Linux)
+  const allPosts = getAllPosts();
+  return allPosts.find(post => 
+    post.category.toLowerCase() === category.toLowerCase() && 
+    post.slug.toLowerCase() === slug.toLowerCase()
+  );
 }
 
 export function getFeaturedPost(): Post | undefined {
