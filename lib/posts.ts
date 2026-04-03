@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+// New build trigger
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export type Post = {
