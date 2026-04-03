@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "kb-radio-260311",
+    title: "[성기영의 경제쇼] 고물가 속 금리 인하 기대와 실물 경제 진단 (26.03.11)",
+    date: "2026-03-11",
+    description: "KBS 1라디오 경제쇼 출연분. 고물가 고착화 우려 속에서 중앙은행의 금리 정책 방향과 실물 경제 타격에 대한 심층 분석.",
+    youtubeId: "7Z6FsG_HoKQ"
+  },
+  {
     id: "kb-radio-260114",
     title: "[성기영의 경제쇼] 4700p 뚫은 코스피와 환율 전망 (26.01.14)",
     date: "2026-01-14",
