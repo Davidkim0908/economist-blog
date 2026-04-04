@@ -117,7 +117,7 @@ export default async function PostPage({ params }: Props) {
         <div className="flex gap-4">
              <button className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded font-medium text-sm transition-colors">Twitter</button>
              <button className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded font-medium text-sm transition-colors">Facebook</button>
-             <button className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded font-medium text-sm transition-colors">LinkedIn</button>
+             <a href="https://www.linkedin.com/in/kim-dongyoung-23a84493/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded font-medium text-sm transition-colors text-center">LinkedIn</a>
         </div>
       </div>
     </article>

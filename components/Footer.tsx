@@ -37,7 +37,7 @@ export default function Footer() {
             <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">Connect</h4>
             <ul className="space-y-3 text-sm text-gray-600 font-medium">
               <li><a href="#" className="hover:text-primary transition-colors">Twitter (X)</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">LinkedIn</a></li>
+              <li><a href="https://www.linkedin.com/in/kim-dongyoung-23a84493/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Facebook</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">YouTube</a></li>
               <li className="pt-4"><a href="mailto:contact@economist-david.com" className="hover:text-primary transition-colors">contact@economist-david.com</a></li>
