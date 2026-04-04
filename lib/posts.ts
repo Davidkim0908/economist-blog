@@ -17,6 +17,7 @@ export type Post = {
   author?: string; // for books
   series?: string; // for series grouping
   seriesOrder?: number; // for ordering within a series
+  source?: string; // for desk articles (e.g., ECONOMIST, WIRED)
 };
 
 function getPostFiles(dir: string): string[] {
@@ -65,6 +66,7 @@ export function getAllPosts(): Post[] {
         author: data.author,
         series: data.series,
         seriesOrder: data.seriesOrder,
+        source: data.source,
         content,
       };
     } catch (e) {

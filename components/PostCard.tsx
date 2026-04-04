@@ -16,34 +16,44 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
                         post.category === 'desk' ? 'On My Desk' :
                         post.category;
 
-  // Helper to determine source and symbol
-  const getSourceInfo = (content: string, title: string, excerpt: string) => {
-    const combinedText = `${title} ${excerpt} ${content}`.toUpperCase();
+  // New Robust Source Logo Logic
+  const getSourceBadge = () => {
+    if (post.category !== 'desk') return null;
     
-    if (combinedText.includes('WIRED')) {
-      return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
+    const source = post.source?.toUpperCase() || "";
+    
+    if (source === 'WIRED') {
+      return (
+        <div className="absolute top-4 left-4 z-20 w-10 h-10 bg-black flex items-center justify-center rounded-sm shadow-xl border border-white/10">
+          <span className="text-white text-2xl font-black tracking-tighter leading-none" style={{ fontFamily: 'system-ui, sans-serif' }}>W</span>
+        </div>
+      );
     }
-    if (combinedText.includes('BLOOMBERG')) {
-      return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
+    if (source === 'BLOOMBERG') {
+      return (
+        <div className="absolute top-4 left-4 z-20 w-10 h-10 bg-black flex items-center justify-center rounded-sm shadow-xl">
+          <span className="text-white text-2xl font-bold leading-none">B</span>
+        </div>
+      );
     }
-    if (combinedText.includes('ECONOMIST')) {
-      return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold italic' };
+    if (source === 'ECONOMIST' || source.includes('ECONOMIST')) {
+      return (
+        <div className="absolute top-4 left-4 z-20 w-10 h-10 bg-[#E3120B] flex items-center justify-center rounded-sm shadow-xl border border-white/10">
+          <span className="text-white text-2xl font-serif font-bold italic leading-none" style={{ transform: 'translateY(-1px)' }}>E</span>
+        </div>
+      );
     }
     return null;
   };
 
-  const sourceInfo = post.category === 'desk' ? getSourceInfo(post.content, post.title, post.excerpt) : null;
+  const sourceBadge = getSourceBadge();
 
   if (variant === 'horizontal') {
     return (
       <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group block", className)}>
         <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-xl hover:border-primary/10 hover:-translate-y-1 h-full">
           <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-[4/3] bg-gray-50 shadow-inner relative">
-            {sourceInfo && (
-              <div className={cn("absolute top-4 left-4 z-20 w-10 h-10 flex items-center justify-center text-white text-xl rounded shadow-lg", sourceInfo.color, sourceInfo.font)}>
-                {sourceInfo.symbol}
-              </div>
-            )}
+            {sourceBadge}
             <img 
               src={post.coverImage || "/placeholder.jpg"} 
               alt={post.title} 
@@ -74,11 +84,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
   if (variant === 'overlay') {
     return (
       <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl", className)}>
-        {sourceInfo && (
-          <div className={cn("absolute top-6 left-6 z-20 w-10 h-10 flex items-center justify-center text-white text-xl rounded shadow-2xl", sourceInfo.color, sourceInfo.font)}>
-            {sourceInfo.symbol}
-          </div>
-        )}
+        {sourceBadge}
         <img 
           src={post.coverImage || "/placeholder.jpg"} 
           alt={post.title} 
@@ -105,11 +111,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group block h-full", className)}>
       <div className="flex flex-col h-full bg-white p-5 rounded-[2rem] border border-transparent transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-lg hover:-translate-y-1">
         <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm relative">
-          {sourceInfo && (
-            <div className={cn("absolute top-3 left-3 z-20 w-8 h-8 flex items-center justify-center text-white text-lg rounded shadow-md transition-transform group-hover:scale-110", sourceInfo.color, sourceInfo.font)}>
-              {sourceInfo.symbol}
-            </div>
-          )}
+          {sourceBadge}
           <img 
             src={post.coverImage || "/placeholder.jpg"} 
             alt={post.title} 
