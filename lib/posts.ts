@@ -94,6 +94,7 @@ export function getPostBySlug(category: string, slug: string): Post | undefined 
 
 export function getFeaturedPost(): Post | undefined {
     const allPosts = getAllPosts();
-    // Return the latest post that is NOT a book review
-    return allPosts.find(post => post.category !== 'books');
+    // Return the latest post that belongs to a FOCUS category
+    const focusCategories = ['digital-transformation', 'mobility', 'history'];
+    return allPosts.find(post => focusCategories.includes(post.category));
 }
