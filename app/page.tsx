@@ -77,9 +77,13 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8">
                 {bookReviews.map(post => (
                     <div key={post.slug} className="flex gap-6 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <div className="shrink-0 w-32 h-48 bg-gray-50 shadow-md flex items-center justify-center overflow-hidden p-2 border border-gray-100 rounded">
+                        <div className="shrink-0 w-32 h-48 bg-gray-50 shadow-md flex items-center justify-center overflow-hidden border border-gray-100 rounded relative">
                              {/* eslint-disable-next-line @next/next/no-img-element */}
-                             <img src={post.coverImage} className="max-w-full max-h-full object-contain" alt={post.title} />
+                             <img 
+                                src={post.coverImage} 
+                                className="w-full h-full object-contain" 
+                                alt={post.title} 
+                             />
                         </div>
                         <div className="flex flex-col justify-center">
                             <span className="text-xs font-bold tracking-wider uppercase text-primary mb-2">Book Review</span>
