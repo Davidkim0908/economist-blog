@@ -16,11 +16,33 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
                         post.category === 'desk' ? 'On My Desk' :
                         post.category;
 
+  // Helper to determine source and symbol
+  const getSourceInfo = (content: string, title: string) => {
+    const text = (content + title).toUpperCase();
+    if (text.includes('WIRED') || title.includes('MERCOR')) {
+      return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
+    }
+    if (text.includes('BLOOMBERG')) {
+      return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
+    }
+    if (text.includes('ECONOMIST')) {
+      return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold italic' };
+    }
+    return null;
+  };
+
+  const sourceInfo = post.category === 'desk' ? getSourceInfo(post.content, post.title) : null;
+
   if (variant === 'horizontal') {
     return (
       <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group block", className)}>
         <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-xl hover:border-primary/10 hover:-translate-y-1 h-full">
-          <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-[4/3] bg-gray-50 shadow-inner">
+          <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-[4/3] bg-gray-50 shadow-inner relative">
+            {sourceInfo && (
+              <div className={cn("absolute top-4 left-4 z-20 w-10 h-10 flex items-center justify-center text-white text-xl rounded shadow-lg", sourceInfo.color, sourceInfo.font)}>
+                {sourceInfo.symbol}
+              </div>
+            )}
             <img 
               src={post.coverImage || "/placeholder.jpg"} 
               alt={post.title} 
@@ -51,13 +73,17 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
   if (variant === 'overlay') {
     return (
       <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl", className)}>
+        {sourceInfo && (
+          <div className={cn("absolute top-6 left-6 z-20 w-10 h-10 flex items-center justify-center text-white text-xl rounded shadow-2xl", sourceInfo.color, sourceInfo.font)}>
+            {sourceInfo.symbol}
+          </div>
+        )}
         <img 
           src={post.coverImage || "/placeholder.jpg"} 
           alt={post.title} 
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
         />
         
-        {/* Semi-transparent WHITE text container at the bottom */}
         <div className="absolute bottom-0 inset-x-0 p-4">
           <div className="bg-white/80 backdrop-blur-md p-6 rounded-[1.5rem] border border-white/20 text-gray-900 transition-all duration-500 group-hover:bg-white group-hover:shadow-2xl">
             <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-2 block text-primary">{categoryLabel}</span>
@@ -77,7 +103,12 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
   return (
     <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group block h-full", className)}>
       <div className="flex flex-col h-full bg-white p-5 rounded-[2rem] border border-transparent transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-lg hover:-translate-y-1">
-        <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm">
+        <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm relative">
+          {sourceInfo && (
+            <div className={cn("absolute top-3 left-3 z-20 w-8 h-8 flex items-center justify-center text-white text-lg rounded shadow-md transition-transform group-hover:scale-110", sourceInfo.color, sourceInfo.font)}>
+              {sourceInfo.symbol}
+            </div>
+          )}
           <img 
             src={post.coverImage || "/placeholder.jpg"} 
             alt={post.title} 
