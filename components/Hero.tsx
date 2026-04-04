@@ -16,9 +16,9 @@ export default function Hero({ post }: { post: Post }) {
   const universalBg = "https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2070&auto=format&fit=crop";
 
   return (
-    <section className="relative w-full mb-24 group overflow-hidden rounded-[2rem] shadow-2xl bg-gray-900">
-      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full min-h-[600px] md:min-h-[700px] flex flex-col justify-center">
-
+    <section className="relative w-full mb-16 -mt-4 group overflow-hidden rounded-[2rem] shadow-2xl bg-gray-900">
+      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full min-h-[540px] md:min-h-[630px] flex flex-col justify-center">
+        
         {/* Universal Deep Space Background */}
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -32,11 +32,11 @@ export default function Hero({ post }: { post: Post }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
         </div>
 
-        {/* Content Overlay - Flexible padding and dynamic height */}
-        <div className="relative z-10 w-full p-8 md:p-16 lg:p-24 flex flex-col justify-center">
+        {/* Content Overlay - Compact padding and dynamic height */}
+        <div className="relative z-10 w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center">
           <div className="max-w-4xl">
             {/* Top Label System */}
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-6">
                <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full shadow-lg">
                   Featured Article
                </span>
