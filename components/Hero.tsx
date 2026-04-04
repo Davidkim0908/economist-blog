@@ -12,12 +12,12 @@ export default function Hero({ post }: { post: Post }) {
 
   const categoryName = categoryNames[post.category] || post.category.replace(/-/g, ' ').toUpperCase();
 
-  // "무한한 가능성" 테마의 고화질 우주 배경 이미지 (Unsplash 라이브러리 활용)
+  // "무한한 가능성" 테마의 고화질 우주 배경 이미지
   const universalBg = "https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2070&auto=format&fit=crop";
 
   return (
-    <section className="relative w-full mb-16 -mt-4 group overflow-hidden rounded-[2rem] shadow-2xl bg-gray-900">
-      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full min-h-[540px] md:min-h-[630px] flex flex-col justify-center">
+    <section className="relative w-full mb-16 group overflow-hidden shadow-2xl bg-gray-900 -mt-20 md:-mt-24">
+      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full min-h-[480px] md:min-h-[580px] flex flex-col justify-center pt-24 md:pt-32 pb-2 md:pb-3">
         
         {/* Universal Deep Space Background */}
         <div className="absolute inset-0">
@@ -32,8 +32,8 @@ export default function Hero({ post }: { post: Post }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
         </div>
 
-        {/* Content Overlay - Compact padding and dynamic height */}
-        <div className="relative z-10 w-full p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+        {/* Content Overlay - Ultra-tight bottom padding */}
+        <div className="relative z-10 w-full p-8 md:p-16 lg:p-20 pb-4 md:pb-6 lg:pb-8 flex flex-col justify-center">
           <div className="max-w-4xl">
             {/* Top Label System */}
             <div className="flex items-center gap-4 mb-6">
@@ -50,7 +50,7 @@ export default function Hero({ post }: { post: Post }) {
                 {post.title}
             </h1>
 
-            {/* Refined Excerpt - No line clamping to prevent data loss */}
+            {/* Refined Excerpt */}
             <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-3xl tracking-tight drop-shadow-md break-keep">
               {post.excerpt}
             </p>
