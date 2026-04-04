@@ -35,7 +35,9 @@ export default function DeskPage() {
               if (s === 'WIRED') return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
               if (s === 'BLOOMBERG') return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
               if (s === 'ECONOMIST' || s.includes('ECONOMIST')) return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold' };
-              return null;
+              if (s === 'FORBES') return { symbol: 'F', color: 'bg-black', font: 'font-serif font-black' };
+              // Fallback
+              return { symbol: s.charAt(0), color: 'bg-black', font: 'font-sans font-bold' };
             };
             const badge = getSourceBadge(post.source);
 

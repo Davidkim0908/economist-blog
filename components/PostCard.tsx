@@ -21,8 +21,9 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     if (post.category !== 'desk') return null;
     
     const source = post.source?.toUpperCase() || "";
+    if (!source) return null;
     
-    // WIRED Style: Bold, black, sans-serif
+    // 1. WIRED Style
     if (source === 'WIRED') {
       return (
         <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg border border-white/5">
@@ -30,7 +31,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
         </div>
       );
     }
-    // Bloomberg Style: Strong, black, professional sans
+    // 2. Bloomberg Style
     if (source === 'BLOOMBERG') {
       return (
         <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg">
@@ -38,7 +39,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
         </div>
       );
     }
-    // The Economist Style: Iconic Red block with White Serif 'E'
+    // 3. The Economist Style
     if (source === 'ECONOMIST' || source.includes('ECONOMIST')) {
       return (
         <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-[#E3120B] flex items-center justify-center rounded-sm shadow-lg">
@@ -46,7 +47,20 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
         </div>
       );
     }
-    return null;
+    // 4. Forbes Style
+    if (source === 'FORBES') {
+      return (
+        <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg">
+          <span className="text-white text-base font-serif font-black leading-none" style={{ fontFamily: 'Georgia, serif' }}>F</span>
+        </div>
+      );
+    }
+    // 5. Default Fallback (Automatic for any other source)
+    return (
+      <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg">
+        <span className="text-white text-base font-bold leading-none">{source.charAt(0).toUpperCase()}</span>
+      </div>
+    );
   };
 
   const sourceBadge = getSourceBadge();
@@ -94,6 +108,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
         />
         
+        {/* Semi-transparent WHITE text container at the bottom */}
         <div className="absolute bottom-0 inset-x-0 p-4">
           <div className="bg-white/80 backdrop-blur-md p-6 rounded-[1.5rem] border border-white/20 text-gray-900 transition-all duration-500 group-hover:bg-white group-hover:shadow-2xl">
             <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-2 block text-primary">{categoryLabel}</span>
