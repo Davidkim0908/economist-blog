@@ -57,10 +57,10 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
         />
         
-        {/* Semi-transparent text container at the bottom */}
+        {/* Semi-transparent WHITE text container at the bottom */}
         <div className="absolute bottom-0 inset-x-0 p-4">
-          <div className="bg-black/70 backdrop-blur-md p-6 rounded-[1.5rem] border border-white/10 text-white transition-all duration-500 group-hover:bg-primary group-hover:border-primary/20">
-            <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-2 block text-primary group-hover:text-white transition-colors">{categoryLabel}</span>
+          <div className="bg-white/80 backdrop-blur-md p-6 rounded-[1.5rem] border border-white/20 text-gray-900 transition-all duration-500 group-hover:bg-white group-hover:shadow-2xl">
+            <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-2 block text-primary">{categoryLabel}</span>
             <h3 className="text-xl font-serif font-black leading-tight tracking-tighter mb-2">
               {post.title}
             </h3>
