@@ -29,18 +29,25 @@ export default function DeskPage() {
       {posts.length > 0 ? (
         <div className="grid md:grid-cols-3 gap-8">
           {posts.map((post) => {
-            const source = getSourceInfo(post.slug);
+            const getSourceBadge = (source?: string) => {
+              if (!source) return null;
+              const s = source.toUpperCase();
+              if (s === 'WIRED') return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
+              if (s === 'BLOOMBERG') return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
+              if (s === 'ECONOMIST' || s.includes('ECONOMIST')) return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold italic' };
+              return null;
+            };
+            const badge = getSourceBadge(post.source);
+
             return (
               <div key={post.slug} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
                 <Link href={`/posts/${post.category}/${post.slug}`} className="block relative aspect-[16/9] overflow-hidden">
-                    {/* Source Badge */}
-                    <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full shadow-sm flex items-center gap-2">
-                        <div 
-                          className="w-4 h-4 rounded-sm" 
-                          style={{ backgroundColor: source.color }} 
-                        />
-                        <span className="text-xs font-bold text-gray-900 uppercase tracking-tight">{source.name}</span>
-                    </div>
+                    {/* Standardized Source Badge */}
+                    {badge && (
+                      <div className={`absolute top-3 left-3 z-20 w-7 h-7 ${badge.color} flex items-center justify-center rounded-sm shadow-lg`}>
+                        <span className={`text-white text-base leading-none ${badge.font}`} style={badge.symbol === 'E' ? { fontFamily: 'Georgia, serif', transform: 'translateY(-0.5px)' } : {}}>{badge.symbol}</span>
+                      </div>
+                    )}
                     
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 

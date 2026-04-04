@@ -22,24 +22,27 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     
     const source = post.source?.toUpperCase() || "";
     
+    // WIRED Style: Bold, black, sans-serif
     if (source === 'WIRED') {
       return (
-        <div className="absolute top-4 left-4 z-20 w-10 h-10 bg-black flex items-center justify-center rounded-sm shadow-xl border border-white/10">
-          <span className="text-white text-2xl font-black tracking-tighter leading-none" style={{ fontFamily: 'system-ui, sans-serif' }}>W</span>
+        <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg border border-white/5">
+          <span className="text-white text-base font-black tracking-tighter leading-none" style={{ fontFamily: 'Arial Black, sans-serif' }}>W</span>
         </div>
       );
     }
+    // Bloomberg Style: Strong, black, professional sans
     if (source === 'BLOOMBERG') {
       return (
-        <div className="absolute top-4 left-4 z-20 w-10 h-10 bg-black flex items-center justify-center rounded-sm shadow-xl">
-          <span className="text-white text-2xl font-bold leading-none">B</span>
+        <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg">
+          <span className="text-white text-base font-bold leading-none">B</span>
         </div>
       );
     }
+    // The Economist Style: Iconic Red block with White Serif 'E'
     if (source === 'ECONOMIST' || source.includes('ECONOMIST')) {
       return (
-        <div className="absolute top-4 left-4 z-20 w-10 h-10 bg-[#E3120B] flex items-center justify-center rounded-sm shadow-xl border border-white/10">
-          <span className="text-white text-2xl font-serif font-bold italic leading-none" style={{ transform: 'translateY(-1px)' }}>E</span>
+        <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-[#E3120B] flex items-center justify-center rounded-sm shadow-lg">
+          <span className="text-white text-lg font-serif font-bold italic leading-none" style={{ fontFamily: 'Georgia, Times New Roman, serif', transform: 'translateY(-0.5px)' }}>E</span>
         </div>
       );
     }
