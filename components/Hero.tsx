@@ -17,7 +17,7 @@ export default function Hero({ post }: { post: Post }) {
 
   return (
     <section className="relative w-full mb-24 group overflow-hidden rounded-[2rem] shadow-2xl">
-      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full aspect-[16/10] md:aspect-[21/9]">
+      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full aspect-[16/10] md:aspect-[16/9] lg:aspect-[21/10]">
         
         {/* Universal Deep Space Background */}
         <div className="absolute inset-0 bg-gray-900">
@@ -29,14 +29,14 @@ export default function Hero({ post }: { post: Post }) {
           />
           {/* Multi-layered overlay for GatesNotes depth */}
           <div className="absolute inset-0 bg-black/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-20 lg:p-24 pt-20 md:pt-32 lg:pt-40 text-white">
-          <div className="max-w-4xl">
+        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 lg:p-20 text-white">
+          <div className="max-w-4xl mb-4">
             {/* Top Label System */}
-            <div className="flex items-center gap-4 mb-8 mt-12 md:mt-0">
+            <div className="flex items-center gap-4 mb-6">
                <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full">
                   Featured Article
                </span>
