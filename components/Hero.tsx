@@ -12,48 +12,70 @@ export default function Hero({ post }: { post: Post }) {
 
   const categoryName = categoryNames[post.category] || post.category.replace(/-/g, ' ').toUpperCase();
 
+  // "무한한 가능성" 테마의 고화질 우주 배경 이미지 (Unsplash 라이브러리 활용)
+  const universalBg = "https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2070&auto=format&fit=crop";
+
   return (
-    <section className="relative w-full mb-20 group">
-      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-3xl shadow-2xl">
-        {/* Background Image */}
-        <div className="absolute inset-0">
+    <section className="relative w-full mb-24 group overflow-hidden rounded-[2rem] shadow-2xl">
+      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full aspect-[16/10] md:aspect-[21/9]">
+        
+        {/* Universal Deep Space Background */}
+        <div className="absolute inset-0 bg-gray-900">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
-            src={post.coverImage || "/placeholder.jpg"} 
-            alt={post.title}
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            src={universalBg} 
+            alt="Infinite Possibilities"
+            className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-80"
           />
-          {/* Dark Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          {/* Multi-layered overlay for GatesNotes depth */}
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
         </div>
 
-        {/* Text Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 lg:p-20">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-4">
-               <span className="bg-primary text-white text-[10px] md:text-xs font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full">
-                  Featured
+        {/* Content Overlay */}
+        <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-20 lg:p-24 text-white">
+          <div className="max-w-4xl">
+            {/* Top Label System */}
+            <div className="flex items-center gap-4 mb-8">
+               <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full">
+                  Featured Article
                </span>
-               <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+               <span className="text-white/70 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] border-l border-white/30 pl-4">
                   {categoryName}
                </span>
-               <span className="text-white/60 text-xs hidden md:inline">•</span>
-               <span className="text-white/60 text-xs hidden md:inline tracking-wider">{post.date}</span>
             </div>
             
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-black text-white mb-6 leading-[1.1] tracking-tight drop-shadow-sm">
+            {/* Massive GatesNotes-style Title */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black mb-8 leading-[1.05] tracking-tight drop-shadow-lg">
                 {post.title}
             </h1>
             
-            <p className="text-base md:text-xl text-white/90 mb-8 leading-relaxed font-light max-w-2xl line-clamp-2 md:line-clamp-none">
+            {/* Refined Excerpt */}
+            <p className="text-lg md:text-2xl text-white/80 mb-10 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none tracking-tight">
               {post.excerpt}
             </p>
             
-            <div className="inline-flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest border-b-2 border-white pb-1 group-hover:text-primary group-hover:border-primary transition-all duration-300">
-              Read the Story
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:translate-x-1">
-                  <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            {/* Bottom Meta & Action */}
+            <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 border-t border-white/20 pt-8">
+                <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src="/images/david.jpg" alt="David Kim" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="text-sm">
+                        <div className="font-bold tracking-wide">David Kim</div>
+                        <div className="text-white/50 text-xs uppercase tracking-widest">{post.date}</div>
+                    </div>
+                </div>
+
+                <div className="inline-flex items-center gap-3 text-white font-black text-sm uppercase tracking-[0.2em] group/btn">
+                  Read the Story
+                  <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-black">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
