@@ -17,21 +17,22 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
                         post.category;
 
   // Helper to determine source and symbol
-  const getSourceInfo = (content: string, title: string) => {
-    const text = (content + title).toUpperCase();
-    if (text.includes('WIRED') || title.includes('MERCOR')) {
+  const getSourceInfo = (content: string, title: string, excerpt: string) => {
+    const combinedText = `${title} ${excerpt} ${content}`.toUpperCase();
+    
+    if (combinedText.includes('WIRED')) {
       return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
     }
-    if (text.includes('BLOOMBERG')) {
+    if (combinedText.includes('BLOOMBERG')) {
       return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
     }
-    if (text.includes('ECONOMIST')) {
+    if (combinedText.includes('ECONOMIST')) {
       return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold italic' };
     }
     return null;
   };
 
-  const sourceInfo = post.category === 'desk' ? getSourceInfo(post.content, post.title) : null;
+  const sourceInfo = post.category === 'desk' ? getSourceInfo(post.content, post.title, post.excerpt) : null;
 
   if (variant === 'horizontal') {
     return (
