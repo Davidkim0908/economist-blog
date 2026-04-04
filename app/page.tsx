@@ -138,7 +138,7 @@ export default function Home() {
       <section className="mb-24">
         <div className="grid md:grid-cols-4 gap-8">
             {remaining.slice(0, 4).map((post) => (
-                <PostCard key={post.slug} post={post} variant="overlay" />
+                <PostCard key={post.slug} post={post} variant="default" />
             ))}
         </div>
       </section>
