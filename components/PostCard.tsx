@@ -42,7 +42,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     if (source === 'ECONOMIST' || source.includes('ECONOMIST')) {
       return (
         <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-[#E3120B] flex items-center justify-center rounded-sm shadow-lg">
-          <span className="text-white text-lg font-serif font-bold italic leading-none" style={{ fontFamily: 'Georgia, Times New Roman, serif', transform: 'translateY(-0.5px)' }}>E</span>
+          <span className="text-white text-lg font-serif font-bold leading-none" style={{ fontFamily: 'Georgia, Times New Roman, serif', transform: 'translateY(-0.5px)' }}>E</span>
         </div>
       );
     }

@@ -34,7 +34,7 @@ export default function DeskPage() {
               const s = source.toUpperCase();
               if (s === 'WIRED') return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
               if (s === 'BLOOMBERG') return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
-              if (s === 'ECONOMIST' || s.includes('ECONOMIST')) return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold italic' };
+              if (s === 'ECONOMIST' || s.includes('ECONOMIST')) return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold' };
               return null;
             };
             const badge = getSourceBadge(post.source);
