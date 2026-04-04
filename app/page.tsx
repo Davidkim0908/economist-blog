@@ -137,8 +137,8 @@ export default function Home() {
       {/* 6. Final Mixed Section */}
       <section className="mb-24">
         <div className="grid md:grid-cols-4 gap-8">
-            {remaining.slice(0, 4).map((post, idx) => (
-                <PostCard key={post.slug} post={post} variant={idx % 3 === 0 ? 'overlay' : 'default'} />
+            {remaining.slice(0, 4).map((post) => (
+                <PostCard key={post.slug} post={post} variant="overlay" />
             ))}
         </div>
       </section>
