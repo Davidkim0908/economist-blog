@@ -33,10 +33,10 @@ export default function Hero({ post }: { post: Post }) {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-20 lg:p-24 text-white">
+        <div className="absolute inset-0 flex flex-col justify-end p-10 md:p-20 lg:p-24 pt-20 md:pt-32 lg:pt-40 text-white">
           <div className="max-w-4xl">
             {/* Top Label System */}
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex items-center gap-4 mb-8 mt-12 md:mt-0">
                <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full">
                   Featured Article
                </span>
