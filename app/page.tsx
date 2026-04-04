@@ -144,21 +144,33 @@ export default function Home() {
       </section>
       
       {/* 7. Newsletter & About Footer */}
-      <section className="grid md:grid-cols-2 gap-16 items-center mb-16 border-t border-gray-200 pt-24">
-        <div>
-            <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</h2>
-            <h3 className="text-5xl font-serif font-black mb-8 tracking-tighter text-gray-900">About David</h3>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed font-light">
-                기술이라는 &apos;엔진&apos;에 맥락이라는 &apos;지도&apos;를 더합니다. <br/>
-                미래의 길을 설계하는 경제학자, 김동영입니다.
-            </p>
-            <Link href="/about" className="inline-block bg-primary text-white font-black py-4 px-10 rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-primary/30 text-xs tracking-widest uppercase">
-                MEET DAVID
-            </Link>
+      <section className="grid md:grid-cols-2 gap-16 items-stretch mb-16 border-t border-gray-200 pt-24">
+        {/* About David with Photo */}
+        <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+                <img 
+                    src="/reading book.jpeg" 
+                    alt="David Kim reading" 
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+            </div>
+            <div className="w-full md:w-3/5">
+                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</h2>
+                <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter text-gray-900">Meet David</h3>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
+                    기술이라는 &apos;엔진&apos;에 맥락이라는 &apos;지도&apos;를 더합니다. <br/>
+                    미래의 길을 설계하는 경제학자, 김동영입니다.
+                </p>
+                <Link href="/about" className="inline-block bg-primary text-white font-black py-3 px-8 rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-primary/30 text-[10px] tracking-widest uppercase">
+                    READ FULL BIO
+                </Link>
+            </div>
         </div>
-        <div className="bg-dark p-12 rounded-[2rem] text-center text-white relative overflow-hidden group">
+
+        {/* Newsletter Section */}
+        <div className="bg-dark p-12 rounded-[2rem] text-center text-white relative overflow-hidden group flex flex-col justify-center">
             <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
-            <h3 className="text-2xl font-serif font-black mb-4 tracking-tight">Subscribe to the Newsletter</h3>
+            <h3 className="text-2xl font-serif font-black mb-4 tracking-tight text-white">Subscribe to the Newsletter</h3>
             <p className="text-gray-400 mb-8 text-base font-light">Get the latest insights delivered to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-3">
                 <input type="email" placeholder="Email address" className="flex-1 px-6 py-4 bg-white/10 border border-white/20 rounded-full focus:outline-none focus:border-primary text-white" />
