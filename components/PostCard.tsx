@@ -56,13 +56,15 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
           alt={post.title} 
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
+        {/* Stronger Gradient for perfect readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+        
         <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-          <span className="text-[10px] font-black tracking-widest uppercase mb-3 text-primary">{categoryLabel}</span>
-          <h3 className="text-2xl font-serif font-black leading-tight tracking-tighter mb-3">
+          <span className="text-[10px] font-black tracking-widest uppercase mb-3 text-primary drop-shadow-md">{categoryLabel}</span>
+          <h3 className="text-2xl font-serif font-black leading-tight tracking-tighter mb-3 drop-shadow-xl">
             {post.title}
           </h3>
-          <span className="text-[10px] opacity-60 uppercase tracking-widest font-bold">{post.date}</span>
+          <span className="text-[10px] opacity-70 uppercase tracking-widest font-bold drop-shadow-sm">{post.date}</span>
         </div>
       </Link>
     );
