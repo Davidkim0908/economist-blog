@@ -16,48 +16,49 @@ export default function Hero({ post }: { post: Post }) {
   const universalBg = "https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2070&auto=format&fit=crop";
 
   return (
-    <section className="relative w-full mb-24 group overflow-hidden rounded-[2rem] shadow-2xl">
-      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full aspect-[16/10] md:aspect-[16/9] lg:aspect-[21/10]">
-        
+    <section className="relative w-full mb-24 group overflow-hidden rounded-[2rem] shadow-2xl bg-gray-900">
+      <Link href={`/posts/${post.category}/${post.slug}`} className="block relative w-full min-h-[600px] md:min-h-[700px] flex flex-col justify-center">
+
         {/* Universal Deep Space Background */}
-        <div className="absolute inset-0 bg-gray-900">
+        <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={universalBg} 
             alt="Infinite Possibilities"
-            className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-80"
+            className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-70"
           />
-          {/* Multi-layered overlay for GatesNotes depth */}
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+          {/* Enhanced multi-layered overlay for all resolutions */}
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
         </div>
 
-        {/* Content Overlay */}
-        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-16 lg:p-20 text-white">
-          <div className="max-w-4xl mb-4">
+        {/* Content Overlay - Flexible padding and dynamic height */}
+        <div className="relative z-10 w-full p-8 md:p-16 lg:p-24 flex flex-col justify-center">
+          <div className="max-w-4xl">
             {/* Top Label System */}
-            <div className="flex items-center gap-4 mb-6">
-               <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full">
+            <div className="flex items-center gap-4 mb-8">
+               <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full shadow-lg">
                   Featured Article
                </span>
-               <span className="text-white/70 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] border-l border-white/30 pl-4">
+               <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] border-l border-white/30 pl-4">
                   {categoryName}
                </span>
             </div>
-            
-            {/* Massive GatesNotes-style Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-white mb-8 leading-[1.05] tracking-tight drop-shadow-2xl break-keep">
+
+            {/* Massive GatesNotes-style Title - Responsive sizing */}
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-serif font-black text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl break-keep">
                 {post.title}
             </h1>
 
-            {/* Refined Excerpt */}
-            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none tracking-tight drop-shadow-md break-keep">
+            {/* Refined Excerpt - No line clamping to prevent data loss */}
+            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-3xl tracking-tight drop-shadow-md break-keep">
               {post.excerpt}
             </p>
+
             {/* Bottom Meta & Action */}
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 border-t border-white/20 pt-8">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/40 shadow-lg">
+                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/40 shadow-xl">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src="/images/david.jpg" alt="David Kim" className="w-full h-full object-cover" />
                     </div>
