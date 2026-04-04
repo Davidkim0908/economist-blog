@@ -46,15 +46,14 @@ export default function Hero({ post }: { post: Post }) {
             </div>
             
             {/* Massive GatesNotes-style Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-white mb-8 leading-[1.05] tracking-tight drop-shadow-2xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-white mb-8 leading-[1.05] tracking-tight drop-shadow-2xl break-keep">
                 {post.title}
             </h1>
 
             {/* Refined Excerpt */}
-            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none tracking-tight drop-shadow-md">
+            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none tracking-tight drop-shadow-md break-keep">
               {post.excerpt}
             </p>
-
             {/* Bottom Meta & Action */}
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 border-t border-white/20 pt-8">
                 <div className="flex items-center gap-3">

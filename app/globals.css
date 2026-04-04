@@ -22,9 +22,12 @@
 @layer base {
   body {
     @apply bg-[#FBFBFA] text-gray-900 font-sans antialiased;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-bold text-gray-900;
+    word-break: keep-all;
   }
 }
 
