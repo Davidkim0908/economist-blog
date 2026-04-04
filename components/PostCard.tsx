@@ -50,21 +50,23 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
 
   if (variant === 'overlay') {
     return (
-      <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl", className)}>
+      <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl bg-gray-900", className)}>
         <img 
           src={post.coverImage || "/placeholder.jpg"} 
           alt={post.title} 
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-80"
         />
-        {/* Stronger Gradient for perfect readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100"></div>
+        {/* Extreme Gradient for guaranteed readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-100"></div>
         
-        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-          <span className="text-[10px] font-black tracking-widest uppercase mb-3 text-primary drop-shadow-md">{categoryLabel}</span>
-          <h3 className="text-2xl font-serif font-black leading-tight tracking-tighter mb-3 drop-shadow-xl">
+        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white z-20">
+          <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-3 text-primary drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{categoryLabel}</span>
+          <h3 className="text-2xl md:text-3xl font-serif font-black leading-tight tracking-tighter mb-4 drop-shadow-[0_4px_4px_rgba(0,0,0,0.9)]">
             {post.title}
           </h3>
-          <span className="text-[10px] opacity-70 uppercase tracking-widest font-bold drop-shadow-sm">{post.date}</span>
+          <div className="flex items-center gap-2 opacity-80">
+            <span className="text-[10px] uppercase tracking-widest font-bold">{post.date}</span>
+          </div>
         </div>
       </Link>
     );
