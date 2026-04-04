@@ -154,8 +154,9 @@ export default function Home() {
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />            </div>
             <div className="w-full md:w-3/5">
-                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-6">The Author</h2>
-                <p className="text-lg text-gray-600 mb-10 leading-relaxed font-light">
+                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</h2>
+                <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter text-gray-900">Meet David</h3>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
                     기술이라는 &apos;엔진&apos;에 맥락이라는 &apos;지도&apos;를 더합니다. <br/>
                     미래의 길을 설계하는 경제학자, 김동영입니다.
                 </p>
