@@ -76,26 +76,26 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
                 {bookReviews.map(post => (
-                    <div key={post.slug} className="flex gap-6 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow h-60">
-                        <div className="shrink-0 w-32 h-48 bg-gray-50 flex items-center justify-center overflow-hidden border border-gray-100 rounded shadow-inner">
+                    <div key={post.slug} className="flex gap-6 bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                        <div className="shrink-0 w-32 h-44 bg-gray-50 flex items-center justify-center overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-gray-100 relative">
                              {/* eslint-disable-next-line @next/next/no-img-element */}
                              <img 
                                 src={post.coverImage} 
-                                className="max-h-full max-w-full object-contain" 
+                                className="absolute inset-0 w-full h-full object-contain p-2" 
                                 alt={post.title} 
                              />
                         </div>
-                        <div className="flex flex-col justify-center">
-                            <span className="text-xs font-bold tracking-wider uppercase text-primary mb-2">Book Review</span>
+                        <div className="flex flex-col justify-center py-2">
+                            <span className="text-[10px] font-black tracking-[0.2em] uppercase text-primary mb-2">Book Review</span>
                             <Link href={`/posts/${post.category}/${post.slug}`}>
-                                <h3 className="text-xl font-serif font-bold mb-2 hover:text-primary transition-colors tracking-tighter">{post.title}</h3>
+                                <h3 className="text-xl font-serif font-bold mb-2 hover:text-primary transition-colors tracking-tighter text-gray-900 leading-tight">{post.title}</h3>
                             </Link>
-                            {post.author && <p className="text-sm text-gray-500 mb-2">by {post.author}</p>}
-                            <div className="flex text-yellow-500 text-sm mb-4">
+                            {post.author && <p className="text-sm text-gray-500 mb-3 font-medium">by {post.author}</p>}
+                            <div className="flex text-yellow-400 text-xs mb-4">
                                 {'★'.repeat(Math.floor(post.rating || 0))}
                                 {'☆'.repeat(5 - Math.floor(post.rating || 0))}
                             </div>
-                            <Link href={`/posts/${post.category}/${post.slug}`} className="text-sm font-bold text-gray-900 underline">
+                            <Link href={`/posts/${post.category}/${post.slug}`} className="text-xs font-bold text-gray-900 uppercase tracking-widest border-b border-gray-900 self-start pb-0.5 hover:text-primary hover:border-primary transition-colors">
                                 Read Review
                             </Link>
                         </div>
