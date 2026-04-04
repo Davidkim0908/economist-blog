@@ -46,31 +46,31 @@ export default function Hero({ post }: { post: Post }) {
             </div>
             
             {/* Massive GatesNotes-style Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black mb-8 leading-[1.05] tracking-tight drop-shadow-lg">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black text-white mb-8 leading-[1.05] tracking-tight drop-shadow-2xl">
                 {post.title}
             </h1>
-            
+
             {/* Refined Excerpt */}
-            <p className="text-lg md:text-2xl text-white/80 mb-10 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none tracking-tight">
+            <p className="text-lg md:text-2xl text-white/90 mb-10 leading-relaxed font-light max-w-3xl line-clamp-3 md:line-clamp-none tracking-tight drop-shadow-md">
               {post.excerpt}
             </p>
-            
+
             {/* Bottom Meta & Action */}
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 border-t border-white/20 pt-8">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/20">
+                    <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/40 shadow-lg">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src="/images/david.jpg" alt="David Kim" className="w-full h-full object-cover" />
                     </div>
                     <div className="text-sm">
-                        <div className="font-bold tracking-wide">David Kim</div>
-                        <div className="text-white/50 text-xs uppercase tracking-widest">{post.date}</div>
+                        <div className="font-bold tracking-wide text-white">David Kim</div>
+                        <div className="text-white/60 text-xs uppercase tracking-widest">{post.date}</div>
                     </div>
                 </div>
 
                 <div className="inline-flex items-center gap-3 text-white font-black text-sm uppercase tracking-[0.2em] group/btn">
-                  Read the Story
-                  <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-black">
+                  <span className="drop-shadow-md">Read the Story</span>
+                  <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center transition-all duration-300 group-hover/btn:bg-white group-hover/btn:text-black shadow-lg">
                     <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 8H15M15 8L8 1M15 8L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
