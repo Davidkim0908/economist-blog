@@ -50,22 +50,23 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
 
   if (variant === 'overlay') {
     return (
-      <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl bg-gray-900", className)}>
+      <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl", className)}>
         <img 
           src={post.coverImage || "/placeholder.jpg"} 
           alt={post.title} 
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-80"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
         />
-        {/* Extreme Gradient for guaranteed readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-100"></div>
         
-        <div className="absolute inset-0 flex flex-col justify-end p-8 text-white z-20">
-          <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-3 text-primary drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{categoryLabel}</span>
-          <h3 className="text-2xl md:text-3xl font-serif font-black leading-tight tracking-tighter mb-4 drop-shadow-[0_4px_4px_rgba(0,0,0,0.9)]">
-            {post.title}
-          </h3>
-          <div className="flex items-center gap-2 opacity-80">
-            <span className="text-[10px] uppercase tracking-widest font-bold">{post.date}</span>
+        {/* Semi-transparent text container at the bottom */}
+        <div className="absolute bottom-0 inset-x-0 p-4">
+          <div className="bg-black/70 backdrop-blur-md p-6 rounded-[1.5rem] border border-white/10 text-white transition-all duration-500 group-hover:bg-primary group-hover:border-primary/20">
+            <span className="text-[10px] font-black tracking-[0.25em] uppercase mb-2 block text-primary group-hover:text-white transition-colors">{categoryLabel}</span>
+            <h3 className="text-xl font-serif font-black leading-tight tracking-tighter mb-2">
+              {post.title}
+            </h3>
+            <div className="flex items-center gap-2 opacity-60">
+              <span className="text-[10px] uppercase tracking-widest font-bold">{post.date}</span>
+            </div>
           </div>
         </div>
       </Link>
