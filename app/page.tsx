@@ -149,11 +149,10 @@ export default function Home() {
         <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
             <div className="w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
                 <img 
-                    src="/reading book.jpeg" 
+                    src="/reading-book.jpeg" 
                     alt="David Kim reading" 
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-            </div>
+                />            </div>
             <div className="w-full md:w-3/5">
                 <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</h2>
                 <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter text-gray-900">Meet David</h3>
