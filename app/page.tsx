@@ -18,7 +18,10 @@ export default function Home() {
 
   // Get specific highlights
   const deskPosts = allPosts.filter(p => p.category === 'desk').slice(0, 3);
-  const bookReviews = allPosts.filter(p => p.category === 'books').slice(0, 2);
+  const bookReviews = allPosts
+    .filter(p => p.category === 'books')
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 2);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -74,7 +77,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8">
                 {bookReviews.map(post => (
                     <div key={post.slug} className="flex gap-6 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <div className="shrink-0 w-32 h-48 bg-gray-100 shadow-md flex items-center justify-center overflow-hidden p-1">
+                        <div className="shrink-0 w-32 h-48 bg-gray-50 shadow-md flex items-center justify-center overflow-hidden p-2 border border-gray-100 rounded">
                              {/* eslint-disable-next-line @next/next/no-img-element */}
                              <img src={post.coverImage} className="max-w-full max-h-full object-contain" alt={post.title} />
                         </div>
