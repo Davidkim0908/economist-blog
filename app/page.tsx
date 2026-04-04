@@ -76,12 +76,12 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
                 {bookReviews.map(post => (
-                    <div key={post.slug} className="flex gap-6 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                        <div className="shrink-0 w-32 h-48 bg-gray-50 shadow-md flex items-center justify-center overflow-hidden border border-gray-100 rounded relative">
+                    <div key={post.slug} className="flex gap-6 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow h-60">
+                        <div className="shrink-0 w-32 h-48 bg-gray-50 flex items-center justify-center overflow-hidden border border-gray-100 rounded shadow-inner">
                              {/* eslint-disable-next-line @next/next/no-img-element */}
                              <img 
                                 src={post.coverImage} 
-                                className="w-full h-full object-contain" 
+                                className="max-h-full max-w-full object-contain" 
                                 alt={post.title} 
                              />
                         </div>

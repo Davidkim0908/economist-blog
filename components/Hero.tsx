@@ -44,18 +44,14 @@ export default function Hero({ post }: { post: Post }) {
           </Link>
         </div>
         
-        <div className="order-1 md:order-2 flex justify-center">
-            <Link href={`/posts/${post.category}/${post.slug}`} className="block overflow-hidden rounded-xl shadow-xl w-full">
-                 <div className={`relative w-full aspect-[4/3] flex items-center justify-center overflow-hidden ${post.category === 'books' ? 'bg-gray-100 p-8' : 'bg-gray-200'}`}>
+        <div className="order-1 md:order-2 flex justify-end">
+            <Link href={`/posts/${post.category}/${post.slug}`} className="block overflow-hidden rounded-lg shadow-lg w-full max-w-[480px]">
+                 <div className={`relative w-full aspect-[16/10] flex items-center justify-center overflow-hidden ${post.category === 'books' ? 'bg-gray-100 p-6' : 'bg-gray-200'}`}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                         src={post.coverImage || "/placeholder.jpg"} 
                         alt={post.title}
-                        className={`transition-transform duration-700 hover:scale-105 ${
-                            post.category === 'books' 
-                            ? 'h-full w-auto object-contain shadow-2xl' 
-                            : 'w-full h-full object-cover'
-                        }`}
+                        className={`transition-transform duration-700 hover:scale-105 w-full h-full object-cover`}
                     />
                  </div>
             </Link>
