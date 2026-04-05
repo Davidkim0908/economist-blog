@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronUp, Newspaper } from "lucide-react";
 import { useState } from "react";
 
 export default function NewsPage() {
@@ -98,361 +98,108 @@ export default function NewsPage() {
       title: "서울시의회 교통위원회, 자율주행택시 시대 대비 '서울택시 공존 방안' 토론",
       coreSummary: "다가오는 자율주행 택시 시대를 맞아 기존 택시 산업과의 상생 및 공존 방안을 모색하는 정책 토론회가 서울시의회에서 개최되었습니다.",
       fullSummary: "서울시의회 교통위원회가 주최한 이번 토론회에서는 자율주행 기술 도입에 따른 택시 산업의 변화와 갈등 최소화 방안이 집중 논의되었습니다. 전문가들은 기존 택시 면허 체계를 활용한 로보택시 도입 모델 등 구체적인 제도화 방안을 제안하며, 기술 발전과 기존 산업 보호 사이의 균형점을 찾기 위한 다양한 의견을 제시했습니다.",
-      quote: '"기존 택시 면허 체계 기반의 자율주행 서비스 모델과 함께, 공익과 산업 발전을 아우르는 자율주행 생태계 조성이 중요하다"',
-      link: "https://www.newstnt.com/news/articleView.html?idxno=568268"},
+      quote: '"로보택시는 단순한 신기술의 도입을 넘어 택시 산업의 구조적 한계를 극복하는 계기가 될 수 있다."',
+      link: "http://www.newstnt.com/news/articleView.html?idxno=326941"},
     {
-      date: "2025.12.08",
-      media: "아주경제",
-      title: "'BMW·벤츠' 양강 넘보는 테슬라… 국산 브랜드도 위협",
-      coreSummary: "테슬라가 저렴한 모델Y를 앞세워 국내 수입차 시장에서 BMW와 벤츠를 맹추격하며 전기차 시장의 주도권을 강화하고 있습니다.",
-      fullSummary: "테슬라의 국내 판매량이 전년 대비 95% 이상 급증하며 수입차 시장의 판도를 흔들고 있습니다. 특히 가격 경쟁력을 갖춘 모델Y의 인기가 기아와 현대차 등 국산 브랜드의 전기차 점유율까지 위협하는 상황입니다. 충전 인프라의 확충과 자율주행 기술(FSD)에 대한 기대감이 이러한 성장의 주요 동력으로 분석됩니다.",
-      quote: '"과거와 다르게 충전 인프라가 발전하면서 테슬라가 전기차 수요를 견인하고 있다. 자율주행(FSD)에 대한 소비자 기대감이 커진 것도 주효했다."',
-      link: "https://www.ajunews.com/view/20251208142737010"},
-    {
-      date: "2025.11.18",
-      media: "아주경제",
-      title: "대중화 흐름 탄 유럽 EV… 韓·美·中·獨 주도권 전쟁 본격",
-      coreSummary: "유럽 전기차 시장의 본격적인 대중화를 앞두고 한국, 미국, 중국, 독일 등 글로벌 완성차 기업들의 주도권 경쟁이 심화되고 있습니다.",
-      fullSummary: "유럽 전기차 시장을 선점하기 위한 각국 기업들의 전략이 치열합니다. 현대차는 시장 점유율 확보에 우선순위를 두고 있으며, 중국 기업들은 관세 장벽을 피하기 위해 현지 생산 거점을 구축하고 있습니다. 독일 기업들 또한 보급형 전기차 모델을 앞세워 경쟁에 뛰어들며, 유럽 시장이 글로벌 전기차 패권 전쟁의 격전지로 떠오르고 있습니다.",
-      quote: '"전기차도 인공지능(AI)처럼 결국 주도권 싸움이다. 당장 손해가 발생하더라도 전기차 전환 시점에서 주도권을 놓치게 되면 입지가 후순위로 밀리기 때문에 치열한 경쟁을 펼치고 있는 상황이다."',
-      link: "https://www.ajunews.com/view/20251118153734901"},
-    {
-      date: "2025.10.21",
-      media: "아주경제",
-      title: "기아, 카자흐 공장 준공… 현대차그룹 '글로벌 CKD 전략' 가속화",
-      coreSummary: "기아가 카자흐스탄에 신규 생산 공장을 준공하며, 관세 장벽 우회와 신흥 시장 선점을 위한 현대차그룹의 글로벌 CKD(반조립 생산) 전략이 속도를 내고 있습니다.",
-      fullSummary: "기아가 카자흐스탄 코스타나이주에 연산 7만 대 규모의 CKD 공장을 준공했습니다. 이는 러시아-우크라이나 전쟁 이후 위축된 러시아 시장을 대체하고 중앙아시아 시장을 교두보로 삼기 위한 전략적 결정입니다. CKD 방식은 완성차 수출에 비해 관세를 절감하고 현지 정부의 지원을 받을 수 있어, 불확실한 무역 환경 속에서 효과적인 해외 진출 방안으로 주목받고 있습니다.",
-      quote: '"CKD는 완성차에 붙는 관세를 회피하거나 법인세, 보조금 혜택을 받으면서 해외 시장을 확장할 수 있다. 현대차그룹의 CKD 공장 확대는 러·우 전쟁으로 인한 글로벌 공급망 제약, 관세 리스크 회피 전략의 일환으로 보인다."',
-      link: "https://www.ajunews.com/view/20251021152559915"},
-    {
-      date: "2025.09.25",
-      media: "조선비즈",
-      title: "택시 월급제 '주 40시간' 지역별 차등 적용되나… 수입별 차등 목소리도",
-      coreSummary: "택시 월급제의 일률적인 '주 40시간 근로 간주' 규정을 지역별, 수입별로 유연하게 적용하는 방안이 검토되고 있습니다.",
-      fullSummary: "정부가 택시 업계의 현실을 반영하여 '주 40시간 근로 간주' 규정을 완화하는 방안을 논의 중입니다. 서울을 제외한 지방의 경우 승객 감소와 매출 하락으로 인해 현행 월급제 유지가 어렵다는 지적이 계속되어 왔습니다. 이에 따라 지역별 특성과 기사들의 수입 수준을 고려한 차등 적용이 대안으로 떠오르고 있습니다.",
-      quote: '"사업주와 기사 모두가 납득할 수 있는 임금체계가 마련돼야 한다. 임금제도가 현실화돼야 비용이 아닌 투자로 받아들여질 수 있고, 최저임금을 보장하는 범위 내에서 지역과 산업의 특성을 고려한 유연한 월급제 설계가 필요하다."',
-      link: "https://biz.chosun.com/policy/policy_sub/2025/09/25/RQRYS3RNEZAAVCZUFIR7UEKZ7Y/"},
-    {
-      date: "2025.09.24",
-      media: "MBN",
-      title: "[CEO인사이트] 서울 빵값이 세계에서 가장 비싼 이유",
-      coreSummary: "서울의 빵값이 런던이나 도쿄보다 비싼 원인을 분석하며, 프랜차이즈 중심의 독점적 유통 구조가 소비자 가격을 밀어 올리고 있다는 지적이 나왔습니다.",
-      fullSummary: "한국의 '먹거리 플레이션'이 심화되는 가운데, 특히 빵값이 글로벌 주요 도시에 비해 압도적으로 높은 수준을 보이고 있습니다. 전문가들은 높은 원자재 의존도와 임대료 외에도, 가맹 본부의 높은 유통 마진과 위험 전가 구조가 비용을 소비자에게 전가하고 있다고 분석하며 유통 체계의 근본적 개선을 촉구했습니다.",
-      quote: '"결과적으로 소비자는 비싸게 빵을 사고, 점주도 남는 게 없는 시스템이 자리잡았습니다. 시장 지배력을 이용해 비용이나 위험을 공급망 전반에 전가하는 이 같은 구조를 바로잡아야 합니다."',
-      link: "https://mbnmoney.mbn.co.kr/news/view?news_no=MM1005678579"},
-    {
-      date: "2025.09.05",
-      media: "동아일보",
-      title: "[단독]길거리 방치 전동킥보드, 서울서만 年9만대… 수거비 35억 들어",
-      coreSummary: "서울시의 고질적인 문제인 길거리 방치 전동 킥보드 수거에 매년 수십억 원의 예산이 소요되고 있어, 단속 위주가 아닌 수요 중심의 새로운 관리 대책이 필요하다는 지적이 나옵니다.",
-      fullSummary: "서울시 내 무단 방치된 개인형 이동장치(PM) 수거량이 급증하며 행정적 부담이 커지고 있습니다. 지난해에만 9만 대 가까운 킥보드가 수거되었으며, 이에 따른 비용만 35억 원에 달합니다. 지자체와 기업 간의 수거 책임 공방을 넘어, 정확한 수요 분석을 통해 킥보드 주차 공간을 확보하고 효율적으로 관리하는 지능형 모빌리티 정책이 필요한 시점입니다.",
-      quote: '"단속 자체를 목표로 하기보다는 수요 예측을 바탕으로 관리 방안을 수립해야 한다."',
-      link: "https://www.donga.com/news/Society/article/all/20250904/132325591/2"},
-    {
-      date: "2025.07.29",
-      media: "아주경제",
-      title: "관세 직격탄에 생산지 전환 나선 GM… 사그라들지 않는 韓 철수설",
-      coreSummary: "관세 비용 부담으로 인해 GM이 한국 등 해외 생산 차량의 생산지를 미국으로 옮기는 방안을 검토하면서, 한국 GM의 철수 우려가 다시 수면 위로 떠오르고 있습니다.",
-      fullSummary: "트럼프 행정부의 관세 정책 여파로 GM의 순이익이 급감함에 따라, 수익성 개선을 위한 글로벌 생산 거점 재편이 가시화되고 있습니다. 특히 한국 생산 물량에 대한 관세 부담이 가중될 경우 한국 GM 공장의 가동률 저하나 철수 가능성까지 제기되는 상황입니다. 다만 미국의 제조 인력 확보 문제와 한·미 관세 협상 결과가 향후 결정의 변수가 될 전망입니다.",
-      quote: '"미국은 자동차를 제대로 만들 인력이 부족하기 때문에 GM이 (한국 생산라인을) 옮기기는 쉽지 않을 것입니다. 다만 한·미 관세 협상이 원활히 이뤄지지 않는다면 (이전 가능성에) 영향을 줄 수 있습니다."',
-      link: "https://www.ajunews.com/view/20250728153437297"},
-    {
-      date: "2025.06.26",
-      media: "파이낸셜뉴스",
-      title: "부산 택시산업, 경쟁력 높이려면?…부산상의서 정책토론회",
-      coreSummary: "위기에 처한 부산 택시 산업의 경쟁력을 강화하고 지속 가능한 성장 동력을 마련하기 위한 대규모 정책 토론회가 개최되었습니다.",
-      fullSummary: "운수종사자 이탈과 낮은 임금 문제로 어려움을 겪고 있는 부산 택시 산업의 해법을 찾기 위해 전문가들이 모였습니다. 이번 토론회에서는 서비스 품질 향상과 더불어 기존 택시 면허 체계의 효율성을 높이고 신산업과의 조화를 꾀하는 다양한 전략적 대안들이 제시되었습니다.",
-      quote: '"기존 택시 면허 중심의 시장 성장 전략을 통해 산업의 지속 가능성을 확보하는 것이 중요합니다."',
-      link: "https://www.fnnews.com/news/202506261004578707"},
-    {
-      date: "2025.06.26",
-      media: "파이낸셜뉴스",
-      title: '"택시 구인난, 외국인 근로자·브랜드화가 해결 열쇠"',
-      coreSummary: "심각한 택시 기사 부족 문제를 해결하기 위해 외국인 근로자 도입과 법인택시의 대형화·브랜드화 전략이 시급하다는 제언이 나왔습니다.",
-      fullSummary: "부산상공회의소에서 열린 정책 토론회에서 전문가들은 택시 산업의 생존을 위한 구체적인 해법을 제시했습니다. 특히 고령화와 인력난을 타개하기 위한 외국인 운수종사자 도입, 대중교통 환승 할인 재도입, 그리고 영세한 법인택시들을 통합하여 규모의 경제를 실현하는 '브랜드화'가 핵심 과제로 논의되었습니다.",
-      quote: '"택시 시장의 확장을 가로막고 이해관계자 간 갈등을 유발하는 현재의 구조를 벗어나, 면허 중심의 새로운 성장 전략으로 전환해야 합니다."',
-      link: "https://www.fnnews.com/news/202506261844533146"},
-    {
-      date: "2025.05.04",
-      media: "조선비즈",
-      title: "日 택시회사들 “앱미터기 배우러 왔다”… 韓 모빌리티 '러브콜' 사연은",
-      coreSummary: "일본의 주요 택시 기업들이 한국의 선진적인 앱미터기 기술과 모빌리티 디지털 전환 사례를 벤치마킹하기 위해 한국 시장을 주목하고 있습니다.",
-      fullSummary: "디지털 전환 속도가 상대적으로 느린 일본 택시 업계가 한국의 IT 기반 택시 서비스 운영 노하우를 배우기 위해 러브콜을 보내고 있습니다. 특히 앱미터기 도입을 통한 효율적인 요금 체계 관리와 데이터 기반의 차량 배차 시스템이 핵심 벤치마킹 대상으로 꼽히며, 양국 모빌리티 산업의 기술 교류가 활발해지고 있습니다.",
-      quote: '"혁신은 시장 확장의 관점에서 접근해야 합니다. 택시 면허를 활용한 승차 공유 및 자율주행 택시 제도 설계로 시장 중심의 산업 성장을 추진해야 합니다."',
-      link: "https://biz.chosun.com/policy/policy_sub/2025/05/04/CMIF2NFLTJAVFKOPKNPO3IUDUY/"},
-    {
-      date: "2025.04.29",
-      media: "프레시안",
-      title: "김정재 의원, 지속가능한 택시산업 발전 위한 정책 토론회 개최",
-      coreSummary: "택시 산업의 구인난 해결과 서비스 품질 향상을 위해 근로 형태 유연화를 논의하는 국회 정책 토론회가 개최되었습니다.",
-      fullSummary: "법인택시 업계의 경영 위기와 기사 부족 문제를 해결하기 위해 전문가들이 국회에 모였습니다. 이번 토론회에서는 경직된 택시 근로 체계를 개선하여 다양한 시간제 근로를 허용하는 '근로 형태 유연화' 방안이 집중 논의되었으며, 이를 통해 젊은 층 유입과 산업 활력을 되찾아야 한다는 제언이 잇따랐습니다.",
-      quote: '"택시 산업의 고령화와 인력 부족을 해결하기 위해 근로 형태 유연화는 필수적인 과제입니다. 다양한 수요에 대응할 수 있는 제도적 기반 마련이 시급합니다."',
-      link: "https://www.pressian.com/pages/articles/2025042914432873593"},
-    {
-      date: "2025.04.23",
-      media: "강원일보",
-      title: "제5시 무실재 아카데미 상반기 두 번째 강의 - 로봇, AI 전환의 중심에 서다",
-      coreSummary: "급변하는 AI 시대, 한국의 R&D 역량을 극대화하기 위해서는 디지털 트윈 기반의 기술 발전과 과거의 성장 방식에서 벗어난 제도적 혁신이 필요하다는 제언이 나왔습니다.",
-      fullSummary: "무실재 아카데미에서 열린 '로봇, AI 전환의 중심에 서다' 강연에서 김동영 KDI 전문연구원은 인공지능과 로봇 기술의 융합이 가져올 미래상을 제시했습니다. 특히 한국이 보유한 세계 최고 수준의 R&D 잠재력을 실질적인 성과로 연결하기 위해서는, 파편화된 연구 성과를 하나로 꿰어낼 수 있는 시스템 개선과 디지털 트윈 환경 구축이 시급하다고 강조했습니다.",
-      quote: '"우리나라의 R&D 역량은 세계 최고 수준이지만 구슬을 꿰지 못하고 있다. 과거의 성장 방식에 초점을 맞춘 현재의 제도를 개선해야 한다."',
-      link: "https://www.kwnews.co.kr/page/view/2025042316514765740"},
-    {
-      date: "2025.03.19",
-      media: "아주경제",
-      title: "[말라가는 미래차 인재] \"지원은 긴 안목으로, 신기술 재교육 주기 당겨야\"",
-      coreSummary: "미래차 산업의 핵심인 전문 인력 부족 현상이 심화되는 가운데, 전문가들은 규제 개선과 장기적인 교육 투자가 시급하다고 제언합니다.",
-      fullSummary: "하드웨어와 소프트웨어를 아우르는 미래차 융합 인재가 턱없이 부족한 상황입니다. 전문가들은 대학 커리큘럼 개편과 기업의 재교육 강화뿐만 아니라, 자율주행 연구를 가로막는 데이터 규제 등의 제도적 걸림돌을 제거해야만 우수 인재를 유치하고 산업 경쟁력을 확보할 수 있다고 강조했습니다.",
-      quote: '"자율주행 관련 오픈소스 알고리즘이 대부분 해외에서 개발됐기 때문에 주행 데이터를 활용해 한국 실정에 맞게 알고리즘을 업데이트 해야 하지만 각종 규제로 쉽지 않습니다. 이런 제도적 결함이 인력 유치에 걸림돌로 작용하는 상황입니다."',
-      link: "https://www.ajunews.com/view/20250318121727644"},
-    {
-      date: "2025.02.02",
-      media: "중앙일보",
-      title: "일본 운전 편한 이유가 있었네...운행효율과 안전 잡은 시스템",
-      coreSummary: "일본의 선진적인 교통 시스템과 강력한 집행 체계가 어떻게 성숙한 운전 문화를 만들고 도시의 이동 효율성을 높였는지 분석했습니다.",
-      fullSummary: "한국과 일본의 교통 규제 방식을 비교하며, 일본의 '예측 불가능한 단속'과 '엄격한 사후 처벌'이 갖는 실효성을 조명했습니다. 특히 차고지 증명제와 같은 차량 소유 정책과 실효성 있는 단속 시스템이 결합될 때, 단순한 규제를 넘어 사회적 의식 변화와 교통 안전이라는 두 마리 토끼를 잡을 수 있음을 시사합니다.",
-      quote: '"우리나라의 교통 행정은 사전 규제 성격이 강하지만, 예고성인 데다 이에 대한 처벌 규정이 강하지 않아 오히려 규정을 준수한다는 의식이 뿌리내리지 못하는 한계가 있습니다."',
-      link: "https://www.joongang.co.kr/article/25311138"},
-    {
-      date: "2024.10.28",
-      media: "조선비즈",
-      title: "'택시 월급제' 전국 도입 가능할까… 실효성 논란",
-      coreSummary: "서울 이외 지역 법인 택시 기사들의 주 40시간 근무 계약 비율이 9%에 불과한 것으로 나타나, 현행 택시 월급제의 전국 확대에 대한 실효성 의문이 제기되고 있습니다.",
-      fullSummary: "정부가 추진 중인 택시 월급제의 전국 확대를 앞두고 현장의 목소리는 엇갈리고 있습니다. 데이터 분석 결과, 지역 기사들은 고정된 근무 시간보다 유연한 근로 형태를 선호하는 경향이 뚜렷합니다. 일방적인 제도 시행보다는 변화하는 일자리 패러다임에 맞춰 다양한 수입원을 보장하고 규제를 완화하는 유연한 접근이 필요하다는 지적입니다.",
-      quote: '"비정규직을 선호하는 근로자가 증가하는 일자리의 패러다임 변화를 제도가 반영해야 할 때입니다. 규제 완화를 통해 법인 택시를 활용한 다양한 수입 확보 방안을 마련해주는 것이 근로자와 사업주 모두 상생하는 방안이 될 것입니다."',
-      link: "https://biz.chosun.com/policy/policy_sub/2024/10/28/WX4RO2NRERAIDBM5YJPHRC4JPA/"},
-    {
-      date: "2024.09.15",
-      media: "조선비즈",
-      title: "택시 월급제 '주 40시간' 규정 없어지나… 국토부 재검토 착수",
-      coreSummary: "노사 모두의 반발에 부딪힌 택시 월급제의 '주 40시간' 강제 규정을 개선하거나 제외하는 방안이 국토부 차원에서 본격 논의되기 시작했습니다.",
-      fullSummary: "국토교통부가 택시 현장의 목소리를 수렴하여 현행 월급제의 핵심 쟁점인 '주 40시간 의무 근로' 규정을 재검토하기로 했습니다. 이는 경직된 근무 체계가 오히려 택시 가동률을 떨어뜨리고 기사들의 선택권을 제한한다는 지적에 따른 것으로, 최저임금을 보장하면서도 성과와 근로 의욕을 고취할 수 있는 유연한 모델이 대안으로 제시되고 있습니다.",
-      quote: '"최저 임금 기준을 준수하면서도 \'유연한 월급제\'를 설계할 수 있습니다. 근로자가 일한 만큼 벌 수 있는 구조를 통해 근로 의욕을 높이면서도, 동시에 근로자를 보호할 수 있는 체계를 고민해 볼 수 있을 것입니다."',
-      link: "https://biz.chosun.com/policy/policy_sub/2024/09/16/2GSOLWX6OREW3IO3RPSHXHXZMI/"},
-    {
-      date: "2024.08.18",
-      media: "전자신문",
-      title: "중고차 시장 빠지는 번개장터·중고나라… 당근은 확대",
-      coreSummary: "중고거래 플랫폼 빅3의 중고차 시장 전략이 극명하게 갈리고 있습니다. 번개장터와 중고나라는 내실 경영을 위해 철수 및 유지를 택한 반면, 당근은 직거래 강점을 살려 사업을 확장하고 있습니다.",
-      fullSummary: "성장하는 중고차 시장을 두고 플랫폼 기업들의 셈법이 복잡해지고 있습니다. 엔카, 헤이딜러 등 전문 플랫폼과의 경쟁 심화와 완성차 업체의 진출 속에서 번개장터와 중고나라는 본업인 C2C 카테고리에 집중하기로 했습니다. 반면 당근은 지역 기반의 신뢰와 압도적인 이용자 수를 바탕으로 정보 비대칭을 해결하며 중고차 카테고리를 키워나가는 대조적인 행보를 보이고 있습니다.",
-      quote: '"플랫폼 록인 효과로 인해 소비자 수요가 다양해지면서 중고차 시장 진출이 가능했습니다. 하지만 시장의 신뢰를 끝까지 유지하지 못한다면 넓게 구축한 록인 효과가 지속되기 어렵기 때문에 각 사의 전략적 판단이 달라진 것으로 보입니다."',
-      link: "https://www.etnews.com/20240818000021"},
-    {
-      date: "2024.08.11",
-      media: "경향신문",
-      title: "타다는 '혁신'이었을까… 논란의 본질을 묻다",
-      coreSummary: "타다를 둘러싼 논란을 되짚어보며, 규제 회피를 넘어 시장의 파이를 키우는 것이 진정한 혁신이라는 점을 강조했습니다.",
-      fullSummary: "승합차 호출 서비스 '타다'가 남긴 사회적 논쟁을 심층 분석한 기사입니다. 타다가 제공한 편리한 서비스 이면에는 노동법 우회와 기존 택시 산업과의 갈등이라는 복잡한 쟁점이 있었습니다. 기사는 타다가 규제의 빈틈을 파고든 것인지, 아니면 낡은 규제에 도전한 혁신인지에 대한 질문을 던지며, 진정한 혁신은 기존 시장을 잠식하는 것이 아니라 새로운 가치를 창출하여 시장 전체를 확장하는 것이어야 한다는 전문가들의 목소리를 전합니다.",
-      quote: '"기존 시장을 갉아먹는 게 아니라 파이를 키울 수 있어야 혁신이라고 평가할 수 있지 않나 싶습니다. 기존 사업자들이 규제 때문에 못 하는 걸 혁신이라 규정하면, 누군가가 누리는 편익 때문에 사회의 다른 쪽에서는 훨씬 더 큰 손해를 보는 것을 정당화하게 됩니다."',
-      link: "https://www.khan.co.kr/article/202408110900031"},
-    {
-      date: "2024.07.04",
-      media: "조선비즈",
-      title: "'시청역 사고'에 재점화… 고령 운전기사 '자격 검사' 강화 검토",
-      coreSummary: "잇따른 고령 운전자 사고로 인해 버스·택시 등 사업용 차량 운전자의 자격 유지 검사 주기를 단축하고 기준을 강화해야 한다는 논의가 재점화되었습니다.",
-      fullSummary: "시청역 역주행 참사를 계기로 고령 운수종사자의 안전 관리 문제가 도마 위에 올랐습니다. 국토부는 현행 자격 유지 검사 제도의 실효성을 높이기 위해 검사 주기를 단축하는 방안을 검토 중이지만, 운수 업계의 반발도 만만치 않습니다. 전문가들은 형식적인 검사에서 벗어나 실질적인 운전 능력을 평가하고, 보험료와 연계하는 등 보다 정교한 제도 설계가 필요하다고 제언합니다.",
-      quote: '"사실상 신체검사 수준의 현 방식에서 실질적인 운전능력평가가 가능한 기준을 도입해야 합니다. 합·불합격이 아닌 평가 요소별 점수 방식으로 전환해 그 결과를 보험료에 연계하는 유인 체계 중심의 방안을 설계할 필요가 있습니다."',
-      link: "https://biz.chosun.com/policy/policy_sub/2024/07/04/HSMUNKA7XFHAPPBHVJZYSL7WQM/"},
-    {
-      date: "2024.03.27",
-      media: "이데일리",
-      title: "택시 독점 꿈꾸던 카카오모빌리티, 이중고에 최악 위기 직면",
-      coreSummary: "독과점 논란과 분식 회계 의혹 등 잇따른 악재에 직면한 카카오모빌리티의 위기 상황과 향후 과제를 진단했습니다.",
-      fullSummary: "국내 택시 호출 시장을 장악한 카카오모빌리티가 공정위와 금감원의 전방위 압박을 받으며 창사 이래 최대 위기를 맞았습니다. 콜 몰아주기 의혹과 매출 부풀리기 혐의 등 사법 리스크에 더해, 고금리 기조 속 자금 유동성 문제까지 겹치며 플랫폼 수익 모델의 한계가 드러나고 있다는 분석입니다. 해외 진출 등 새로운 돌파구가 필요하다는 지적이 나옵니다.",
-      quote: '"자금 유동성 흐름이 원활했다면 적자여도 투자를 계속 받을 수 있었겠지만, 그룹의 경영 이슈와 금리 인상으로 자금줄이 막히며 경영난이 가중되고 있습니다."',
-      link: "https://www.edaily.co.kr/News/Read?newsId=01374326638827584&mediaCodeNo=257&OutLnkChk=Y"},
-    {
-      date: "2024.02.07",
-      media: "조선비즈",
-      title: "“카카오 대항마 찾아라”… 택시 플랫폼 다양화 모색",
-      coreSummary: "카카오모빌리티의 독점을 해소하고 시장 경쟁을 활성화하기 위해 정부가 특화된 택시 플랫폼 육성과 제도 개선을 고심하고 있습니다.",
-      fullSummary: "국토교통부가 특정 플랫폼의 시장 지배력을 완화하고 소비자 선택권을 넓히기 위한 대책 마련에 나섰습니다. 장애인, 노인 등 교통 약자 전용 서비스나 의전 서비스와 같은 니치 마켓을 공략하는 특화 플랫폼을 육성하고, 기존 중개 서비스와 차별화된 비즈니스 모델이 나올 수 있도록 규제 샌드박스 등을 통한 유인책을 마련할 계획입니다.",
-      quote: '"모빌리티 플랫폼의 독과점 논란과 해법 카카오 택시 등 거대 모빌리티 플랫폼의 시장 지배력 문제와 이에 대한 합리적인 정책적 대안을 제시했습니다."',
-      link: "#"},
-    {
-      date: "2023.11.06",
-      media: "국민일보",
-      title: "[단독] 미터기 위치정보 이용… 카카오T '수상한 수수료 거래'",
-      coreSummary: "카카오모빌리티가 운행 후 즉시 파기되는 단순 위치 데이터를 '운행 데이터'로 포장해 매출을 부풀렸다는 의혹이 제기되었습니다.",
-      fullSummary: "금융감독원이 카카오모빌리티의 매출 부풀리기 혐의를 조사 중인 가운데, 핵심 쟁점인 '운행 데이터'의 실체에 대한 의문이 커지고 있습니다. 카카오모빌리티는 택시 기사로부터 운행 데이터를 제공받는 대가로 제휴 비용을 지급한다고 주장하지만, 해당 데이터는 미터기에서 실시간으로 생성되고 곧바로 휘발되는 단순 정보에 불과하다는 지적입니다. 이는 회계상 매출을 부풀리기 위한 '데이터 뻥튀기'라는 비판을 받고 있습니다.",
-      quote: "\"운행 후엔 파기하는 데이터를 어떻게 택시기사와 계약을 하면서 서비스 개선 등에 활용할 수 있는 정보로 되살리는지 의문입니다.\"",
-      link: "https://www.kmib.co.kr/article/view.asp?arcid=0924328736&code=11151100&cp=nv"},
-    {
-      date: "2023.11.02",
-      media: "아주경제",
-      title: "미뤄둔 택시수수료 문제가 '폭탄'으로… 카카오모빌리티의 위기",
-      coreSummary: "카카오모빌리티가 수수료 개편 요구에 소극적으로 대응해온 결과, 정부의 강력한 압박과 사회적 비판이라는 직격탄을 맞게 되었습니다.",
-      fullSummary: "가맹 택시 수수료 체계를 둘러싼 카카오모빌리티와 택시 업계 간의 갈등이 최고조에 달했습니다. 금융감독원의 회계 감리와 대통령의 강력한 비판이 잇따르며, 그동안 시장 지배력을 바탕으로 고수해온 복잡한 수수료 구조가 근본적인 변화의 압력을 받고 있습니다. 기사는 플랫폼이 시장 조성자로서의 책임을 다하지 못하고 현장의 불만을 외면해온 점이 현재의 위기를 자초했다고 분석합니다.",
-      quote: "\"명목상 법적으로 문제가 없다고 하더라도 플랫폼 주체들의 불만이 큰 상황에서 꾸준히 제기되던 의견을 묵혀두면서 결국 더 큰 문제가 됐습니다. 형식적인 간담회가 되지 않도록 실질적인 시장 조성자 역할을 하는 플랫폼 기업의 책임을 다해야 합니다.\"",
-      link: "https://www.ajunews.com/view/20231102145106483"},
-    {
-      date: "2023.10.13",
-      media: "전자신문",
-      title: "전동킥보드 “위험하지만 편리하다”… 보호장비 대여 수요 높아",
-      coreSummary: "전동킥보드에 대한 안전 우려에도 불구하고 편리함 때문에 이용은 늘고 있어, 사업자 주도의 실질적인 안전 대책이 필요하다는 지적입니다.",
-      fullSummary: "공유 전동킥보드 이용자 인식 조사 결과, '편리하지만 위험하다'는 시각이 지배적입니다. 특히 헬멧 등 보호장비 대여의 어려움이 주요 불편 사항으로 꼽혔습니다. 전문가들은 추가적인 규제 강화보다는 사업자가 AI 주차 기술 도입이나 헬멧 착용 인증 시스템 등을 통해 자발적으로 안전성을 확보하는 투자가 시급하다고 조언합니다.",
-      quote: "\"이미 법과 제도에서 헬멧 착용을 강제하고 있는 만큼 추가 제재보다 사업자 스스로 안전에 대한 책임을 져야 합니다. AI 기술 도입 등을 통해 실질적으로 안전성을 확보하기 위한 고민과 투자가 필요해 보입니다.\"",
-      link: "https://www.etnews.com/20231013000185"},
-    {
-      date: "2023.10.13",
-      media: "전자신문",
-      title: "농어촌 민박 '석식제공·면적확대' 놓고 고심하는 정부",
-      coreSummary: "변화하는 여행 트렌드에 맞춰 농어촌 민박의 규제를 완화해야 한다는 목소리와 기존 숙박업계의 반발 사이에서 정부가 새로운 해법을 모색하고 있습니다.",
-      fullSummary: "농어촌 민박의 경쟁력을 높이기 위해 석식 제공 허용과 면적 제한 완화가 논의되고 있습니다. 소비자들의 독채 선호 트렌드와 내수 활성화를 위해서는 규제 개선이 시급하지만, 인근 식당과 숙박업소의 반발도 고려해야 하는 상황입니다. 정부는 이에 대한 대안으로 기존 제도를 전면 개편하거나 새로운 '농어촌 공유숙박업' 모델을 도입하는 방안을 검토 중입니다.",
-      quote: '"독채 수요 증가에 맞춰 국내 관광 활성화와 내수 진작을 위해 규제 완화가 필요합니다. 도시 민박과의 형평성을 고려해서라도 농어촌 민박의 식사 제공 등 규제를 푸는 방향을 적극 검토해야 합니다."',
-      link: "https://biz.chosun.com/policy/policy_sub/2023/09/01/DGJK6QXH5FAMPJHD76OHRLV3X4/"},
-    {
-      date: "2023.04.06",
-      media: "조선비즈",
-      title: "모빌리티 특화 규제 샌드박스서 '데이터 제출' 의무화…업계 반발에 정부 '고심'",
-      coreSummary: "모빌리티 혁신을 위한 '모빌리티법'이 국회를 통과하면서 데이터 제출 의무화가 시행됩니다. 업계는 과도한 의무라며 반발하고 있어 정부가 인센티브 제공 등을 고심하고 있습니다.",
-      fullSummary: "UAM, 자율주행 등 미래 모빌리티 혁신을 위한 '모빌리티법'이 국회를 통과했지만, 데이터 제출 의무 조항을 두고 업계의 우려가 큽니다. 기업들은 영업비밀 노출 등을 이유로 과도한 규제라고 주장하는 반면, 정부는 실증 효과 분석과 공공 이익을 위해 데이터 확보가 필수적이라는 입장입니다. 이에 정부는 기업의 자발적 참여를 유도하기 위한 다양한 인센티브 방안을 모색하고 있습니다.",
-      quote: '"현재 샌드박스의 경우 데이터 제출 의무가 없어 실증에 대한 효과 분석을 제대로 하지 못하고 임기응변식으로 운영되고 있다"면서 "새로운 시도를 사회적으로 바람직한 서비스로 발전시키기 위해 데이터 제출이 의무화된 것"',
-      link: "https://biz.chosun.com/policy/policy_sub/2023/04/06/7B7KQDTR3RFB3IGJJ3BJAA633U/?utm_source=naver&utm_medium=original&utm_campaign=biz"},
-    {
-      date: "2023.03.29",
-      media: "뉴스1",
-      title: "국회 통과 하루 앞둔 '모빌리티법'…전문가들 '정부 적극 역할' 주문",
-      coreSummary: "모빌리티법의 국회 통과를 앞두고 열린 토론회에서 전문가들은 법안의 성공적인 안착과 모빌리티 산업 활성화를 위해 정부의 적극적인 역할과 지원이 필수적이라고 주문했습니다.",
-      fullSummary: "모빌리티 혁신 및 활성화 지원에 관한 법률(모빌리티법) 제정을 앞두고 민관 전문가들이 모여 법안의 의의와 향후 과제를 논의했습니다. 토론회에서는 모빌리티법이 산업 활성화를 위한 최초의 제도적 기반이라는 점을 높이 평가하면서도, 법안이 실질적인 혁신으로 이어지기 위해서는 규제 샌드박스 등 구체적인 지원책과 정부의 지속적인 관심이 필요하다는 의견이 모아졌습니다.",
-      quote: '"모빌리티법 입법은 모빌리티 활성화를 위한 제도적 기반을 최초로 마련했다는 데 의의가 있다. 국민 이동권 보장을 위한 합리적 규제 개선과 제도 운영이 중요하다."',
-      link: "https://www.news1.kr/realestate/construction/4998084"},
-    {
-      date: "2023.01.19",
-      media: "OBS경인TV",
-      title: "'유니콘' 불리던 배달대행 기업들 '생존 모드'로",
-      coreSummary: "코로나19 특수로 급성장했던 배달대행 업계가 엔데믹 이후 주문 감소와 자금난으로 생존 위기에 직면했습니다.",
-      fullSummary: "사회적 거리두기 해제 이후 배달 수요가 급감하면서 '부릉', '바로고' 등 주요 배달대행 업체들이 경영난을 겪고 있습니다. 한때 유니콘 기업으로 불리던 이들은 이제 구조조정과 매각 등 생존을 위한 고육지책을 마련하고 있습니다. 전문가들은 배달 시장의 거품이 꺼지면서 옥석 가리기가 본격화될 것으로 전망합니다.",
-      quote: '"투자금이 회수되는 시기이다 보니까 운영에 필요한 자금을 충분히 확보하지 못한 기업들은 헐값에 매각되거나 시장에서 퇴출될 수밖에 없습니다."',
-      link: "https://www.obsnews.co.kr/news/articleView.html?idxno=1382744"},
-    {
-      date: "2022.11.18",
-      media: "국민일보",
-      title: "[단독] 3000만명 이용 카카오T, 개인정보 ‘제3자 제공’ 동의 강요",
-      coreSummary: "카카오모빌리티가 '카카오T' 앱 이용자들에게 필수적이지 않은 개인정보의 제3자 제공 동의를 사실상 강요하고 있다는 논란이 일고 있습니다.",
-      fullSummary: "카카오모빌리티가 카카오T 앱 업데이트 과정에서 '개인정보 제3자 제공' 동의를 필수 항목으로 설정해 이용자들의 선택권을 침해했다는 지적입니다. 기업이 서비스 제공에 필수적이지 않은 정보를 마케팅 등 부가적인 목적으로 활용하기 위해 동의를 강제하는 것은 개인정보보호법 취지에 어긋난다는 비판이 나옵니다. 전문가들은 플랫폼의 독점적 지위를 이용한 과도한 정보 수집 관행을 개선해야 한다고 입을 모읍니다.",
-      quote: '"서비스 본질과 무관한 선택적 동의 사항을 필수 동의로 묶어 받는 것은 명백한 개인정보 자기결정권 침해이자 꼼수입니다."',
-      link: "https://www.kmib.co.kr/article/view.asp?arcid=0924273803&code=11151400&cp=nv"},
-    {
-      date: "2022.11.09",
-      media: "연합뉴스",
-      title: "\"서울 택시문제 풀려면 탄력요금제 등 업계 유인책 필요\"(종합)",
-      coreSummary: "심화되는 서울의 '택시 대란'을 해결하기 위해 탄력요금제 도입 등 공급을 늘릴 수 있는 실질적인 유인책이 필요하다는 지적이 제기되었습니다.",
-      fullSummary: "서울시가 주최한 '심야 승차난 해소를 위한 택시요금 정책 개선' 공청회에서 전문가들은 택시 공급 부족의 근본 원인으로 경직된 요금 체계를 지목했습니다. 김동영 KDI 전문연구원은 수요와 공급에 따라 요금이 변동하는 탄력요금제를 도입하여 기사들의 수익성을 보장하고 운행 유인을 높여야 한다고 주장했습니다. 반면, 소비자 단체는 요금 인상이 이용자 부담으로 이어질 수 있다며 우려를 표했습니다.",
-      quote: '"택시 업계가 수익을 추구할 수 있도록 수요-공급에 연동한 기본요금과 호출료의 탄력요금제 도입이 시급합니다."',
-      link: "https://www.yna.co.kr/view/AKR20221109080051004?input=1195m"},
-    {
-      date: "2022.10.18",
-      media: "매일경제",
-      title: "기사 4만 명 떠나자 초저녁부터 택시대란… '타다·우버 규제부터 풀어라'",
-      coreSummary: "택시 기사 이탈로 인한 심각한 승차난을 해결하기 위해서는 타다·우버와 같은 모빌리티 혁신 서비스의 규제를 과감히 풀어야 한다는 지적입니다.",
-      fullSummary: "코로나19 이후 택시 기사 4만 명이 업계를 떠나면서 심야 택시 대란이 일상화되었습니다. 전문가들은 요금 인상만으로는 문제를 해결할 수 없으며, 타다 금지법 이후 위축된 모빌리티 혁신을 되살려 공급을 늘려야 한다고 주장합니다. 택시와 승차 공유 서비스가 공존할 수 있는 규제 완화와 함께, 택배 겸업 허용 등 기사 처우 개선을 위한 다각적인 대책이 필요하다는 목소리가 높습니다.",
-      quote: '"타다 금지법 이후 모빌리티 시장에 혁신은 사라지고 규제만 남았습니다. 선진국처럼 택시 기사가 택배나 음식 배달 등을 겸업할 수 있게 하는 등 유연한 규제 완화가 시급합니다."',
-      link: "https://www.mk.co.kr/news/business/10492599"},
-    {
-      date: "2022.10.17",
-      media: "국민일보",
-      title: "'먹통' 대란 부른 카카오… '문어발 확장'에 기본 놓쳤다",
-      coreSummary: "카카오톡 '먹통' 사태가 장기화되면서 카카오의 무리한 사업 확장과 부실한 재난 대응 시스템에 대한 비판이 거세지고 있습니다.",
-      fullSummary: "SK C&C 데이터센터 화재로 카카오톡 등 주요 서비스가 마비되면서 '국민 플랫폼'의 취약성이 드러났습니다. 전문가들은 카카오가 수익 창출을 위한 문어발식 사업 확장에는 골몰하면서, 정작 기본인 서버 이원화와 재난 복구 시스템 구축에는 소홀했다고 지적합니다. 이번 사태는 플랫폼 독과점의 폐해를 여실히 보여주며 강력한 규제 논의를 촉발하고 있습니다.",
-      quote: '"비용 절감을 위해 데이터 이원화를 제대로 하지 않은 것은 플랫폼 기업으로서 기본 책무를 저버린 것입니다. 독과점 플랫폼의 망 안정성에 대한 강력한 규제가 필요합니다."',
-      link: "https://www.kmib.co.kr/article/view.asp?arcid=0924268610&code=11151400&cp=nv"},
-    {
-      date: "2022.08.31",
-      media: "매일경제",
-      title: "10년간 축적해둔 공공데이터…민간에 풀면 혁신 불붙어",
-      coreSummary: "공공데이터 개방이 확대되었지만 모빌리티 분야 등에서는 여전히 실효성 있는 데이터 접근이 어려워 혁신의 걸림돌이 되고 있습니다.",
-      fullSummary: "2013년 공공데이터법 시행 이후 데이터 개방 건수는 급증했지만, 모빌리티 스타트업들은 여전히 '쓸 만한 데이터가 없다'고 호소합니다. 개인정보 보호 규제와 지자체별 상이한 제공 방식이 데이터 활용을 가로막고 있기 때문입니다. 전문가들은 공급자 중심이 아닌 수요자 중심의 데이터 개방으로 전환하고, 민간이 데이터를 쉽게 활용할 수 있도록 가이드라인을 마련해야 한다고 강조합니다.",
-      quote: '"정부나 지자체가 보유한 데이터를 적극적으로 개방해 민간의 창의적인 서비스 개발을 지원해야 합니다. 데이터 개방은 시장 경쟁을 촉진하고 효율성을 높이는 가장 확실한 방법입니다."',
-      link: "https://www.mk.co.kr/news/economy/10440003"}
+      date: "2025.04.14",
+      media: "세계일보",
+      title: "자율주행 택시 국내 첫 시동... 서울 상암 일대 유상운송 시작",
+      coreSummary: "서울 상암동 일대에서 자율주행 택시 유상 운송 서비스가 국내 최초로 시작되었습니다. 이는 자율주행 상용화 시대를 여는 중요한 이정표가 될 전망입니다.",
+      fullSummary: "서울시는 상암 자율주행 시범운행지구에서 시민들이 앱으로 자율주행차를 호출해 이용할 수 있는 유상 운송 서비스를 본격 시작했습니다. 초기에는 정해진 노선을 운행하는 셔틀 형태지만, 점차 구역형 서비스로 확대될 계획입니다. 전문가들은 이번 서비스 시작이 기술 실증을 넘어 실제 비즈니스 모델의 가능성을 타진하는 계기가 될 것으로 보고 있습니다.",
+      quote: '"기술이 생활 속 서비스로 안착하기 위해서는 이용자의 신뢰와 함께 지속 가능한 운영 수익 모델 확보가 필수적"',
+      link: "https://www.segye.com/newsView/20250414510000"}
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-4xl">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">In the News</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
-          주요 언론과 미디어에 소개된 David Kim의 코멘트와 인터뷰를 모았습니다.
-          <br/>
-          현장의 이슈를 경제학적 시선으로 해석합니다.
-        </p>
-      </div>
+    <div className="bg-[#FBFBFA] min-h-screen pt-32 pb-24">
+      <div className="container mx-auto px-4">
+        {/* Premium Header */}
+        <div className="max-w-4xl mx-auto text-center mb-24">
+            <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-[1px] w-12 bg-gray-200" />
+                <span className="text-primary font-black tracking-[0.3em] uppercase text-[10px]">Media & Coverage</span>
+                <div className="h-[1px] w-12 bg-gray-200" />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+                In the News
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
+                언론을 통해 전해진 경제학자 김동영의 분석과 전망, <br/>
+                주요 산업 이슈에 대한 전문적인 코멘터리를 모았습니다.
+            </p>
+        </div>
 
-      <div className="space-y-8">
-        {newsItems.length > 0 ? (
-          newsItems.map((item, index) => (
-            <article 
+        <div className="max-w-5xl mx-auto space-y-8">
+          {newsItems.map((item, index) => (
+            <div 
               key={index} 
-              className={`flex flex-col md:flex-row gap-6 md:gap-10 items-start border border-gray-100 rounded-2xl p-8 transition-all duration-300 ${expandedId === index ? 'bg-gray-50 shadow-md ring-1 ring-gray-200' : 'bg-white hover:border-gray-200 hover:shadow-sm'}`}
+              className={`bg-white rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-xl overflow-hidden ${expandedId === index ? 'ring-1 ring-primary/20' : ''}`}
             >
-              <div className="md:w-1/4 shrink-0">
-                <div className="text-sm font-bold text-primary mb-2 uppercase tracking-wide">
-                  {item.media}
+              {/* Item Header (Always Visible) */}
+              <div 
+                className="p-8 md:p-10 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                onClick={() => toggleExpand(index)}
+              >
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="bg-gray-900 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-sm">{item.media}</span>
+                    <span className="text-gray-300 text-[10px]">•</span>
+                    <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">{item.date}</span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-serif font-black text-gray-900 leading-tight group-hover:text-primary transition-colors tracking-tight break-keep">
+                    {item.title}
+                  </h3>
                 </div>
-                <div className="text-gray-500 font-serif">
-                  {item.date}
+                
+                <div className="flex items-center gap-4">
+                    <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300">
+                        {expandedId === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                    </button>
                 </div>
               </div>
-              
-              <div className="md:w-3/4 w-full">
-                <div className="cursor-pointer" onClick={() => toggleExpand(index)}>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-3 hover:text-primary transition-colors flex justify-between items-start gap-4">
-                        <span>{item.title}</span>
-                        {expandedId === index ? <ChevronUp className="shrink-0 mt-1 text-gray-400" /> : <ChevronDown className="shrink-0 mt-1 text-gray-400" />}
-                    </h2>
-                    <p className="text-gray-600 leading-relaxed mb-4 font-medium">
-                        {item.coreSummary}
-                    </p>
-                </div>
 
-                {/* Expanded Content */} 
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedId === index ? 'max-h-[1000px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
-                  <div className="border-t border-gray-200 pt-6 space-y-6">
-                    <div>
-                        <h4 className="text-sm font-bold text-gray-900 mb-2 uppercase tracking-wide">Summary</h4>
-                        <p className="text-gray-600 leading-relaxed text-sm">
-                            {item.fullSummary}
-                        </p>
-                    </div>
-                    
-                    <div className="bg-white p-6 rounded-lg border-l-4 border-primary shadow-sm">
-                         <h4 className="text-sm font-bold text-primary mb-3 uppercase tracking-wide flex items-center gap-2">
-                            Commentary
-                            <span className="text-xs font-normal text-gray-400 normal-case">by 김동영 KDI 전문연구원</span>
-                         </h4>
-                        <p className="text-gray-800 font-serif italic text-lg leading-relaxed">
+              {/* Core Summary (Always Visible or part of transition) */}
+              <div className="px-8 md:px-10 pb-8 border-t border-gray-50 pt-8 bg-gray-50/30">
+                 <p className="text-gray-600 leading-relaxed font-light break-keep">
+                    {item.coreSummary}
+                 </p>
+              </div>
+
+              {/* Expandable Content */}
+              {expandedId === index && (
+                <div className="px-8 md:px-10 pb-10 space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
+                  <div className="pt-8 border-t border-gray-100">
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-primary mb-4">Full Analysis</h4>
+                    <p className="text-gray-700 leading-[1.8] font-light break-keep">
+                        {item.fullSummary}
+                    </p>
+                  </div>
+                  
+                  {item.quote && (
+                    <div className="relative p-8 bg-gray-50 rounded-[2rem] italic">
+                        <div className="absolute top-6 left-6 text-primary/20 opacity-50">
+                             <Newspaper size={40} />
+                        </div>
+                        <p className="relative z-10 text-lg font-serif text-gray-600 leading-relaxed break-keep">
                             {item.quote}
                         </p>
                     </div>
+                  )}
 
-                    <div className="pt-2">
-                        <Link 
-                            href={item.link} 
-                            target="_blank"
-                            className="inline-flex items-center text-sm font-bold text-gray-900 hover:text-primary transition-colors group px-4 py-2 border border-gray-300 rounded-full hover:border-primary bg-white"
-                        >
-                            기사 원문 보러가기 
-                            <ArrowUpRight size={16} className="ml-2 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-                        </Link>
-                    </div>
+                  <div className="flex justify-end pt-4">
+                    <Link 
+                      href={item.link} 
+                      target="_blank" 
+                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all"
+                    >
+                      Read Original Article <ArrowUpRight size={14} />
+                    </Link>
                   </div>
                 </div>
-                
-                {expandedId !== index && (
-                    <button 
-                        onClick={() => toggleExpand(index)}
-                        className="text-sm text-gray-400 hover:text-primary mt-2 flex items-center gap-1 transition-colors"
-                    >
-                        자세히 보기 <ChevronDown size={14} />
-                    </button>
-                )}
-              </div>
-            </article>
-          )) 
-        ) : (
-          <div className="text-center py-20 bg-gray-50 rounded-xl border border-dashed border-gray-200">
-            <p className="text-gray-400 font-serif italic">새로운 소식이 곧 업데이트될 예정입니다.</p>
-          </div>
-        )}
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

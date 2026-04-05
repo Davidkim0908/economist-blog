@@ -1,96 +1,42 @@
-import Link from "next/link";
-import { getPostsByCategory, Post } from "@/lib/posts";
-import { ExternalLink } from "lucide-react";
+import { getPostsByCategory } from "@/lib/posts";
+import PostCard from "@/components/PostCard";
+import { Mic2 } from "lucide-react";
 
 export default function DeskPage() {
   const posts = getPostsByCategory('desk');
 
-  // Helper to get source info and branding
-  const getSourceInfo = (slug: string) => {
-    if (slug.includes('bloomberg') || slug.includes('trump-tariffs')) {
-      return { name: "Bloomberg", color: "#000000" };
-    }
-    // Default to The Economist
-    return { name: "The Economist", color: "#E3120B" };
-  };
-
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="text-center mb-16 max-w-2xl mx-auto">
-        <span className="text-primary font-bold tracking-wider uppercase text-sm mb-4 block">Workspace</span>
-        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-900">
-          On My Desk
-        </h1>
-        <p className="text-xl text-gray-600 leading-relaxed">
-          Fragments of thought, ongoing research, and things that catch my eye.
-        </p>
-      </div>
-
-      {posts.length > 0 ? (
-        <div className="grid md:grid-cols-3 gap-8">
-          {posts.map((post) => {
-            const getSourceBadge = (source?: string) => {
-              if (!source) return null;
-              const s = source.toUpperCase();
-              if (s === 'WIRED') return { symbol: 'W', color: 'bg-black', font: 'font-sans font-black tracking-tighter' };
-              if (s === 'BLOOMBERG') return { symbol: 'B', color: 'bg-black', font: 'font-sans font-bold' };
-              if (s === 'ECONOMIST' || s.includes('ECONOMIST')) return { symbol: 'E', color: 'bg-[#E3120B]', font: 'font-serif font-bold' };
-              if (s === 'FORBES') return { symbol: 'F', color: 'bg-black', font: 'font-serif font-black' };
-              // Fallback
-              return { symbol: s.charAt(0), color: 'bg-black', font: 'font-sans font-bold' };
-            };
-            const badge = getSourceBadge(post.source);
-
-            return (
-              <div key={post.slug} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
-                <Link href={`/posts/${post.category}/${post.slug}`} className="block relative aspect-[16/9] overflow-hidden">
-                    {/* Standardized Source Badge */}
-                    {badge && (
-                      <div className={`absolute top-3 left-3 z-20 w-7 h-7 ${badge.color} flex items-center justify-center rounded-sm shadow-lg`}>
-                        <span className={`text-white text-base leading-none ${badge.font}`} style={badge.symbol === 'E' ? { fontFamily: 'Georgia, serif', transform: 'translateY(-0.5px)' } : {}}>{badge.symbol}</span>
-                      </div>
-                    )}
-                    
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                        src={post.coverImage} 
-                        alt={post.title} 
-                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" 
-                    />
-                </Link>
-                
-                <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
-                        <span>{post.date}</span>
-                        <span className="uppercase tracking-wider text-[10px] font-bold text-primary">Analysis</span>
-                    </div>
-                    
-                    <Link href={`/posts/${post.category}/${post.slug}`} className="block mb-3">
-                        <h3 className="text-xl font-serif font-bold leading-tight group-hover:text-primary transition-colors">
-                            {post.title}
-                        </h3>
-                    </Link>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
-                        {post.excerpt}
-                    </p>
-                    
-                    <Link 
-                        href={`/posts/${post.category}/${post.slug}`} 
-                        className="inline-flex items-center text-sm font-bold text-gray-900 hover:text-primary transition-colors mt-auto"
-                    >
-                        Read Insight <ExternalLink size={14} className="ml-1" />
-                    </Link>
+    <div className="bg-[#FBFBFA] min-h-screen pt-32 pb-24">
+        <div className="container mx-auto px-4">
+            {/* Premium Header */}
+            <div className="max-w-4xl mx-auto text-center mb-24">
+                <div className="flex items-center justify-center gap-3 mb-6">
+                    <div className="h-[1px] w-12 bg-gray-200" />
+                    <span className="text-primary font-black tracking-[0.3em] uppercase text-[10px]">On My Desk</span>
+                    <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
-              </div>
-            );
-          })}
+                <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+                    Workspace
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
+                    매일 아침 책상 위에 놓이는 글로벌 리포트와 뉴스레터, <br/>
+                    그 속에 숨겨진 날 선 통찰을 기록하고 공유합니다.
+                </p>
+            </div>
+
+            {posts.length > 0 ? (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                {posts.map((post) => (
+                    <PostCard key={post.slug} post={post} />
+                ))}
+                </div>
+            ) : (
+                <div className="text-center py-40 bg-white rounded-[3rem] border border-dashed border-gray-200">
+                    <Mic2 size={48} className="mx-auto text-gray-200 mb-6" />
+                    <p className="text-gray-400 font-serif italic text-xl tracking-tight">The desk is currently clear. <br/>Check back for new research soon.</p>
+                </div>
+            )}
         </div>
-      ) : (
-        <div className="text-center py-20 text-gray-400">
-          <p>No items on the desk yet. Check back soon!</p>
-        </div>
-      )}
     </div>
   );
 }
