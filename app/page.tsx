@@ -94,7 +94,7 @@ export default function Home() {
       <section className="bg-gray-900 text-white -mx-4 px-4 py-20 mb-24 rounded-[3rem] overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent"></div>
         <div className="container mx-auto relative z-10">
-            <div className="flex justify-between items-end mb-12 px-4">
+            <div className="flex justify-between items-end mb-12 px-4 md:px-12 lg:px-20">
                 <div>
                     <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-3">Industry Focus</h2>
                     <h3 className="text-4xl font-serif font-black tracking-tight text-white">AI & Mobility Shift</h3>
@@ -103,7 +103,7 @@ export default function Home() {
                     Explore All <ArrowRight size={14} />
                 </Link>
             </div>
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-4 gap-6 px-4 md:px-12 lg:px-20">
                 {transformationPosts.map(post => (
                     <PostCard key={post.slug} post={post} variant="overlay" className="aspect-[3/4]" />
                 ))}
