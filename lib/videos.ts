@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "ai-semiconductor-war",
+    title: "[특집] AI 반도체 전쟁, 승자는 누구인가? (KDI 김동영 전문연구원)",
+    date: "2024-05-23",
+    description: "AI 반도체 시장의 패러다임 변화와 엔비디아의 독주, 그리고 그 속에서 한국 반도체 산업(HBM 등)이 마주한 기회와 과제를 심층 분석합니다.",
+    youtubeId: "xU8e3pkgkss"
+  },
+  {
     id: "kbs-debate-taxi-221012",
     title: "[KBS 열린토론] 심야 택시 호출료 인상…택시 대란 해소할까?",
     date: "2022-10-12",
