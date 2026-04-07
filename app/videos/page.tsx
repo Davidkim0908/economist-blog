@@ -1,6 +1,10 @@
 import { getAllVideos } from "@/lib/videos";
 import VideoCard from "@/components/VideoCard";
 
+// 영상 데이터 실시간 반영을 위한 설정
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default function VideosPage() {
   const videos = getAllVideos();
 
