@@ -6,8 +6,9 @@ import { getAllVideos } from "@/lib/videos";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Mic2, Newspaper, Video } from "lucide-react";
 
-// 새로고침 시 무작위 책 추천을 위해 동적 렌더링 활성화
+// 새로고침 시 무작위 책 추천 및 최신 영상 반영을 위해 동적 렌더링 활성화
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default function Home() {
   const allPosts = getAllPosts();
