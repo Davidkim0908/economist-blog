@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "kbs-debate-taxi-221012",
+    title: "[KBS 열린토론] 심야 택시 호출료 인상…택시 대란 해소할까?",
+    date: "2022-10-12",
+    description: "KBS 열린토론 출연. 심야 택시 호출료 인상 정책의 실효성과 택시 대란 해소를 위한 근본적인 대책에 대해 김동영 KDI 전문연구원이 심층 토론합니다.",
+    youtubeId: "C1Fjs_kMvSA"
+  },
+  {
     id: "sbs-biz-260407",
     title: "[직설] 삼성전자, 역대급 잠정실적 발표…반도체 시장 관련 소식은?",
     date: "2026-04-07",
