@@ -15,6 +15,13 @@ export const videos: Video[] = [
     youtubeId: "GI3A7HJZAYc"
   },
   {
+    id: "sbs-moneyshort-260331",
+    title: "[머니숏] 산업의 '멸종과 탄생' 놓치면 안되는 현대차 전략",
+    date: "2026-03-31",
+    description: "SBS 머니쇼 [머니숏]. 급변하는 자동차 산업의 생태계 속에서 현대차가 취하고 있는 핵심 전략과 미래 모빌리티 시장의 주도권 확보 방안을 요약합니다.",
+    youtubeId: "wP0GOj15hSQ"
+  },
+  {
     id: "sbs-money-show-260331",
     title: "[SBS 머니쇼] 삼성전자·현대차 지원, '퍼주기' 아닌 국가 생존 전략인 이유",
     date: "2026-03-31",
