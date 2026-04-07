@@ -8,25 +8,18 @@ export type Video = {
 
 export const videos: Video[] = [
   {
-    id: "secret-economy-iq",
-    title: "[김동영의 시크릿경제] 전세계 IQ는 계속 상승한다 | 우리 아이 머리 좋아지게 하려면?",
-    date: "2024-07-24",
-    description: "플린 효과(Flynn effect)를 통해 전 세계 인류의 지능 지수가 계속 상승하는 이유를 분석하고, 인지 능력 향상을 위한 환경적 요인과 교육의 역할에 대해 논의합니다.",
-    youtubeId: "xU8e3pkgkss"
-  },
-  {
-    id: "kbs-debate-taxi-221012",
-    title: "[KBS 열린토론] 심야 택시 호출료 인상…택시 대란 해소할까?",
-    date: "2022-10-12",
-    description: "KBS 열린토론 출연. 심야 택시 호출료 인상 정책의 실효성과 택시 대란 해소를 위한 근본적인 대책에 대해 김동영 KDI 전문연구원이 심층 토론합니다.",
-    youtubeId: "C1Fjs_kMvSA"
-  },
-  {
     id: "sbs-biz-260407",
     title: "[직설] 삼성전자, 역대급 잠정실적 발표…반도체 시장 관련 소식은?",
     date: "2026-04-07",
     description: "SBS Biz 직설 출연. 삼성전자의 역대급 잠정 실적 발표와 함께 글로벌 반도체 시장의 흐름 및 향후 전망에 대해 심층 분석합니다.",
     youtubeId: "GI3A7HJZAYc"
+  },
+  {
+    id: "kb-radio-260401",
+    title: "[성기영의 경제쇼] 코스피 8%대 급등 및 민생지원금 분석 (26.04.01)",
+    date: "2026-04-01",
+    description: "KBS 1라디오 성기영의 경제쇼 출연분. 종전 기대감으로 인한 증시 폭등과 민생지원금 지급 대상 확대 등 주요 경제 현안을 심층 분석합니다. (34분 38초부터 재생)",
+    youtubeId: "mEXOm42jhe8?start=2078"
   },
   {
     id: "sbs-moneyshort-260331",
@@ -55,6 +48,13 @@ export const videos: Video[] = [
     date: "2026-01-14",
     description: "KBS 1라디오 경제쇼 출연분. 급변하는 증시와 환율 시장에 대한 심층 분석.",
     youtubeId: "19nfIagMu48"
+  },
+  {
+    id: "secret-economy-iq",
+    title: "[김동영의 시크릿경제] 전세계 IQ는 계속 상승한다 | 우리 아이 머리 좋아지게 하려면?",
+    date: "2024-07-24",
+    description: "플린 효과(Flynn effect)를 통해 전 세계 인류의 지능 지수가 계속 상승하는 이유를 분석하고, 인지 능력 향상을 위한 환경적 요인과 교육의 역할에 대해 논의합니다.",
+    youtubeId: "xU8e3pkgkss"
   },
   {
     id: "robotaxi-speed-war",
@@ -130,8 +130,8 @@ export const videos: Video[] = [
     id: "maeil-goodmorning-wall-street",
     title: "[Talk&theCity] 굿모닝 월가월부: 숨겨진 보석 같은 경제 정보를 즐겁게 캐치해보자",
     date: "2023-12-18",
-    description: "매일경제TV 출연. 테슬라 리콜 사태부터 자율주행 농기계까지, 시장의 노이즈 속에서 진정한 가치를 지닌 경제 정보를 데이터로 선별해 분석합니다.",
-    youtubeId: "mEXOm42jhe8?start=2078"
+    description: "매일경제TV 출연. 시장의 노이즈 속에서 진정한 가치를 지닌 경제 정보를 선별하고, 투자와 경제 지표를 읽는 법에 대해 논의합니다.",
+    youtubeId: "JOE79hU2QY0"
   },
   {
     id: "kb-radio-unfair-algorithm",
@@ -160,6 +160,13 @@ export const videos: Video[] = [
     date: "2022-10-04",
     description: "심야 택시 대란 해소를 위한 정부의 요금 인상 정책 분석. 승차난의 구조적 원인과 해법에 대한 김동영 KDI 전문연구원의 진단.",
     youtubeId: "YAgPL2zbVrY"
+  },
+  {
+    id: "kbs-debate-taxi-221012",
+    title: "[KBS 열린토론] 심야 택시 호출료 인상…택시 대란 해소할까?",
+    date: "2022-10-12",
+    description: "KBS 열린토론 출연. 심야 택시 호출료 인상 정책의 실효성과 택시 대란 해소를 위한 근본적인 대책에 대해 김동영 KDI 전문연구원이 심층 토론합니다.",
+    youtubeId: "C1Fjs_kMvSA"
   }
 ];
 
