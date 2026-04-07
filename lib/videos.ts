@@ -8,10 +8,10 @@ export type Video = {
 
 export const videos: Video[] = [
   {
-    id: "ai-semiconductor-war",
-    title: "[특집] AI 반도체 전쟁, 승자는 누구인가? (KDI 김동영 전문연구원)",
-    date: "2024-05-23",
-    description: "AI 반도체 시장의 패러다임 변화와 엔비디아의 독주, 그리고 그 속에서 한국 반도체 산업(HBM 등)이 마주한 기회와 과제를 심층 분석합니다.",
+    id: "secret-economy-iq",
+    title: "[김동영의 시크릿경제] 전세계 IQ는 계속 상승한다 | 우리 아이 머리 좋아지게 하려면?",
+    date: "2024-07-24",
+    description: "플린 효과(Flynn effect)를 통해 전 세계 인류의 지능 지수가 계속 상승하는 이유를 분석하고, 인지 능력 향상을 위한 환경적 요인과 교육의 역할에 대해 논의합니다.",
     youtubeId: "xU8e3pkgkss"
   },
   {
