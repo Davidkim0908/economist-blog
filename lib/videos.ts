@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "kb-hanbang-230518",
+    title: "[경제한방] \"집값, 지금이 바닥일까?\"…KDI 김동영 박사에게 듣는 부동산 시장 전망",
+    date: "2023-05-18",
+    description: "KBS 경제한방 출연. 부동산 시장의 하락세 속에서 현재가 저점인지, 향후 금리와 공급 물량이 시장에 어떤 영향을 미칠지에 대한 거시적 흐름과 전망을 분석합니다.",
+    youtubeId: "GI3A7HJZAYc"
+  },
+  {
     id: "sbs-money-show-260331",
     title: "[SBS 머니쇼] 삼성전자·현대차 지원, '퍼주기' 아닌 국가 생존 전략인 이유",
     date: "2026-03-31",
