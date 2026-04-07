@@ -130,8 +130,8 @@ export const videos: Video[] = [
     id: "maeil-goodmorning-wall-street",
     title: "[Talk&theCity] 굿모닝 월가월부: 숨겨진 보석 같은 경제 정보를 즐겁게 캐치해보자",
     date: "2023-12-18",
-    description: "매일경제TV 출연. 시장의 노이즈 속에서 진정한 가치를 지닌 경제 정보를 선별하고, 투자와 경제 지표를 읽는 법에 대해 논의합니다.",
-    youtubeId: "JOE79hU2QY0"
+    description: "매일경제TV 출연. 테슬라 리콜 사태부터 자율주행 농기계까지, 시장의 노이즈 속에서 진정한 가치를 지닌 경제 정보를 데이터로 선별해 분석합니다.",
+    youtubeId: "mEXOm42jhe8?start=2078"
   },
   {
     id: "kb-radio-unfair-algorithm",
