@@ -8,10 +8,10 @@ export type Video = {
 
 export const videos: Video[] = [
   {
-    id: "kb-hanbang-230518",
-    title: "[경제한방] \"집값, 지금이 바닥일까?\"…KDI 김동영 박사에게 듣는 부동산 시장 전망",
-    date: "2023-05-18",
-    description: "KBS 경제한방 출연. 부동산 시장의 하락세 속에서 현재가 저점인지, 향후 금리와 공급 물량이 시장에 어떤 영향을 미칠지에 대한 거시적 흐름과 전망을 분석합니다.",
+    id: "sbs-biz-260407",
+    title: "[직설] 삼성전자, 역대급 잠정실적 발표…반도체 시장 관련 소식은?",
+    date: "2026-04-07",
+    description: "SBS Biz 직설 출연. 삼성전자의 역대급 잠정 실적 발표와 함께 글로벌 반도체 시장의 흐름 및 향후 전망에 대해 심층 분석합니다.",
     youtubeId: "GI3A7HJZAYc"
   },
   {

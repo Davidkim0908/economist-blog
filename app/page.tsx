@@ -1,8 +1,10 @@
 import Hero from "@/components/Hero";
 import PostCard from "@/components/PostCard";
+import VideoCard from "@/components/VideoCard";
 import { getAllPosts, getFeaturedPost } from "@/lib/posts";
+import { getAllVideos } from "@/lib/videos";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Mic2, Newspaper } from "lucide-react";
+import { ArrowRight, BookOpen, Mic2, Newspaper, Video } from "lucide-react";
 
 // 새로고침 시 무작위 책 추천을 위해 동적 렌더링 활성화
 export const dynamic = 'force-dynamic';
@@ -10,6 +12,7 @@ export const dynamic = 'force-dynamic';
 export default function Home() {
   const allPosts = getAllPosts();
   const featuredPost = getFeaturedPost();
+  const allVideos = getAllVideos().slice(0, 3);
   
   // 1. Data Filtering
   const focusCategories = ['digital-transformation', 'mobility', 'history'];
@@ -148,7 +151,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. [Section D] The Library (Fixed 3 Bookshelf) */}
+      {/* 5. [Section E] Videos & Broadcast */}
+      <section className="mb-24">
+        <div className="flex justify-between items-end mb-12">
+            <div>
+                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-3">Broadcast & Media</h2>
+                <h3 className="text-4xl font-serif font-black tracking-tight text-gray-900">Visual Insights</h3>
+            </div>
+            <Link href="/videos" className="text-xs font-black tracking-widest uppercase flex items-center gap-2 hover:text-primary transition-colors text-gray-900">
+                View All Videos <ArrowRight size={14} />
+            </Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+            {allVideos.map((video) => (
+                <VideoCard key={video.id} {...video} />
+            ))}
+        </div>
+      </section>
+
+      {/* 6. [Section D] The Library (Fixed 3 Bookshelf) */}
       <section className="bg-[#F4F4F2] -mx-4 px-4 py-24 mb-24 rounded-[3rem]">
          <div className="container mx-auto">
             <div className="flex items-center justify-center flex-col mb-16">
@@ -182,7 +203,7 @@ export default function Home() {
          </div>
       </section>
 
-      {/* 6. Author & Newsletter Footer */}
+      {/* 7. Author & Newsletter Footer */}
       <section className="grid md:grid-cols-2 gap-16 items-stretch mb-16 border-t border-gray-200 pt-24">
         <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
             <div className="w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
