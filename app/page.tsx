@@ -3,6 +3,7 @@ import PostCard from "@/components/PostCard";
 import VideoCard from "@/components/VideoCard";
 import { getAllPosts, getFeaturedPost } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
+import { newsItems } from "@/lib/news";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Mic2, Newspaper, Video } from "lucide-react";
 
@@ -14,6 +15,7 @@ export default function Home() {
   const allPosts = getAllPosts();
   const featuredPost = getFeaturedPost();
   const allVideos = getAllVideos().slice(0, 3);
+  const latestNews = newsItems.slice(0, 3);
   
   // 1. Data Filtering
   const focusCategories = ['digital-transformation', 'mobility', 'history'];
@@ -148,6 +150,31 @@ export default function Home() {
                 <Link href="/desk" className="mt-10 block text-center bg-gray-900 text-white py-4 rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-primary transition-all shadow-lg">
                     Full Research Archive
                 </Link>
+
+                <div className="mt-12 pt-8 border-t border-gray-200">
+                    <div className="flex items-center gap-2 mb-6">
+                        <Newspaper size={16} className="text-primary" />
+                        <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-gray-900">In the News</h2>
+                    </div>
+                    <div className="space-y-6">
+                        {latestNews.map((item, idx) => (
+                            <div key={idx} className="group">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <span className="text-[8px] font-black uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded-sm">{item.media}</span>
+                                    <span className="text-[8px] text-gray-400 font-bold uppercase tracking-widest">{item.date}</span>
+                                </div>
+                                <Link href="/news">
+                                    <h4 className="text-sm font-serif font-bold group-hover:text-primary transition-colors leading-snug break-keep">
+                                        {item.title}
+                                    </h4>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                    <Link href="/news" className="mt-8 flex items-center justify-center gap-2 text-[10px] font-black tracking-widest uppercase text-gray-400 hover:text-primary transition-colors">
+                        View All Coverage <ArrowRight size={12} />
+                    </Link>
+                </div>
             </div>
         </div>
       </section>
