@@ -166,11 +166,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right: Search */}
-          <div className={`flex items-center space-x-6 z-50 relative transition-colors ${textColorClass}`}>
+          {/* Right: Search & Join */}
+          <div className={`flex items-center space-x-4 md:space-x-6 z-50 relative transition-colors ${textColorClass}`}>
             <div className="hidden sm:block hover:text-primary transition-colors cursor-pointer">
                 <Search />
             </div>
+            <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 ${isHome && !isScrolled ? 'border-white text-white hover:bg-white hover:text-dark' : 'border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'}`}>
+                Join
+            </Link>
             <button 
                 className={`lg:hidden p-2 rounded-full transition-colors ${isHome && !isScrolled ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-900'}`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -199,6 +202,7 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4">
                 <Link href="/books" className="text-2xl font-serif font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
                 <Link href="/desk" className="text-2xl font-serif font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
+                <Link href="/join" className="text-2xl font-serif font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>
             </div>
         </div>
       </div>
