@@ -107,15 +107,42 @@ export default async function PostPage({ params }: Props) {
 
       {/* 2. Full Bleed Featured Image Container */}
       <div className="container mx-auto px-4 lg:px-8 mb-20">
-        <div className="relative w-full aspect-[21/9] rounded-[3rem] overflow-hidden shadow-2xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
+        {category === 'books' ? (
+          <div className="relative w-full min-h-[400px] md:min-h-[600px] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-900/5 flex items-center justify-center p-8 md:p-16">
+            {/* Background Blur Effect */}
+            <div 
+              className="absolute inset-0 blur-3xl opacity-30 scale-110"
+              style={{ 
+                backgroundImage: `url(${post.coverImage || "/placeholder.jpg"})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            />
+            {/* Full Book Cover */}
+            <div className="relative z-10 w-full max-w-[400px] group">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
                 src={post.coverImage || "/placeholder.jpg"} 
                 alt={post.title} 
-                className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/10"></div>
-        </div>
+                className="w-full h-auto shadow-[0_20px_50px_rgba(0,0,0,0.3)] rounded-sm transform transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              {/* Subtle Overlay */}
+              <div className="absolute inset-0 bg-black/5 rounded-sm"></div>
+            </div>
+            {/* Bottom Gradient for depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+        ) : (
+          <div className="relative w-full aspect-[21/9] rounded-[3rem] overflow-hidden shadow-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                  src={post.coverImage || "/placeholder.jpg"} 
+                  alt={post.title} 
+                  className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/10"></div>
+          </div>
+        )}
       </div>
 
       {/* 3. Main Content Grid */}

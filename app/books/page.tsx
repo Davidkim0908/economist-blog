@@ -29,12 +29,12 @@ export default function BooksPage() {
                 <div key={post.slug} className="group flex flex-col items-center text-center">
                     {/* Floating Book Cover */}
                     <Link href={`/posts/${post.category}/${post.slug}`} className="relative mb-10 w-56 h-80 group">
-                        <div className="absolute inset-0 bg-gray-900 rounded-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-2">
+                        <div className="absolute inset-0 bg-gray-50 rounded-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-2 overflow-hidden">
                              {/* eslint-disable-next-line @next/next/no-img-element */}
                              <img 
                                 src={post.coverImage} 
                                 alt={post.title} 
-                                className="w-full h-full object-cover rounded-sm shadow-2xl" 
+                                className="w-full h-full object-contain rounded-sm" 
                              />
                              <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
