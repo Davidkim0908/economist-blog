@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { getPostBySlug, getAllPosts, postImage, isSeriesCover } from "@/lib/posts";
 import PostVisual from "@/components/PostVisual";
+import { seriesStyle } from "@/lib/site";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(category, slug);
   if (!post) return {};
   // 연재 번호 표지 글은 번호가 들어간 공유 이미지를 자동 생성
-  const image = postImage(post) ?? (isSeriesCover(post) ? `/og/series/${post.seriesOrder}` : undefined);
+  const image = postImage(post) ?? (isSeriesCover(post) ? `/og/series/${post.seriesOrder}?s=${seriesStyle(post.series!).key}` : undefined);
   return {
     title: `${post.title} | David's Notes`,
     description: post.excerpt,
