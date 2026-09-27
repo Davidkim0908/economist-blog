@@ -18,9 +18,9 @@ const photo = (post: Post) => post.heroImage || post.coverImage;
 // 카테고리·출처는 제목 위 키커가 아니라 본문 아래 메타 줄로
 function Meta({ label, date }: { label: string; date?: string }) {
   return (
-    <p className="text-sm text-gray-600 flex items-center gap-2">
+    <p className="text-sm text-gray-600 flex flex-wrap items-center gap-x-2 gap-y-1">
       <span className="type-label-en">{label}</span>
-      {date && <><span aria-hidden="true">·</span><span>{date}</span></>}
+      {date && <span className="whitespace-nowrap"><span aria-hidden="true" className="mr-2">·</span>{date}</span>}
     </p>
   );
 }
@@ -45,10 +45,11 @@ export default function Home() {
   const all = getAllPosts();
   const featured = getFeaturedPost();
   const focus = ["digital-transformation", "mobility", "history"];
-  const stories = all.filter((p) => focus.includes(p.category) && p.slug !== featured?.slug).slice(0, 3);
-  const desk = all.filter((p) => p.category === "desk").slice(0, 3);
+  const stories = all.filter((p) => focus.includes(p.category) && p.slug !== featured?.slug).slice(0, 5);
+  const [leadStory, ...moreStories] = stories;
+  const desk = all.filter((p) => p.category === "desk").slice(0, 6);
   const books = all.filter((p) => p.category === "books").slice(0, 4);
-  const videos = getAllVideos().slice(0, 2);
+  const videos = getAllVideos().slice(0, 4);
 
   return (
     <div className="bg-paper text-gray-900 pb-28 -mb-20">
@@ -81,19 +82,35 @@ export default function Home() {
         {/* Latest stories */}
         <section className="pt-20 md:pt-28 pb-20">
           <SectionTitle title="Latest" ko="최신 글" moreHref="/topics/digital-transformation" more="전체 보기" />
-          <div className="grid md:grid-cols-3 gap-10 md:gap-8">
-            {stories.map((post) => (
-              <article key={post.slug} className="group">
-                <Link href={href(post)} className="block relative aspect-[4/3] rounded-2xl overflow-hidden bg-sheet mb-6" tabIndex={-1} aria-hidden="true">
-                  {photo(post) && <Image src={photo(post)!} alt="" fill sizes="(min-width: 768px) 400px, 100vw" className="object-cover" />}
+          {/* 5편: 큰 대표 1 + 목록 4 (비대칭) */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+            {leadStory && (
+              <article className="lg:col-span-7">
+                <Link href={href(leadStory)} className="block relative aspect-[16/10] rounded-2xl overflow-hidden bg-sheet mb-6" tabIndex={-1} aria-hidden="true">
+                  {photo(leadStory) && <Image src={photo(leadStory)!} alt="" fill sizes="(min-width: 1024px) 680px, 100vw" className="object-cover" />}
                 </Link>
-                <h3 className="type-title-ko text-[1.3125rem] text-balance mb-2.5">
-                  <Link href={href(post)} className="hover:underline decoration-2 underline-offset-[5px]">{post.title}</Link>
+                <h3 className="type-display-ko text-[1.5rem] md:text-[1.875rem] text-balance mb-3">
+                  <Link href={href(leadStory)} className="hover:underline decoration-2 underline-offset-[6px]">{leadStory.title}</Link>
                 </h3>
-                <p className="text-[0.95rem] leading-relaxed text-gray-600 line-clamp-3 mb-3">{post.excerpt}</p>
-                <Meta label={categoryLabelEn(post.category)} date={formatDate(post.date)} />
+                <p className="text-[1rem] leading-relaxed text-gray-600 line-clamp-3 mb-4 max-w-[40rem]">{leadStory.excerpt}</p>
+                <Meta label={categoryLabelEn(leadStory.category)} date={formatDate(leadStory.date)} />
               </article>
-            ))}
+            )}
+            <ol className="lg:col-span-5 flex flex-col divide-y divide-[#D4D5D2] -mt-5 lg:mt-0">
+              {moreStories.map((post) => (
+                <li key={post.slug} className="py-5 first:lg:pt-0 grid grid-cols-[6.5rem_1fr] sm:grid-cols-[8.5rem_1fr] gap-4 sm:gap-5 items-start">
+                  <Link href={href(post)} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-sheet" tabIndex={-1} aria-hidden="true">
+                    {photo(post) && <Image src={photo(post)!} alt="" fill sizes="136px" className="object-cover" />}
+                  </Link>
+                  <div className="min-w-0">
+                    <h3 className="type-title-ko text-[1.0625rem] text-balance mb-2">
+                      <Link href={href(post)} className="hover:underline decoration-2 underline-offset-[5px]">{post.title}</Link>
+                    </h3>
+                    <Meta label={categoryLabelEn(post.category)} date={formatDate(post.date)} />
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -120,13 +137,14 @@ export default function Home() {
         {desk.length > 0 && (
           <section className="mb-24">
             <SectionTitle title="On My Desk" ko="필자가 골라 읽은 해외 기사" moreHref="/desk" more="전체 보기" />
-            <div className="grid md:grid-cols-3 gap-8">
-              {desk.map((post) => (
-                <article key={post.slug} className="rounded-2xl bg-sheet p-7 flex flex-col">
-                  <h3 className={`${isLatinTitle(post.title) ? "type-title-en" : "type-title-ko"} text-balance mb-3`}>
+            {/* 6편: 글자 중심의 촘촘한 카드 3×2 (모바일은 4편) */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {desk.map((post, i) => (
+                <article key={post.slug} className={`rounded-2xl bg-sheet p-6 flex-col ${i >= 4 ? "hidden sm:flex" : "flex"}`}>
+                  <h3 className={`${isLatinTitle(post.title) ? "type-title-en text-[1.125rem]" : "type-title-ko text-[1.0625rem]"} text-balance mb-2.5`}>
                     <Link href={href(post)} className="hover:underline decoration-2 underline-offset-[5px]">{post.title}</Link>
                   </h3>
-                  <p className="text-[0.95rem] leading-relaxed text-gray-600 line-clamp-4 mb-5">{post.excerpt}</p>
+                  <p className="text-[0.9rem] leading-relaxed text-gray-600 line-clamp-2 mb-4">{post.excerpt}</p>
                   <div className="mt-auto"><Meta label={post.source || "ECONOMIST"} date={formatDate(post.date)} /></div>
                 </article>
               ))}
@@ -138,14 +156,15 @@ export default function Home() {
         {videos.length > 0 && (
           <section className="mb-24">
             <SectionTitle title="Videos" ko="방송·강연" moreHref="/videos" more="전체 영상" />
-            <div className="grid md:grid-cols-2 gap-8">
+            {/* 4편: 한 줄 필름 스트립 (모바일은 옆으로 넘김) */}
+            <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 pb-2 md:mx-0 md:px-0 md:pb-0 md:grid md:grid-cols-4 md:overflow-visible">
               {videos.map((video) => (
-                <article key={video.id}>
-                  <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-900 mb-5">
+                <article key={video.id} className="w-[72%] sm:w-[45%] shrink-0 snap-start md:w-auto">
+                  <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-900 mb-3">
                     <YouTubeFacade youtubeId={video.youtubeId} title={video.title} />
                   </div>
-                  <h3 className="type-title-ko text-balance">{video.title}</h3>
-                  <p className="text-sm text-gray-600 mt-2">{formatDate(video.date)}</p>
+                  <h3 className="type-title-ko text-[0.975rem] leading-snug line-clamp-2">{video.title}</h3>
+                  <p className="text-sm text-gray-600 mt-1.5">{formatDate(video.date)}</p>
                 </article>
               ))}
             </div>
