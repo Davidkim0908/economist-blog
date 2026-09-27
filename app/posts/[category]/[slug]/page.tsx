@@ -88,6 +88,16 @@ export default async function PostPage({ params }: Props) {
                         category === 'desk' ? 'On My Desk' :
                         category;
 
+  const sectionNav = [
+    { key: "digital-transformation", label: "AI Transformation", href: "/topics/digital-transformation" },
+    { key: "mobility", label: "Mobility Transformation", href: "/topics/mobility" },
+    { key: "history", label: "Growth Trajectory", href: "/topics/history" },
+    { key: "books", label: "Books", href: "/books" },
+    { key: "desk", label: "On My Desk", href: "/desk" },
+  ];
+  // 연재 전체 회차 = 가장 큰 회차 번호 (빠진 회차가 있어도 "50 / 127"처럼 읽히게)
+  const seriesCount = post.series ? Math.max(...getAllPosts().filter((p) => p.series === post.series).map((p) => p.seriesOrder ?? 0)) : 0;
+
   return (
     <article className="bg-[#FBFBFA] min-h-screen pt-32 pb-24">
       {/* 1. Header & Title Section */}
@@ -238,14 +248,38 @@ export default async function PostPage({ params }: Props) {
                         <Link href="/desk" className="text-xs font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">Explore Research</Link>
                     </div>
                     
-                    <div className="px-4">
-                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-6">Current Focus</h4>
-                        <div className="space-y-4">
-                            <Link href="/topics/digital-transformation" className="block text-sm font-display font-bold text-gray-900 hover:text-primary transition-colors">AI Transformation</Link>
-                            <Link href="/topics/mobility" className="block text-sm font-display font-bold text-gray-900 hover:text-primary transition-colors">Mobility Transformation</Link>
-                            <Link href="/topics/history" className="block text-sm font-display font-bold text-gray-900 hover:text-primary transition-colors">Growth Trajectory</Link>
-                        </div>
-                    </div>
+                    {/* 지금 읽는 글의 위치: 현재 섹션 강조 + 연재면 회차 */}
+                    <nav className="px-4" aria-label="현재 위치">
+                        <p className="type-label-en text-gray-600 mb-5">You are reading</p>
+                        <ul className="space-y-1">
+                            {sectionNav.map((s) => {
+                                const current = s.key === category;
+                                return (
+                                    <li key={s.key}>
+                                        <Link
+                                            href={s.href}
+                                            aria-current={current ? "page" : undefined}
+                                            className={`block border-l-2 pl-3 py-1.5 type-title-en text-[1rem] transition-colors ${
+                                                current ? "border-gray-900 text-gray-900" : "border-transparent text-gray-500 hover:text-gray-900"
+                                            }`}
+                                        >
+                                            {s.label}
+                                        </Link>
+                                        {current && post.series && (
+                                            <Link
+                                                href={s.href}
+                                                className="block border-l-2 border-gray-900 pl-3 pb-2 text-sm text-gray-600 hover:text-gray-900"
+                                            >
+                                                <span className="font-medium text-gray-900">{post.series}</span>
+                                                <span className="mx-1.5">·</span>
+                                                <span className="tabular-nums">{post.seriesOrder}회 / {seriesCount}회</span>
+                                            </Link>
+                                        )}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </nav>
                 </div>
             </aside>
         </div>
