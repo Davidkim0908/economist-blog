@@ -12,7 +12,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ order: 
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#D2D4D6", color: "#1F2937", padding: "56px 64px" }}>
         <div style={{ display: "flex", fontSize: 30, color: "#4B5563", letterSpacing: 1 }}>The Fourth Industrial Revolution · Series</div>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", fontSize: 300, fontWeight: 700, lineHeight: 0.85, letterSpacing: -12 }}>{num}</div>
+          <div style={{ display: "flex", fontSize: 240, fontWeight: 700, lineHeight: 0.85, letterSpacing: -12 }}>{num}</div>
           <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 30, marginBottom: 18 }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, border: "2px solid #1F2937", fontSize: 24, fontWeight: 700 }}>
               <span style={{ display: "flex" }}>D</span>

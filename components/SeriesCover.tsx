@@ -13,7 +13,7 @@ export default function SeriesCover({ series, order, className = "" }: { series:
       </span>
       <span
         className="absolute left-[5cqw] bottom-[3cqw] font-semibold leading-none"
-        style={{ fontFamily: "var(--font-latin-serif), Georgia, serif", fontSize: "min(34cqw, 15rem)", letterSpacing: "-0.035em" }}
+        style={{ fontFamily: "var(--font-latin-serif), Georgia, serif", fontSize: "min(27.2cqw, 12rem)", letterSpacing: "-0.035em" }}
         aria-hidden="true"
       >
         {num}
