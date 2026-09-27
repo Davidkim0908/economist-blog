@@ -125,28 +125,22 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group block h-full", className)}>
       <div className={cn(
         "flex flex-col h-full bg-white p-5 rounded-[2rem] border border-transparent transition-all duration-500 hover:shadow-lg hover:-translate-y-1",
-        // 연재 카드는 요약 박스 색과 충돌하지 않도록 빨간 채움 대신 떠오르기만
+        // 연재 카드는 요약이 든 번호 표지와 충돌하지 않도록 빨간 채움 대신 떠오르기만
         !series && "hover:bg-primary hover:text-white"
       )}>
         <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm relative">
           {sourceBadge}
-          <PostVisual post={post} alt={post.title} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
+          <PostVisual post={post} summary={series ? post.excerpt : undefined} alt={post.title} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
         </div>
         <div className="flex items-center gap-2 mb-3 px-1">
           <span className={cn("text-xs font-black tracking-widest uppercase text-primary transition-colors", !series && "group-hover:text-white")}>{categoryLabel}</span>
           <span className="text-gray-300 text-xs">•</span>
           <span className={cn("text-xs text-gray-500 uppercase tracking-widest transition-colors", !series && "group-hover:text-white/80")}>{post.date}</span>
         </div>
-        <h3 className={cn("text-xl font-display font-black mb-3 transition-colors leading-tight tracking-tight text-gray-900 px-1", series ? "mb-4 group-hover:underline decoration-2 underline-offset-[5px]" : "group-hover:text-white")}>
+        <h3 className={cn("text-xl font-display font-black mb-3 transition-colors leading-tight tracking-tight text-gray-900 px-1", series ? "group-hover:underline decoration-2 underline-offset-[5px]" : "group-hover:text-white")}>
           {post.title}
         </h3>
-        {series ? (
-          <div className="mt-auto rounded-xl px-4 py-3.5 ring-1 ring-inset ring-white/50" style={{ background: series.bg }}>
-            <p className="text-sm leading-relaxed line-clamp-3" style={{ color: series.number }}>
-              {post.excerpt}
-            </p>
-          </div>
-        ) : (
+        {!series && (
           <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 font-light px-1 group-hover:text-white/90 transition-colors">
             {post.excerpt}
           </p>

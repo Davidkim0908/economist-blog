@@ -11,14 +11,16 @@ export default function PostVisual({
   priority,
   className = "object-cover",
   alt = "",
+  summary,
 }: {
   post: Pick<Post, "heroImage" | "coverImage" | "heroFocus" | "series" | "seriesOrder">;
   sizes: string;
   priority?: boolean;
   className?: string;
   alt?: string;
+  summary?: string;
 }) {
-  if (isSeriesCover(post)) return <SeriesCover series={post.series!} order={post.seriesOrder!} />;
+  if (isSeriesCover(post)) return <SeriesCover series={post.series!} order={post.seriesOrder!} summary={summary} />;
   const src = postImage(post);
   if (!src) return null;
   return (
