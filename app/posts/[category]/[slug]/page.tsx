@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { getPostBySlug, getAllPosts } from "@/lib/posts";
+import type { Metadata } from "next";
+import { getPostBySlug, getAllPosts, postImage } from "@/lib/posts";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -47,6 +48,25 @@ export async function generateStaticParams() {
     category: post.category,
     slug: post.slug,
   }));
+}
+
+// 공유 미리보기(OG)도 같은 대표 이미지
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { category, slug } = await params;
+  const post = getPostBySlug(category, slug);
+  if (!post) return {};
+  const image = postImage(post);
+  return {
+    title: `${post.title} | David's Notes`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      images: image ? [{ url: image }] : undefined,
+    },
+    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt, images: image ? [image] : undefined },
+  };
 }
 
 export default async function PostPage({ params }: Props) {
@@ -136,17 +156,22 @@ export default async function PostPage({ params }: Props) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
         ) : (
-          <div className="relative w-full aspect-[21/9] rounded-[3rem] overflow-hidden shadow-2xl">
-              <Image 
-                  src={post.coverImage || "/placeholder.jpg"} 
-                  alt={post.title} 
-                  fill
-                  priority
-                  sizes="(min-width: 1440px) 1100px, 100vw"
-                  className="object-cover"
-              />
-              <div className="absolute inset-0 bg-black/10"></div>
-          </div>
+          <figure>
+            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden shadow-2xl">
+                {postImage(post) && (
+                  <Image 
+                      src={postImage(post)!} 
+                      alt={post.heroAlt ?? post.title} 
+                      fill
+                      priority
+                      sizes="(min-width: 1440px) 1100px, 100vw"
+                      className="object-cover"
+                      style={post.heroImage ? { objectPosition: post.heroFocus ?? "center" } : undefined}
+                  />
+                )}
+            </div>
+            {post.heroCredit && <figcaption className="mt-3 text-right text-xs text-gray-600">{post.heroCredit}</figcaption>}
+          </figure>
         )}
       </div>
 
@@ -177,6 +202,21 @@ export default async function PostPage({ params }: Props) {
                 <div className="prose prose-gray max-w-none">
                     <MDXRemote source={post.content} components={components} />
                 </div>
+
+                {/* 사진을 대표로 쓰는 글은 기존 인포그래픽을 본문 끝 요약 도해로 */}
+                {post.heroImage && post.coverImage && (
+                  <figure className="mt-16">
+                    <p className="type-label-en text-gray-600 mb-4">At a Glance · 한눈에 보기</p>
+                    <Image
+                      src={post.coverImage}
+                      alt={`${post.title} 요약 도해`}
+                      width={1600}
+                      height={900}
+                      sizes="(min-width: 1024px) 720px, 100vw"
+                      className="w-full h-auto rounded-2xl border border-gray-200"
+                    />
+                  </figure>
+                )}
                 
                 {/* Footer Section */}
                 <footer className="mt-24 pt-12 border-t border-gray-100">

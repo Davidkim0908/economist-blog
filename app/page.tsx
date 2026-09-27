@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { categoryLabelEn, isLatinTitle } from "@/lib/site";
-import { getAllPosts, getFeaturedPost, type Post } from "@/lib/posts";
+import { getAllPosts, getFeaturedPost, postImage, type Post } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { formatDate, firstSentence } from "@/lib/desk";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -12,8 +12,7 @@ import { ArrowRight } from "lucide-react";
 export const revalidate = 3600;
 
 const href = (post: Post) => `/posts/${post.category}/${post.slug}`;
-// 사진 필드(heroImage)가 있으면 사진, 없으면 대표 이미지
-const photo = (post: Post) => post.heroImage || post.coverImage;
+const photo = postImage;
 
 // 카테고리·출처는 제목 위 키커가 아니라 본문 아래 메타 줄로
 function Meta({ label, date }: { label: string; date?: string }) {

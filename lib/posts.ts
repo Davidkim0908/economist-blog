@@ -108,3 +108,6 @@ export function getFeaturedPost(): Post | undefined {
     const focusCategories = ['digital-transformation', 'mobility', 'history'];
     return allPosts.find(post => focusCategories.includes(post.category));
 }
+
+
+export { postImage } from "@/lib/post-image";

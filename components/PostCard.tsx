@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Post } from "@/lib/posts";
+import type { Post } from "@/lib/posts";
+import { postImage } from "@/lib/post-image";
 import { cn } from "@/lib/utils";
 
 interface PostCardProps {
@@ -73,7 +74,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
           <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-[4/3] bg-gray-50 shadow-inner relative">
             {sourceBadge}
             <Image 
-              src={post.coverImage || "/placeholder.jpg"} 
+              src={postImage(post) || "/placeholder.jpg"} 
               alt={post.title} 
               fill
               sizes="(min-width: 768px) 40vw, 100vw"
@@ -106,7 +107,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
       <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl", className)}>
         {sourceBadge}
         <Image 
-          src={post.coverImage || "/placeholder.jpg"} 
+          src={postImage(post) || "/placeholder.jpg"} 
           alt={post.title} 
           fill
           sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
@@ -136,7 +137,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
         <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm relative">
           {sourceBadge}
           <Image 
-            src={post.coverImage || "/placeholder.jpg"} 
+            src={postImage(post) || "/placeholder.jpg"} 
             alt={post.title} 
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
