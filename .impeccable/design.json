@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-27T02:52:12+00:00",
+  "title": "Design System: David's Notes",
+  "extensions": {
+    "colorMeta": {
+      "d-red": {
+        "role": "primary",
+        "displayName": "D. Red",
+        "canonical": "#B91C1C",
+        "oklch": "oklch(50.5% 0.190 27.5)",
+        "tonalRamp": [
+          "#1F0000",
+          "#4B0505",
+          "#7A1513",
+          "#AE2723",
+          "#D64E45",
+          "#EE8175",
+          "#FFB0A5",
+          "#FFDFD7"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Proof Paper",
+        "canonical": "#E8E9E8",
+        "oklch": "oklch(93.3% 0.002 145.6)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242524",
+          "#414241",
+          "#616161",
+          "#828282",
+          "#A4A5A4",
+          "#C8C9C8",
+          "#EEEFEE"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Sheet",
+        "canonical": "#F4F5F4",
+        "oklch": "oklch(96.9% 0.002 145.6)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#242524",
+          "#414241",
+          "#616161",
+          "#828282",
+          "#A4A5A4",
+          "#C8C9C8",
+          "#EEEFEE"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#111827",
+        "oklch": "oklch(21.0% 0.032 264.7)",
+        "tonalRamp": [
+          "#050B18",
+          "#1D2535",
+          "#3A4253",
+          "#586174",
+          "#798296",
+          "#9BA5BA",
+          "#BFC9DF",
+          "#E4EFFF"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#374151",
+        "oklch": "oklch(37.3% 0.031 259.7)",
+        "tonalRamp": [
+          "#040B18",
+          "#1C2534",
+          "#384253",
+          "#576273",
+          "#788395",
+          "#9AA6B9",
+          "#BECADE",
+          "#E3EFFF"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#4B5563",
+        "oklch": "oklch(44.6% 0.026 256.8)",
+        "tonalRamp": [
+          "#050B16",
+          "#1D2632",
+          "#394350",
+          "#586270",
+          "#788392",
+          "#9BA6B6",
+          "#BECADB",
+          "#E4F0FF"
+        ]
+      },
+      "selection-ink": {
+        "role": "neutral",
+        "displayName": "Selection Ink",
+        "canonical": "#16161A",
+        "oklch": "oklch(20.2% 0.008 285.7)",
+        "tonalRamp": [
+          "#0B0B0E",
+          "#252529",
+          "#414146",
+          "#616166",
+          "#828287",
+          "#A4A4AA",
+          "#C8C8CE",
+          "#EEEEF4"
+        ]
+      },
+      "rule-nav": {
+        "role": "neutral",
+        "displayName": "Nav Rule",
+        "canonical": "#BEBEB6",
+        "oklch": "oklch(79.9% 0.011 106.6)",
+        "tonalRamp": [
+          "#0C0B07",
+          "#26251F",
+          "#42423C",
+          "#62625B",
+          "#83837B",
+          "#A6A69E",
+          "#CACAC2",
+          "#EFEFE7"
+        ]
+      },
+      "rule-footer": {
+        "role": "neutral",
+        "displayName": "Footer Rule",
+        "canonical": "#D4D5D2",
+        "oklch": "oklch(87.1% 0.004 121.6)",
+        "tonalRamp": [
+          "#0B0B09",
+          "#252523",
+          "#414240",
+          "#61625F",
+          "#828380",
+          "#A4A5A2",
+          "#C8C9C6",
+          "#EEEFEC"
+        ]
+      },
+      "legacy-ground": {
+        "role": "neutral",
+        "displayName": "Legacy Ground (pre-migration subpages)",
+        "canonical": "#FBFBFA",
+        "oklch": "oklch(98.8% 0.001 106.4)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#A5A5A4",
+          "#C9C9C8",
+          "#EEEEED"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "page-en": {
+        "displayName": "Page Name (EN)",
+        "purpose": "Top-of-page English names on subpages."
+      },
+      "section-en": {
+        "displayName": "Section Name (EN)",
+        "purpose": "English section names (Latest, Meet David, On My Desk, Videos, Books); mobile menu items."
+      },
+      "title-en": {
+        "displayName": "Title (EN)",
+        "purpose": "English curated article titles, auto-selected when a title has no Hangul."
+      },
+      "label-en": {
+        "displayName": "Label",
+        "purpose": "Uppercase tracked category/source label inside meta lines. The 12px floor."
+      },
+      "article-ko": {
+        "displayName": "Article Title (KO)",
+        "purpose": "Article page headlines."
+      },
+      "display-ko": {
+        "displayName": "Display (KO)",
+        "purpose": "Hero card title; enlarged for the Meet David line."
+      },
+      "title-ko": {
+        "displayName": "Title (KO)",
+        "purpose": "Tile and card titles (21px in Latest, 17px under books)."
+      },
+      "sub-ko": {
+        "displayName": "Subtitle (KO)",
+        "purpose": "Small Korean subtitle beside each English section name."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Excerpts and running text; keep-all word breaking."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Plain English nav items, 17px medium."
+      },
+      "logo": {
+        "displayName": "Brand (Playfair)",
+        "purpose": "D. mark, wordmark, end mark only. Fixed brand asset."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hero-card-lift",
+        "value": "0 24px 60px -20px rgba(0,0,0,0.5)",
+        "purpose": "The translucent sheet card floating over the hero photograph."
+      },
+      {
+        "name": "book-cover-drop",
+        "value": "0 12px 30px -12px rgba(0,0,0,0.35)",
+        "purpose": "Book covers on the Books shelf."
+      },
+      {
+        "name": "nav-scrolled",
+        "value": "0 1px 2px 0 rgba(0,0,0,0.05)",
+        "purpose": "Paper nav bar after scrolling past 50px (Tailwind shadow-sm)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "hero-card-in",
+        "value": "700ms cubic-bezier(0.22, 1, 0.36, 1) 150ms; opacity 0→1, translateY 18px→0",
+        "purpose": "The single authored entrance, hero card only; static under prefers-reduced-motion."
+      },
+      {
+        "name": "nav-underline",
+        "value": "transform scaleX 0→1, 300ms, origin left",
+        "purpose": "Active/hover underline on nav items."
+      },
+      {
+        "name": "nav-ground",
+        "value": "all 500ms",
+        "purpose": "Nav switching from transparent-over-hero to paper on scroll."
+      },
+      {
+        "name": "color-response",
+        "value": "color / background-color, Tailwind default 150ms",
+        "purpose": "Hover shifts to D. red; the only transitions kept under reduced motion (with opacity)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "frame",
+        "value": "1440px"
+      }
+    ],
+    "knownGaps": [
+      "Subpages, body and the 1440 site frame still use legacy-ground #FBFBFA / white, with white nav and mega-menu surfaces; not yet migrated to paper/sheet.",
+      "Search overlay shows a red uppercase category kicker above each result title (violates The Red Belongs to D. Rule and the no-kicker rule).",
+      "Footer column heads (Explore, Connect) use sans bold uppercase tracking-widest rather than label-en; footer legal links hover to the same gray-600 (no visible change); bottom rule is gray-100 on paper.",
+      "Mega menu headings use font-black (900) in Noto Sans KR, which is only loaded at 400/500/700; mega menu card carries an uppercase tagline ('Scholar & Strategist') and mobile menu group labels are gray-500 bold uppercase.",
+      "Wordmark 'NOTES' is gray-500 (about 4:1 on paper); acceptable as a logotype but not a pattern for text."
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Pill Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled button (e.g. 김동영 소개 →); ink pill that turns D. red on hover.",
+      "html": "<a class=\"ds-btn-pill\" href=\"#\">김동영 소개 <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-pill { display:inline-flex; align-items:center; gap:8px; background:#111827; color:#fff; border-radius:9999px; padding:14px 28px; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:16px; font-weight:600; text-decoration:none; transition:background-color .15s; } .ds-btn-pill:hover { background:#B91C1C; } .ds-btn-pill:focus-visible { outline:2px solid #111827; outline-offset:3px; }"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "button",
+      "refersTo": "link-arrow",
+      "description": "Tertiary action: 전문 읽기 → / 전체 보기 →. Ink text, red on hover.",
+      "html": "<a class=\"ds-link-arrow\" href=\"#\">전문 읽기 <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-link-arrow { display:inline-flex; align-items:center; gap:8px; padding:8px 0; color:#111827; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:16px; font-weight:700; text-decoration:none; transition:color .15s; } .ds-link-arrow:hover { color:#B91C1C; } .ds-link-arrow:focus-visible { outline:2px solid #111827; outline-offset:3px; }"
+    },
+    {
+      "name": "Navigation Bar (paper)",
+      "kind": "nav",
+      "refersTo": "nav-bar-paper",
+      "description": "Home nav after scroll: paper ground, D. mark, plain English items with a thin underline for active/hover.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-nav-logo\" href=\"#\"><span class=\"ds-nav-mark\">D<em>.</em></span></a><nav class=\"ds-nav-items\"><a class=\"ds-nav-item is-active\" href=\"#\">Meet David</a><a class=\"ds-nav-item\" href=\"#\">Focus</a><a class=\"ds-nav-item\" href=\"#\">Books</a><a class=\"ds-nav-item\" href=\"#\">On My Desk</a></nav></header>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:56px; height:80px; padding:0 32px; background:#E8E9E8; border-bottom:1px solid #BEBEB6; } .ds-nav-mark { width:44px; height:44px; border:2px solid #111827; display:flex; align-items:center; justify-content:center; font-family:var(--font-playfair), 'Playfair Display', serif; font-weight:900; font-size:20px; color:#111827; } .ds-nav-mark em { font-style:normal; color:#B91C1C; } .ds-nav-logo { text-decoration:none; } .ds-nav-logo:hover .ds-nav-mark { background:#B91C1C; border-color:#B91C1C; color:#fff; } .ds-nav-logo:hover .ds-nav-mark em { color:#fff; } .ds-nav-items { display:flex; gap:56px; } .ds-nav-item { position:relative; padding:8px 0; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:17px; font-weight:500; letter-spacing:-0.01em; color:#111827; text-decoration:none; } .ds-nav-item::after { content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:currentColor; transform:scaleX(0); transform-origin:left; transition:transform .3s; } .ds-nav-item:hover::after, .ds-nav-item.is-active::after { transform:scaleX(1); } .ds-nav-item:focus-visible { outline:2px solid #111827; outline-offset:4px; }"
+    },
+    {
+      "name": "Meta Line",
+      "kind": "chip",
+      "refersTo": "meta-line",
+      "description": "Category/source label and date, always below the text it describes; never a kicker above a heading.",
+      "html": "<p class=\"ds-meta\"><span class=\"ds-meta-label\">AI Transformation</span><span aria-hidden=\"true\">·</span><span>2026. 9. 20.</span></p>",
+      "css": ".ds-meta { display:flex; align-items:center; gap:8px; margin:0; color:#4B5563; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:14px; } .ds-meta-label { font-family:var(--font-source-sans), system-ui, sans-serif; font-weight:600; font-size:12px; line-height:1.2; letter-spacing:.14em; text-transform:uppercase; }"
+    },
+    {
+      "name": "Sheet Card (On My Desk)",
+      "kind": "card",
+      "refersTo": "card-sheet",
+      "description": "Flat sheet on paper: title, clamped excerpt, meta line pinned to the bottom.",
+      "html": "<div class=\"ds-ground\"><article class=\"ds-card\"><h3 class=\"ds-card-title\"><a href=\"#\">The productivity paradox returns</a></h3><p class=\"ds-card-excerpt\">AI 투자는 늘었지만 생산성 통계는 아직 조용하다. 과거 전기화와 컴퓨터 도입 때도 그랬다.</p><p class=\"ds-meta\"><span class=\"ds-meta-label\">Economist</span><span aria-hidden=\"true\">·</span><span>2026. 9. 18.</span></p></article></div>",
+      "css": ".ds-ground { background:#E8E9E8; padding:32px; } .ds-card { background:#F4F5F4; border-radius:16px; padding:28px; display:flex; flex-direction:column; max-width:360px; word-break:keep-all; } .ds-card-title { margin:0 0 12px; font-family:var(--font-latin-serif), Georgia, serif; font-weight:600; font-size:20px; line-height:1.3; letter-spacing:-0.005em; text-wrap:balance; } .ds-card-title a { color:#111827; text-decoration:none; } .ds-card-title a:hover { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:5px; } .ds-card-title a:focus-visible { outline:2px solid #111827; outline-offset:3px; } .ds-card-excerpt { margin:0 0 20px; color:#4B5563; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:15.2px; line-height:1.625; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; } .ds-meta { display:flex; gap:8px; margin:auto 0 0; color:#4B5563; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:14px; } .ds-meta-label { font-family:var(--font-source-sans), system-ui, sans-serif; font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; }"
+    },
+    {
+      "name": "Hero Card",
+      "kind": "custom",
+      "refersTo": "hero-card",
+      "description": "Signature: one translucent sheet card bottom-left over a full-bleed credited photograph, with a single entrance.",
+      "html": "<section class=\"ds-hero\"><div class=\"ds-hero-card\"><h1 class=\"ds-hero-title\"><a href=\"#\">무료 데이터의 시대가 끝났다</a></h1><p class=\"ds-hero-excerpt\">AI 학습 데이터에 값이 매겨지기 시작했다.</p><div class=\"ds-hero-row\"><p class=\"ds-meta\"><span class=\"ds-meta-label\">AI Transformation</span><span aria-hidden=\"true\">·</span><span>2026. 9. 20.</span></p><a class=\"ds-hero-cta\" href=\"#\">전문 읽기 →</a></div></div><p class=\"ds-hero-credit\">Photo: Yohan Cho / Unsplash</p></section>",
+      "css": ".ds-hero { position:relative; min-height:420px; display:flex; align-items:flex-end; padding:48px 32px; background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.1) 50%, rgba(0,0,0,.4)), #3a4150; } .ds-hero-card { max-width:34rem; background:rgba(244,245,244,.95); border-radius:16px; padding:40px; box-shadow:0 24px 60px -20px rgba(0,0,0,.5); word-break:keep-all; animation:ds-hero-in 700ms cubic-bezier(0.22,1,0.36,1) 150ms both; } .ds-hero-title { margin:0 0 16px; font-family:var(--font-noto-sans), system-ui, sans-serif; font-weight:700; font-size:clamp(1.75rem, 1.3rem + 1.4vw, 2.375rem); line-height:1.32; letter-spacing:-0.03em; text-wrap:balance; } .ds-hero-title a { color:#111827; text-decoration:none; } .ds-hero-title a:hover { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:6px; } .ds-hero-excerpt { margin:0 0 24px; color:#374151; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:17px; line-height:1.625; } .ds-hero-row { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 24px; } .ds-meta { display:flex; gap:8px; margin:0; color:#4B5563; font-family:var(--font-noto-sans), system-ui, sans-serif; font-size:14px; } .ds-meta-label { font-family:var(--font-source-sans), system-ui, sans-serif; font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; } .ds-hero-cta { padding:8px 0; color:#111827; font-family:var(--font-noto-sans), system-ui, sans-serif; font-weight:700; font-size:16px; text-decoration:none; transition:color .15s; } .ds-hero-cta:hover { color:#B91C1C; } .ds-hero-cta:focus-visible { outline:2px solid #111827; outline-offset:3px; } .ds-hero-credit { position:absolute; right:16px; bottom:12px; margin:0; color:rgba(255,255,255,.8); font-size:12px; } @keyframes ds-hero-in { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } } @media (prefers-reduced-motion: reduce) { .ds-hero-card { animation:none; } }"
+    },
+    {
+      "name": "Section Head",
+      "kind": "custom",
+      "refersTo": "section-en",
+      "description": "English Source Serif section name with a small Korean subtitle on one baseline, and a right-aligned 전체 보기 → link.",
+      "html": "<div class=\"ds-sechead\"><div class=\"ds-sechead-names\"><h2 class=\"ds-sechead-title\">On My Desk</h2><span class=\"ds-sechead-ko\">필자가 골라 읽은 해외 기사</span></div><a class=\"ds-sechead-more\" href=\"#\">전체 보기 →</a></div>",
+      "css": ".ds-sechead { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; background:#E8E9E8; padding:24px; } .ds-sechead-names { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; } .ds-sechead-title { margin:0; font-family:var(--font-latin-serif), Georgia, serif; font-weight:600; font-size:clamp(1.75rem, 1.45rem + 0.9vw, 2.25rem); line-height:1.1; letter-spacing:-0.01em; color:#111827; } .ds-sechead-ko { font-family:var(--font-noto-sans), system-ui, sans-serif; font-weight:500; font-size:15px; line-height:1.5; letter-spacing:-0.01em; color:#4B5563; } .ds-sechead-more { white-space:nowrap; padding:8px 0; font-family:var(--font-noto-sans), system-ui, sans-serif; font-weight:600; font-size:16px; color:#111827; text-decoration:none; transition:color .15s; } .ds-sechead-more:hover { color:#B91C1C; } .ds-sechead-more:focus-visible { outline:2px solid #111827; outline-offset:3px; }"
+    },
+    {
+      "name": "Video Facade",
+      "kind": "custom",
+      "refersTo": "story-tile-image",
+      "description": "Click-to-load YouTube frame: thumbnail, 20% scrim, white round play button; iframe loads only on click.",
+      "html": "<button class=\"ds-video\" type=\"button\" aria-label=\"영상 재생\"><span class=\"ds-video-play\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M7 4v16l13-8z\"/></svg></span></button>",
+      "css": ".ds-video { position:relative; width:480px; max-width:100%; aspect-ratio:16/9; border:0; border-radius:16px; overflow:hidden; cursor:pointer; background:linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), #1f2937; display:flex; align-items:center; justify-content:center; transition:background-color .15s; } .ds-video:hover { background:linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), #1f2937; } .ds-video:focus-visible { outline:2px solid #111827; outline-offset:3px; } .ds-video-play { width:64px; height:64px; border-radius:9999px; background:rgba(255,255,255,.95); color:#111827; display:flex; align-items:center; justify-content:center; padding-left:4px; box-shadow:0 10px 15px -3px rgba(0,0,0,.1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "One Photograph, One Essay",
+    "overview": "The home opens on a single full-bleed photograph with one essay floating over it on a translucent sheet, then settles onto a cool grey-white proof paper where everything else sits in wide, quiet tiles. The model is a personal notebook with the confidence of a magazine cover, not a news portal: few things per screen, lots of air, and nothing that shouts except the photograph.\n\nDepth comes from tone, not ornament. A paper ground carries lighter sheets one step up; the only real shadows sit under the hero card and under book covers, because those are objects lying on the paper. Type does the hierarchy work: Korean in Noto Sans KR bold and tidy, English names of pages and sections in Source Serif 4, and small tracked capitals for labels. Red belongs to the D. mark; everywhere else it only answers a pointer.\n\nThe world was chosen by the author (2026-09-27) as a Gates Notes-style composition mixed with the ground colour of a proofreading sheet. The \"D.\" mark, the wordmark and the red end mark are fixed brand assets drawn in Playfair Display and change only with the author.",
+    "keyCharacteristics": [
+      "Cool grey paper ground (paper) with one-step-lighter sheets for cards, bands and the hero card.",
+      "One full-bleed photograph per home, credited in the corner; a single translucent sheet card over it.",
+      "English section and page names in Source Serif 4, each paired with a small Korean subtitle.",
+      "Category and source sit in a meta line below the text (\"LABEL · date\"), never as a kicker above a heading.",
+      "Red (D. red) reserved for the brand mark and hover states.",
+      "16px corners on every card and image tile; flat surfaces; one authored entrance animation."
+    ],
+    "rules": [
+      {
+        "name": "The Red Belongs to D. Rule",
+        "body": "Red is the brand mark's colour. Outside the logo dot, end mark, blockquote rule and caret, it appears only as a hover or focus response, never as resting text, a label, or a fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Graphite Floor Rule",
+        "body": "No text on paper or sheet is lighter than graphite. Gray-500 and lighter fail 4.5:1 on paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Tongues Rule",
+        "body": "Korean text is always Noto Sans KR; English names of pages, sections and English article titles are Source Serif 4 at 600. Never set a Korean headline in the serif, or an English section name in the sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Keep-All Rule",
+        "body": "`word-break: keep-all` with `overflow-wrap: break-word` is global. Korean words never break mid-word; headings also use `text-wrap: balance`.",
+        "section": "typography"
+      },
+      {
+        "name": "The Twelve Pixel Floor",
+        "body": "No text below 12px (0.75rem). The label-en size is the floor.",
+        "section": "typography"
+      },
+      {
+        "name": "The Objects-Only Shadow Rule",
+        "body": "Cards, bands and tiles are flat sheets. Only the hero card and book covers cast shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put the home on paper and lift content onto sheet; never introduce a third ground tone.",
+      "**Do** name sections in English Source Serif 4 and pair each with a small Korean subtitle in graphite.",
+      "**Do** put category and source in the meta line below the text (\"LABEL · date\").",
+      "**Do** give every photograph a `heroAlt` and, for any image not taken by the author, a visible `heroCredit`.",
+      "**Do** keep text at 12px or larger and no lighter than graphite on paper or sheet.",
+      "**Do** keep motion to the one hero entrance; under reduced motion keep only colour and opacity transitions.",
+      "**Do** keep mega menus keyboard-operable with Escape, keep the skip link, and keep the closed mobile menu inert."
+    ],
+    "donts": [
+      "**Don't** change the D. mark, wordmark, end mark or their Playfair Display face without the author.",
+      "**Don't** use D. red for resting text, labels, kickers or fills; it is the brand's colour and a hover response only.",
+      "**Don't** put a category or source kicker above a heading.",
+      "**Don't** pack the home into a dense card grid or use generic space/abstract stock backgrounds; one photograph, one essay, then wide tiles.",
+      "**Don't** add shadows to cards or bands.",
+      "**Don't** show features that don't work yet (newsletter, join, unlisted social accounts); they stay behind the `lib/site.ts` flags."
+    ]
+  }
+}
