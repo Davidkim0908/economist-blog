@@ -63,12 +63,16 @@ export default function Navbar() {
 
   // 메인 페이지일 때와 아닐 때의 스타일 구분
   // 홈은 교정지(paper) 바탕 위에 놓인다
-  const navbarBgClass = isHome
+  // 사진 히어로 위에 투명하게 뜨는 경로 (Gates Notes 풍 시안)
+  const overHero = pathname === '/preview/gatesnotes' && !isScrolled;
+  const navbarBgClass = overHero
+    ? 'bg-transparent'
+    : isHome
     ? `bg-[#E8E9E8] border-b border-[#BEBEB6] ${isScrolled ? 'shadow-sm' : ''}`
     : 'bg-[#FBFBFA] border-b border-gray-100';
-  
-  const textColorClass = 'text-gray-900';
-  const logoColorClass = 'border-gray-900 text-gray-900';
+
+  const textColorClass = overHero ? 'text-white' : 'text-gray-900';
+  const logoColorClass = overHero ? 'border-white text-white' : 'border-gray-900 text-gray-900';
 
   return (
     <header className={`w-full fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${navbarBgClass}`}>
@@ -91,9 +95,9 @@ export default function Navbar() {
                 <span className={`font-serif font-black text-base md:text-lg tracking-tight leading-none uppercase ${textColorClass}`}>
                   David&apos;s
                 </span>
-                <div className={`h-[1px] w-full my-0.5 group-hover:bg-primary transition-colors bg-gray-200`} />
+                <div className={`h-[1px] w-full my-0.5 group-hover:bg-primary transition-colors ${overHero ? 'bg-white/30' : 'bg-gray-200'}`} />
                 <div className="flex items-baseline w-full">
-                    <span className={`font-sans text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 text-gray-500`}>
+                    <span className={`font-sans text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 ${overHero ? 'text-white/80' : 'text-gray-500'}`}>
                     <span>N</span><span>O</span><span>T</span><span>E</span><span>S</span>
                     </span>
                     <span className="text-primary font-black text-xs leading-none">.</span>
@@ -104,7 +108,7 @@ export default function Navbar() {
           
           {/* Center: Navigation Links (Expanded Pill Box) */}
           <div className="hidden lg:flex items-center justify-center flex-grow px-4">
-            <div className={`w-full max-w-5xl py-2 px-10 flex items-center justify-center space-x-10 transition-all duration-500 text-white ${isHome ? 'bg-[#16161A]' : 'bg-black rounded-full shadow-lg'}`}>
+            <div className={`w-full max-w-5xl py-2 px-10 flex items-center justify-center space-x-10 transition-all duration-500 text-white ${isHome ? 'bg-[#16161A]' : overHero ? 'bg-black/35 rounded-full' : 'bg-black rounded-full shadow-lg'}`}>
                 
                 {/* 1. Meet David Dropdown */}
                 <div className="relative group flex items-center h-full" onBlur={closeOnBlur}>
