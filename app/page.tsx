@@ -1,280 +1,366 @@
 import Image from "next/image";
-import Hero from "@/components/Hero";
-import PostCard from "@/components/PostCard";
-import VideoCard from "@/components/VideoCard";
-import { getAllPosts, getFeaturedPost } from "@/lib/posts";
+import Link from "next/link";
+import { getAllPosts, getFeaturedPost, type Post } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
-import Link from "next/link";
-import { pickRandom } from "@/lib/utils";
-import { SHOW_NEWSLETTER } from "@/lib/site";
-import { ArrowRight, BookOpen, Mic2, Newspaper, Video } from "lucide-react";
+import { deskNote, conclusion, firstSentence, formatDate, dateline } from "@/lib/desk";
+import Drawn from "@/components/home/Drawn";
+import YouTubeFacade from "@/components/YouTubeFacade";
+import { ArrowRight } from "lucide-react";
 
-// 정적 렌더링 + 1시간마다 재생성 (책 추천이 시간 단위로 바뀜)
+// 정적 렌더링 + 1시간마다 재생성 (날짜줄이 시간 단위로 갱신됨)
 export const revalidate = 3600;
+
+const categoryLabels: Record<string, string> = {
+  "digital-transformation": "AI Transformation",
+  mobility: "Mobility Transformation",
+  history: "Growth Trajectory",
+  books: "Books",
+  desk: "On My Desk",
+};
+
+const postHref = (post: Post) => `/posts/${post.category}/${post.slug}`;
+
+// 헤드라인의 앞 구절(…, —, : 앞)에 빨간 펜 밑줄. 구분자가 없으면 전체.
+function splitHeadline(title: string): [string, string] {
+  const m = title.match(/^(.+?)(\s*(?:…|—|:)\s*.*)$/);
+  return m ? [m[1], m[2]] : [title, ""];
+}
+
+// 교정지 모서리의 재단 표시
+function RegMarks() {
+  const mark = (
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true">
+      <path d="M7 0v14M0 7h14" />
+      <circle cx="7" cy="7" r="3.5" />
+    </svg>
+  );
+  return (
+    <>
+      <span className="reg-mark -top-[7px] -left-[7px]">{mark}</span>
+      <span className="reg-mark -top-[7px] -right-[7px]">{mark}</span>
+      <span className="reg-mark -bottom-[7px] -left-[7px]">{mark}</span>
+      <span className="reg-mark -bottom-[7px] -right-[7px]">{mark}</span>
+    </>
+  );
+}
+
+function ReviewStamp() {
+  return (
+    <span className="review-stamp" aria-label="D. 검토 완료">
+      <span className="font-serif font-black text-lg" aria-hidden="true">D.</span>
+      <span className="text-[0.75rem] font-bold tracking-widest" aria-hidden="true">검토</span>
+    </span>
+  );
+}
+
+// 교정지 여백의 검토 도장 — 빨간 펜으로 원을 그려 표시
+function DrawnStamp() {
+  return (
+    <Drawn className="pen-ring">
+      <svg viewBox="0 0 72 72" aria-hidden="true">
+        <path className="pen-ring__stroke" pathLength={1} d="M40 5 C 58 7, 69 22, 67 39 C 65 57, 49 68, 33 67 C 15 65, 4 51, 5 34 C 6 18, 19 6, 36 5 C 41 5, 45 6, 48 8" />
+      </svg>
+      <span className="font-serif font-black text-xl" aria-hidden="true">D.</span>
+      <span className="text-[0.75rem] font-bold tracking-widest" aria-hidden="true">검토</span>
+      <span className="sr-only">D. 검토 완료</span>
+    </Drawn>
+  );
+}
+
+// 여백 메모에서 헤드라인 쪽을 가리키는 빨간 펜 화살표
+function PenArrow() {
+  return (
+    <svg viewBox="0 0 90 40" className="hidden md:block w-20 h-9 text-primary -ml-2 mb-2" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M86 30 C 64 36, 34 34, 8 14" />
+      <path d="M8 14 L 22 14 M8 14 L 13 27" />
+    </svg>
+  );
+}
+
+function SectionHead({ title, aside, href, linkLabel }: { title: string; aside?: string; href?: string; linkLabel?: string }) {
+  return (
+    <div className="flex items-end justify-between gap-6 border-t-2 border-[#16161A] pt-3 mb-8">
+      <div className="flex items-baseline gap-4 flex-wrap">
+        <h2 className="font-serif font-black text-3xl md:text-4xl text-[#16161A] tracking-tight">{title}</h2>
+        {aside && <span className="text-sm text-[#4A4A50]">{aside}</span>}
+      </div>
+      {href && (
+        <Link href={href} className="shrink-0 inline-flex items-center gap-1.5 py-2 text-sm font-bold text-[#16161A] hover:underline decoration-1 underline-offset-[5px]">
+          {linkLabel} <ArrowRight size={14} aria-hidden="true" />
+        </Link>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const allPosts = getAllPosts();
-  const featuredPost = getFeaturedPost();
-  const allVideos = getAllVideos().slice(0, 3);
-  const latestNews = newsItems.slice(0, 3);
-  
-  // 1. Data Filtering
-  const focusCategories = ['digital-transformation', 'mobility', 'history'];
-  const otherPosts = allPosts.filter(post => post.slug !== featuredPost?.slug);
-  const allBookReviews = allPosts.filter(p => p.category === 'books');
-  
-  // [Section A] Lead Analysis & Random Books
-  const leadPost = otherPosts.find(p => focusCategories.includes(p.category));
-  // 상단에 보일 랜덤 책 2권
-  const randomBooks = pickRandom(allBookReviews, 2);
-  
-  // [Section B] AI & Mobility Shift Strip
-  const transformationPosts = otherPosts.filter(p => 
-    (p.category === 'digital-transformation' || p.category === 'mobility') && 
-    p.slug !== leadPost?.slug
-  ).slice(0, 4);
+  const featured = getFeaturedPost();
+  const focus = ["digital-transformation", "mobility", "history"];
+  const rest = allPosts.filter((p) => p.slug !== featured?.slug);
 
-  // [Section C] Sidebar Layout
-  const mainFeed = otherPosts.filter(p => 
-    !transformationPosts.includes(p) && 
-    p.slug !== leadPost?.slug && 
-    p.category !== 'books' && 
-    p.category !== 'desk'
-  ).slice(0, 4);
-  
-  const deskNotes = allPosts.filter(p => p.category === 'desk').slice(0, 5);
-  
-  // [Section D] Fixed Bookshelf (최신순 3권)
-  const latestBooks = allBookReviews
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const deskNotes = allPosts.filter((p) => p.category === "desk").slice(0, 3);
+  const columns = rest.filter((p) => focus.includes(p.category));
+  const lead = columns[0];
+  const moreStories = columns.slice(1, 5);
+  const shift = columns.slice(5, 9);
+  const books = allPosts.filter((p) => p.category === "books").slice(0, 3);
+  const videos = getAllVideos().slice(0, 3);
+  const news = newsItems.slice(0, 3);
+
+  const [underlined, remainder] = featured ? splitHeadline(featured.title) : ["", ""];
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* 1. Hero Section */}
-      {featuredPost && <Hero post={featuredPost} />}
-      
-      {/* 2. [Section A] Lead Analysis & Recommended Reading (Random) */}
-      <section className="mb-24">
-        <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
-            <div className="flex items-center gap-2">
-                <Newspaper className="text-primary" size={20} />
-                <h2 className="text-xs font-black uppercase tracking-[0.3em] text-gray-900">Lead Analysis & Recommendations</h2>
-            </div>
+    <div className="bg-[#E8E9E8] text-[#16161A] pt-24 md:pt-28 pb-28 -mb-20">
+      <div className="container mx-auto px-4 lg:px-8 max-w-[1240px]">
+        {/* Dateline */}
+        <div className="flex items-center justify-between gap-4 border-b border-[#16161A] py-3 text-sm">
+          <span className="font-bold">{dateline()}</span>
+          <span className="hidden sm:inline text-[#4A4A50]">David&apos;s Notes · 데스크 교정지</span>
+          <span className="text-[#4A4A50]">Economist David Kim</span>
         </div>
-        <div className="grid md:grid-cols-12 gap-12">
-          {/* Left: Big Lead Post */}
-          <div className="md:col-span-8">
-            {leadPost && <PostCard post={leadPost} variant="horizontal" className="h-full" />}
-          </div>
-          
-          {/* Right: 2 Random Books */}
-          <div className="md:col-span-4 flex flex-col gap-6">
-            <div className="bg-gray-50 p-6 rounded-[2rem] border border-gray-100 h-full">
-                <div className="flex items-center gap-2 mb-6 border-b border-gray-200 pb-3">
-                    <BookOpen size={16} className="text-primary" />
-                    <h3 className="text-xs font-black uppercase tracking-widest text-gray-500">From the Library</h3>
-                </div>
-                <div className="space-y-8">
-                    {randomBooks.map(book => (
-                        <div key={book.slug} className="group flex gap-4 items-start">
-                            <div className="relative shrink-0 w-16 h-24 bg-white shadow-md rounded-sm overflow-hidden border border-gray-100">
-                                {book.coverImage && (<Image src={book.coverImage} alt={book.title} fill sizes="64px" className="object-cover" />)}
-                            </div>
-                            <div>
-                                <Link href={`/posts/${book.category}/${book.slug}`}>
-                                    <h4 className="text-base font-serif font-bold group-hover:text-primary transition-colors leading-tight mb-1">{book.title}</h4>
-                                </Link>
-                                <p className="text-xs text-gray-500 font-medium mb-2 uppercase tracking-tighter">by {book.author}</p>
-                                <div className="text-amber-600 text-xs" role="img" aria-label={`평점 ${Math.floor(book.rating || 0)}/5`}>{'★'.repeat(Math.floor(book.rating || 0))}</div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                
-            </div>
-          </div>
-        </div>
-      </section>
+        <div className="border-b border-[#BEBEB6] mb-10 md:mb-14 h-1" aria-hidden="true" />
 
-      {/* 3. [Section B] AI & Mobility Shift (Highlighted Strip) */}
-      <section className="bg-gray-900 text-white -mx-4 px-4 py-20 mb-24 rounded-[3rem] overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent"></div>
-        <div className="container mx-auto relative z-10">
-            <div className="flex justify-between items-end mb-12 px-4 md:px-12 lg:px-20">
-                <div>
-                    <p className="text-xs font-black tracking-[0.3em] uppercase text-red-400 mb-3">Industry Focus</p>
-                    <h2 className="text-4xl font-serif font-black tracking-tight text-white">AI & Mobility Shift</h2>
-                </div>
-                <Link href="/topics/digital-transformation" className="text-xs font-black tracking-widest uppercase flex items-center gap-2 hover:text-primary transition-colors text-white">
-                    Explore All <ArrowRight size={14} />
-                </Link>
-            </div>
-            <div className="grid md:grid-cols-4 gap-6 px-4 md:px-12 lg:px-20">
-                {transformationPosts.map(post => (
-                    <PostCard key={post.slug} post={post} variant="overlay" className="aspect-[3/4]" />
-                ))}
-            </div>
-        </div>
-      </section>
-
-      {/* 4. [Section C] Insights & Sidebar */}
-      <section className="mb-24 grid md:grid-cols-12 gap-16">
-        <div className="md:col-span-8">
-            <div className="flex items-center gap-2 mb-10 pb-4 border-b border-gray-100">
-                <Mic2 className="text-primary" size={20} />
-                <h2 className="text-xs font-black uppercase tracking-[0.3em] text-gray-900">More Stories</h2>
-            </div>
-            <div className="space-y-12">
-                {mainFeed.map(post => (
-                    <PostCard key={post.slug} post={post} variant="horizontal" />
-                ))}
-            </div>
-        </div>
-
-        <div className="md:col-span-4">
-            <div className="sticky top-24 bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
-                <h2 className="text-xs font-black tracking-[0.3em] uppercase text-primary mb-6 border-b border-gray-200 pb-4">On My Desk</h2>
-                <div className="space-y-8">
-                    {deskNotes.map(post => (
-                        <div key={post.slug} className="group">
-                            <Link href={`/posts/${post.category}/${post.slug}`}>
-                                <h3 className="text-lg font-serif font-bold group-hover:text-primary transition-colors leading-snug mb-2">{post.title}</h3>
-                            </Link>
-                            <div className="flex items-center justify-between text-xs text-gray-500 font-bold uppercase tracking-widest">
-                                <span>{post.source || 'ECONOMIST'}</span>
-                                <span>{post.date}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <Link href="/desk" className="mt-10 block text-center bg-gray-900 text-white py-4 rounded-full text-xs font-black tracking-widest uppercase hover:bg-primary transition-all shadow-lg">
-                    Full Research Archive
-                </Link>
-
-                <div className="mt-12 pt-8 border-t border-gray-200">
-                    <div className="flex items-center gap-2 mb-6">
-                        <Newspaper size={16} className="text-primary" />
-                        <h2 className="text-xs font-black tracking-[0.3em] uppercase text-gray-900">In the News</h2>
-                    </div>
-                    <div className="space-y-6">
-                        {latestNews.map((item, idx) => (
-                            <div key={idx} className="group">
-                                <div className="flex items-center gap-2 mb-2">
-                                    <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded-sm">{item.media}</span>
-                                    <span className="text-xs text-gray-500 font-bold uppercase tracking-widest">{item.date}</span>
-                                </div>
-                                <Link href="/news">
-                                    <h3 className="text-sm font-serif font-bold group-hover:text-primary transition-colors leading-snug break-keep">
-                                        {item.title}
-                                    </h3>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
-                    <Link href="/news" className="mt-8 flex items-center justify-center gap-2 text-xs font-black tracking-widest uppercase text-gray-500 hover:text-primary transition-colors">
-                        View All Coverage <ArrowRight size={12} />
-                    </Link>
-                </div>
-            </div>
-        </div>
-      </section>
-
-      {/* 5. [Section E] Videos & Broadcast */}
-      <section className="mb-24">
-        <div className="flex justify-between items-end mb-12">
-            <div>
-                <p className="text-xs font-black tracking-[0.3em] uppercase text-primary mb-3">Broadcast & Media</p>
-                <h2 className="text-4xl font-serif font-black tracking-tight text-gray-900">Visual Insights</h2>
-            </div>
-            <Link href="/videos" className="text-xs font-black tracking-widest uppercase flex items-center gap-2 hover:text-primary transition-colors text-gray-900">
-                View All Videos <ArrowRight size={14} />
-            </Link>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-            {allVideos.map((video) => (
-                <VideoCard key={video.id} {...video} />
-            ))}
-        </div>
-      </section>
-
-      {/* 6. [Section D] The Library (Fixed 3 Bookshelf) */}
-      <section className="bg-[#F4F4F2] -mx-4 px-4 py-24 mb-24 rounded-[3rem]">
-         <div className="container mx-auto">
-            <div className="flex items-center justify-center flex-col mb-16">
-                <BookOpen className="text-primary mb-4" size={32} />
-                <p className="text-xs font-black tracking-[0.4em] uppercase text-primary mb-2">The Reading List</p>
-                <h2 className="text-5xl font-serif font-black tracking-tighter text-gray-900">Bookshelf</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-10">
-                {latestBooks.map(post => (
-                    <div key={post.slug} className="flex flex-col items-center text-center group">
-                        <div className="w-48 h-72 bg-white shadow-2xl rounded-sm mb-8 overflow-hidden relative transition-transform duration-500 group-hover:-translate-y-4 group-hover:rotate-2">
-                             {post.coverImage && (<Image 
-                                src={post.coverImage} 
-                                fill
-                                sizes="192px"
-                                className="object-cover" 
-                                alt={post.title} 
-                             />)}
-                             <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
-                        </div>
-                        <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
-                        <p className="text-sm text-gray-600 mb-4">by {post.author}</p>
-                        <div className="flex text-amber-600 text-xs gap-1 mb-6">
-                            {'★'.repeat(Math.floor(post.rating || 0))}
-                        </div>
-                        <Link href={`/posts/${post.category}/${post.slug}`} className="text-xs font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">
-                            Read Summary
-                        </Link>
-                    </div>
-                ))}
-            </div>
-         </div>
-      </section>
-
-      {/* 7. Author & Newsletter Footer */}
-      <section className={`grid gap-16 items-stretch mb-16 border-t border-gray-200 pt-24 ${SHOW_NEWSLETTER ? "md:grid-cols-2" : "max-w-4xl mx-auto"}`}>
-        <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div className="relative w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-                <Image 
-                    src="/reading-book-clean.jpg" 
-                    alt="David Kim" 
-                    fill
-                    sizes="(min-width: 768px) 20vw, 100vw"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-            </div>
-            <div className="w-full md:w-3/5">
-                <p className="text-xs font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</p>
-                <h2 className="text-4xl font-serif font-black mb-6 tracking-tighter text-gray-900">Meet David</h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
-                    기술이라는 &apos;엔진&apos;에 맥락이라는 &apos;지도&apos;를 더합니다. <br/>
-                    미래의 길을 설계하는 경제학자, 김동영입니다.
+        {/* 1. Lead proof: featured column with the desk memo in the margin */}
+        {featured && (
+          <section aria-labelledby="lead-title" className="relative bg-[#F4F5F4] border border-[#BEBEB6] px-5 py-8 md:px-12 md:py-14 mb-20">
+            <RegMarks />
+            <div className="grid md:grid-cols-12 gap-10 md:gap-12">
+              <div className="md:col-span-8">
+                <p className="text-sm font-bold text-[#4A4A50] mb-5">
+                  {categoryLabels[featured.category] ?? featured.category}
+                  <span className="mx-2 text-[#BEBEB6]">|</span>
+                  {formatDate(featured.date)}
                 </p>
-                <Link href="/about" className="inline-block bg-primary text-white font-black py-3 px-8 rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-primary/30 text-xs tracking-widest uppercase">
-                    READ FULL BIO
-                </Link>
-            </div>
-        </div>
+                <h1 id="lead-title" className="font-serif font-black text-[2.1rem] leading-[1.18] md:text-[3.4rem] md:leading-[1.14] tracking-tight text-balance mb-8">
+                  <Link href={postHref(featured)} className="hover:underline decoration-1 underline-offset-[5px]">
+                    <Drawn className="pen-underline">{underlined}</Drawn>
+                    {remainder}
+                  </Link>
+                </h1>
+                <p className="text-lg md:text-xl leading-relaxed text-[#2E2E33] max-w-[38rem] mb-10 text-pretty">
+                  {featured.excerpt}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-[#BEBEB6] pt-6">
+                  <div className="flex items-center gap-3">
+                    <Image src="/images/david.jpg" alt="" width={40} height={40} className="w-10 h-10 rounded-full object-cover grayscale" />
+                    <div className="text-sm">
+                      <div className="font-bold">김동영 David Kim</div>
+                      <div className="text-[#4A4A50]">경제학자</div>
+                    </div>
+                  </div>
+                  <Link href={postHref(featured)} className="inline-flex items-center gap-2 bg-[#16161A] text-white px-6 py-3.5 text-sm font-bold hover:bg-[#2E2E33] transition-colors">
+                    전문 읽기 <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
 
-        {/* Newsletter — hidden until a provider is connected */}
-        {SHOW_NEWSLETTER && (
-        <div className="bg-dark p-12 rounded-[2rem] text-center text-white relative overflow-hidden group flex flex-col justify-center">
-            <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
-            <h3 className="text-2xl font-serif font-black mb-4 tracking-tight text-white">Subscribe to the Newsletter</h3>
-            <p className="text-gray-400 mb-8 text-base font-light">Get the latest insights delivered to your inbox.</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Email address" className="flex-1 px-6 py-4 bg-white/10 border border-white/20 rounded-full focus:outline-none focus:border-primary text-white" />
-                <button className="bg-white text-dark px-8 py-4 rounded-full font-black text-xs tracking-widest uppercase hover:bg-primary hover:text-white transition-all duration-300">
-                    JOIN
-                </button>
+              {/* Desk memo — the author's own summary, in red pen */}
+              <aside className="md:col-span-4 md:border-l md:border-[#BEBEB6] md:pl-10 relative" aria-label="데스크 메모">
+                <PenArrow />
+                <p className="pen-note text-[1.9rem] md:text-[2.1rem] -rotate-1">
+                  결론: {conclusion(featured)}
+                </p>
+                <div className="mt-8 flex items-center gap-4">
+                  <DrawnStamp />
+                  <p className="text-sm text-[#4A4A50] leading-relaxed">필자가 직접 쓰고,<br />직접 교정한 글입니다.</p>
+                </div>
+              </aside>
             </div>
-        </div>
+          </section>
         )}
-      </section>
+
+        {/* 2. On My Desk — clippings the author vouches for */}
+        {deskNotes.length > 0 && (
+          <section aria-labelledby="desk-title" className="mb-20">
+            <div id="desk-title">
+              <SectionHead title="On My Desk" aside="필자가 골라 읽고 한 줄을 남긴 해외 기사" href="/desk" linkLabel="Full Research Archive" />
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+              {deskNotes.map((post) => (
+                <article key={post.slug} className="relative bg-[#F4F5F4] border border-[#BEBEB6] p-6 flex flex-col">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <span className="text-xs font-black tracking-widest uppercase border border-[#16161A] px-2 py-1">{post.source || "ECONOMIST"}</span>
+                    <ReviewStamp />
+                  </div>
+                  <h3 className="font-serif font-bold text-xl leading-snug mb-2">
+                    <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px] after:absolute after:inset-0">
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-[#4A4A50] mb-5">{formatDate(post.date)}</p>
+                  <p className="pen-note text-[1.6rem] mt-auto border-t border-dashed border-[#BEBEB6] pt-4">
+                    {deskNote(post)}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 3. Lead Analysis + More Stories | In the News */}
+        <section className="grid lg:grid-cols-12 gap-12 lg:gap-14 mb-20">
+          <div className="lg:col-span-8">
+            <SectionHead title="Lead Analysis" aside="칼럼 · 기고" href="/topics/digital-transformation" linkLabel="전체 칼럼" />
+            {lead && (
+              <article className="grid sm:grid-cols-5 gap-6 pb-8 mb-2 border-b border-[#BEBEB6]">
+                {lead.coverImage && (
+                  <Link href={postHref(lead)} className="relative sm:col-span-2 aspect-[4/3] border border-[#BEBEB6] bg-[#F4F5F4] overflow-hidden" tabIndex={-1} aria-hidden="true">
+                    <Image src={lead.coverImage} alt="" fill sizes="(min-width: 1024px) 300px, (min-width: 640px) 40vw, 100vw" className="object-cover" />
+                  </Link>
+                )}
+                <div className={lead.coverImage ? "sm:col-span-3" : "sm:col-span-5"}>
+                  <p className="text-sm font-bold text-[#4A4A50] mb-3">
+                    {categoryLabels[lead.category]} <span className="mx-1.5 text-[#BEBEB6]">|</span> {formatDate(lead.date)}
+                  </p>
+                  <h3 className="font-serif font-black text-2xl md:text-[1.9rem] leading-snug mb-3 text-balance">
+                    <Link href={postHref(lead)} className="hover:underline decoration-1 underline-offset-[5px]">{lead.title}</Link>
+                  </h3>
+                  <p className="text-base leading-relaxed text-[#2E2E33] line-clamp-3">{lead.excerpt}</p>
+                </div>
+              </article>
+            )}
+            <ol className="divide-y divide-[#BEBEB6]">
+              {moreStories.map((post) => (
+                <li key={post.slug} className="py-6 grid sm:grid-cols-[8.5rem_1fr] gap-2 sm:gap-6">
+                  <p className="text-sm text-[#4A4A50] pt-1">
+                    {formatDate(post.date)}
+                    <span className="block font-bold">{categoryLabels[post.category]}</span>
+                  </p>
+                  <div>
+                    <h3 className="font-serif font-bold text-xl leading-snug mb-2 text-balance">
+                      <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px]">{post.title}</Link>
+                    </h3>
+                    <p className="text-[0.95rem] leading-relaxed text-[#4A4A50] line-clamp-2">{post.excerpt}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="lg:col-span-4">
+            <SectionHead title="In the News" href="/news" linkLabel="전체 보도" />
+            <ul className="space-y-8">
+              {news.map((item) => (
+                <li key={item.link} className="border-b border-[#BEBEB6] pb-7">
+                  <p className="text-sm mb-2">
+                    <span className="font-bold">{item.media}</span>
+                    <span className="text-[#4A4A50] ml-2">{item.date}</span>
+                  </p>
+                  <h3 className="font-serif font-bold text-lg leading-snug mb-3 text-balance">
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline decoration-1 underline-offset-[5px]">
+                      {item.title}
+                    </a>
+                  </h3>
+                  {item.quote && (
+                    <blockquote className="relative pl-6 text-[0.95rem] leading-relaxed text-[#2E2E33]">
+                      <span className="absolute left-0 -top-1 font-serif font-black text-3xl leading-none text-primary" aria-hidden="true">“</span>
+                      {firstSentence(item.quote.replace(/^["“]|["”]$/g, ""))}
+                      <footer className="text-sm text-[#4A4A50] mt-2">— 김동영</footer>
+                    </blockquote>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* 4. AI & Mobility Shift — a section front, columns divided by rules */}
+        {shift.length > 0 && (
+          <section className="mb-20">
+            <SectionHead title="AI & Mobility Shift" aside="Industry Focus" href="/topics/mobility" linkLabel="Explore All" />
+            <div className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-0 lg:-mx-6 lg:divide-x divide-[#BEBEB6]">
+              {shift.map((post) => (
+                <article key={post.slug} className="grid grid-cols-[6.5rem_1fr] gap-4 items-start sm:block py-4 border-b border-[#BEBEB6] sm:border-b-0 lg:py-0 lg:px-6">
+                  {post.coverImage && (
+                    <div className="relative aspect-square sm:aspect-[3/2] sm:mb-4 border border-[#BEBEB6] bg-[#F4F5F4] overflow-hidden">
+                      <Image src={post.coverImage} alt="" fill sizes="(min-width: 1024px) 280px, (min-width: 640px) 45vw, 104px" className="object-cover" />
+                    </div>
+                  )}
+                  <div>
+                    <p className="text-sm font-bold text-[#4A4A50] mb-2">{categoryLabels[post.category]}</p>
+                    <h3 className="font-serif font-bold text-lg leading-snug text-balance">
+                      <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px]">{post.title}</Link>
+                    </h3>
+                    <p className="text-sm text-[#4A4A50] mt-2">{formatDate(post.date)}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 5. Broadcast */}
+        {videos.length > 0 && (
+          <section className="mb-20">
+            <SectionHead title="Visual Insights" aside="Broadcast & Media" href="/videos" linkLabel="View All Videos" />
+            <div className="grid md:grid-cols-3 gap-8">
+              {videos.map((video) => (
+                <article key={video.id}>
+                  <div className="relative aspect-video bg-[#16161A] border border-[#16161A] mb-4">
+                    <YouTubeFacade youtubeId={video.youtubeId} title={video.title} />
+                  </div>
+                  <p className="text-sm text-[#4A4A50] mb-1.5">{formatDate(video.date)}</p>
+                  <h3 className="font-serif font-bold text-lg leading-snug text-balance">{video.title}</h3>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 6. Bookshelf — the author's score in red pen */}
+        {books.length > 0 && (
+          <section className="mb-20">
+            <SectionHead title="Bookshelf" aside="The Reading List" href="/books" linkLabel="전체 서평" />
+            <div className="grid sm:grid-cols-3 gap-10">
+              {books.map((book) => (
+                <article key={book.slug} className="flex gap-5 items-start">
+                  <div className="relative shrink-0 w-28 aspect-[2/3] border border-[#BEBEB6] bg-[#F4F5F4]">
+                    {book.coverImage && <Image src={book.coverImage} alt="" fill sizes="112px" className="object-cover" />}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-serif font-bold text-lg leading-snug mb-1 text-balance">
+                      <Link href={postHref(book)} className="hover:underline decoration-1 underline-offset-[5px]">{book.title}</Link>
+                    </h3>
+                    {book.author && <p className="text-sm text-[#4A4A50] mb-3">{book.author}</p>}
+                    {book.rating && (
+                      <p className="pen-note text-[1.6rem] -rotate-2 inline-block" aria-label={`필자 평점 ${Math.floor(book.rating)}점 (5점 만점)`}>
+                        {Math.floor(book.rating)}/5
+                      </p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 7. Meet David — the sign-off */}
+        <section className="relative bg-[#F4F5F4] border border-[#BEBEB6] px-5 py-10 md:px-12 md:py-12">
+          <RegMarks />
+          <div className="grid md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-3">
+              <div className="relative aspect-[3/4] max-w-[220px] border border-[#BEBEB6] overflow-hidden">
+                <Image src="/reading-book-clean.jpg" alt="책을 읽는 김동영 일러스트" fill sizes="220px" className="object-cover" />
+              </div>
+            </div>
+            <div className="md:col-span-9">
+              <h2 className="font-serif font-black text-3xl md:text-4xl mb-5">Meet David</h2>
+              <p className="font-serif text-2xl md:text-[2rem] leading-snug mb-6 text-balance">
+                기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.
+              </p>
+              <p className="text-lg text-[#2E2E33] mb-8">
+                미래의 길을 설계하는 경제학자, 김동영입니다.
+                <span className="inline-flex items-center justify-center w-5 h-5 ml-2 bg-primary text-white font-serif font-black text-[0.7rem] align-middle" aria-hidden="true">D.</span>
+              </p>
+              <Link href="/about" className="inline-flex items-center gap-2 border-2 border-[#16161A] px-6 py-3 text-sm font-bold hover:bg-[#16161A] hover:text-white transition-colors">
+                Read Full Bio <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

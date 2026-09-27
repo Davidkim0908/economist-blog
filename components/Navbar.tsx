@@ -62,12 +62,13 @@ export default function Navbar() {
   }, []);
 
   // 메인 페이지일 때와 아닐 때의 스타일 구분
-  const navbarBgClass = isHome 
-    ? (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100' : 'bg-transparent')
+  // 홈은 교정지(paper) 바탕 위에 놓인다
+  const navbarBgClass = isHome
+    ? `bg-[#E8E9E8] border-b border-[#BEBEB6] ${isScrolled ? 'shadow-sm' : ''}`
     : 'bg-[#FBFBFA] border-b border-gray-100';
   
-  const textColorClass = isHome && !isScrolled ? 'text-white' : 'text-gray-900';
-  const logoColorClass = isHome && !isScrolled ? 'border-white text-white' : 'border-gray-900 text-gray-900';
+  const textColorClass = 'text-gray-900';
+  const logoColorClass = 'border-gray-900 text-gray-900';
 
   return (
     <header className={`w-full fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${navbarBgClass}`}>
@@ -90,9 +91,9 @@ export default function Navbar() {
                 <span className={`font-serif font-black text-base md:text-lg tracking-tight leading-none uppercase ${textColorClass}`}>
                   David&apos;s
                 </span>
-                <div className={`h-[1px] w-full my-0.5 group-hover:bg-primary transition-colors ${isHome && !isScrolled ? 'bg-white/30' : 'bg-gray-200'}`} />
+                <div className={`h-[1px] w-full my-0.5 group-hover:bg-primary transition-colors bg-gray-200`} />
                 <div className="flex items-baseline w-full">
-                    <span className={`font-sans text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 ${isHome && !isScrolled ? 'text-white/70' : 'text-gray-500'}`}>
+                    <span className={`font-sans text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 text-gray-500`}>
                     <span>N</span><span>O</span><span>T</span><span>E</span><span>S</span>
                     </span>
                     <span className="text-primary font-black text-xs leading-none">.</span>
@@ -103,7 +104,7 @@ export default function Navbar() {
           
           {/* Center: Navigation Links (Expanded Pill Box) */}
           <div className="hidden lg:flex items-center justify-center flex-grow px-4">
-            <div className={`w-full max-w-5xl py-2 px-10 rounded-full flex items-center justify-center space-x-10 shadow-lg transition-all duration-500 ${isHome && !isScrolled ? 'bg-white/10 backdrop-blur-md border border-white/20' : 'bg-black text-white'}`}>
+            <div className={`w-full max-w-5xl py-2 px-10 flex items-center justify-center space-x-10 transition-all duration-500 text-white ${isHome ? 'bg-[#16161A]' : 'bg-black rounded-full shadow-lg'}`}>
                 
                 {/* 1. Meet David Dropdown */}
                 <div className="relative group flex items-center h-full" onBlur={closeOnBlur}>
@@ -211,7 +212,7 @@ export default function Navbar() {
             <div className="hidden sm:block hover:text-primary transition-colors cursor-pointer">
                 <Search />
             </div>
-            {SHOW_JOIN && <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 ${isHome && !isScrolled ? 'border-white text-white hover:bg-white hover:text-dark' : 'border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'}`}>
+            {SHOW_JOIN && <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white`}>
                 Join
             </Link>}
             <button 
@@ -219,7 +220,7 @@ export default function Navbar() {
                 aria-label={isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu"
-                className={`lg:hidden p-2.5 rounded-full transition-colors ${isHome && !isScrolled ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-900'}`}
+                className={`lg:hidden p-2.5 rounded-full transition-colors hover:bg-gray-100 text-gray-900`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

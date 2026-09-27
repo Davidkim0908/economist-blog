@@ -7,6 +7,15 @@
   --font-serif: var(--font-playfair), var(--font-noto-serif), serif;
   
   --color-primary: #B91C1C; /* A deep red/burgundy accent like Gates Notes sometimes uses */
+  --font-pen: var(--font-pen-script), "Nanum Pen Script", cursive;
+
+  /* Proof-sheet world (home). Red = pen = the author's mark only. */
+  --color-paper: #E8E9E8;
+  --color-sheet: #F4F5F4;
+  --color-ink: #16161A;
+  --color-ink-soft: #4A4A50;
+  --color-rule: #BEBEB6;
+  --color-pen: #B91C1C;
   --color-dark: #111827;
   --color-light: #F9FAFB;
 }
@@ -193,4 +202,82 @@
 }
 .skip-link:focus {
   top: 1rem;
+}
+
+/* ── Proof sheet: red-pen marks ─────────────────────────────── */
+.pen-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8 C 40 3, 80 11, 120 6 S 178 4, 198 8' fill='none' stroke='%23B91C1C' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.3em;
+  padding-bottom: 0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* With scripting, marks start undrawn and draw once in view; without it they are simply there. */
+@media (scripting: enabled) {
+  .pen-underline:not(.is-drawn) {
+    background-size: 0% 0.3em;
+  }
+  .pen-ring:not(.is-drawn) .pen-ring__stroke {
+    stroke-dashoffset: 1;
+  }
+}
+
+/* Hand-drawn ring around the hero review stamp */
+.pen-ring {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  color: #B91C1C;
+  line-height: 1;
+  transform: rotate(-9deg);
+}
+.pen-ring svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+.pen-ring__stroke {
+  fill: none;
+  stroke: #B91C1C;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 900ms cubic-bezier(0.22, 1, 0.36, 1) 350ms;
+}
+
+.pen-note {
+  font-family: var(--font-pen-script), "Nanum Pen Script", cursive;
+  color: #B91C1C;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.review-stamp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 2px solid #B91C1C;
+  border-radius: 9999px;
+  color: #B91C1C;
+  transform: rotate(-9deg);
+  mix-blend-mode: multiply;
+  line-height: 1;
+}
+
+.reg-mark {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  color: #BEBEB6;
 }
