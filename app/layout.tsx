@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4, Playfair_Display, Noto_Sans_KR, Nanum_Pen_Script } from "next/font/google";
+import { Source_Sans_3, Source_Serif_4, Playfair_Display, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -23,14 +23,6 @@ const sourceSerif = Source_Serif_4({
   variable: "--font-latin-serif",
 });
 
-// Red-pen handwriting — used only for the author's marks on the home proof sheet
-const penScript = Nanum_Pen_Script({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-pen-script",
-  preload: false,
-});
-
 export const metadata: Metadata = {
   title: "David's Notes",
   description: "경제학자 김동영의 블로그 — AI 전환, 모빌리티, 경제사, 그리고 책.",
@@ -42,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSansKr.variable} ${sourceSerif.variable} ${penScript.variable}`} suppressHydrationWarning>
+    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSansKr.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
       <body
         className={`flex flex-col min-h-screen bg-white`}
         suppressHydrationWarning

@@ -11,11 +11,11 @@ export const socialLinks: { label: string; href: string }[] = [
 
 // 카테고리 표시 이름 (한 곳에서 관리)
 export const categoryLabels: Record<string, string> = {
-  "digital-transformation": "AI 전환",
-  mobility: "모빌리티 전환",
-  history: "성장의 궤적",
-  books: "서재",
-  desk: "데스크 노트",
+  "digital-transformation": "AI Transformation",
+  mobility: "Mobility Transformation",
+  history: "Growth Trajectory",
+  books: "Books",
+  desk: "On My Desk",
 };
 
 export const categoryLabel = (category: string) => categoryLabels[category] ?? category;

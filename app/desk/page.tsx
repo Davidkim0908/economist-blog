@@ -12,7 +12,7 @@ export default function DeskPage() {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="type-sub-ko text-primary">데스크 노트</span>
+                    <span className="type-sub-ko text-primary">필자가 골라 읽은 기사</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
                 <h1 className="type-page-en mb-8 text-gray-900">

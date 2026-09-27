@@ -97,7 +97,7 @@ export default function AboutPage() {
                     <p className="text-sm text-gray-500 leading-relaxed break-keep group-hover:text-gray-900 transition-colors">한국 경제가 달려온 성장의 궤적(<strong>GT</strong>)을 연료 삼아, 인공지능(<strong>AT</strong>)과 모빌리티(<strong>MT</strong>)라는 낯선 미래로 질주하는 여정을 기록합니다.</p>
                   </div>
                   <div className="group">
-                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">데스크 노트</span>
+                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">On My Desk</span>
                     <p className="text-sm text-gray-500 leading-relaxed break-keep group-hover:text-gray-900 transition-colors">이코노미스트와 블룸버그 등 세계의 흐름을 읽을 수 있는 공신력 있는 지식을 엄선해 공유합니다.</p>
                   </div>
                 </div>

@@ -10,11 +10,11 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post, className, variant = 'default' }: PostCardProps) {
-  const categoryLabel = post.category === 'digital-transformation' ? 'AI 전환' : 
-                        post.category === 'history' ? '성장의 궤적' : 
-                        post.category === 'mobility' ? '모빌리티 전환' :
+  const categoryLabel = post.category === 'digital-transformation' ? 'AI Transformation' : 
+                        post.category === 'history' ? 'Growth Trajectory' : 
+                        post.category === 'mobility' ? 'Mobility Transformation' :
                         post.category === 'books' ? 'Books' :
-                        post.category === 'desk' ? '데스크 노트' :
+                        post.category === 'desk' ? 'On My Desk' :
                         post.category;
 
   // New Robust Source Logo Logic

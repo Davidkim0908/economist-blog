@@ -24,11 +24,11 @@ export default function Footer() {
               <li><Link href="/" className="hover:text-primary transition-colors">홈</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">김동영 소개</Link></li>
               <li><Link href="/videos" className="hover:text-primary transition-colors">방송·강연</Link></li>
-              <li><Link href="/topics/digital-transformation" className="hover:text-primary transition-colors">AI 전환</Link></li>
-              <li><Link href="/topics/mobility" className="hover:text-primary transition-colors">모빌리티 전환</Link></li>
-              <li><Link href="/topics/history" className="hover:text-primary transition-colors">성장의 궤적</Link></li>
-              <li><Link href="/books" className="hover:text-primary transition-colors">서재</Link></li>
-              <li><Link href="/desk" className="hover:text-primary transition-colors">데스크 노트</Link></li>
+              <li><Link href="/topics/digital-transformation" className="hover:text-primary transition-colors">AI Transformation</Link></li>
+              <li><Link href="/topics/mobility" className="hover:text-primary transition-colors">Mobility Transformation</Link></li>
+              <li><Link href="/topics/history" className="hover:text-primary transition-colors">Growth Trajectory</Link></li>
+              <li><Link href="/books" className="hover:text-primary transition-colors">Books</Link></li>
+              <li><Link href="/desk" className="hover:text-primary transition-colors">On My Desk</Link></li>
               <li><Link href="/news" className="hover:text-primary transition-colors">언론 보도</Link></li>
             </ul>
           </div>

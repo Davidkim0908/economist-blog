@@ -46,9 +46,9 @@ export default function JoinPage() {
   };
 
   const topics = [
-    { id: 'at', label: 'AI 전환', icon: '🤖' },
+    { id: 'at', label: 'AI Transformation', icon: '🤖' },
     { id: 'mt', label: 'Mobility Shift', icon: '🚗' },
-    { id: 'gt', label: '성장의 궤적', icon: '📈' },
+    { id: 'gt', label: 'Growth Trajectory', icon: '📈' },
     { id: 'br', label: 'Book Reviews', icon: '📚' },
   ];
 

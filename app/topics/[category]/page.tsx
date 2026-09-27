@@ -23,11 +23,11 @@ export default async function TopicPage({ params }: Props) {
 
   // Map category slug to display name
   const categoryNames: Record<string, string> = {
-    'digital-transformation': 'AI 전환',
-    'mobility': '모빌리티 전환',
-    'history': '성장의 궤적',
+    'digital-transformation': 'AI Transformation',
+    'mobility': 'Mobility Transformation',
+    'history': 'Growth Trajectory',
     'books': '서평',
-    'desk': '데스크 노트'
+    'desk': 'On My Desk'
   };
 
   const title = categoryNames[category] || category.replace(/-/g, ' ').toUpperCase();
@@ -48,7 +48,7 @@ export default async function TopicPage({ params }: Props) {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="type-sub-ko text-primary">{title}</span>
+                    <span className="type-sub-ko text-primary">{category === "books" ? "서평" : category === "desk" ? "필자가 골라 읽은 기사" : "Focus"}</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
                 <h1 className="type-page-en mb-8 text-gray-900">

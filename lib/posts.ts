@@ -18,6 +18,9 @@ export type Post = {
   series?: string; // for series grouping
   seriesOrder?: number; // for ordering within a series
   source?: string; // for desk articles (e.g., ECONOMIST, WIRED)
+  heroImage?: string; // 홈 히어로·타일용 사진 (없으면 coverImage)
+  heroCredit?: string; // 사진 출처 표기 (예: "Photo: 이름 / Unsplash")
+  heroAlt?: string; // 사진 대체 텍스트
 };
 
 function getPostFiles(dir: string): string[] {
@@ -67,6 +70,9 @@ export function getAllPosts(): Post[] {
         series: data.series,
         seriesOrder: data.seriesOrder,
         source: data.source,
+        heroImage: data.heroImage,
+        heroCredit: data.heroCredit,
+        heroAlt: data.heroAlt,
         content,
       };
     } catch (e) {

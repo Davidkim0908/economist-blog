@@ -4,10 +4,10 @@ import { Post } from "@/lib/posts";
 
 export default function Hero({ post }: { post: Post }) {
   const categoryNames:Record<string, string> = {
-    'digital-transformation': 'AI 전환',
-    'mobility': '모빌리티 전환',
-    'history': '성장의 궤적',
-    'desk': '데스크 노트',
+    'digital-transformation': 'AI Transformation',
+    'mobility': 'Mobility Transformation',
+    'history': 'Growth Trajectory',
+    'desk': 'On My Desk',
     'books': 'Book Review'
   };
 
