@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { categoryLabels } from "@/lib/site";
+import { categoryLabelEn, isLatinTitle } from "@/lib/site";
 import { getAllPosts, getFeaturedPost, type Post } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
@@ -20,10 +20,10 @@ export const revalidate = 3600;
 const href = (post: Post) => `/posts/${post.category}/${post.slug}`;
 const link = "hover:underline decoration-1 underline-offset-[5px]";
 
-function SectionHead({ title, more, moreHref }: { title: string; more?: string; moreHref?: string }) {
+function SectionHead({ title, ko, more, moreHref, compact }: { title: string; ko?: string; more?: string; moreHref?: string; compact?: boolean }) {
   return (
     <div className="border-t-4 border-primary pt-3 mb-8 flex items-baseline justify-between gap-4">
-      <h2 className="font-display font-black text-2xl md:text-3xl text-gray-900 tracking-tight">{title}</h2>
+      <h2 className={`${compact ? "type-title-en text-[1.5rem]" : "type-section-en"} text-gray-900`}>{title}{ko && <span className="type-sub-ko text-gray-500 ml-3 align-middle">{ko}</span>}</h2>
       {moreHref && (
         <Link href={moreHref} className="shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 py-2 text-sm font-bold text-gray-900 hover:text-primary transition-colors">
           {more} <ArrowRight size={14} aria-hidden="true" />
@@ -58,8 +58,8 @@ export default function EditorialPreview() {
                   <Image src={featured.coverImage} alt="" fill priority sizes="(min-width: 1024px) 800px, 100vw" className="object-cover" />
                 </Link>
               )}
-              <p className="text-sm font-bold text-primary mb-3">{categoryLabels[featured.category]}</p>
-              <h1 className="font-display font-black text-[2.1rem] leading-[1.18] md:text-[3.1rem] md:leading-[1.14] tracking-tight text-balance mb-5">
+              <p className="type-label-en text-primary mb-3">{categoryLabelEn(featured.category)}</p>
+              <h1 className="type-article-ko text-balance mb-5">
                 <Link href={href(featured)} className={link}>{featured.title}</Link>
               </h1>
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-[42rem] mb-6 text-pretty">{featured.excerpt}</p>
@@ -71,14 +71,14 @@ export default function EditorialPreview() {
             </article>
 
             <aside className="lg:col-span-4">
-              <h2 className="font-display font-black text-xl border-b-2 border-gray-900 pb-2 mb-2">최신 글</h2>
+              <h2 className="type-title-en text-[1.5rem] border-b-2 border-gray-900 pb-2 mb-2">Latest</h2>
               <ol className="divide-y divide-gray-200">
                 {latest.map((post, i) => (
                   <li key={post.slug} className="py-5 grid grid-cols-[1.75rem_1fr] gap-3">
-                    <span className="font-display font-black text-2xl leading-none text-primary">{i + 1}</span>
+                    <span className="type-title-en text-[1.5rem] leading-none text-primary">{i + 1}</span>
                     <div>
-                      <p className="text-sm text-gray-600 mb-1">{categoryLabels[post.category]}</p>
-                      <h3 className="font-display font-bold text-lg leading-snug text-balance">
+                      <p className="type-label-en text-gray-600 mb-1.5">{categoryLabelEn(post.category)}</p>
+                      <h3 className="type-title-ko text-[1.0625rem] text-balance">
                         <Link href={href(post)} className={link}>{post.title}</Link>
                       </h3>
                     </div>
@@ -93,7 +93,7 @@ export default function EditorialPreview() {
         <section className="grid md:grid-cols-3 gap-10 mb-16">
           {topics.map(({ cat, posts }) => (
             <div key={cat}>
-              <SectionHead title={categoryLabels[cat]} more="더 보기" moreHref={`/topics/${cat}`} />
+              <SectionHead compact title={categoryLabelEn(cat)} more="더 보기" moreHref={`/topics/${cat}`} />
               {posts.length === 0 && <p className="text-gray-600">곧 첫 글이 올라옵니다.</p>}
               <ul className="space-y-6">
                 {posts.map((post, i) => (
@@ -103,7 +103,7 @@ export default function EditorialPreview() {
                         <Image src={post.coverImage} alt="" fill sizes="(min-width: 768px) 380px, 100vw" className="object-cover" />
                       </div>
                     )}
-                    <h3 className={`font-display font-bold leading-snug text-balance ${i === 0 ? "text-xl" : "text-lg"}`}>
+                    <h3 className={`type-title-ko text-balance ${i === 0 ? "text-[1.1875rem]" : "text-[1.0625rem]"}`}>
                       <Link href={href(post)} className={link}>{post.title}</Link>
                     </h3>
                     <p className="text-sm text-gray-600 mt-1.5">{formatDate(post.date)}</p>
@@ -117,12 +117,12 @@ export default function EditorialPreview() {
         {/* 데스크 노트 */}
         {desk.length > 0 && (
           <section className="mb-16">
-            <SectionHead title="데스크 노트" more="전체 보기" moreHref="/desk" />
+            <SectionHead title="On My Desk" ko="해외 기사" more="전체 보기" moreHref="/desk" />
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {desk.map((post) => (
                 <article key={post.slug}>
                   <p className="text-sm font-black tracking-wide uppercase text-gray-900 mb-2">{post.source || "ECONOMIST"}</p>
-                  <h3 className="font-display font-bold text-lg leading-snug mb-2 text-balance">
+                  <h3 className={`${isLatinTitle(post.title) ? "type-title-en text-[1.125rem]" : "type-title-ko text-[1.0625rem]"} mb-2 text-balance`}>
                     <Link href={href(post)} className={link}>{post.title}</Link>
                   </h3>
                   <p className="text-[0.95rem] text-gray-700 leading-relaxed line-clamp-3">{post.excerpt}</p>
@@ -136,12 +136,12 @@ export default function EditorialPreview() {
         {/* 언론 보도 + 방송·강연 */}
         <section className="grid lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5">
-            <SectionHead title="언론 보도" more="전체 보도" moreHref="/news" />
+            <SectionHead title="In the News" ko="언론 보도" more="전체 보도" moreHref="/news" />
             <ul className="divide-y divide-gray-200">
               {news.map((item) => (
                 <li key={item.link} className="py-4 first:pt-0">
                   <p className="text-sm text-gray-600 mb-1"><span className="font-bold text-gray-900">{item.media}</span> · {item.date}</p>
-                  <h3 className="font-display font-bold text-lg leading-snug text-balance">
+                  <h3 className="type-title-ko text-[1.0625rem] text-balance">
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className={link}>{item.title}</a>
                   </h3>
                   {item.quote && <p className="text-[0.95rem] text-gray-700 mt-1.5">“{firstSentence(item.quote.replace(/^["“]|["”]$/g, ""))}”</p>}
@@ -150,14 +150,14 @@ export default function EditorialPreview() {
             </ul>
           </div>
           <div className="lg:col-span-7">
-            <SectionHead title="방송·강연" more="전체 영상" moreHref="/videos" />
+            <SectionHead title="Videos" ko="방송·강연" more="전체 영상" moreHref="/videos" />
             <div className="grid sm:grid-cols-2 gap-6">
               {videos.map((video) => (
                 <article key={video.id}>
                   <div className="relative aspect-video bg-gray-900 mb-3">
                     <YouTubeFacade youtubeId={video.youtubeId} title={video.title} />
                   </div>
-                  <h3 className="font-display font-bold text-lg leading-snug text-balance">{video.title}</h3>
+                  <h3 className="type-title-ko text-[1.0625rem] text-balance">{video.title}</h3>
                   <p className="text-sm text-gray-600 mt-1">{formatDate(video.date)}</p>
                 </article>
               ))}
@@ -168,14 +168,14 @@ export default function EditorialPreview() {
         {/* 서재 */}
         {books.length > 0 && (
           <section className="mb-16">
-            <SectionHead title="서재" more="전체 서평" moreHref="/books" />
+            <SectionHead title="Books" ko="서평" more="전체 서평" moreHref="/books" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {books.map((book) => (
                 <article key={book.slug}>
                   <div className="relative aspect-[2/3] mb-4 bg-gray-100 border border-gray-200">
                     {book.coverImage && <Image src={book.coverImage} alt="" fill sizes="(min-width: 768px) 260px, 45vw" className="object-cover" />}
                   </div>
-                  <h3 className="font-display font-bold text-base leading-snug text-balance">
+                  <h3 className="type-title-ko text-base text-balance">
                     <Link href={href(book)} className={link}>{book.title}</Link>
                   </h3>
                   {book.author && <p className="text-sm text-gray-600 mt-1">{book.author}</p>}
@@ -194,8 +194,8 @@ export default function EditorialPreview() {
             </div>
           </div>
           <div className="md:col-span-9">
-            <h2 className="font-display font-black text-3xl md:text-4xl mb-4">소개</h2>
-            <p className="font-display text-2xl md:text-[2rem] leading-snug mb-4 text-balance">기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.</p>
+            <h2 className="type-section-en mb-4">Meet David</h2>
+            <p className="type-display-ko font-medium mb-4 text-balance">기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.</p>
             <p className="text-lg text-gray-700 mb-8">미래의 길을 설계하는 경제학자, 김동영입니다.</p>
             <Link href="/about" className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3.5 text-sm font-bold hover:bg-primary transition-colors">
               소개 전문 <ArrowRight size={16} aria-hidden="true" />

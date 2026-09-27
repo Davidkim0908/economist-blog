@@ -9,11 +9,11 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center mb-24">
             <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-[1px] w-12 bg-gray-200" />
-                <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">The Author</span>
+                <span className="type-sub-ko text-primary">소개</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
-                소개
+            <h1 className="type-page-en mb-8 text-gray-900">
+                Meet David
             </h1>
         </div>
 

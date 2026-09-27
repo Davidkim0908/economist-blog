@@ -78,7 +78,7 @@ export default async function PostPage({ params }: Props) {
                 {categoryLabel}
             </Link>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black mb-10 leading-[1.1] text-gray-900 tracking-tight break-keep">
+            <h1 className="type-article-ko mb-10 text-gray-900 break-keep text-balance">
                 {post.title}
             </h1>
             
@@ -99,7 +99,7 @@ export default async function PostPage({ params }: Props) {
                 </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-3xl font-display">
+            <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-3xl font-display">
                 &quot;{post.excerpt}&quot;
             </p>
         </div>

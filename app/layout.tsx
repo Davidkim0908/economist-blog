@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Playfair_Display, Noto_Sans_KR, Nanum_Pen_Script } from "next/font/google";
+import { Source_Sans_3, Source_Serif_4, Playfair_Display, Noto_Sans_KR, Nanum_Pen_Script } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +14,13 @@ const notoSansKr = Noto_Sans_KR({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-noto-sans",
+});
+
+// 영문 디스플레이 (섹션명·페이지명·영문 기사 제목)
+const sourceSerif = Source_Serif_4({
+  weight: ["500", "600"],
+  subsets: ["latin"],
+  variable: "--font-latin-serif",
 });
 
 // Red-pen handwriting — used only for the author's marks on the home proof sheet
@@ -35,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSansKr.variable} ${penScript.variable}`} suppressHydrationWarning>
+    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSansKr.variable} ${sourceSerif.variable} ${penScript.variable}`} suppressHydrationWarning>
       <body
         className={`flex flex-col min-h-screen bg-white`}
         suppressHydrationWarning

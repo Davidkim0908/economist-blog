@@ -1,3 +1,4 @@
+import { categoryLabelEn } from "@/lib/site";
 import { getPostsByCategory, getAllPosts } from "@/lib/posts";
 import PostList from "@/components/PostList";
 
@@ -25,18 +26,19 @@ export default async function TopicPage({ params }: Props) {
     'digital-transformation': 'AI 전환',
     'mobility': '모빌리티 전환',
     'history': '성장의 궤적',
-    'books': 'Book Reviews',
+    'books': '서평',
     'desk': '데스크 노트'
   };
 
   const title = categoryNames[category] || category.replace(/-/g, ' ').toUpperCase();
+  const titleEn = categoryLabelEn(category);
 
   const descriptions: Record<string, string> = {
-    'digital-transformation': 'Exploring how AI and digital technologies are reshaping industries, labor, and society.',
-    'mobility': 'Analyzing the future of transportation, from EVs to autonomous driving and MaaS.',
-    'history': 'Decoding the secrets of economic growth through the lens of Korean and world history.',
-    'books': 'Deep dives into literature that shapes our understanding of the world.',
-    'desk': 'Daily research, insights, and global reports curated from top economic sources.'
+    'digital-transformation': 'AI와 디지털 기술이 산업과 노동, 사회를 어떻게 바꾸는지 탐구합니다.',
+    'mobility': '전기차부터 자율주행, MaaS까지 이동의 미래와 그 경제적 파급을 분석합니다.',
+    'history': '한국과 세계의 경제사를 통해 성장의 비밀을 읽어냅니다.',
+    'books': '세상을 이해하는 방식을 바꾸는 책들을 깊이 읽습니다.',
+    'desk': '주요 경제 매체의 리서치와 보고서를 골라 읽고 한 줄을 남깁니다.'
   };
 
   return (
@@ -46,13 +48,13 @@ export default async function TopicPage({ params }: Props) {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">Topic Focus</span>
+                    <span className="type-sub-ko text-primary">{title}</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
-                    {title}
+                <h1 className="type-page-en mb-8 text-gray-900">
+                    {titleEn}
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
+                <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-2xl mx-auto break-keep">
                     {descriptions[category] || `Insights and analysis on ${title}.`}
                 </p>
             </div>

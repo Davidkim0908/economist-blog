@@ -20,13 +20,13 @@ export default function NewsPage() {
         <div className="max-w-4xl mx-auto text-center mb-24">
             <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-[1px] w-12 bg-gray-200" />
-                <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">Media & Coverage</span>
+                <span className="type-sub-ko text-primary">언론 보도</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
-                언론 보도
+            <h1 className="type-page-en mb-8 text-gray-900">
+                In the News
             </h1>
-            <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
+            <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-2xl mx-auto break-keep">
                 언론을 통해 전해진 경제학자 김동영의 분석과 전망, <br/>
                 주요 산업 이슈에 대한 전문적인 코멘터리를 모았습니다.
             </p>

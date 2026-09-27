@@ -13,13 +13,13 @@ export default function BooksPage() {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">서평</span>
+                    <span className="type-sub-ko text-primary">서평</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
-                    Library
+                <h1 className="type-page-en mb-8 text-gray-900">
+                    Books
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
+                <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-2xl mx-auto break-keep">
                     경제학자의 시선으로 엄선한 도서들입니다. <br/>
                     세상을 읽는 새로운 프레임을 제안하는 지적 여정의 기록입니다.
                 </p>

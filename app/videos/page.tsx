@@ -15,13 +15,13 @@ export default function VideosPage() {
         <div className="max-w-4xl mx-auto text-center mb-24">
             <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-[1px] w-12 bg-gray-200" />
-                <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">미디어</span>
+                <span className="type-sub-ko text-primary">방송·강연</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
-                방송·강연
+            <h1 className="type-page-en mb-8 text-gray-900">
+                Videos
             </h1>
-            <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
+            <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-2xl mx-auto break-keep">
                 복잡한 경제 현안과 미래 기술의 맥락을 <br/>
                 생생한 영상과 목소리로 직접 전해드립니다.
             </p>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { categoryLabels } from "@/lib/site";
+import { categoryLabels, categoryLabelEn, isLatinTitle } from "@/lib/site";
 import { getAllPosts, getFeaturedPost, type Post } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
@@ -75,8 +75,8 @@ function SectionHead({ title, aside, href, linkLabel }: { title: string; aside?:
   return (
     <div className="flex items-end justify-between gap-6 border-t-2 border-[#16161A] pt-3 mb-8">
       <div className="flex items-baseline gap-4 flex-wrap">
-        <h2 className="font-display font-black text-3xl md:text-4xl text-[#16161A] tracking-tight">{title}</h2>
-        {aside && <span className="text-sm text-[#4A4A50]">{aside}</span>}
+        <h2 className="type-section-en text-[#16161A]">{title}</h2>
+        {aside && <span className="type-sub-ko text-[#4A4A50]">{aside}</span>}
       </div>
       {href && (
         <Link href={href} className="shrink-0 inline-flex items-center gap-1.5 py-2 text-sm font-bold text-[#16161A] hover:underline decoration-1 underline-offset-[5px]">
@@ -122,17 +122,17 @@ export default function Home() {
             <div className="grid md:grid-cols-12 gap-10 md:gap-12">
               <div className="md:col-span-8">
                 <p className="text-sm font-bold text-[#4A4A50] mb-5">
-                  {categoryLabels[featured.category] ?? featured.category}
+                  <span className="type-label-en">{categoryLabelEn(featured.category)}</span>
                   <span className="mx-2 text-[#BEBEB6]">|</span>
                   {formatDate(featured.date)}
                 </p>
-                <h1 id="lead-title" className="font-display font-black text-[2.1rem] leading-[1.18] md:text-[3.4rem] md:leading-[1.14] tracking-tight text-balance mb-8">
+                <h1 id="lead-title" className="type-article-ko text-balance mb-7">
                   <Link href={postHref(featured)} className="hover:underline decoration-1 underline-offset-[5px]">
                     <Drawn className="pen-underline">{underlined}</Drawn>
                     {remainder}
                   </Link>
                 </h1>
-                <p className="text-lg md:text-xl leading-relaxed text-[#2E2E33] max-w-[38rem] mb-10 text-pretty">
+                <p className="text-[1.0625rem] md:text-lg leading-relaxed text-[#2E2E33] max-w-[36rem] mb-10 text-pretty">
                   {featured.excerpt}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-[#BEBEB6] pt-6">
@@ -168,7 +168,7 @@ export default function Home() {
         {deskNotes.length > 0 && (
           <section aria-labelledby="desk-title" className="mb-20">
             <div id="desk-title">
-              <SectionHead title="데스크 노트" aside="필자가 골라 읽고 한 줄을 남긴 해외 기사" href="/desk" linkLabel="전체 보기" />
+              <SectionHead title="On My Desk" aside="필자가 골라 읽고 한 줄을 남긴 해외 기사" href="/desk" linkLabel="전체 보기" />
             </div>
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {deskNotes.map((post) => (
@@ -177,7 +177,7 @@ export default function Home() {
                     <span className="text-xs font-black tracking-widest uppercase border border-[#16161A] px-2 py-1">{post.source || "ECONOMIST"}</span>
                     <ReviewStamp />
                   </div>
-                  <h3 className="font-display font-bold text-xl leading-snug mb-2">
+                  <h3 className={`${isLatinTitle(post.title) ? "type-title-en" : "type-title-ko"} mb-2`}>
                     <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px] after:absolute after:inset-0">
                       {post.title}
                     </Link>
@@ -195,7 +195,7 @@ export default function Home() {
         {/* 3. 칼럼 + More Stories | 언론 보도 */}
         <section className="grid lg:grid-cols-12 gap-12 lg:gap-14 mb-20">
           <div className="lg:col-span-8">
-            <SectionHead title="칼럼" aside="칼럼 · 기고" href="/topics/digital-transformation" linkLabel="전체 칼럼" />
+            <SectionHead title="Lead Analysis" aside="칼럼 · 기고" href="/topics/digital-transformation" linkLabel="전체 칼럼" />
             {lead && (
               <article className="grid sm:grid-cols-5 gap-6 pb-8 mb-2 border-b border-[#BEBEB6]">
                 {lead.coverImage && (
@@ -205,9 +205,9 @@ export default function Home() {
                 )}
                 <div className={lead.coverImage ? "sm:col-span-3" : "sm:col-span-5"}>
                   <p className="text-sm font-bold text-[#4A4A50] mb-3">
-                    {categoryLabels[lead.category]} <span className="mx-1.5 text-[#BEBEB6]">|</span> {formatDate(lead.date)}
+                    <span className="type-label-en">{categoryLabelEn(lead.category)}</span> <span className="mx-1.5 text-[#BEBEB6]">|</span> {formatDate(lead.date)}
                   </p>
-                  <h3 className="font-display font-black text-2xl md:text-[1.9rem] leading-snug mb-3 text-balance">
+                  <h3 className="type-title-ko text-[1.5rem] md:text-[1.625rem] mb-3 text-balance">
                     <Link href={postHref(lead)} className="hover:underline decoration-1 underline-offset-[5px]">{lead.title}</Link>
                   </h3>
                   <p className="text-base leading-relaxed text-[#2E2E33] line-clamp-3">{lead.excerpt}</p>
@@ -219,10 +219,10 @@ export default function Home() {
                 <li key={post.slug} className="py-6 grid sm:grid-cols-[8.5rem_1fr] gap-2 sm:gap-6">
                   <p className="text-sm text-[#4A4A50] pt-1">
                     {formatDate(post.date)}
-                    <span className="block font-bold">{categoryLabels[post.category]}</span>
+                    <span className="block font-bold mt-0.5">{categoryLabels[post.category]}</span>
                   </p>
                   <div>
-                    <h3 className="font-display font-bold text-xl leading-snug mb-2 text-balance">
+                    <h3 className="type-title-ko mb-2 text-balance">
                       <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px]">{post.title}</Link>
                     </h3>
                     <p className="text-[0.95rem] leading-relaxed text-[#4A4A50] line-clamp-2">{post.excerpt}</p>
@@ -233,7 +233,7 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-4">
-            <SectionHead title="언론 보도" href="/news" linkLabel="전체 보도" />
+            <SectionHead title="In the News" aside="언론 보도" href="/news" linkLabel="전체 보도" />
             <ul className="space-y-8">
               {news.map((item) => (
                 <li key={item.link} className="border-b border-[#BEBEB6] pb-7">
@@ -241,7 +241,7 @@ export default function Home() {
                     <span className="font-bold">{item.media}</span>
                     <span className="text-[#4A4A50] ml-2">{item.date}</span>
                   </p>
-                  <h3 className="font-display font-bold text-lg leading-snug mb-3 text-balance">
+                  <h3 className="type-title-ko text-[1.0625rem] mb-3 text-balance">
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline decoration-1 underline-offset-[5px]">
                       {item.title}
                     </a>
@@ -262,7 +262,7 @@ export default function Home() {
         {/* 4. AI & Mobility Shift — a section front, columns divided by rules */}
         {shift.length > 0 && (
           <section className="mb-20">
-            <SectionHead title="AI·모빌리티 전환" href="/topics/mobility" linkLabel="전체 보기" />
+            <SectionHead title="AI & Mobility Shift" aside="AI·모빌리티 전환" href="/topics/mobility" linkLabel="전체 보기" />
             <div className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-0 lg:-mx-6 lg:divide-x divide-[#BEBEB6]">
               {shift.map((post) => (
                 <article key={post.slug} className="grid grid-cols-[6.5rem_1fr] gap-4 items-start sm:block py-4 border-b border-[#BEBEB6] sm:border-b-0 lg:py-0 lg:px-6">
@@ -272,8 +272,8 @@ export default function Home() {
                     </div>
                   )}
                   <div>
-                    <p className="text-sm font-bold text-[#4A4A50] mb-2">{categoryLabels[post.category]}</p>
-                    <h3 className="font-display font-bold text-lg leading-snug text-balance">
+                    <p className="type-label-en text-[#4A4A50] mb-2">{categoryLabelEn(post.category)}</p>
+                    <h3 className="type-title-ko text-[1.0625rem] text-balance">
                       <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px]">{post.title}</Link>
                     </h3>
                     <p className="text-sm text-[#4A4A50] mt-2">{formatDate(post.date)}</p>
@@ -287,7 +287,7 @@ export default function Home() {
         {/* 5. Broadcast */}
         {videos.length > 0 && (
           <section className="mb-20">
-            <SectionHead title="방송·강연" href="/videos" linkLabel="전체 영상" />
+            <SectionHead title="Videos" aside="방송·강연" href="/videos" linkLabel="전체 영상" />
             <div className="grid md:grid-cols-3 gap-8">
               {videos.map((video) => (
                 <article key={video.id}>
@@ -295,7 +295,7 @@ export default function Home() {
                     <YouTubeFacade youtubeId={video.youtubeId} title={video.title} />
                   </div>
                   <p className="text-sm text-[#4A4A50] mb-1.5">{formatDate(video.date)}</p>
-                  <h3 className="font-display font-bold text-lg leading-snug text-balance">{video.title}</h3>
+                  <h3 className="type-title-ko text-[1.0625rem] text-balance">{video.title}</h3>
                 </article>
               ))}
             </div>
@@ -305,7 +305,7 @@ export default function Home() {
         {/* 6. 서재 — the author's score in red pen */}
         {books.length > 0 && (
           <section className="mb-20">
-            <SectionHead title="서재" href="/books" linkLabel="전체 서평" />
+            <SectionHead title="Books" aside="서평" href="/books" linkLabel="전체 서평" />
             <div className="grid sm:grid-cols-3 gap-10">
               {books.map((book) => (
                 <article key={book.slug} className="flex gap-5 items-start">
@@ -313,7 +313,7 @@ export default function Home() {
                     {book.coverImage && <Image src={book.coverImage} alt="" fill sizes="112px" className="object-cover" />}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-display font-bold text-lg leading-snug mb-1 text-balance">
+                    <h3 className="type-title-ko text-[1.0625rem] mb-1 text-balance">
                       <Link href={postHref(book)} className="hover:underline decoration-1 underline-offset-[5px]">{book.title}</Link>
                     </h3>
                     {book.author && <p className="text-sm text-[#4A4A50] mb-3">{book.author}</p>}
@@ -339,8 +339,8 @@ export default function Home() {
               </div>
             </div>
             <div className="md:col-span-9">
-              <h2 className="font-display font-black text-3xl md:text-4xl mb-5">소개</h2>
-              <p className="font-display text-2xl md:text-[2rem] leading-snug mb-6 text-balance">
+              <h2 className="type-section-en mb-4">Meet David</h2>
+              <p className="type-display-ko font-medium mb-5 text-balance">
                 기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.
               </p>
               <p className="text-lg text-[#2E2E33] mb-8">

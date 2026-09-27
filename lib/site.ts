@@ -19,3 +19,17 @@ export const categoryLabels: Record<string, string> = {
 };
 
 export const categoryLabel = (category: string) => categoryLabels[category] ?? category;
+
+// 영문 라벨 (작은 대문자 라벨·페이지 이름용)
+export const categoryLabelsEn: Record<string, string> = {
+  "digital-transformation": "AI Transformation",
+  mobility: "Mobility Transformation",
+  history: "Growth Trajectory",
+  books: "Books",
+  desk: "On My Desk",
+};
+
+export const categoryLabelEn = (category: string) => categoryLabelsEn[category] ?? category;
+
+// 제목이 대부분 로마자이면 영문 서체로 조판
+export const isLatinTitle = (text: string) => !/[가-힣]/.test(text);
