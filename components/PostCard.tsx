@@ -10,11 +10,11 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post, className, variant = 'default' }: PostCardProps) {
-  const categoryLabel = post.category === 'digital-transformation' ? 'AI Transformation' : 
-                        post.category === 'history' ? 'Growth Trajectory' : 
-                        post.category === 'mobility' ? 'Mobility Transformation' :
+  const categoryLabel = post.category === 'digital-transformation' ? 'AI 전환' : 
+                        post.category === 'history' ? '성장의 궤적' : 
+                        post.category === 'mobility' ? '모빌리티 전환' :
                         post.category === 'books' ? 'Books' :
-                        post.category === 'desk' ? 'On My Desk' :
+                        post.category === 'desk' ? '데스크 노트' :
                         post.category;
 
   // New Robust Source Logo Logic
@@ -93,7 +93,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
               {post.excerpt}
             </p>
             <span className="text-xs font-black uppercase tracking-[0.2em] text-gray-900 border-b-2 border-gray-900 self-start pb-1 group-hover:text-white group-hover:border-white transition-colors">
-              Read Story
+              읽기
             </span>
           </div>
         </div>

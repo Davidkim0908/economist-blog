@@ -24,7 +24,7 @@ export default function NewsPage() {
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
-                In the News
+                언론 보도
             </h1>
             <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
                 언론을 통해 전해진 경제학자 김동영의 분석과 전망, <br/>

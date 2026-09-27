@@ -1,5 +1,6 @@
 "use client";
 
+import { categoryLabel } from "@/lib/site";
 import { useState, useEffect, useRef } from 'react';
 import { Search as SearchIcon, X, Loader2 } from 'lucide-react';
 import Link from 'next/link';
@@ -122,9 +123,7 @@ export default function Search() {
                     className="block group border-b border-gray-100 pb-8 last:border-0"
                   >
                     <span className="text-xs font-bold tracking-wider uppercase text-primary mb-2 block">
-                       {post.category === 'digital-transformation' ? 'Digital Transformation' : 
-                        post.category === 'history' ? 'History' : 
-                        post.category}
+                       {categoryLabel(post.category)}
                     </span>
                     <h3 className="text-2xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
                       {post.title}

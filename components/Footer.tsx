@@ -10,32 +10,32 @@ export default function Footer() {
           <div className="md:col-span-1">
             <h3 className="font-serif font-black text-2xl mb-6 tracking-tighter">David&apos;s Notes</h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              The blog of Economist David Kim. Exploring the intersection of AI, Mobility, and Economic History.
+              경제학자 김동영의 블로그. AI와 모빌리티, 그리고 경제사가 만나는 지점을 탐구합니다.
             </p>
             <div className="text-xs text-gray-500">
-              &copy; {new Date().getFullYear()} David Kim. <br/>All rights reserved.
+              &copy; {new Date().getFullYear()} David Kim. <br/>모든 권리 보유.
             </div>
           </div>
 
           {/* 2. Vertical Navigation (Sitemap) */}
           <div className="md:col-span-1">
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">Explore</h4>
+            <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">둘러보기</h4>
             <ul className="space-y-3 text-sm text-gray-600 font-medium">
-              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-primary transition-colors">About David</Link></li>
-              <li><Link href="/videos" className="hover:text-primary transition-colors">Videos</Link></li>
-              <li><Link href="/topics/digital-transformation" className="hover:text-primary transition-colors">Focus: AI Transformation</Link></li>
-              <li><Link href="/topics/mobility" className="hover:text-primary transition-colors">Focus: Mobility Transformation</Link></li>
-              <li><Link href="/topics/history" className="hover:text-primary transition-colors">Focus: Decoding Growth</Link></li>
-              <li><Link href="/books" className="hover:text-primary transition-colors">Books</Link></li>
-              <li><Link href="/desk" className="hover:text-primary transition-colors">On My Desk</Link></li>
-              <li><Link href="/news" className="hover:text-primary transition-colors">In the News</Link></li>
+              <li><Link href="/" className="hover:text-primary transition-colors">홈</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">김동영 소개</Link></li>
+              <li><Link href="/videos" className="hover:text-primary transition-colors">방송·강연</Link></li>
+              <li><Link href="/topics/digital-transformation" className="hover:text-primary transition-colors">AI 전환</Link></li>
+              <li><Link href="/topics/mobility" className="hover:text-primary transition-colors">모빌리티 전환</Link></li>
+              <li><Link href="/topics/history" className="hover:text-primary transition-colors">성장의 궤적</Link></li>
+              <li><Link href="/books" className="hover:text-primary transition-colors">서재</Link></li>
+              <li><Link href="/desk" className="hover:text-primary transition-colors">데스크 노트</Link></li>
+              <li><Link href="/news" className="hover:text-primary transition-colors">언론 보도</Link></li>
             </ul>
           </div>
 
           {/* 3. Social & Contact */}
           <div className="md:col-span-1">
-            <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">Connect</h4>
+            <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">연락</h4>
             <ul className="space-y-3 text-sm text-gray-600 font-medium">
               {socialLinks.map(link => (
                 <li key={link.href}><a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{link.label}</a></li>
@@ -64,12 +64,12 @@ export default function Footer() {
         {/* Bottom Legal Line */}
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <div className="flex space-x-6">
-                <Link href="/legal/privacy" className="hover:text-gray-600">Privacy Policy</Link>
-                <Link href="/legal/terms" className="hover:text-gray-600">Terms of Service</Link>
-                <Link href="/legal/cookies" className="hover:text-gray-600">Cookie Policy</Link>
+                <Link href="/legal/privacy" className="hover:text-gray-600">개인정보처리방침</Link>
+                <Link href="/legal/terms" className="hover:text-gray-600">이용약관</Link>
+                <Link href="/legal/cookies" className="hover:text-gray-600">쿠키 정책</Link>
             </div>
             <div className="mt-4 md:mt-0 font-medium">
-                All content &copy; David Kim.
+                &copy; 김동영
             </div>
         </div>
       </div>

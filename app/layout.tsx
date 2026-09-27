@@ -25,7 +25,7 @@ const penScript = Nanum_Pen_Script({
 
 export const metadata: Metadata = {
   title: "David's Notes",
-  description: "Insights on Economics, Digital Transformation, Mobility, and Books.",
+  description: "경제학자 김동영의 블로그 — AI 전환, 모빌리티, 경제사, 그리고 책.",
 };
 
 export default function RootLayout({

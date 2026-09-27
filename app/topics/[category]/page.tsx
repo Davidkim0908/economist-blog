@@ -22,11 +22,11 @@ export default async function TopicPage({ params }: Props) {
 
   // Map category slug to display name
   const categoryNames: Record<string, string> = {
-    'digital-transformation': 'AI Transformation',
-    'mobility': 'Mobility Transformation',
-    'history': 'Growth Trajectory',
+    'digital-transformation': 'AI 전환',
+    'mobility': '모빌리티 전환',
+    'history': '성장의 궤적',
     'books': 'Book Reviews',
-    'desk': 'On My Desk'
+    'desk': '데스크 노트'
   };
 
   const title = categoryNames[category] || category.replace(/-/g, ' ').toUpperCase();

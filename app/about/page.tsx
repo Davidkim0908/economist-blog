@@ -13,7 +13,7 @@ export default function AboutPage() {
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
-                Meet David
+                소개
             </h1>
         </div>
 
@@ -31,7 +31,7 @@ export default function AboutPage() {
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                <div className="absolute bottom-8 left-8">
-                  <span className="text-white text-xs font-black uppercase tracking-[0.3em] bg-primary px-4 py-2 rounded-full">Scholar & Strategist</span>
+                  <span className="text-white text-xs font-black uppercase tracking-[0.3em] bg-primary px-4 py-2 rounded-full">경제학자 · 전략가</span>
                </div>
             </div>
           </div>
@@ -89,15 +89,15 @@ export default function AboutPage() {
                 <h4 className="font-serif font-black text-2xl mb-8 text-gray-900 tracking-tight">David&apos;s Notes 가이드</h4>
                 <div className="grid gap-8">
                   <div className="group">
-                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">Meet David</span>
+                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">소개</span>
                     <p className="text-sm text-gray-500 leading-relaxed break-keep group-hover:text-gray-900 transition-colors">경제학자로서의 이력뿐만 아니라, 방송과 강연 영상을 통해 글보다 생생한 저의 목소리와 관점을 직접 만나실 수 있습니다.</p>
                   </div>
                   <div className="group">
-                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">Focus</span>
+                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">주제</span>
                     <p className="text-sm text-gray-500 leading-relaxed break-keep group-hover:text-gray-900 transition-colors">한국 경제가 달려온 성장의 궤적(<strong>GT</strong>)을 연료 삼아, 인공지능(<strong>AT</strong>)과 모빌리티(<strong>MT</strong>)라는 낯선 미래로 질주하는 여정을 기록합니다.</p>
                   </div>
                   <div className="group">
-                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">On My Desk</span>
+                    <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">데스크 노트</span>
                     <p className="text-sm text-gray-500 leading-relaxed break-keep group-hover:text-gray-900 transition-colors">이코노미스트와 블룸버그 등 세계의 흐름을 읽을 수 있는 공신력 있는 지식을 엄선해 공유합니다.</p>
                   </div>
                 </div>

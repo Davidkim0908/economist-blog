@@ -13,7 +13,7 @@ export default function BooksPage() {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">The Reading List</span>
+                    <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">서평</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
                 <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
@@ -78,7 +78,7 @@ export default function BooksPage() {
                         </p>
                         
                         <Link href={`/posts/${post.category}/${post.slug}`} className="mt-auto inline-block text-xs font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">
-                            Read Summary
+                            서평 읽기
                         </Link>
                     </div>
                 </div>

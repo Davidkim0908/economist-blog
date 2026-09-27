@@ -58,11 +58,11 @@ export default async function PostPage({ params }: Props) {
   }
 
   // Format category label
-  const categoryLabel = category === 'digital-transformation' ? 'AI Transformation' :
-                        category === 'mobility' ? 'Mobility Transformation' :
-                        category === 'history' ? 'Growth Trajectory' :
+  const categoryLabel = category === 'digital-transformation' ? 'AI 전환' :
+                        category === 'mobility' ? '모빌리티 전환' :
+                        category === 'history' ? '성장의 궤적' :
                         category === 'books' ? 'Book Reviews' : 
-                        category === 'desk' ? 'On My Desk' :
+                        category === 'desk' ? '데스크 노트' :
                         category;
 
   return (
@@ -198,17 +198,17 @@ export default async function PostPage({ params }: Props) {
             <aside className="hidden lg:block lg:col-span-3">
                 <div className="sticky top-32 space-y-12">
                     <div className="bg-white p-8 rounded-[2rem] border border-gray-50 shadow-sm">
-                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6 border-b border-gray-100 pb-4">On My Desk</h4>
-                        <p className="text-xs text-gray-500 leading-relaxed font-light mb-6">이 포스팅과 연결된 더 깊은 데이터와 보고서들은 &apos;On My Desk&apos; 섹션에서 확인하실 수 있습니다.</p>
+                        <h4 className="text-xs font-black uppercase tracking-[0.2em] text-primary mb-6 border-b border-gray-100 pb-4">데스크 노트</h4>
+                        <p className="text-xs text-gray-500 leading-relaxed font-light mb-6">이 포스팅과 연결된 더 깊은 데이터와 보고서들은 &apos;데스크 노트&apos; 섹션에서 확인하실 수 있습니다.</p>
                         <Link href="/desk" className="text-xs font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">Explore Research</Link>
                     </div>
                     
                     <div className="px-4">
                         <h4 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-6">Current Focus</h4>
                         <div className="space-y-4">
-                            <Link href="/topics/digital-transformation" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">AI Transformation</Link>
-                            <Link href="/topics/mobility" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">Mobility Transformation</Link>
-                            <Link href="/topics/history" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">Growth Trajectory</Link>
+                            <Link href="/topics/digital-transformation" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">AI 전환</Link>
+                            <Link href="/topics/mobility" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">모빌리티 전환</Link>
+                            <Link href="/topics/history" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">성장의 궤적</Link>
                         </div>
                     </div>
                 </div>

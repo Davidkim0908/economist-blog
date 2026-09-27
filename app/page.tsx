@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { categoryLabels } from "@/lib/site";
 import { getAllPosts, getFeaturedPost, type Post } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
@@ -10,14 +11,6 @@ import { ArrowRight } from "lucide-react";
 
 // 정적 렌더링 + 1시간마다 재생성 (날짜줄이 시간 단위로 갱신됨)
 export const revalidate = 3600;
-
-const categoryLabels: Record<string, string> = {
-  "digital-transformation": "AI Transformation",
-  mobility: "Mobility Transformation",
-  history: "Growth Trajectory",
-  books: "Books",
-  desk: "On My Desk",
-};
 
 const postHref = (post: Post) => `/posts/${post.category}/${post.slug}`;
 
@@ -118,7 +111,7 @@ export default function Home() {
         <div className="flex items-center justify-between gap-4 border-b border-[#16161A] py-3 text-sm">
           <span className="font-bold">{dateline()}</span>
           <span className="hidden sm:inline text-[#4A4A50]">David&apos;s Notes · 데스크 교정지</span>
-          <span className="text-[#4A4A50]">Economist David Kim</span>
+          <span className="text-[#4A4A50]">경제학자 김동영</span>
         </div>
         <div className="border-b border-[#BEBEB6] mb-10 md:mb-14 h-1" aria-hidden="true" />
 
@@ -171,11 +164,11 @@ export default function Home() {
           </section>
         )}
 
-        {/* 2. On My Desk — clippings the author vouches for */}
+        {/* 2. 데스크 노트 — clippings the author vouches for */}
         {deskNotes.length > 0 && (
           <section aria-labelledby="desk-title" className="mb-20">
             <div id="desk-title">
-              <SectionHead title="On My Desk" aside="필자가 골라 읽고 한 줄을 남긴 해외 기사" href="/desk" linkLabel="Full Research Archive" />
+              <SectionHead title="데스크 노트" aside="필자가 골라 읽고 한 줄을 남긴 해외 기사" href="/desk" linkLabel="전체 보기" />
             </div>
             <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {deskNotes.map((post) => (
@@ -199,10 +192,10 @@ export default function Home() {
           </section>
         )}
 
-        {/* 3. Lead Analysis + More Stories | In the News */}
+        {/* 3. 칼럼 + More Stories | 언론 보도 */}
         <section className="grid lg:grid-cols-12 gap-12 lg:gap-14 mb-20">
           <div className="lg:col-span-8">
-            <SectionHead title="Lead Analysis" aside="칼럼 · 기고" href="/topics/digital-transformation" linkLabel="전체 칼럼" />
+            <SectionHead title="칼럼" aside="칼럼 · 기고" href="/topics/digital-transformation" linkLabel="전체 칼럼" />
             {lead && (
               <article className="grid sm:grid-cols-5 gap-6 pb-8 mb-2 border-b border-[#BEBEB6]">
                 {lead.coverImage && (
@@ -240,7 +233,7 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-4">
-            <SectionHead title="In the News" href="/news" linkLabel="전체 보도" />
+            <SectionHead title="언론 보도" href="/news" linkLabel="전체 보도" />
             <ul className="space-y-8">
               {news.map((item) => (
                 <li key={item.link} className="border-b border-[#BEBEB6] pb-7">
@@ -269,7 +262,7 @@ export default function Home() {
         {/* 4. AI & Mobility Shift — a section front, columns divided by rules */}
         {shift.length > 0 && (
           <section className="mb-20">
-            <SectionHead title="AI & Mobility Shift" aside="Industry Focus" href="/topics/mobility" linkLabel="Explore All" />
+            <SectionHead title="AI·모빌리티 전환" href="/topics/mobility" linkLabel="전체 보기" />
             <div className="grid sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-x-0 lg:-mx-6 lg:divide-x divide-[#BEBEB6]">
               {shift.map((post) => (
                 <article key={post.slug} className="grid grid-cols-[6.5rem_1fr] gap-4 items-start sm:block py-4 border-b border-[#BEBEB6] sm:border-b-0 lg:py-0 lg:px-6">
@@ -294,7 +287,7 @@ export default function Home() {
         {/* 5. Broadcast */}
         {videos.length > 0 && (
           <section className="mb-20">
-            <SectionHead title="Visual Insights" aside="Broadcast & Media" href="/videos" linkLabel="View All Videos" />
+            <SectionHead title="방송·강연" href="/videos" linkLabel="전체 영상" />
             <div className="grid md:grid-cols-3 gap-8">
               {videos.map((video) => (
                 <article key={video.id}>
@@ -309,10 +302,10 @@ export default function Home() {
           </section>
         )}
 
-        {/* 6. Bookshelf — the author's score in red pen */}
+        {/* 6. 서재 — the author's score in red pen */}
         {books.length > 0 && (
           <section className="mb-20">
-            <SectionHead title="Bookshelf" aside="The Reading List" href="/books" linkLabel="전체 서평" />
+            <SectionHead title="서재" href="/books" linkLabel="전체 서평" />
             <div className="grid sm:grid-cols-3 gap-10">
               {books.map((book) => (
                 <article key={book.slug} className="flex gap-5 items-start">
@@ -336,7 +329,7 @@ export default function Home() {
           </section>
         )}
 
-        {/* 7. Meet David — the sign-off */}
+        {/* 7. 소개 — the sign-off */}
         <section className="relative bg-[#F4F5F4] border border-[#BEBEB6] px-5 py-10 md:px-12 md:py-12">
           <RegMarks />
           <div className="grid md:grid-cols-12 gap-8 items-center">
@@ -346,7 +339,7 @@ export default function Home() {
               </div>
             </div>
             <div className="md:col-span-9">
-              <h2 className="font-serif font-black text-3xl md:text-4xl mb-5">Meet David</h2>
+              <h2 className="font-serif font-black text-3xl md:text-4xl mb-5">소개</h2>
               <p className="font-serif text-2xl md:text-[2rem] leading-snug mb-6 text-balance">
                 기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.
               </p>
@@ -355,7 +348,7 @@ export default function Home() {
                 <span className="inline-flex items-center justify-center w-5 h-5 ml-2 bg-primary text-white font-serif font-black text-[0.7rem] align-middle" aria-hidden="true">D.</span>
               </p>
               <Link href="/about" className="inline-flex items-center gap-2 border-2 border-[#16161A] px-6 py-3 text-sm font-bold hover:bg-[#16161A] hover:text-white transition-colors">
-                Read Full Bio <ArrowRight size={16} aria-hidden="true" />
+                소개 전문 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
           </div>

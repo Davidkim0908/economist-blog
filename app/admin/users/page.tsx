@@ -17,7 +17,7 @@ import {
 // Mock User Data
 const initialUsers = [
   { id: 1, name: "이강민", email: "kangmin.lee@example.com", date: "2026-04-30", gender: "Male", location: "Seoul, Korea", status: "Premium", payment: "₩12,000", interests: ["AI", "Mobility"] },
-  { id: 2, name: "박지수", email: "jisoo.park@gmail.com", date: "2026-04-29", gender: "Female", location: "Busan, Korea", status: "Free", payment: "-", interests: ["History", "Books"] },
+  { id: 2, name: "박지수", email: "jisoo.park@gmail.com", date: "2026-04-29", gender: "Female", location: "Busan, Korea", status: "Free", payment: "-", interests: ["History", "서재"] },
   { id: 3, name: "James Wilson", email: "james.w@tech-insights.com", date: "2026-04-28", gender: "Male", location: "London, UK", status: "Premium", payment: "$9.99", interests: ["AI", "Economy"] },
   { id: 4, name: "최유진", email: "ujin_choi@naver.com", date: "2026-04-25", gender: "Female", location: "Incheon, Korea", status: "Free", payment: "-", interests: ["Mobility"] },
   { id: 5, name: "김도윤", email: "doyun.kim@daum.net", date: "2026-04-20", gender: "Male", location: "Gwangju, Korea", status: "Free", payment: "-", interests: ["AI", "History"] },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { categoryLabels } from "@/lib/site";
 import { getAllPosts, getFeaturedPost, type Post } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
@@ -15,14 +16,6 @@ export const metadata: Metadata = {
 };
 
 export const revalidate = 3600;
-
-const categoryLabels: Record<string, string> = {
-  "digital-transformation": "AI Transformation",
-  mobility: "Mobility Transformation",
-  history: "Growth Trajectory",
-  books: "Books",
-  desk: "On My Desk",
-};
 
 const href = (post: Post) => `/posts/${post.category}/${post.slug}`;
 const link = "hover:underline decoration-1 underline-offset-[5px]";
@@ -78,7 +71,7 @@ export default function EditorialPreview() {
             </article>
 
             <aside className="lg:col-span-4">
-              <h2 className="font-serif font-black text-xl border-b-2 border-gray-900 pb-2 mb-2">Latest</h2>
+              <h2 className="font-serif font-black text-xl border-b-2 border-gray-900 pb-2 mb-2">최신 글</h2>
               <ol className="divide-y divide-gray-200">
                 {latest.map((post, i) => (
                   <li key={post.slug} className="py-5 grid grid-cols-[1.75rem_1fr] gap-3">
@@ -121,10 +114,10 @@ export default function EditorialPreview() {
           ))}
         </section>
 
-        {/* On My Desk */}
+        {/* 데스크 노트 */}
         {desk.length > 0 && (
           <section className="mb-16">
-            <SectionHead title="On My Desk" more="Full Research Archive" moreHref="/desk" />
+            <SectionHead title="데스크 노트" more="전체 보기" moreHref="/desk" />
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {desk.map((post) => (
                 <article key={post.slug}>
@@ -140,10 +133,10 @@ export default function EditorialPreview() {
           </section>
         )}
 
-        {/* In the News + Visual Insights */}
+        {/* 언론 보도 + 방송·강연 */}
         <section className="grid lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5">
-            <SectionHead title="In the News" more="전체 보도" moreHref="/news" />
+            <SectionHead title="언론 보도" more="전체 보도" moreHref="/news" />
             <ul className="divide-y divide-gray-200">
               {news.map((item) => (
                 <li key={item.link} className="py-4 first:pt-0">
@@ -157,7 +150,7 @@ export default function EditorialPreview() {
             </ul>
           </div>
           <div className="lg:col-span-7">
-            <SectionHead title="Visual Insights" more="View All Videos" moreHref="/videos" />
+            <SectionHead title="방송·강연" more="전체 영상" moreHref="/videos" />
             <div className="grid sm:grid-cols-2 gap-6">
               {videos.map((video) => (
                 <article key={video.id}>
@@ -172,10 +165,10 @@ export default function EditorialPreview() {
           </div>
         </section>
 
-        {/* Bookshelf */}
+        {/* 서재 */}
         {books.length > 0 && (
           <section className="mb-16">
-            <SectionHead title="Bookshelf" more="전체 서평" moreHref="/books" />
+            <SectionHead title="서재" more="전체 서평" moreHref="/books" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {books.map((book) => (
                 <article key={book.slug}>
@@ -193,7 +186,7 @@ export default function EditorialPreview() {
           </section>
         )}
 
-        {/* Meet David */}
+        {/* 소개 */}
         <section className="border-t-4 border-primary pt-10 grid md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-3">
             <div className="relative aspect-[3/4] max-w-[220px] bg-gray-100">
@@ -201,11 +194,11 @@ export default function EditorialPreview() {
             </div>
           </div>
           <div className="md:col-span-9">
-            <h2 className="font-serif font-black text-3xl md:text-4xl mb-4">Meet David</h2>
+            <h2 className="font-serif font-black text-3xl md:text-4xl mb-4">소개</h2>
             <p className="font-serif text-2xl md:text-[2rem] leading-snug mb-4 text-balance">기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.</p>
             <p className="text-lg text-gray-700 mb-8">미래의 길을 설계하는 경제학자, 김동영입니다.</p>
             <Link href="/about" className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3.5 text-sm font-bold hover:bg-primary transition-colors">
-              Read Full Bio <ArrowRight size={16} aria-hidden="true" />
+              소개 전문 <ArrowRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </section>
