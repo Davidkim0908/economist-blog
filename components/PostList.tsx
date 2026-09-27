@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import PostCard from "@/components/PostCard";
 import { Post } from "@/lib/posts";
+import { seriesStyle } from "@/lib/site";
 
 interface PostListProps {
   posts: Post[];
@@ -28,7 +29,8 @@ function groupPosts(posts: Post[]): Group[] {
     .map(([name, list]) => ({
       key: name,
       title: name,
-      subtitle: `연재 · ${list.length}편`,
+      // 연재 중인 시리즈는 편수 대신 "연재 중"만 표시
+      subtitle: seriesStyle(name).ongoing ? "연재 중" : `연재 · ${list.length}편`,
       posts: [...list].sort((a, b) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0)),
     }));
 
