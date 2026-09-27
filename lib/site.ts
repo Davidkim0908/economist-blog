@@ -39,6 +39,7 @@ export type SeriesStyle = { key: string; bg: string; ogBg: string; label: string
 const seriesStyles: Record<string, SeriesStyle> = {
   "4차 산업혁명 이야기": { key: "4ir", bg: "rgba(148,153,160,0.32)", ogBg: "#D2D4D6", label: "#4B5563", number: "#1F2937", en: "The Fourth Industrial Revolution" },
   "디지털 이코노미": { key: "de", bg: "rgba(96,125,160,0.26)", ogBg: "#CDD6E0", label: "#3E516A", number: "#1E2F45", en: "Digital Economy" },
+  "에이징 & 모빌리티": { key: "am", bg: "rgba(120,140,118,0.28)", ogBg: "#D3DBD1", label: "#465644", number: "#243223", en: "Aging & Mobility" },
 };
 export const seriesStyle = (series: string): SeriesStyle => seriesStyles[series] ?? seriesStyles["4차 산업혁명 이야기"];
 export const seriesStyleByKey = (key: string): SeriesStyle =>
