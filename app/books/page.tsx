@@ -16,7 +16,7 @@ export default function BooksPage() {
                     <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">서평</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+                <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
                     Library
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
@@ -51,13 +51,13 @@ export default function BooksPage() {
                         </div>
 
                         <Link href={`/posts/${post.category}/${post.slug}`}>
-                            <h2 className="text-2xl font-serif font-black mb-3 group-hover:text-primary transition-colors leading-tight tracking-tight text-gray-900">
+                            <h2 className="text-2xl font-display font-black mb-3 group-hover:text-primary transition-colors leading-tight tracking-tight text-gray-900">
                                 {post.title}
                             </h2>
                         </Link>
                         
                         {post.author && (
-                            <p className="text-xs text-gray-500 font-bold uppercase tracking-tighter mb-4">
+                            <p className="text-xs text-gray-500 font-bold uppercase tracking-tight mb-4">
                                 by {post.author}
                             </p>
                         )}

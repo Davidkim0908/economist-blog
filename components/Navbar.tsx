@@ -127,7 +127,7 @@ export default function Navbar() {
                     <div className="container mx-auto px-4 lg:px-8">
                         <div className="grid grid-cols-12 gap-12">
                             <div className="col-span-3 border-r border-gray-100 pr-8">
-                                <p className="font-serif font-black text-3xl mb-4 text-gray-900">Meet David</p>
+                                <p className="font-display font-black text-3xl mb-4 text-gray-900">Meet David</p>
                                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                                     경제학자의 시선으로 기술과 사회의 접점을 탐구합니다.<br/>
                                     데이터 뒤에 숨겨진 맥락을 읽어내고, 더 나은 미래를 위한 이정표를 제시합니다.
@@ -153,7 +153,7 @@ export default function Navbar() {
                             <div className="col-span-4 bg-gray-50 rounded-xl overflow-hidden relative h-64 group/card border border-gray-100 flex items-center justify-center">
                                 <Image src="/reading-book-clean.jpg" alt="David Kim Reading" fill sizes="400px" className="object-contain transition-transform duration-700 group-hover/card:scale-105" />
                                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 via-black/10 to-transparent p-6">
-                                    <div className="text-white font-serif font-bold text-lg">Deep Dive into Context</div>
+                                    <div className="text-white font-display font-bold text-lg">Deep Dive into Context</div>
                                     <div className="text-white/90 text-xs font-bold uppercase tracking-widest">Scholar &amp; Strategist</div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ export default function Navbar() {
                     <div className="container mx-auto px-4 lg:px-8">
                         <div className="grid grid-cols-12 gap-8">
                             <div className="col-span-3 border-r border-gray-100 pr-8">
-                                <p className="font-serif font-black text-3xl mb-4 text-gray-900">Key Topics</p>
+                                <p className="font-display font-black text-3xl mb-4 text-gray-900">Key Topics</p>
                                 <p className="text-gray-500 text-sm leading-relaxed">
                                     3가지 핵심 테마를 통해<br/>미래 경제의 지형도를 그려봅니다.
                                 </p>
@@ -242,9 +242,9 @@ export default function Navbar() {
         <div className="container mx-auto px-6 py-32 flex flex-col space-y-8">
             <div className="border-b border-gray-100 pb-4">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Meet David</p>
-                <Link href="/about" className="block text-2xl font-serif font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-                <Link href="/videos" className="block text-2xl font-serif font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
-                <Link href="/news" className="block text-2xl font-serif font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>In the News</Link>
+                <Link href="/about" className="block text-2xl font-display font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                <Link href="/videos" className="block text-2xl font-display font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
+                <Link href="/news" className="block text-2xl font-display font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>In the News</Link>
             </div>
             <div className="border-b border-gray-100 pb-4">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Focus</p>
@@ -253,9 +253,9 @@ export default function Navbar() {
                 <Link href="/topics/history" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Growth Trajectory</Link>
             </div>
             <div className="flex flex-col space-y-4">
-                <Link href="/books" className="text-2xl font-serif font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
-                <Link href="/desk" className="text-2xl font-serif font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
-                {SHOW_JOIN && <Link href="/join" className="text-2xl font-serif font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>}
+                <Link href="/books" className="text-2xl font-display font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
+                <Link href="/desk" className="text-2xl font-display font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
+                {SHOW_JOIN && <Link href="/join" className="text-2xl font-display font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>}
             </div>
         </div>
       </div>

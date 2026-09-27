@@ -15,7 +15,7 @@ export default function DeskPage() {
                     <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">데스크 노트</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
-                <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+                <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
                     Workspace
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
@@ -33,7 +33,7 @@ export default function DeskPage() {
             ) : (
                 <div className="text-center py-40 bg-white rounded-[3rem] border border-dashed border-gray-200">
                     <Mic2 size={48} className="mx-auto text-gray-200 mb-6" />
-                    <p className="text-gray-500 font-serif italic text-xl tracking-tight">The desk is currently clear. <br/>Check back for new research soon.</p>
+                    <p className="text-gray-500 font-display text-xl tracking-tight">The desk is currently clear. <br/>Check back for new research soon.</p>
                 </div>
             )}
         </div>

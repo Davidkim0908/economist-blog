@@ -67,7 +67,7 @@ export default function JoinPage() {
                         <span className="text-primary font-black text-lg leading-none">.</span>
                     </div>
                 </Link>
-                <h2 className="text-4xl md:text-5xl font-serif font-black mb-8 leading-tight tracking-tighter">
+                <h2 className="text-4xl md:text-5xl font-display font-black mb-8 leading-tight tracking-tight">
                     Unlock <br/>
                     Premium <br/>
                     Insights.
@@ -96,7 +96,7 @@ export default function JoinPage() {
             
             <div className="relative z-10 mt-12 pt-8 border-t border-white/10">
                 <p className="text-xs font-black uppercase tracking-[0.3em] text-primary mb-2">Member Benefit</p>
-                <p className="text-sm text-gray-500 font-light italic">
+                <p className="text-sm text-gray-500 font-light">
                     "기술이라는 엔진에 맥락이라는 지도를 더하는 여정에 함께하세요."
                 </p>
             </div>
@@ -106,7 +106,7 @@ export default function JoinPage() {
           <div className="md:w-7/12 p-12 md:p-16 bg-white">
             <div className="mb-12">
                 <h3 className="text-sm font-black uppercase tracking-[0.3em] text-primary mb-3">Get Started</h3>
-                <h1 className="text-4xl font-serif font-black text-gray-900 tracking-tight">Create your account</h1>
+                <h1 className="text-4xl font-display font-black text-gray-900 tracking-tight">Create your account</h1>
                 <p className="text-gray-500 mt-4 font-light">이미 계정이 있으신가요? <Link href="#" className="text-gray-900 font-bold border-b border-gray-900 hover:text-primary hover:border-primary transition-all">로그인하기</Link></p>
             </div>
 

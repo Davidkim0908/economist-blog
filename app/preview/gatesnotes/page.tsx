@@ -29,7 +29,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
 function SectionTitle({ title, moreHref, more }: { title: string; moreHref?: string; more?: string }) {
   return (
     <div className="flex items-end justify-between gap-6 mb-10">
-      <h2 className="font-serif font-black text-3xl md:text-[2.6rem] tracking-tight text-gray-900">{title}</h2>
+      <h2 className="font-display font-black text-3xl md:text-[2.6rem] tracking-tight text-gray-900">{title}</h2>
       {moreHref && (
         <Link href={moreHref} className="shrink-0 whitespace-nowrap inline-flex items-center gap-1.5 py-2 text-base font-semibold text-gray-900 hover:text-primary transition-colors">
           {more} <ArrowRight size={16} aria-hidden="true" />
@@ -58,7 +58,7 @@ export default function GatesNotesPreview() {
           <div className="relative h-full container mx-auto px-4 lg:px-8 max-w-[1240px] flex items-end pb-12 md:pb-20">
             <div className="w-full max-w-[34rem] bg-[#E9E9E7]/95 rounded-2xl px-7 py-8 md:px-10 md:py-10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)]">
               <Kicker>{categoryLabels[featured.category]}</Kicker>
-              <h1 className="font-serif font-black text-[2rem] leading-[1.15] md:text-[2.6rem] md:leading-[1.12] tracking-tight text-balance mb-5">
+              <h1 className="font-display font-black text-[2rem] leading-[1.15] md:text-[2.6rem] md:leading-[1.12] tracking-tight text-balance mb-5">
                 <Link href={href(featured)} className="hover:underline decoration-2 underline-offset-[6px]">{featured.title}</Link>
               </h1>
               <p className="text-lg leading-relaxed text-gray-800 mb-6 text-pretty">{firstSentence(featured.excerpt)}</p>
@@ -82,7 +82,7 @@ export default function GatesNotesPreview() {
                   {post.coverImage && <Image src={post.coverImage} alt="" fill sizes="(min-width: 768px) 400px, 100vw" className="object-cover" />}
                 </Link>
                 <Kicker>{categoryLabels[post.category]}</Kicker>
-                <h3 className="font-serif font-black text-2xl leading-snug tracking-tight text-balance mb-3">
+                <h3 className="font-display font-black text-2xl leading-snug tracking-tight text-balance mb-3">
                   <Link href={href(post)} className="hover:underline decoration-2 underline-offset-[5px]">{post.title}</Link>
                 </h3>
                 <p className="text-base leading-relaxed text-gray-700 line-clamp-3">{post.excerpt}</p>
@@ -98,7 +98,7 @@ export default function GatesNotesPreview() {
           </div>
           <div className="px-7 py-10 md:px-14 md:py-16">
             <Kicker>소개</Kicker>
-            <p className="font-serif font-black text-3xl md:text-[2.4rem] leading-[1.2] tracking-tight text-balance mb-6">
+            <p className="font-display font-black text-3xl md:text-[2.4rem] leading-[1.2] tracking-tight text-balance mb-6">
               기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.
             </p>
             <p className="text-lg leading-relaxed text-gray-700 mb-8">
@@ -118,7 +118,7 @@ export default function GatesNotesPreview() {
               {desk.map((post) => (
                 <article key={post.slug} className="rounded-2xl bg-[#F1F0EC] p-7 flex flex-col">
                   <p className="text-sm font-bold tracking-wide uppercase text-gray-600 mb-4">{post.source || "ECONOMIST"}</p>
-                  <h3 className="font-serif font-black text-xl leading-snug text-balance mb-4">
+                  <h3 className="font-display font-black text-xl leading-snug text-balance mb-4">
                     <Link href={href(post)} className="hover:underline decoration-2 underline-offset-[5px]">{post.title}</Link>
                   </h3>
                   <p className="text-base leading-relaxed text-gray-700 line-clamp-4 mb-5">{post.excerpt}</p>
@@ -139,7 +139,7 @@ export default function GatesNotesPreview() {
                   <div className="relative aspect-video rounded-2xl overflow-hidden bg-gray-900 mb-5">
                     <YouTubeFacade youtubeId={video.youtubeId} title={video.title} />
                   </div>
-                  <h3 className="font-serif font-black text-xl leading-snug text-balance">{video.title}</h3>
+                  <h3 className="font-display font-black text-xl leading-snug text-balance">{video.title}</h3>
                   <p className="text-sm text-gray-600 mt-2">{formatDate(video.date)}</p>
                 </article>
               ))}
@@ -157,7 +157,7 @@ export default function GatesNotesPreview() {
                   <Link href={href(book)} className="block relative aspect-[2/3] rounded-lg overflow-hidden bg-gray-100 mb-4 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.35)]" tabIndex={-1} aria-hidden="true">
                     {book.coverImage && <Image src={book.coverImage} alt="" fill sizes="(min-width: 768px) 280px, 45vw" className="object-cover" />}
                   </Link>
-                  <h3 className="font-serif font-bold text-lg leading-snug text-balance">
+                  <h3 className="font-display font-bold text-lg leading-snug text-balance">
                     <Link href={href(book)} className="hover:underline decoration-2 underline-offset-[5px]">{book.title}</Link>
                   </h3>
                   {book.author && <p className="text-sm text-gray-600 mt-1">{book.author}</p>}

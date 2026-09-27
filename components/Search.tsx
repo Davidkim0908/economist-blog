@@ -99,7 +99,7 @@ export default function Search() {
                 ref={inputRef}
                 type="text"
                 placeholder="Search David's Notes..."
-                className="w-full text-4xl md:text-5xl font-serif font-bold bg-transparent border-b-2 border-gray-200 py-4 focus:outline-none focus:border-primary placeholder-gray-300 text-gray-900"
+                className="w-full text-4xl md:text-5xl font-display font-bold bg-transparent border-b-2 border-gray-200 py-4 focus:outline-none focus:border-primary placeholder-gray-300 text-gray-900"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -125,7 +125,7 @@ export default function Search() {
                     <span className="text-xs font-bold tracking-wider uppercase text-primary mb-2 block">
                        {categoryLabel(post.category)}
                     </span>
-                    <h3 className="text-2xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
+                    <h3 className="text-2xl font-display font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
                       {post.title}
                     </h3>
                     <p className="text-gray-600 line-clamp-2">

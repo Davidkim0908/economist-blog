@@ -28,7 +28,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     if (source === 'WIRED') {
       return (
         <div className="absolute top-3 left-3 z-20 w-7 h-7 bg-black flex items-center justify-center rounded-sm shadow-lg border border-white/5">
-          <span className="text-white text-base font-black tracking-tighter leading-none" style={{ fontFamily: 'Arial Black, sans-serif' }}>W</span>
+          <span className="text-white text-base font-black tracking-tight leading-none" style={{ fontFamily: 'Arial Black, sans-serif' }}>W</span>
         </div>
       );
     }
@@ -86,7 +86,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
               <span className="text-gray-300 text-xs">•</span>
               <span className="text-xs text-gray-500 uppercase tracking-widest group-hover:text-white/80 transition-colors">{post.date}</span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-serif font-black mb-4 group-hover:text-white transition-colors leading-tight tracking-tighter text-gray-900">
+            <h3 className="text-2xl md:text-3xl font-display font-black mb-4 group-hover:text-white transition-colors leading-tight tracking-tight text-gray-900">
               {post.title}
             </h3>
             <p className="text-gray-600 text-base leading-relaxed line-clamp-3 mb-6 font-light group-hover:text-white/90 transition-colors">
@@ -117,7 +117,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
         <div className="absolute bottom-0 inset-x-0 p-4">
           <div className="bg-white/80 backdrop-blur-md p-6 rounded-[1.5rem] border border-white/20 text-gray-900 transition-all duration-500 group-hover:bg-white group-hover:shadow-2xl">
             <span className="text-xs font-black tracking-[0.25em] uppercase mb-2 block text-primary">{categoryLabel}</span>
-            <h3 className="text-xl font-serif font-black leading-tight tracking-tighter mb-2">
+            <h3 className="text-xl font-display font-black leading-tight tracking-tight mb-2">
               {post.title}
             </h3>
             <div className="flex items-center gap-2 opacity-60">
@@ -148,7 +148,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
           <span className="text-gray-300 text-xs">•</span>
           <span className="text-xs text-gray-500 uppercase tracking-widest group-hover:text-white/80 transition-colors">{post.date}</span>
         </div>
-        <h3 className="text-xl font-serif font-black mb-3 group-hover:text-white transition-colors leading-tight tracking-tighter text-gray-900 px-1">
+        <h3 className="text-xl font-display font-black mb-3 group-hover:text-white transition-colors leading-tight tracking-tight text-gray-900 px-1">
           {post.title}
         </h3>
         <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 font-light px-1 group-hover:text-white/90 transition-colors">

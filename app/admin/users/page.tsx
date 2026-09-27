@@ -37,7 +37,7 @@ export default function AdminUsersPage() {
                     <ShieldCheck size={16} />
                     <span className="text-xs font-black uppercase tracking-[0.3em]">Administrator</span>
                 </div>
-                <h1 className="text-4xl font-serif font-black text-gray-900 tracking-tight">User Management</h1>
+                <h1 className="text-4xl font-display font-black text-gray-900 tracking-tight">User Management</h1>
             </div>
             <div className="flex gap-3">
                 <button className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2.5 rounded-xl text-xs font-bold text-gray-600 hover:bg-gray-50 transition-all">
@@ -60,7 +60,7 @@ export default function AdminUsersPage() {
                 <div key={i} className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm flex items-center justify-between">
                     <div>
                         <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-1">{stat.label}</p>
-                        <p className="text-3xl font-serif font-black text-gray-900">{stat.value}</p>
+                        <p className="text-3xl font-display font-black text-gray-900">{stat.value}</p>
                     </div>
                     <div className={`${stat.bg} ${stat.color} p-4 rounded-2xl`}>
                         <stat.icon size={24} />
@@ -119,7 +119,7 @@ export default function AdminUsersPage() {
                                     </div>
                                 </td>
                                 <td className="px-6 py-6">
-                                    <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter ${
+                                    <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-tight ${
                                         user.status === 'Premium' 
                                         ? 'bg-primary/10 text-primary border border-primary/20' 
                                         : 'bg-gray-100 text-gray-500 border border-gray-200'

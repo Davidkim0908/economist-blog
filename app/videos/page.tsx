@@ -18,7 +18,7 @@ export default function VideosPage() {
                 <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">미디어</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
                 방송·강연
             </h1>
             <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">

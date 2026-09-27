@@ -3,8 +3,11 @@
 
 /* inline: next/font variables live on <html>, so tokens must resolve at use site */
 @theme inline {
-  --font-sans: var(--font-source-sans), system-ui, sans-serif;
-  --font-serif: var(--font-playfair), var(--font-noto-serif), serif;
+  --font-sans: var(--font-noto-sans), var(--font-source-sans), system-ui, sans-serif;
+  /* 제목 */
+  --font-display: var(--font-noto-sans), system-ui, sans-serif;
+  /* 로고 "D."·워드마크·엔드 마크 전용 (D. 요소 — 변경 전 상의) */
+  --font-serif: var(--font-playfair), serif;
   
   --color-primary: #B91C1C; /* A deep red/burgundy accent like Gates Notes sometimes uses */
   --font-pen: var(--font-pen-script), "Nanum Pen Script", cursive;
@@ -36,7 +39,7 @@
     overflow-wrap: break-word;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-bold text-gray-900;
+    @apply font-display font-bold text-gray-900;
     word-break: keep-all;
   }
 }
@@ -110,7 +113,7 @@
 }
 
 .prose blockquote p {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.15rem; /* Slightly smaller */
   color: #111827;

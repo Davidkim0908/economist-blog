@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Playfair_Display, Noto_Serif_KR, Nanum_Pen_Script } from "next/font/google";
+import { Source_Sans_3, Playfair_Display, Noto_Sans_KR, Nanum_Pen_Script } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,10 +9,11 @@ const playfair = Playfair_Display({
   subsets: ["latin"], 
   variable: "--font-playfair" 
 });
-const notoSerifKr = Noto_Serif_KR({
-  weight: ['400', '700', '900'],
+// 제목·본문 서체 (한글). Playfair는 로고 "D."·워드마크 전용
+const notoSansKr = Noto_Sans_KR({
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
-  variable: "--font-noto-serif",
+  variable: "--font-noto-sans",
 });
 
 // Red-pen handwriting — used only for the author's marks on the home proof sheet
@@ -34,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSerifKr.variable} ${penScript.variable}`} suppressHydrationWarning>
+    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSansKr.variable} ${penScript.variable}`} suppressHydrationWarning>
       <body
         className={`flex flex-col min-h-screen bg-white`}
         suppressHydrationWarning

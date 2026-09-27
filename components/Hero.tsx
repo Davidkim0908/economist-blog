@@ -49,7 +49,7 @@ export default function Hero({ post }: { post: Post }) {
             </div>
 
             {/* Massive GatesNotes-style Title - Responsive sizing */}
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-serif font-black text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl break-keep">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-display font-black text-white mb-8 leading-[1.1] tracking-tight drop-shadow-2xl break-keep">
                 {post.title}
             </h1>
 

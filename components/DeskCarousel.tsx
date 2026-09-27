@@ -46,7 +46,7 @@ export default function DeskCarousel({ posts }: DeskCarouselProps) {
             {/* Content Side */}
             <div className="md:w-1/2 p-8 md:p-12 text-left flex flex-col justify-center bg-white relative z-10">
                 <div className="text-xs font-bold text-primary uppercase tracking-wider mb-3">데스크 노트</div>
-                <h4 className="text-2xl md:text-3xl font-serif font-bold mb-6 leading-tight">
+                <h4 className="text-2xl md:text-3xl font-display font-bold mb-6 leading-tight">
                     {posts[currentIndex].title}
                 </h4>
                 <p className="text-gray-600 mb-8 line-clamp-3 leading-relaxed">

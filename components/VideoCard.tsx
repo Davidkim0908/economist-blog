@@ -28,7 +28,7 @@ export default function VideoCard({ title, date, description, youtubeId }: Video
             <span className="text-xs text-gray-500 font-bold uppercase tracking-widest">{date}</span>
         </div>
         
-        <h3 className="text-xl md:text-2xl font-serif font-black mb-4 leading-tight text-gray-900 tracking-tight break-keep">
+        <h3 className="text-xl md:text-2xl font-display font-black mb-4 leading-tight text-gray-900 tracking-tight break-keep">
             {title}
         </h3>
         

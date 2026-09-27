@@ -23,7 +23,7 @@ export default function NewsPage() {
                 <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">Media & Coverage</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
                 언론 보도
             </h1>
             <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-2xl mx-auto break-keep">
@@ -49,7 +49,7 @@ export default function NewsPage() {
                     <span className="text-gray-300 text-xs">•</span>
                     <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">{item.date}</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-serif font-black text-gray-900 leading-tight group-hover:text-primary transition-colors tracking-tight break-keep">
+                  <h3 className="text-xl md:text-2xl font-display font-black text-gray-900 leading-tight group-hover:text-primary transition-colors tracking-tight break-keep">
                     {item.title}
                   </h3>
                 </div>
@@ -81,11 +81,11 @@ export default function NewsPage() {
                                 <h4 className="text-xs font-black uppercase tracking-widest text-gray-900 leading-none">David Kim&apos;s Perspective</h4>
                             </div>
                         </div>
-                        <div className="relative p-10 md:p-14 bg-primary/[0.02] rounded-[3rem] border border-primary/5 italic shadow-inner">
+                        <div className="relative p-10 md:p-14 bg-primary/[0.02] rounded-[3rem] border border-primary/5 shadow-inner">
                             <div className="absolute top-8 left-8 text-primary/5">
                                 <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.34315 11.3601 6 13.017 6H19.017C20.6738 6 22.017 7.34315 22.017 9V15C22.017 16.6569 20.6738 18 19.017 18H17.017C16.4647 18 16.017 18.4477 16.017 19V21H14.017ZM5.017 21L5.017 18C5.017 16.8954 5.91243 16 7.017 16H10.017C10.5693 16 11.017 15.5523 11.017 15V9C11.017 8.44772 10.5693 8 10.017 8H6.017C5.46472 8 5.017 8.44772 5.017 9V12C5.017 12.5523 4.56929 13 4.017 13H2.017C1.46472 13 1.017 12.5523 1.017 12V9C1.017 7.34315 2.36015 6 4.017 6H10.017C11.6738 6 13.017 7.34315 13.017 9V15C13.017 16.6569 11.6738 18 10.017 18H8.017C7.46472 18 7.017 18.4477 7.017 19V21H5.017Z" /></svg>
                             </div>
-                            <div className="relative z-10 text-xl md:text-3xl font-serif text-gray-800 leading-[1.6] break-keep">
+                            <div className="relative z-10 text-xl md:text-3xl font-display text-gray-800 leading-[1.6] break-keep">
                                 {item.quote}
                                 <div className="inline-flex items-baseline ml-3 translate-y-0.5">
                                     <div className="w-5 h-5 border border-gray-900 flex items-center justify-center bg-white shadow-sm ring-1 ring-gray-900/5">
@@ -95,7 +95,7 @@ export default function NewsPage() {
                                 </div>
                             </div>
                             <div className="mt-10 pt-8 border-t border-primary/10 flex justify-end">
-                                <p className="font-serif font-black text-xl text-gray-900 tracking-tighter italic">David Kim</p>
+                                <p className="font-display font-black text-xl text-gray-900 tracking-tight">David Kim</p>
                             </div>
                         </div>
                     </div>

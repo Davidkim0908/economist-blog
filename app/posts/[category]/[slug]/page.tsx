@@ -8,10 +8,10 @@ import { ArrowLeft, Clock, Share2, Facebook, Linkedin, Twitter } from "lucide-re
 // Define premium custom components for MDX
 const components = {
   h2: (props: any) => (
-    <h2 className="text-2xl md:text-3xl font-serif font-black mt-16 mb-6 text-gray-900 leading-tight tracking-tight border-b border-gray-100 pb-4" {...props} />
+    <h2 className="text-2xl md:text-3xl font-display font-black mt-16 mb-6 text-gray-900 leading-tight tracking-tight border-b border-gray-100 pb-4" {...props} />
   ),
   h3: (props: any) => (
-    <h3 className="text-xl md:text-2xl font-serif font-bold mt-12 mb-4 text-gray-900 tracking-tight" {...props} />
+    <h3 className="text-xl md:text-2xl font-display font-bold mt-12 mb-4 text-gray-900 tracking-tight" {...props} />
   ),
   p: (props: any) => (
     <p className="mb-8 leading-[1.8] text-gray-800 text-lg font-sans font-light break-keep" {...props} />
@@ -29,7 +29,7 @@ const components = {
     <strong className="font-black text-gray-900" {...props} />
   ),
   blockquote: (props: any) => (
-    <blockquote className="relative border-l-4 border-primary pl-8 my-12 text-2xl font-serif italic text-gray-600 bg-gray-50/50 py-10 pr-8 rounded-r-[2rem]" {...props} />
+    <blockquote className="relative border-l-4 border-primary pl-8 my-12 text-2xl font-display text-gray-600 bg-gray-50/50 py-10 pr-8 rounded-r-[2rem]" {...props} />
   ),
   hr: () => <hr className="my-16 border-gray-100" />,
 };
@@ -78,7 +78,7 @@ export default async function PostPage({ params }: Props) {
                 {categoryLabel}
             </Link>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-black mb-10 leading-[1.1] text-gray-900 tracking-tighter break-keep">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-black mb-10 leading-[1.1] text-gray-900 tracking-tight break-keep">
                 {post.title}
             </h1>
             
@@ -99,7 +99,7 @@ export default async function PostPage({ params }: Props) {
                 </div>
             </div>
 
-            <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-3xl italic font-serif">
+            <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light max-w-3xl font-display">
                 &quot;{post.excerpt}&quot;
             </p>
         </div>
@@ -206,9 +206,9 @@ export default async function PostPage({ params }: Props) {
                     <div className="px-4">
                         <h4 className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-6">Current Focus</h4>
                         <div className="space-y-4">
-                            <Link href="/topics/digital-transformation" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">AI 전환</Link>
-                            <Link href="/topics/mobility" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">모빌리티 전환</Link>
-                            <Link href="/topics/history" className="block text-sm font-serif font-bold text-gray-900 hover:text-primary transition-colors">성장의 궤적</Link>
+                            <Link href="/topics/digital-transformation" className="block text-sm font-display font-bold text-gray-900 hover:text-primary transition-colors">AI 전환</Link>
+                            <Link href="/topics/mobility" className="block text-sm font-display font-bold text-gray-900 hover:text-primary transition-colors">모빌리티 전환</Link>
+                            <Link href="/topics/history" className="block text-sm font-display font-bold text-gray-900 hover:text-primary transition-colors">성장의 궤적</Link>
                         </div>
                     </div>
                 </div>

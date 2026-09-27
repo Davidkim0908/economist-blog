@@ -75,7 +75,7 @@ function SectionHead({ title, aside, href, linkLabel }: { title: string; aside?:
   return (
     <div className="flex items-end justify-between gap-6 border-t-2 border-[#16161A] pt-3 mb-8">
       <div className="flex items-baseline gap-4 flex-wrap">
-        <h2 className="font-serif font-black text-3xl md:text-4xl text-[#16161A] tracking-tight">{title}</h2>
+        <h2 className="font-display font-black text-3xl md:text-4xl text-[#16161A] tracking-tight">{title}</h2>
         {aside && <span className="text-sm text-[#4A4A50]">{aside}</span>}
       </div>
       {href && (
@@ -126,7 +126,7 @@ export default function Home() {
                   <span className="mx-2 text-[#BEBEB6]">|</span>
                   {formatDate(featured.date)}
                 </p>
-                <h1 id="lead-title" className="font-serif font-black text-[2.1rem] leading-[1.18] md:text-[3.4rem] md:leading-[1.14] tracking-tight text-balance mb-8">
+                <h1 id="lead-title" className="font-display font-black text-[2.1rem] leading-[1.18] md:text-[3.4rem] md:leading-[1.14] tracking-tight text-balance mb-8">
                   <Link href={postHref(featured)} className="hover:underline decoration-1 underline-offset-[5px]">
                     <Drawn className="pen-underline">{underlined}</Drawn>
                     {remainder}
@@ -177,7 +177,7 @@ export default function Home() {
                     <span className="text-xs font-black tracking-widest uppercase border border-[#16161A] px-2 py-1">{post.source || "ECONOMIST"}</span>
                     <ReviewStamp />
                   </div>
-                  <h3 className="font-serif font-bold text-xl leading-snug mb-2">
+                  <h3 className="font-display font-bold text-xl leading-snug mb-2">
                     <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px] after:absolute after:inset-0">
                       {post.title}
                     </Link>
@@ -207,7 +207,7 @@ export default function Home() {
                   <p className="text-sm font-bold text-[#4A4A50] mb-3">
                     {categoryLabels[lead.category]} <span className="mx-1.5 text-[#BEBEB6]">|</span> {formatDate(lead.date)}
                   </p>
-                  <h3 className="font-serif font-black text-2xl md:text-[1.9rem] leading-snug mb-3 text-balance">
+                  <h3 className="font-display font-black text-2xl md:text-[1.9rem] leading-snug mb-3 text-balance">
                     <Link href={postHref(lead)} className="hover:underline decoration-1 underline-offset-[5px]">{lead.title}</Link>
                   </h3>
                   <p className="text-base leading-relaxed text-[#2E2E33] line-clamp-3">{lead.excerpt}</p>
@@ -222,7 +222,7 @@ export default function Home() {
                     <span className="block font-bold">{categoryLabels[post.category]}</span>
                   </p>
                   <div>
-                    <h3 className="font-serif font-bold text-xl leading-snug mb-2 text-balance">
+                    <h3 className="font-display font-bold text-xl leading-snug mb-2 text-balance">
                       <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px]">{post.title}</Link>
                     </h3>
                     <p className="text-[0.95rem] leading-relaxed text-[#4A4A50] line-clamp-2">{post.excerpt}</p>
@@ -241,14 +241,14 @@ export default function Home() {
                     <span className="font-bold">{item.media}</span>
                     <span className="text-[#4A4A50] ml-2">{item.date}</span>
                   </p>
-                  <h3 className="font-serif font-bold text-lg leading-snug mb-3 text-balance">
+                  <h3 className="font-display font-bold text-lg leading-snug mb-3 text-balance">
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline decoration-1 underline-offset-[5px]">
                       {item.title}
                     </a>
                   </h3>
                   {item.quote && (
                     <blockquote className="relative pl-6 text-[0.95rem] leading-relaxed text-[#2E2E33]">
-                      <span className="absolute left-0 -top-1 font-serif font-black text-3xl leading-none text-primary" aria-hidden="true">“</span>
+                      <span className="absolute left-0 -top-1 font-display font-black text-3xl leading-none text-primary" aria-hidden="true">“</span>
                       {firstSentence(item.quote.replace(/^["“]|["”]$/g, ""))}
                       <footer className="text-sm text-[#4A4A50] mt-2">— 김동영</footer>
                     </blockquote>
@@ -273,7 +273,7 @@ export default function Home() {
                   )}
                   <div>
                     <p className="text-sm font-bold text-[#4A4A50] mb-2">{categoryLabels[post.category]}</p>
-                    <h3 className="font-serif font-bold text-lg leading-snug text-balance">
+                    <h3 className="font-display font-bold text-lg leading-snug text-balance">
                       <Link href={postHref(post)} className="hover:underline decoration-1 underline-offset-[5px]">{post.title}</Link>
                     </h3>
                     <p className="text-sm text-[#4A4A50] mt-2">{formatDate(post.date)}</p>
@@ -295,7 +295,7 @@ export default function Home() {
                     <YouTubeFacade youtubeId={video.youtubeId} title={video.title} />
                   </div>
                   <p className="text-sm text-[#4A4A50] mb-1.5">{formatDate(video.date)}</p>
-                  <h3 className="font-serif font-bold text-lg leading-snug text-balance">{video.title}</h3>
+                  <h3 className="font-display font-bold text-lg leading-snug text-balance">{video.title}</h3>
                 </article>
               ))}
             </div>
@@ -313,7 +313,7 @@ export default function Home() {
                     {book.coverImage && <Image src={book.coverImage} alt="" fill sizes="112px" className="object-cover" />}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-serif font-bold text-lg leading-snug mb-1 text-balance">
+                    <h3 className="font-display font-bold text-lg leading-snug mb-1 text-balance">
                       <Link href={postHref(book)} className="hover:underline decoration-1 underline-offset-[5px]">{book.title}</Link>
                     </h3>
                     {book.author && <p className="text-sm text-[#4A4A50] mb-3">{book.author}</p>}
@@ -339,8 +339,8 @@ export default function Home() {
               </div>
             </div>
             <div className="md:col-span-9">
-              <h2 className="font-serif font-black text-3xl md:text-4xl mb-5">소개</h2>
-              <p className="font-serif text-2xl md:text-[2rem] leading-snug mb-6 text-balance">
+              <h2 className="font-display font-black text-3xl md:text-4xl mb-5">소개</h2>
+              <p className="font-display text-2xl md:text-[2rem] leading-snug mb-6 text-balance">
                 기술이라는 &apos;엔진&apos;에, 맥락이라는 &apos;지도&apos;를 더합니다.
               </p>
               <p className="text-lg text-[#2E2E33] mb-8">

@@ -1,7 +1,7 @@
 export default function CookiePolicy() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-3xl">
-      <h1 className="text-4xl font-serif font-bold mb-8">Cookie Policy</h1>
+      <h1 className="text-4xl font-display font-bold mb-8">Cookie Policy</h1>
       <p className="text-gray-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
       
       <div className="prose prose-lg text-gray-700">

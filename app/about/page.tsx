@@ -12,7 +12,7 @@ export default function AboutPage() {
                 <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">The Author</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
+            <h1 className="text-5xl md:text-7xl font-display font-black mb-8 text-gray-900 tracking-tight">
                 소개
             </h1>
         </div>
@@ -38,14 +38,14 @@ export default function AboutPage() {
           
           {/* Right: Content */}
           <div className="md:w-3/5">
-            <h2 className="text-3xl md:text-5xl font-serif font-black mb-10 text-gray-900 leading-[1.1] tracking-tight break-keep">
+            <h2 className="text-3xl md:text-5xl font-display font-black mb-10 text-gray-900 leading-[1.1] tracking-tight break-keep">
               기술이라는 &apos;엔진&apos;에,<br/>
               맥락이라는 &apos;지도&apos;를 더합니다.
             </h2>
             
             <div className="relative mb-16">
               <div className="absolute -left-8 top-0 bottom-0 w-1 bg-primary rounded-full"></div>
-              <blockquote className="text-2xl text-primary font-serif italic pl-4 leading-relaxed tracking-tight">
+              <blockquote className="text-2xl text-primary font-display pl-4 leading-relaxed tracking-tight">
                 &quot;가장 혁신적인 미래는, 가장 단단한 경험 위에 세워집니다.&quot;
               </blockquote>
             </div>
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 </p>
                 <p className="break-keep">
                   사람들은 저에게 묻습니다. <br/>
-                  <em className="font-serif text-gray-500">&quot;첨단 모빌리티 정책을 만드는 사람이 왜 지난 경제사(史)를 파고드나요?&quot;</em>
+                  <em className="font-display text-gray-500">&quot;첨단 모빌리티 정책을 만드는 사람이 왜 지난 경제사(史)를 파고드나요?&quot;</em>
                 </p>
                 <p className="break-keep">
                   자율주행차가 도로를 달리기 위해서는 정밀한 센서도 필요하지만, 무엇보다 그 기술이 우리 삶에 안착할 수 있는 
@@ -71,7 +71,7 @@ export default function AboutPage() {
               </div>
               
               <div className="pt-12 border-t border-gray-100">
-                <h3 className="text-2xl font-serif font-black text-gray-900 mb-6 tracking-tight">
+                <h3 className="text-2xl font-display font-black text-gray-900 mb-6 tracking-tight">
                   미래는 과거의 경험 위에 세워질 때 가장 단단합니다
                 </h3>
                 <p className="break-keep">
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
               {/* Navigation Guide Card */}
               <div className="bg-white p-10 md:p-12 rounded-[3rem] border border-gray-100 shadow-xl shadow-gray-200/50 mt-16">
-                <h4 className="font-serif font-black text-2xl mb-8 text-gray-900 tracking-tight">David&apos;s Notes 가이드</h4>
+                <h4 className="font-display font-black text-2xl mb-8 text-gray-900 tracking-tight">David&apos;s Notes 가이드</h4>
                 <div className="grid gap-8">
                   <div className="group">
                     <span className="text-primary text-xs font-black uppercase tracking-[0.2em] mb-2 block">소개</span>
@@ -104,7 +104,7 @@ export default function AboutPage() {
               </div>
 
               <div className="pt-20 text-center">
-                <p className="text-2xl font-serif font-black text-gray-900 mb-4 tracking-tight leading-snug break-keep">
+                <p className="text-2xl font-display font-black text-gray-900 mb-4 tracking-tight leading-snug break-keep">
                   속도보다 중요한 것은 방향입니다. 
                 </p>
                 <p className="text-gray-500 text-lg font-light break-keep">
