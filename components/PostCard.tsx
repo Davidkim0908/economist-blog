@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Post } from "@/lib/posts";
 import PostVisual from "@/components/PostVisual";
 import { cn } from "@/lib/utils";
+import { seriesStyle } from "@/lib/site";
 
 interface PostCardProps {
   post: Post;
@@ -16,6 +17,8 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
                         post.category === 'books' ? 'Books' :
                         post.category === 'desk' ? 'On My Desk' :
                         post.category;
+
+  const series = post.series ? seriesStyle(post.series) : null;
 
   // New Robust Source Logo Logic
   const getSourceBadge = () => {
@@ -120,22 +123,34 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
   // Default Vertical Variant
   return (
     <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group block h-full", className)}>
-      <div className="flex flex-col h-full bg-white p-5 rounded-[2rem] border border-transparent transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-lg hover:-translate-y-1">
+      <div className={cn(
+        "flex flex-col h-full bg-white p-5 rounded-[2rem] border border-transparent transition-all duration-500 hover:shadow-lg hover:-translate-y-1",
+        // 연재 카드는 요약 박스 색과 충돌하지 않도록 빨간 채움 대신 떠오르기만
+        !series && "hover:bg-primary hover:text-white"
+      )}>
         <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm relative">
           {sourceBadge}
           <PostVisual post={post} alt={post.title} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
         </div>
         <div className="flex items-center gap-2 mb-3 px-1">
-          <span className="text-xs font-black tracking-widest uppercase text-primary group-hover:text-white transition-colors">{categoryLabel}</span>
+          <span className={cn("text-xs font-black tracking-widest uppercase text-primary transition-colors", !series && "group-hover:text-white")}>{categoryLabel}</span>
           <span className="text-gray-300 text-xs">•</span>
-          <span className="text-xs text-gray-500 uppercase tracking-widest group-hover:text-white/80 transition-colors">{post.date}</span>
+          <span className={cn("text-xs text-gray-500 uppercase tracking-widest transition-colors", !series && "group-hover:text-white/80")}>{post.date}</span>
         </div>
-        <h3 className="text-xl font-display font-black mb-3 group-hover:text-white transition-colors leading-tight tracking-tight text-gray-900 px-1">
+        <h3 className={cn("text-xl font-display font-black mb-3 transition-colors leading-tight tracking-tight text-gray-900 px-1", series ? "mb-4 group-hover:underline decoration-2 underline-offset-[5px]" : "group-hover:text-white")}>
           {post.title}
         </h3>
-        <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 font-light px-1 group-hover:text-white/90 transition-colors">
-          {post.excerpt}
-        </p>
+        {series ? (
+          <div className="mt-auto rounded-xl px-4 py-3.5 ring-1 ring-inset ring-white/50" style={{ background: series.bg }}>
+            <p className="text-sm leading-relaxed line-clamp-3" style={{ color: series.number }}>
+              {post.excerpt}
+            </p>
+          </div>
+        ) : (
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 font-light px-1 group-hover:text-white/90 transition-colors">
+            {post.excerpt}
+          </p>
+        )}
       </div>
     </Link>
   );
