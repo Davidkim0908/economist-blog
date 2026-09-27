@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, Brain, CarFront, TrendingUp, X } from "lucide-react";
 import Search from "@/components/Search";
-import { SHOW_JOIN } from "@/lib/site";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
@@ -220,9 +219,6 @@ export default function Navbar() {
             <div>
                 <Search />
             </div>
-            {SHOW_JOIN && <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white`}>
-                Join
-            </Link>}
             <button 
                 type="button"
                 aria-label={isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
@@ -255,7 +251,6 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4">
                 <Link href="/books" className="type-section-en text-[1.75rem] text-gray-900 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
                 <Link href="/desk" className="type-section-en text-[1.75rem] text-gray-900 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
-                {SHOW_JOIN && <Link href="/join" className="text-2xl font-display font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>}
             </div>
         </div>
       </div>
