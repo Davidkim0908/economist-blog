@@ -38,36 +38,36 @@ typography:
     lineHeight: 1.2
     letterSpacing: "0.14em"
   article-ko:
-    fontFamily: "Noto Sans KR, system-ui, sans-serif"
+    fontFamily: "Noto Serif KR, Georgia, serif"
     fontSize: "clamp(1.875rem, 1.35rem + 1.7vw, 2.75rem)"
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: "-0.03em"
   display-ko:
-    fontFamily: "Noto Sans KR, system-ui, sans-serif"
+    fontFamily: "Noto Serif KR, Georgia, serif"
     fontSize: "clamp(1.75rem, 1.3rem + 1.4vw, 2.375rem)"
     fontWeight: 700
     lineHeight: 1.32
     letterSpacing: "-0.03em"
   title-ko:
-    fontFamily: "Noto Sans KR, system-ui, sans-serif"
+    fontFamily: "Noto Serif KR, Georgia, serif"
     fontSize: "1.1875rem"
     fontWeight: 700
     lineHeight: 1.45
     letterSpacing: "-0.02em"
   sub-ko:
-    fontFamily: "Noto Sans KR, system-ui, sans-serif"
+    fontFamily: "Hahmlet, Source Sans 3, Georgia, serif"
     fontSize: "0.9375rem"
     fontWeight: 500
     lineHeight: 1.5
     letterSpacing: "-0.01em"
   body:
-    fontFamily: "Noto Sans KR, Source Sans 3, system-ui, sans-serif"
+    fontFamily: "Hahmlet, Source Sans 3, Georgia, serif"
     fontSize: "0.95rem"
     fontWeight: 400
     lineHeight: 1.625
   nav:
-    fontFamily: "Noto Sans KR, Source Sans 3, system-ui, sans-serif"
+    fontFamily: "Hahmlet, Source Sans 3, system-ui, sans-serif"
     fontSize: "17px"
     fontWeight: 500
     letterSpacing: "-0.01em"
@@ -140,7 +140,7 @@ components:
 
 The home opens on a single full-bleed photograph with one essay floating over it on a translucent sheet, then settles onto a cool grey-white proof paper where everything else sits in wide, quiet tiles. The model is a personal notebook with the confidence of a magazine cover, not a news portal: few things per screen, lots of air, and nothing that shouts except the photograph.
 
-Depth comes from tone, not ornament. A paper ground carries lighter sheets one step up; the only real shadows sit under the hero card and under book covers, because those are objects lying on the paper. Type does the hierarchy work: Korean in Noto Sans KR bold and tidy, English names of pages and sections in Source Serif 4, and small tracked capitals for labels. Red belongs to the D. mark; everywhere else it only answers a pointer.
+Depth comes from tone, not ornament. A paper ground carries lighter sheets one step up; the only real shadows sit under the hero card and under book covers, because those are objects lying on the paper. Type does the hierarchy work: Korean in Hahmlet bold and tidy, English names of pages and sections in Source Serif 4, and small tracked capitals for labels. Red belongs to the D. mark; everywhere else it only answers a pointer.
 
 The world was chosen by the author (2026-09-27) as a Gates Notes-style composition mixed with the ground colour of a proofreading sheet. The "D." mark, the wordmark and the red end mark are fixed brand assets drawn in Playfair Display and change only with the author.
 
@@ -176,7 +176,7 @@ A near-monochrome cool grey system with a single brand red that is owned by the 
 
 ## Typography
 
-**Korean Font:** Noto Sans KR (400, 500, 700) with system-ui
+**Korean Font:** Hahmlet (400, 500, 700) with system-ui
 **Latin Display Font:** Source Serif 4 (500, 600) with Georgia
 **Label Font:** Source Sans 3 with system-ui
 **Brand Font:** Playfair Display, for the "D." mark, the "David's" wordmark, the footer wordmark and the end mark only
@@ -196,7 +196,7 @@ A near-monochrome cool grey system with a single brand red that is owned by the 
 - **Nav** (nav): 17px medium English nav items.
 
 ### Named Rules
-**The Two Tongues Rule.** Korean text is always Noto Sans KR; English names of pages, sections and English article titles are Source Serif 4 at 600. Never set a Korean headline in the serif, or an English section name in the sans.
+**The Two Tongues Rule.** Korean text is always Hahmlet; English names of pages, sections and English article titles are Source Serif 4 at 600. Korean headlines use Noto Serif KR; Korean body uses Hahmlet.
 
 **The Keep-All Rule.** `word-break: keep-all` with `overflow-wrap: break-word` is global. Korean words never break mid-word; headings also use `text-wrap: balance`.
 

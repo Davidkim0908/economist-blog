@@ -104,7 +104,7 @@ export default function Navbar() {
                 </span>
                 <div className={`h-[1px] w-full my-0.5 group-hover:bg-primary transition-colors ${overHero ? 'bg-white/30' : 'bg-gray-200'}`} />
                 <div className="flex items-baseline w-full">
-                    <span className={`font-sans text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 ${overHero ? 'text-white/80' : 'text-gray-500'}`}>
+                    <span className={`font-[family-name:var(--font-source-sans)] text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 ${overHero ? 'text-white/80' : 'text-gray-500'}`}>
                     <span>N</span><span>O</span><span>T</span><span>E</span><span>S</span>
                     </span>
                     <span className="text-primary font-black text-xs leading-none">.</span>

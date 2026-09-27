@@ -272,7 +272,7 @@
       "Subpages, body and the 1440 site frame still use legacy-ground #FBFBFA / white, with white nav and mega-menu surfaces; not yet migrated to paper/sheet.",
       "Search overlay shows a red uppercase category kicker above each result title (violates The Red Belongs to D. Rule and the no-kicker rule).",
       "Footer column heads (Explore, Connect) use sans bold uppercase tracking-widest rather than label-en; footer legal links hover to the same gray-600 (no visible change); bottom rule is gray-100 on paper.",
-      "Mega menu headings use font-black (900) in Noto Sans KR, which is only loaded at 400/500/700; mega menu card carries an uppercase tagline ('Scholar & Strategist') and mobile menu group labels are gray-500 bold uppercase.",
+      "Mega menu headings use font-black (900) in Noto Serif KR; mega menu card carries an uppercase tagline ('Scholar & Strategist') and mobile menu group labels are gray-500 bold uppercase.",
       "Wordmark 'NOTES' is gray-500 (about 4:1 on paper); acceptable as a logotype but not a pattern for text."
     ]
   },
@@ -344,7 +344,7 @@
   ],
   "narrative": {
     "northStar": "One Photograph, One Essay",
-    "overview": "The home opens on a single full-bleed photograph with one essay floating over it on a translucent sheet, then settles onto a cool grey-white proof paper where everything else sits in wide, quiet tiles. The model is a personal notebook with the confidence of a magazine cover, not a news portal: few things per screen, lots of air, and nothing that shouts except the photograph.\n\nDepth comes from tone, not ornament. A paper ground carries lighter sheets one step up; the only real shadows sit under the hero card and under book covers, because those are objects lying on the paper. Type does the hierarchy work: Korean in Noto Sans KR bold and tidy, English names of pages and sections in Source Serif 4, and small tracked capitals for labels. Red belongs to the D. mark; everywhere else it only answers a pointer.\n\nThe world was chosen by the author (2026-09-27) as a Gates Notes-style composition mixed with the ground colour of a proofreading sheet. The \"D.\" mark, the wordmark and the red end mark are fixed brand assets drawn in Playfair Display and change only with the author.",
+    "overview": "The home opens on a single full-bleed photograph with one essay floating over it on a translucent sheet, then settles onto a cool grey-white proof paper where everything else sits in wide, quiet tiles. The model is a personal notebook with the confidence of a magazine cover, not a news portal: few things per screen, lots of air, and nothing that shouts except the photograph.\n\nDepth comes from tone, not ornament. A paper ground carries lighter sheets one step up; the only real shadows sit under the hero card and under book covers, because those are objects lying on the paper. Type does the hierarchy work: Korean headlines in Noto Serif KR (600), Korean body in Hahmlet, English names of pages and sections in Source Serif 4, and small tracked capitals for labels. Red belongs to the D. mark; everywhere else it only answers a pointer.\n\nThe world was chosen by the author (2026-09-27) as a Gates Notes-style composition mixed with the ground colour of a proofreading sheet. The \"D.\" mark, the wordmark and the red end mark are fixed brand assets drawn in Playfair Display and change only with the author.",
     "keyCharacteristics": [
       "Cool grey paper ground (paper) with one-step-lighter sheets for cards, bands and the hero card.",
       "One full-bleed photograph per home, credited in the corner; a single translucent sheet card over it.",
@@ -366,7 +366,7 @@
       },
       {
         "name": "The Two Tongues Rule",
-        "body": "Korean text is always Noto Sans KR; English names of pages, sections and English article titles are Source Serif 4 at 600. Never set a Korean headline in the serif, or an English section name in the sans.",
+        "body": "Korean headlines are Noto Serif KR 600 and Korean body text is Hahmlet (both variable fonts); English names of pages, sections and English article titles are Source Serif 4 at 600; small labels stay Source Sans 3. The D. mark, wordmark and end mark keep Playfair Display / Source Sans.",
         "section": "typography"
       },
       {

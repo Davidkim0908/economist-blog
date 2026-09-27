@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4, Playfair_Display, Noto_Sans_KR } from "next/font/google";
+import { Source_Sans_3, Source_Serif_4, Playfair_Display, Hahmlet, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,12 +9,6 @@ const playfair = Playfair_Display({
   subsets: ["latin"], 
   variable: "--font-playfair" 
 });
-// 제목·본문 서체 (한글). Playfair는 로고 "D."·워드마크 전용
-const notoSansKr = Noto_Sans_KR({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  variable: "--font-noto-sans",
-});
 
 // 영문 디스플레이 (섹션명·페이지명·영문 기사 제목)
 const sourceSerif = Source_Serif_4({
@@ -22,6 +16,10 @@ const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-latin-serif",
 });
+
+// 한글 제목: Noto Serif KR / 한글 본문: Hahmlet (Playfair는 로고 "D." 전용)
+const notoSerif = Noto_Serif_KR({ subsets: ["latin"], variable: "--font-noto-serif" });
+const hahmlet = Hahmlet({ subsets: ["latin"], variable: "--font-hahmlet" });
 
 export const metadata: Metadata = {
   title: "David's Notes",
@@ -34,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSansKr.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
+    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${sourceSerif.variable} ${hahmlet.variable} ${notoSerif.variable}`} suppressHydrationWarning>
       <body
         className={`flex flex-col min-h-screen bg-white`}
         suppressHydrationWarning

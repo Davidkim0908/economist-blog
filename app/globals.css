@@ -3,9 +3,9 @@
 
 /* inline: next/font variables live on <html>, so tokens must resolve at use site */
 @theme inline {
-  --font-sans: var(--font-noto-sans), var(--font-source-sans), system-ui, sans-serif;
-  /* 제목 */
-  --font-display: var(--font-noto-sans), system-ui, sans-serif;
+  --font-sans: var(--font-hahmlet), var(--font-source-sans), system-ui, sans-serif;
+  /* 제목: Noto Serif KR / 본문: Hahmlet */
+  --font-display: var(--font-noto-serif), Georgia, serif;
   /* 로고 "D."·워드마크·엔드 마크 전용 (D. 요소 — 변경 전 상의) */
   --font-serif: var(--font-playfair), serif;
   
@@ -239,28 +239,28 @@
   text-transform: uppercase;
 }
 @utility type-article-ko {
-  font-family: var(--font-noto-sans), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-noto-serif), system-ui, sans-serif;
+  font-weight: 600;
   font-size: clamp(1.875rem, 1.35rem + 1.7vw, 2.75rem);
   line-height: 1.3;
   letter-spacing: -0.03em;
 }
 @utility type-display-ko {
-  font-family: var(--font-noto-sans), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-noto-serif), system-ui, sans-serif;
+  font-weight: 600;
   font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.375rem);
   line-height: 1.32;
   letter-spacing: -0.03em;
 }
 @utility type-title-ko {
-  font-family: var(--font-noto-sans), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-noto-serif), system-ui, sans-serif;
+  font-weight: 600;
   font-size: 1.1875rem;
   line-height: 1.45;
   letter-spacing: -0.02em;
 }
 @utility type-sub-ko {
-  font-family: var(--font-noto-sans), system-ui, sans-serif;
+  font-family: var(--font-hahmlet), system-ui, sans-serif;
   font-weight: 500;
   font-size: 0.9375rem;
   line-height: 1.5;
