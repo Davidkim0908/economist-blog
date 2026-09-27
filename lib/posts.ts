@@ -106,7 +106,7 @@ export function getFeaturedPost(): Post | undefined {
     const allPosts = getAllPosts();
     // Return the latest post that belongs to a FOCUS category
     const focusCategories = ['digital-transformation', 'mobility', 'history'];
-    return allPosts.find(post => focusCategories.includes(post.category));
+    return allPosts.find(post => focusCategories.includes(post.category) && !post.series);
 }
 
 

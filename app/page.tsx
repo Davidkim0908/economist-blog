@@ -45,7 +45,7 @@ export default function Home() {
   const all = getAllPosts();
   const featured = getFeaturedPost();
   const focus = ["digital-transformation", "mobility", "history"];
-  const stories = all.filter((p) => focus.includes(p.category) && p.slug !== featured?.slug).slice(0, 5);
+  const stories = all.filter((p) => focus.includes(p.category) && !p.series && p.slug !== featured?.slug).slice(0, 5);
   const [leadStory, ...moreStories] = stories;
   const desk = all.filter((p) => p.category === "desk").slice(0, 6);
   const books = all.filter((p) => p.category === "books").slice(0, 4);
