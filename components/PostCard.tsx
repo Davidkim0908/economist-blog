@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
-import { postImage } from "@/lib/post-image";
+import PostVisual from "@/components/PostVisual";
 import { cn } from "@/lib/utils";
 
 interface PostCardProps {
@@ -73,13 +72,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
         <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 shadow-sm transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-xl hover:border-primary/10 hover:-translate-y-1 h-full">
           <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-[4/3] bg-gray-50 shadow-inner relative">
             {sourceBadge}
-            <Image 
-              src={postImage(post) || "/placeholder.jpg"} 
-              alt={post.title} 
-              fill
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="object-cover transition-transform duration-1000 group-hover:scale-110"
-            />
+            <PostVisual post={post} alt={post.title} sizes="(min-width: 768px) 40vw, 100vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
           </div>
           <div className="w-full md:w-1/2 flex flex-col justify-center">
             <div className="flex items-center gap-2 mb-4">
@@ -106,13 +99,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
     return (
       <Link href={`/posts/${post.category}/${post.slug}`} className={cn("group relative block overflow-hidden rounded-[2rem] aspect-[4/5] shadow-xl", className)}>
         {sourceBadge}
-        <Image 
-          src={postImage(post) || "/placeholder.jpg"} 
-          alt={post.title} 
-          fill
-          sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition-transform duration-[2000ms] group-hover:scale-110"
-        />
+        <PostVisual post={post} alt={post.title} sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-[2000ms] group-hover:scale-110" />
         
         {/* Semi-transparent WHITE text container at the bottom */}
         <div className="absolute bottom-0 inset-x-0 p-4">
@@ -136,13 +123,7 @@ export default function PostCard({ post, className, variant = 'default' }: PostC
       <div className="flex flex-col h-full bg-white p-5 rounded-[2rem] border border-transparent transition-all duration-500 hover:bg-primary hover:text-white hover:shadow-lg hover:-translate-y-1">
         <div className="overflow-hidden rounded-2xl mb-6 aspect-[3/2] bg-gray-50 shadow-sm relative">
           {sourceBadge}
-          <Image 
-            src={postImage(post) || "/placeholder.jpg"} 
-            alt={post.title} 
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-            className="object-cover transition-transform duration-1000 group-hover:scale-110"
-          />
+          <PostVisual post={post} alt={post.title} sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-1000 group-hover:scale-110" />
         </div>
         <div className="flex items-center gap-2 mb-3 px-1">
           <span className="text-xs font-black tracking-widest uppercase text-primary group-hover:text-white transition-colors">{categoryLabel}</span>

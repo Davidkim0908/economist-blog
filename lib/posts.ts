@@ -110,4 +110,4 @@ export function getFeaturedPost(): Post | undefined {
 }
 
 
-export { postImage } from "@/lib/post-image";
+export { postImage, isSeriesCover } from "@/lib/post-image";

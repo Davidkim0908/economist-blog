@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { getPostBySlug, getAllPosts, postImage } from "@/lib/posts";
+import { getPostBySlug, getAllPosts, postImage, isSeriesCover } from "@/lib/posts";
+import PostVisual from "@/components/PostVisual";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -55,7 +56,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = await params;
   const post = getPostBySlug(category, slug);
   if (!post) return {};
-  const image = postImage(post);
+  // 연재 번호 표지 글은 번호가 들어간 공유 이미지를 자동 생성
+  const image = postImage(post) ?? (isSeriesCover(post) ? `/og/series/${post.seriesOrder}` : undefined);
   return {
     title: `${post.title} | David's Notes`,
     description: post.excerpt,
@@ -158,17 +160,7 @@ export default async function PostPage({ params }: Props) {
         ) : (
           <figure>
             <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[3rem] overflow-hidden shadow-2xl">
-                {postImage(post) && (
-                  <Image 
-                      src={postImage(post)!} 
-                      alt={post.heroAlt ?? post.title} 
-                      fill
-                      priority
-                      sizes="(min-width: 1440px) 1100px, 100vw"
-                      className="object-cover"
-                      style={post.heroImage ? { objectPosition: post.heroFocus ?? "center" } : undefined}
-                  />
-                )}
+                <PostVisual post={post} alt={post.heroAlt ?? post.title} priority sizes="(min-width: 1440px) 1100px, 100vw" />
             </div>
             {post.heroCredit && <figcaption className="mt-3 text-right text-xs text-gray-600">{post.heroCredit}</figcaption>}
           </figure>

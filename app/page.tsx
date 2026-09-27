@@ -5,6 +5,7 @@ import { getAllPosts, getFeaturedPost, postImage, type Post } from "@/lib/posts"
 import { getAllVideos } from "@/lib/videos";
 import { formatDate, firstSentence } from "@/lib/desk";
 import YouTubeFacade from "@/components/YouTubeFacade";
+import PostVisual from "@/components/PostVisual";
 import { ArrowRight } from "lucide-react";
 
 // 홈: Gates Notes 풍 구성 + 교정지 종이 바탕(paper/sheet)
@@ -86,7 +87,7 @@ export default function Home() {
             {leadStory && (
               <article className="lg:col-span-7">
                 <Link href={href(leadStory)} className="block relative aspect-[16/10] rounded-2xl overflow-hidden bg-sheet mb-6" tabIndex={-1} aria-hidden="true">
-                  {photo(leadStory) && <Image src={photo(leadStory)!} alt="" fill sizes="(min-width: 1024px) 680px, 100vw" className="object-cover" />}
+                  <PostVisual post={leadStory} sizes="(min-width: 1024px) 680px, 100vw" />
                 </Link>
                 <h3 className="type-display-ko text-[1.5rem] md:text-[1.875rem] text-balance mb-3">
                   <Link href={href(leadStory)} className="hover:underline decoration-2 underline-offset-[6px]">{leadStory.title}</Link>
@@ -99,7 +100,7 @@ export default function Home() {
               {moreStories.map((post) => (
                 <li key={post.slug} className="py-5 first:lg:pt-0 grid grid-cols-[6.5rem_1fr] sm:grid-cols-[8.5rem_1fr] gap-4 sm:gap-5 items-start">
                   <Link href={href(post)} className="relative aspect-[4/3] rounded-xl overflow-hidden bg-sheet" tabIndex={-1} aria-hidden="true">
-                    {photo(post) && <Image src={photo(post)!} alt="" fill sizes="136px" className="object-cover" />}
+                    <PostVisual post={post} sizes="136px" />
                   </Link>
                   <div className="min-w-0">
                     <h3 className="type-title-ko text-[1.0625rem] text-balance mb-2">
