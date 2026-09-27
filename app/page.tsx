@@ -64,7 +64,7 @@ export default function Home() {
               <h1 className="type-display-ko text-balance mb-4">
                 <Link href={href(featured)} className="hover:underline decoration-2 underline-offset-[6px]">{featured.title}</Link>
               </h1>
-              <p className="hidden sm:block text-[1.0625rem] leading-relaxed text-gray-700 mb-6 text-pretty">{firstSentence(featured.excerpt)}</p>
+              <p className="text-[0.95rem] sm:text-[1.0625rem] leading-relaxed text-gray-700 mb-5 sm:mb-6 line-clamp-2 sm:line-clamp-none text-pretty">{firstSentence(featured.excerpt)}</p>
               <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
                 <Meta label={categoryLabelEn(featured.category)} date={formatDate(featured.date)} />
                 <Link href={href(featured)} className="inline-flex items-center gap-2 py-2 text-base font-bold text-gray-900 hover:text-primary transition-colors">

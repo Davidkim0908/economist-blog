@@ -64,7 +64,7 @@ export default function Navbar() {
   // 메인 페이지일 때와 아닐 때의 스타일 구분
   // 홈은 교정지(paper) 바탕 위에 놓인다
   // 홈: 사진 히어로 위에서는 투명, 스크롤하면 종이 바탕
-  const overHero = isHome && !isScrolled;
+  const overHero = isHome && !isScrolled && !isMobileMenuOpen;
   const navbarBgClass = overHero
     ? 'bg-gradient-to-b from-black/55 via-black/20 to-transparent'
     : isHome
