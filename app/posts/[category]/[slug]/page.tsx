@@ -132,9 +132,24 @@ export default async function PostPage({ params }: Props) {
                 </div>
             </div>
 
-            <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-3xl font-display">
+            {post.series ? (
+              // 연재: 연재 색 박스 안의 요약
+              <div
+                className="w-full max-w-3xl rounded-2xl px-6 py-5 md:px-8 md:py-6 text-left ring-1 ring-inset ring-white/50"
+                style={{ background: seriesStyle(post.series).bg }}
+              >
+                <p className="type-sub-ko mb-2" style={{ color: seriesStyle(post.series).label }}>
+                  {post.series} · {post.seriesOrder}회 요약
+                </p>
+                <p className="text-[1.0625rem] md:text-lg leading-relaxed" style={{ color: seriesStyle(post.series).number }}>
+                  {post.excerpt}
+                </p>
+              </div>
+            ) : (
+              <p className="text-lg md:text-[1.1875rem] text-gray-600 leading-relaxed max-w-3xl font-display">
                 &quot;{post.excerpt}&quot;
-            </p>
+              </p>
+            )}
         </div>
       </header>
 
