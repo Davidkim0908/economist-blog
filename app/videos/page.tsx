@@ -15,7 +15,7 @@ export default function VideosPage() {
         <div className="max-w-4xl mx-auto text-center mb-24">
             <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-[1px] w-12 bg-gray-200" />
-                <span className="text-primary font-black tracking-[0.3em] uppercase text-[10px]">Visual Insights</span>
+                <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">Visual Insights</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">

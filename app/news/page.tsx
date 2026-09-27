@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ChevronDown, ChevronUp, Newspaper } from "lucide-react";
 import { useState } from "react";
@@ -19,7 +20,7 @@ export default function NewsPage() {
         <div className="max-w-4xl mx-auto text-center mb-24">
             <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-[1px] w-12 bg-gray-200" />
-                <span className="text-primary font-black tracking-[0.3em] uppercase text-[10px]">Media & Coverage</span>
+                <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">Media & Coverage</span>
                 <div className="h-[1px] w-12 bg-gray-200" />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
@@ -44,9 +45,9 @@ export default function NewsPage() {
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="bg-gray-900 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-sm">{item.media}</span>
-                    <span className="text-gray-300 text-[10px]">•</span>
-                    <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">{item.date}</span>
+                    <span className="bg-gray-900 text-white text-xs font-black uppercase tracking-widest px-3 py-1 rounded-sm">{item.media}</span>
+                    <span className="text-gray-300 text-xs">•</span>
+                    <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">{item.date}</span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-serif font-black text-gray-900 leading-tight group-hover:text-primary transition-colors tracking-tight break-keep">
                     {item.title}
@@ -54,7 +55,7 @@ export default function NewsPage() {
                 </div>
                 
                 <div className="flex items-center gap-4">
-                    <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all duration-300">
+                    <button className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all duration-300">
                         {expandedId === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </button>
                 </div>
@@ -73,8 +74,8 @@ export default function NewsPage() {
                   {item.quote && (
                     <div className="pt-8 border-t border-gray-100">
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-xl ring-2 ring-primary/20">
-                                <img src="/reading-book-clean.jpg" alt="David Kim" className="w-full h-full object-cover" />
+                            <div className="relative w-14 h-14 rounded-2xl overflow-hidden shadow-xl ring-2 ring-primary/20">
+                                <Image src="/reading-book-clean.jpg" alt="David Kim" fill sizes="56px" className="object-cover" />
                             </div>
                             <div>
                                 <h4 className="text-xs font-black uppercase tracking-widest text-gray-900 leading-none">David Kim&apos;s Perspective</h4>
@@ -88,8 +89,8 @@ export default function NewsPage() {
                                 {item.quote}
                                 <div className="inline-flex items-baseline ml-3 translate-y-0.5">
                                     <div className="w-5 h-5 border border-gray-900 flex items-center justify-center bg-white shadow-sm ring-1 ring-gray-900/5">
-                                        <span className="font-serif font-black text-[10px] leading-none text-gray-900">D</span>
-                                        <span className="text-primary font-black text-[10px] leading-none">.</span>
+                                        <span className="font-serif font-black text-xs leading-none text-gray-900">D</span>
+                                        <span className="text-primary font-black text-xs leading-none">.</span>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +102,7 @@ export default function NewsPage() {
                   )}
 
                   <div className="pt-8 border-t border-gray-100">
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">Context & Summary</h4>
+                    <h4 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-4">Context & Summary</h4>
                     <p className="text-gray-600 leading-[1.8] font-light break-keep">
                         {item.fullSummary}
                     </p>
@@ -111,7 +112,7 @@ export default function NewsPage() {
                     <Link 
                       href={item.link} 
                       target="_blank" 
-                      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all"
+                      className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all"
                     >
                       Read Original Article <ArrowUpRight size={14} />
                     </Link>

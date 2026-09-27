@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Post } from "@/lib/posts";
 
@@ -21,11 +22,13 @@ export default function Hero({ post }: { post: Post }) {
         
         {/* Universal Deep Space Background */}
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
+          <Image 
             src={universalBg} 
             alt="Infinite Possibilities"
-            className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-70"
+            fill
+            priority
+            sizes="(min-width: 1440px) 1248px, 100vw"
+            className="object-cover transition-transform duration-[2000ms] group-hover:scale-110 opacity-70"
           />
           {/* Enhanced multi-layered overlay for all resolutions */}
           <div className="absolute inset-0 bg-black/40"></div>
@@ -37,10 +40,10 @@ export default function Hero({ post }: { post: Post }) {
           <div className="max-w-4xl">
             {/* Top Label System */}
             <div className="flex items-center gap-4 mb-6">
-               <span className="bg-white text-black text-[10px] md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full shadow-lg">
+               <span className="bg-white text-black text-xs md:text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full shadow-lg">
                   Featured Article
                </span>
-               <span className="text-white/80 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] border-l border-white/30 pl-4">
+               <span className="text-white/80 text-xs md:text-xs font-bold uppercase tracking-[0.2em] border-l border-white/30 pl-4">
                   {categoryName}
                </span>
             </div>
@@ -59,8 +62,7 @@ export default function Hero({ post }: { post: Post }) {
             <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 border-t border-white/20 pt-8">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/40 shadow-xl">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/david.jpg" alt="David Kim" className="w-full h-full object-cover" />
+                        <Image src="/images/david.jpg" alt="David Kim" width={40} height={40} className="w-full h-full object-cover" />
                     </div>
                     <div className="text-sm">
                         <div className="font-bold tracking-wide text-white">David Kim</div>

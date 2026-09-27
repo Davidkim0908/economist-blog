@@ -105,7 +105,7 @@ export default function Search() {
               
               <div className="mt-12 space-y-8 overflow-y-auto max-h-[60vh] pr-4 custom-scrollbar">
                 {isLoading && (
-                  <div className="flex justify-center py-8 text-gray-400">
+                  <div className="flex justify-center py-8 text-gray-500">
                     <Loader2 className="animate-spin" size={32} />
                   </div>
                 )}

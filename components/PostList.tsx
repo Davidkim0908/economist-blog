@@ -29,7 +29,7 @@ export default function PostList({ posts, category }: PostListProps) {
             className={`pb-3 text-sm font-bold uppercase tracking-widest transition-colors ${
               activeTab === 'all' 
                 ? 'text-primary border-b-2 border-primary' 
-                : 'text-gray-400 hover:text-gray-600'
+                : 'text-gray-500 hover:text-gray-600'
             }`}
           >
             All Stories
@@ -39,7 +39,7 @@ export default function PostList({ posts, category }: PostListProps) {
             className={`pb-3 text-sm font-bold uppercase tracking-widest transition-colors ${
               activeTab === 'series' 
                 ? 'text-primary border-b-2 border-primary' 
-                : 'text-gray-400 hover:text-gray-600'
+                : 'text-gray-500 hover:text-gray-600'
             }`}
           >
             Series: 4차 산업혁명 이야기
@@ -54,7 +54,7 @@ export default function PostList({ posts, category }: PostListProps) {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 text-gray-400">
+        <div className="text-center py-20 text-gray-500">
           <p>No posts found in this section yet.</p>
         </div>
       )}

@@ -1,17 +1,18 @@
 import Link from "next/link";
+import { SHOW_NEWSLETTER, socialLinks } from "@/lib/site";
 
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 pt-16 pb-8 mt-20">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+        <div className={`grid gap-12 mb-16 ${SHOW_NEWSLETTER ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
           {/* 1. Brand & Description */}
           <div className="md:col-span-1">
             <h3 className="font-serif font-black text-2xl mb-6 tracking-tighter">David&apos;s Notes</h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
               The blog of Economist David Kim. Exploring the intersection of AI, Mobility, and Economic History.
             </p>
-            <div className="text-xs text-gray-400">
+            <div className="text-xs text-gray-500">
               &copy; {new Date().getFullYear()} David Kim. <br/>All rights reserved.
             </div>
           </div>
@@ -22,7 +23,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-600 font-medium">
               <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors">About David</Link></li>
-              <li><Link href="/videos" className="hover:text-primary transition-colors">Meet David</Link></li>
+              <li><Link href="/videos" className="hover:text-primary transition-colors">Videos</Link></li>
               <li><Link href="/topics/digital-transformation" className="hover:text-primary transition-colors">Focus: AI Transformation</Link></li>
               <li><Link href="/topics/mobility" className="hover:text-primary transition-colors">Focus: Mobility Transformation</Link></li>
               <li><Link href="/topics/history" className="hover:text-primary transition-colors">Focus: Decoding Growth</Link></li>
@@ -36,15 +37,15 @@ export default function Footer() {
           <div className="md:col-span-1">
             <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">Connect</h4>
             <ul className="space-y-3 text-sm text-gray-600 font-medium">
-              <li><a href="#" className="hover:text-primary transition-colors">Twitter (X)</a></li>
-              <li><a href="https://www.linkedin.com/in/kim-dongyoung-23a84493/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Facebook</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">YouTube</a></li>
+              {socialLinks.map(link => (
+                <li key={link.href}><a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{link.label}</a></li>
+              ))}
               <li className="pt-4"><a href="mailto:contact@economist-david.com" className="hover:text-primary transition-colors">contact@economist-david.com</a></li>
             </ul>
           </div>
 
-          {/* 4. Newsletter (Mini) */}
+          {/* 4. Newsletter (Mini) — hidden until a provider is connected */}
+          {SHOW_NEWSLETTER && (
           <div className="md:col-span-1">
             <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">Stay Updated</h4>
             <p className="text-gray-500 text-xs mb-4">
@@ -57,10 +58,11 @@ export default function Footer() {
                 </button>
             </div>
           </div>
+          )}
         </div>
         
         {/* Bottom Legal Line */}
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <div className="flex space-x-6">
                 <Link href="/legal/privacy" className="hover:text-gray-600">Privacy Policy</Link>
                 <Link href="/legal/terms" className="hover:text-gray-600">Terms of Service</Link>

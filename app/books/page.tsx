@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getPostsByCategory } from "@/lib/posts";
 import Link from "next/link";
 import { BookOpen, Star } from "lucide-react";
@@ -12,7 +13,7 @@ export default function BooksPage() {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="text-primary font-black tracking-[0.3em] uppercase text-[10px]">The Reading List</span>
+                    <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">The Reading List</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
                 <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
@@ -30,12 +31,13 @@ export default function BooksPage() {
                     {/* Floating Book Cover */}
                     <Link href={`/posts/${post.category}/${post.slug}`} className="relative mb-10 w-56 h-80 group">
                         <div className="absolute inset-0 bg-gray-50 rounded-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] group-hover:-rotate-2 overflow-hidden">
-                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                             <img 
+                             {post.coverImage && (<Image 
                                 src={post.coverImage} 
                                 alt={post.title} 
-                                className="w-full h-full object-contain rounded-sm" 
-                             />
+                                fill
+                                sizes="224px"
+                                className="object-contain rounded-sm" 
+                             />)}
                              <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         {/* Shadow Effect */}
@@ -45,7 +47,7 @@ export default function BooksPage() {
                     <div className="flex flex-col items-center flex-grow max-w-xs">
                         <div className="flex items-center gap-2 mb-4">
                             <BookOpen size={14} className="text-primary" />
-                            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Review</span>
+                            <span className="text-xs font-black uppercase tracking-widest text-gray-500">Review</span>
                         </div>
 
                         <Link href={`/posts/${post.category}/${post.slug}`}>
@@ -55,18 +57,18 @@ export default function BooksPage() {
                         </Link>
                         
                         {post.author && (
-                            <p className="text-[11px] text-gray-400 font-bold uppercase tracking-tighter mb-4">
+                            <p className="text-xs text-gray-500 font-bold uppercase tracking-tighter mb-4">
                                 by {post.author}
                             </p>
                         )}
                         
-                        <div className="flex text-yellow-500 gap-1 mb-6">
+                        <div className="flex text-amber-600 gap-1 mb-6">
                             {[...Array(5)].map((_, i) => (
                                 <Star 
                                     key={i} 
                                     size={12} 
                                     fill={i < Math.floor(post.rating || 0) ? "currentColor" : "none"} 
-                                    className={i < Math.floor(post.rating || 0) ? "text-yellow-500" : "text-gray-200"}
+                                    className={i < Math.floor(post.rating || 0) ? "text-amber-600" : "text-gray-200"}
                                 />
                             ))}
                         </div>
@@ -75,7 +77,7 @@ export default function BooksPage() {
                             {post.excerpt}
                         </p>
                         
-                        <Link href={`/posts/${post.category}/${post.slug}`} className="mt-auto inline-block text-[10px] font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">
+                        <Link href={`/posts/${post.category}/${post.slug}`} className="mt-auto inline-block text-xs font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">
                             Read Summary
                         </Link>
                     </div>

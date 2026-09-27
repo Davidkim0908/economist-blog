@@ -1,16 +1,56 @@
 'use client';
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu, Brain, CarFront, TrendingUp, X } from "lucide-react";
 import Search from "@/components/Search";
-import { useState, useEffect } from "react";
+import { SHOW_JOIN } from "@/lib/site";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState<null | 'david' | 'focus'>(null);
+  const menuButtons = useRef<Record<string, HTMLButtonElement | null>>({});
   const pathname = usePathname();
   const isHome = pathname === '/';
+
+  // 페이지 이동 시 열린 메뉴 닫기
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setOpenMenu(null);
+    setIsMobileMenuOpen(false);
+  }
+
+  // Escape: 열린 메가메뉴/모바일 메뉴 닫고 포커스를 트리거로 되돌림
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      if (openMenu) {
+        menuButtons.current[openMenu]?.focus();
+        setOpenMenu(null);
+      }
+      setIsMobileMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [openMenu]);
+
+  // 메가메뉴 트리거/패널 공통 속성 (hover는 CSS, 클릭·키보드는 state)
+  const trigger = (id: 'david' | 'focus') => ({
+    ref: (el: HTMLButtonElement | null) => { menuButtons.current[id] = el; },
+    type: 'button' as const,
+    'aria-expanded': openMenu === id,
+    'aria-controls': `mega-${id}`,
+    onClick: () => setOpenMenu(openMenu === id ? null : id),
+  });
+  const panelClass = (id: 'david' | 'focus') =>
+    `fixed left-0 top-[80px] md:top-[96px] w-full bg-white border-t border-gray-100 shadow-2xl py-12 transition-all duration-300 z-[60] text-gray-900 ${openMenu === id ? 'opacity-100 visible' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}`;
+  const closeOnBlur = (e: React.FocusEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node)) setOpenMenu(null);
+  };
 
   // 스크롤 감지 로직
   useEffect(() => {
@@ -52,10 +92,10 @@ export default function Navbar() {
                 </span>
                 <div className={`h-[1px] w-full my-0.5 group-hover:bg-primary transition-colors ${isHome && !isScrolled ? 'bg-white/30' : 'bg-gray-200'}`} />
                 <div className="flex items-baseline w-full">
-                    <span className={`font-sans text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 ${isHome && !isScrolled ? 'text-white/70' : 'text-gray-500'}`}>
+                    <span className={`font-sans text-xs md:text-xs font-black uppercase tracking-[0.2em] leading-none flex-grow flex justify-between mr-0.5 ${isHome && !isScrolled ? 'text-white/70' : 'text-gray-500'}`}>
                     <span>N</span><span>O</span><span>T</span><span>E</span><span>S</span>
                     </span>
-                    <span className="text-primary font-black text-[10px] leading-none">.</span>
+                    <span className="text-primary font-black text-xs leading-none">.</span>
                 </div>
               </div>
             </Link>
@@ -66,16 +106,16 @@ export default function Navbar() {
             <div className={`w-full max-w-5xl py-2 px-10 rounded-full flex items-center justify-center space-x-10 shadow-lg transition-all duration-500 ${isHome && !isScrolled ? 'bg-white/10 backdrop-blur-md border border-white/20' : 'bg-black text-white'}`}>
                 
                 {/* 1. Meet David Dropdown */}
-                <div className="relative group flex items-center h-full">
-                  <button className={`text-sm font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-1 py-1 text-white`}>
+                <div className="relative group flex items-center h-full" onBlur={closeOnBlur}>
+                  <button {...trigger('david')} className={`text-sm font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-1 py-1 text-white`}>
                     Meet David
                   </button>
                   {/* Mega Menu Panel */}
-                  <div className="fixed left-0 top-[80px] md:top-[96px] w-full bg-white border-t border-gray-100 shadow-2xl py-12 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60] text-gray-900">
+                  <div id="mega-david" className={panelClass('david')}>
                     <div className="container mx-auto px-4 lg:px-8">
                         <div className="grid grid-cols-12 gap-12">
                             <div className="col-span-3 border-r border-gray-100 pr-8">
-                                <h3 className="font-serif font-black text-3xl mb-4 text-gray-900">Meet David</h3>
+                                <p className="font-serif font-black text-3xl mb-4 text-gray-900">Meet David</p>
                                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
                                     경제학자의 시선으로 기술과 사회의 접점을 탐구합니다.<br/>
                                     데이터 뒤에 숨겨진 맥락을 읽어내고, 더 나은 미래를 위한 이정표를 제시합니다.
@@ -99,7 +139,7 @@ export default function Navbar() {
                                 </Link>
                             </div>
                             <div className="col-span-4 bg-gray-50 rounded-xl overflow-hidden relative h-64 group/card border border-gray-100 flex items-center justify-center">
-                                <img src="/reading-book-clean.jpg" alt="David Kim Reading" className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover/card:scale-105" />
+                                <Image src="/reading-book-clean.jpg" alt="David Kim Reading" fill sizes="400px" className="object-contain transition-transform duration-700 group-hover/card:scale-105" />
                                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 via-black/10 to-transparent p-6">
                                     <div className="text-white font-serif font-bold text-lg">Deep Dive into Context</div>
                                     <div className="text-white/90 text-xs font-bold uppercase tracking-widest">Scholar & Strategist</div>
@@ -111,15 +151,15 @@ export default function Navbar() {
                 </div>
 
                 {/* 2. Focus Dropdown */}
-                <div className="relative group flex items-center h-full">
-                  <button className={`text-sm font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-1 py-1 text-white`}>
+                <div className="relative group flex items-center h-full" onBlur={closeOnBlur}>
+                  <button {...trigger('focus')} className={`text-sm font-bold tracking-tight hover:text-primary transition-colors flex items-center gap-1 py-1 text-white`}>
                     Focus
                   </button>
-                  <div className="fixed left-0 top-[80px] md:top-[96px] w-full bg-white border-t border-gray-100 shadow-2xl py-12 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[60] text-gray-900">
+                  <div id="mega-focus" className={panelClass('focus')}>
                     <div className="container mx-auto px-4 lg:px-8">
                         <div className="grid grid-cols-12 gap-8">
                             <div className="col-span-3 border-r border-gray-100 pr-8">
-                                <h3 className="font-serif font-black text-3xl mb-4 text-gray-900">Key Topics</h3>
+                                <p className="font-serif font-black text-3xl mb-4 text-gray-900">Key Topics</p>
                                 <p className="text-gray-500 text-sm leading-relaxed">
                                     3가지 핵심 테마를 통해<br/>미래 경제의 지형도를 그려봅니다.
                                 </p>
@@ -127,31 +167,31 @@ export default function Navbar() {
                             <div className="col-span-9 grid grid-cols-3 gap-8">
                                 <Link href="/topics/digital-transformation" className="group/topic block">
                                     <div className="bg-gray-50 h-40 rounded-lg mb-4 flex items-center justify-center group-hover/topic:bg-primary/5 transition-colors">
-                                        <Brain className="w-12 h-12 text-gray-400 group-hover/topic:text-primary transition-colors" />
+                                        <Brain className="w-12 h-12 text-gray-500 group-hover/topic:text-primary transition-colors" />
                                     </div>
                                     <div className="flex items-center gap-2 mb-2">
                                         <span className="text-xs font-black text-primary tracking-widest uppercase">AT</span>
-                                        <h4 className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">AI Transformation</h4>
+                                        <span className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">AI Transformation</span>
                                     </div>
                                     <p className="text-xs text-gray-500 leading-relaxed">인공지능이 바꾸는 산업의 구조와 노동의 미래를 분석합니다.</p>
                                 </Link>
                                 <Link href="/topics/mobility" className="group/topic block">
                                     <div className="bg-gray-50 h-40 rounded-lg mb-4 flex items-center justify-center group-hover/topic:bg-primary/5 transition-colors">
-                                        <CarFront className="w-12 h-12 text-gray-400 group-hover/topic:text-primary transition-colors" />
+                                        <CarFront className="w-12 h-12 text-gray-500 group-hover/topic:text-primary transition-colors" />
                                     </div>
                                     <div className="flex items-center gap-2 mb-2">
                                         <span className="text-xs font-black text-primary tracking-widest uppercase">MT</span>
-                                        <h4 className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">Mobility Transformation</h4>
+                                        <span className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">Mobility Transformation</span>
                                     </div>
                                     <p className="text-xs text-gray-500 leading-relaxed">자율주행과 전기차가 가져올 이동의 혁명과 경제적 파급효과.</p>
                                 </Link>
                                 <Link href="/topics/history" className="group/topic block">
                                     <div className="bg-gray-50 h-40 rounded-lg mb-4 flex items-center justify-center group-hover/topic:bg-primary/5 transition-colors">
-                                        <TrendingUp className="w-12 h-12 text-gray-400 group-hover/topic:text-primary transition-colors" />
+                                        <TrendingUp className="w-12 h-12 text-gray-500 group-hover/topic:text-primary transition-colors" />
                                     </div>
                                     <div className="flex items-center gap-2 mb-2">
                                         <span className="text-xs font-black text-primary tracking-widest uppercase">GT</span>
-                                        <h4 className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">Growth Trajectory</h4>
+                                        <span className="font-bold text-lg text-gray-900 group-hover/topic:text-primary transition-colors">Growth Trajectory</span>
                                     </div>
                                     <p className="text-xs text-gray-500 leading-relaxed">과거의 성장 궤적에서 미래의 해법을 찾는 경제사 탐구.</p>
                                 </Link>
@@ -171,11 +211,15 @@ export default function Navbar() {
             <div className="hidden sm:block hover:text-primary transition-colors cursor-pointer">
                 <Search />
             </div>
-            <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 ${isHome && !isScrolled ? 'border-white text-white hover:bg-white hover:text-dark' : 'border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'}`}>
+            {SHOW_JOIN && <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 ${isHome && !isScrolled ? 'border-white text-white hover:bg-white hover:text-dark' : 'border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'}`}>
                 Join
-            </Link>
+            </Link>}
             <button 
-                className={`lg:hidden p-2 rounded-full transition-colors ${isHome && !isScrolled ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-900'}`}
+                type="button"
+                aria-label={isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
+                className={`lg:hidden p-2.5 rounded-full transition-colors ${isHome && !isScrolled ? 'hover:bg-white/10 text-white' : 'hover:bg-gray-100 text-gray-900'}`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -185,16 +229,16 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-white z-40 transition-transform duration-300 lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div id="mobile-menu" inert={!isMobileMenuOpen} className={`fixed inset-0 bg-white z-40 transition-transform duration-300 lg:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="container mx-auto px-6 py-32 flex flex-col space-y-8">
             <div className="border-b border-gray-100 pb-4">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Meet David</h4>
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Meet David</p>
                 <Link href="/about" className="block text-2xl font-serif font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
                 <Link href="/videos" className="block text-2xl font-serif font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
                 <Link href="/news" className="block text-2xl font-serif font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>In the News</Link>
             </div>
             <div className="border-b border-gray-100 pb-4">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Focus</h4>
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Focus</p>
                 <Link href="/topics/digital-transformation" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>AI Transformation</Link>
                 <Link href="/topics/mobility" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Mobility Transformation</Link>
                 <Link href="/topics/history" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Growth Trajectory</Link>
@@ -202,7 +246,7 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4">
                 <Link href="/books" className="text-2xl font-serif font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
                 <Link href="/desk" className="text-2xl font-serif font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
-                <Link href="/join" className="text-2xl font-serif font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>
+                {SHOW_JOIN && <Link href="/join" className="text-2xl font-serif font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>}
             </div>
         </div>
       </div>

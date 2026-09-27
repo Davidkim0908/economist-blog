@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import PostCard from "@/components/PostCard";
 import VideoCard from "@/components/VideoCard";
@@ -5,11 +6,12 @@ import { getAllPosts, getFeaturedPost } from "@/lib/posts";
 import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
 import Link from "next/link";
+import { pickRandom } from "@/lib/utils";
+import { SHOW_NEWSLETTER } from "@/lib/site";
 import { ArrowRight, BookOpen, Mic2, Newspaper, Video } from "lucide-react";
 
-// 새로고침 시 무작위 책 추천 및 최신 영상 반영을 위해 동적 렌더링 활성화
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// 정적 렌더링 + 1시간마다 재생성 (책 추천이 시간 단위로 바뀜)
+export const revalidate = 3600;
 
 export default function Home() {
   const allPosts = getAllPosts();
@@ -25,7 +27,7 @@ export default function Home() {
   // [Section A] Lead Analysis & Random Books
   const leadPost = otherPosts.find(p => focusCategories.includes(p.category));
   // 상단에 보일 랜덤 책 2권
-  const randomBooks = [...allBookReviews].sort(() => Math.random() - 0.5).slice(0, 2);
+  const randomBooks = pickRandom(allBookReviews, 2);
   
   // [Section B] AI & Mobility Shift Strip
   const transformationPosts = otherPosts.filter(p => 
@@ -72,25 +74,25 @@ export default function Home() {
             <div className="bg-gray-50 p-6 rounded-[2rem] border border-gray-100 h-full">
                 <div className="flex items-center gap-2 mb-6 border-b border-gray-200 pb-3">
                     <BookOpen size={16} className="text-primary" />
-                    <h3 className="text-[10px] font-black uppercase tracking-widest text-gray-500">From the Library</h3>
+                    <h3 className="text-xs font-black uppercase tracking-widest text-gray-500">From the Library</h3>
                 </div>
                 <div className="space-y-8">
                     {randomBooks.map(book => (
                         <div key={book.slug} className="group flex gap-4 items-start">
-                            <div className="shrink-0 w-16 h-24 bg-white shadow-md rounded-sm overflow-hidden border border-gray-100">
-                                <img src={book.coverImage} alt={book.title} className="w-full h-full object-cover" />
+                            <div className="relative shrink-0 w-16 h-24 bg-white shadow-md rounded-sm overflow-hidden border border-gray-100">
+                                {book.coverImage && (<Image src={book.coverImage} alt={book.title} fill sizes="64px" className="object-cover" />)}
                             </div>
                             <div>
                                 <Link href={`/posts/${book.category}/${book.slug}`}>
                                     <h4 className="text-base font-serif font-bold group-hover:text-primary transition-colors leading-tight mb-1">{book.title}</h4>
                                 </Link>
-                                <p className="text-[10px] text-gray-400 font-medium mb-2 uppercase tracking-tighter">by {book.author}</p>
-                                <div className="text-yellow-500 text-[10px]">{'★'.repeat(Math.floor(book.rating || 0))}</div>
+                                <p className="text-xs text-gray-500 font-medium mb-2 uppercase tracking-tighter">by {book.author}</p>
+                                <div className="text-amber-600 text-xs" role="img" aria-label={`평점 ${Math.floor(book.rating || 0)}/5`}>{'★'.repeat(Math.floor(book.rating || 0))}</div>
                             </div>
                         </div>
                     ))}
                 </div>
-                <p className="text-[9px] text-gray-400 mt-8 italic text-center">Refresh for more recommendations</p>
+                
             </div>
           </div>
         </div>
@@ -102,8 +104,8 @@ export default function Home() {
         <div className="container mx-auto relative z-10">
             <div className="flex justify-between items-end mb-12 px-4 md:px-12 lg:px-20">
                 <div>
-                    <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-3">Industry Focus</h2>
-                    <h3 className="text-4xl font-serif font-black tracking-tight text-white">AI & Mobility Shift</h3>
+                    <p className="text-xs font-black tracking-[0.3em] uppercase text-red-400 mb-3">Industry Focus</p>
+                    <h2 className="text-4xl font-serif font-black tracking-tight text-white">AI & Mobility Shift</h2>
                 </div>
                 <Link href="/topics/digital-transformation" className="text-xs font-black tracking-widest uppercase flex items-center gap-2 hover:text-primary transition-colors text-white">
                     Explore All <ArrowRight size={14} />
@@ -133,45 +135,45 @@ export default function Home() {
 
         <div className="md:col-span-4">
             <div className="sticky top-24 bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
-                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-6 border-b border-gray-200 pb-4">On My Desk</h2>
+                <h2 className="text-xs font-black tracking-[0.3em] uppercase text-primary mb-6 border-b border-gray-200 pb-4">On My Desk</h2>
                 <div className="space-y-8">
                     {deskNotes.map(post => (
                         <div key={post.slug} className="group">
                             <Link href={`/posts/${post.category}/${post.slug}`}>
-                                <h4 className="text-lg font-serif font-bold group-hover:text-primary transition-colors leading-snug mb-2">{post.title}</h4>
+                                <h3 className="text-lg font-serif font-bold group-hover:text-primary transition-colors leading-snug mb-2">{post.title}</h3>
                             </Link>
-                            <div className="flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                            <div className="flex items-center justify-between text-xs text-gray-500 font-bold uppercase tracking-widest">
                                 <span>{post.source || 'ECONOMIST'}</span>
                                 <span>{post.date}</span>
                             </div>
                         </div>
                     ))}
                 </div>
-                <Link href="/desk" className="mt-10 block text-center bg-gray-900 text-white py-4 rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-primary transition-all shadow-lg">
+                <Link href="/desk" className="mt-10 block text-center bg-gray-900 text-white py-4 rounded-full text-xs font-black tracking-widest uppercase hover:bg-primary transition-all shadow-lg">
                     Full Research Archive
                 </Link>
 
                 <div className="mt-12 pt-8 border-t border-gray-200">
                     <div className="flex items-center gap-2 mb-6">
                         <Newspaper size={16} className="text-primary" />
-                        <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-gray-900">In the News</h2>
+                        <h2 className="text-xs font-black tracking-[0.3em] uppercase text-gray-900">In the News</h2>
                     </div>
                     <div className="space-y-6">
                         {latestNews.map((item, idx) => (
                             <div key={idx} className="group">
                                 <div className="flex items-center gap-2 mb-2">
-                                    <span className="text-[8px] font-black uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded-sm">{item.media}</span>
-                                    <span className="text-[8px] text-gray-400 font-bold uppercase tracking-widest">{item.date}</span>
+                                    <span className="text-xs font-black uppercase tracking-widest text-primary bg-primary/5 px-2 py-0.5 rounded-sm">{item.media}</span>
+                                    <span className="text-xs text-gray-500 font-bold uppercase tracking-widest">{item.date}</span>
                                 </div>
                                 <Link href="/news">
-                                    <h4 className="text-sm font-serif font-bold group-hover:text-primary transition-colors leading-snug break-keep">
+                                    <h3 className="text-sm font-serif font-bold group-hover:text-primary transition-colors leading-snug break-keep">
                                         {item.title}
-                                    </h4>
+                                    </h3>
                                 </Link>
                             </div>
                         ))}
                     </div>
-                    <Link href="/news" className="mt-8 flex items-center justify-center gap-2 text-[10px] font-black tracking-widest uppercase text-gray-400 hover:text-primary transition-colors">
+                    <Link href="/news" className="mt-8 flex items-center justify-center gap-2 text-xs font-black tracking-widest uppercase text-gray-500 hover:text-primary transition-colors">
                         View All Coverage <ArrowRight size={12} />
                     </Link>
                 </div>
@@ -183,8 +185,8 @@ export default function Home() {
       <section className="mb-24">
         <div className="flex justify-between items-end mb-12">
             <div>
-                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-3">Broadcast & Media</h2>
-                <h3 className="text-4xl font-serif font-black tracking-tight text-gray-900">Visual Insights</h3>
+                <p className="text-xs font-black tracking-[0.3em] uppercase text-primary mb-3">Broadcast & Media</p>
+                <h2 className="text-4xl font-serif font-black tracking-tight text-gray-900">Visual Insights</h2>
             </div>
             <Link href="/videos" className="text-xs font-black tracking-widest uppercase flex items-center gap-2 hover:text-primary transition-colors text-gray-900">
                 View All Videos <ArrowRight size={14} />
@@ -202,27 +204,29 @@ export default function Home() {
          <div className="container mx-auto">
             <div className="flex items-center justify-center flex-col mb-16">
                 <BookOpen className="text-primary mb-4" size={32} />
-                <h2 className="text-[10px] font-black tracking-[0.4em] uppercase text-primary mb-2">The Reading List</h2>
-                <h3 className="text-5xl font-serif font-black tracking-tighter text-gray-900">Bookshelf</h3>
+                <p className="text-xs font-black tracking-[0.4em] uppercase text-primary mb-2">The Reading List</p>
+                <h2 className="text-5xl font-serif font-black tracking-tighter text-gray-900">Bookshelf</h2>
             </div>
             
             <div className="grid md:grid-cols-3 gap-10">
                 {latestBooks.map(post => (
                     <div key={post.slug} className="flex flex-col items-center text-center group">
                         <div className="w-48 h-72 bg-white shadow-2xl rounded-sm mb-8 overflow-hidden relative transition-transform duration-500 group-hover:-translate-y-4 group-hover:rotate-2">
-                             <img 
+                             {post.coverImage && (<Image 
                                 src={post.coverImage} 
-                                className="absolute inset-0 w-full h-full object-cover" 
+                                fill
+                                sizes="192px"
+                                className="object-cover" 
                                 alt={post.title} 
-                             />
+                             />)}
                              <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                         </div>
-                        <h4 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">{post.title}</h4>
-                        <p className="text-sm text-gray-500 italic mb-4">by {post.author}</p>
-                        <div className="flex text-yellow-500 text-xs gap-1 mb-6">
+                        <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                        <p className="text-sm text-gray-600 mb-4">by {post.author}</p>
+                        <div className="flex text-amber-600 text-xs gap-1 mb-6">
                             {'★'.repeat(Math.floor(post.rating || 0))}
                         </div>
-                        <Link href={`/posts/${post.category}/${post.slug}`} className="text-[10px] font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">
+                        <Link href={`/posts/${post.category}/${post.slug}`} className="text-xs font-black uppercase tracking-widest border-b-2 border-gray-900 pb-1 hover:text-primary hover:border-primary transition-all">
                             Read Summary
                         </Link>
                     </div>
@@ -232,28 +236,32 @@ export default function Home() {
       </section>
 
       {/* 7. Author & Newsletter Footer */}
-      <section className="grid md:grid-cols-2 gap-16 items-stretch mb-16 border-t border-gray-200 pt-24">
+      <section className={`grid gap-16 items-stretch mb-16 border-t border-gray-200 pt-24 ${SHOW_NEWSLETTER ? "md:grid-cols-2" : "max-w-4xl mx-auto"}`}>
         <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
-                <img 
+            <div className="relative w-full md:w-2/5 aspect-[3/4] overflow-hidden rounded-2xl shadow-lg">
+                <Image 
                     src="/reading-book-clean.jpg" 
                     alt="David Kim" 
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    fill
+                    sizes="(min-width: 768px) 20vw, 100vw"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                 />
             </div>
             <div className="w-full md:w-3/5">
-                <h2 className="text-[10px] font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</h2>
-                <h3 className="text-4xl font-serif font-black mb-6 tracking-tighter text-gray-900">Meet David</h3>
+                <p className="text-xs font-black tracking-[0.3em] uppercase text-primary mb-4">The Author</p>
+                <h2 className="text-4xl font-serif font-black mb-6 tracking-tighter text-gray-900">Meet David</h2>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed font-light">
                     기술이라는 &apos;엔진&apos;에 맥락이라는 &apos;지도&apos;를 더합니다. <br/>
                     미래의 길을 설계하는 경제학자, 김동영입니다.
                 </p>
-                <Link href="/about" className="inline-block bg-primary text-white font-black py-3 px-8 rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-primary/30 text-[10px] tracking-widest uppercase">
+                <Link href="/about" className="inline-block bg-primary text-white font-black py-3 px-8 rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg hover:shadow-primary/30 text-xs tracking-widest uppercase">
                     READ FULL BIO
                 </Link>
             </div>
         </div>
 
+        {/* Newsletter — hidden until a provider is connected */}
+        {SHOW_NEWSLETTER && (
         <div className="bg-dark p-12 rounded-[2rem] text-center text-white relative overflow-hidden group flex flex-col justify-center">
             <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
             <h3 className="text-2xl font-serif font-black mb-4 tracking-tight text-white">Subscribe to the Newsletter</h3>
@@ -265,6 +273,7 @@ export default function Home() {
                 </button>
             </div>
         </div>
+        )}
       </section>
     </div>
   );

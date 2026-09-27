@@ -26,14 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" suppressHydrationWarning>
-      <body 
-        className={`${sourceSans.variable} ${playfair.variable} ${notoSerifKr.variable} flex flex-col min-h-screen bg-white`}
+    <html lang="ko" className={`${sourceSans.variable} ${playfair.variable} ${notoSerifKr.variable}`} suppressHydrationWarning>
+      <body
+        className={`flex flex-col min-h-screen bg-white`}
         suppressHydrationWarning
       >
         <div className="flex-grow w-full max-w-[1440px] mx-auto bg-[#FBFBFA] shadow-[0_0_50px_rgba(0,0,0,0.02)] min-h-screen flex flex-col relative border-x border-gray-100/30">
+            <a href="#main" className="skip-link">본문으로 건너뛰기</a>
             <Navbar />
-            <main className="flex-grow">
+            <main id="main" tabIndex={-1} className="flex-grow outline-none">
             {children}
             </main>
             <Footer />

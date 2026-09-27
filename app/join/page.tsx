@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Mail, Lock, User, Sparkles, Search } from "lucide-react";
 import { useState, useEffect } from "react";
+import { signIn } from "next-auth/react";
 import Script from "next/script";
 
 declare global {
@@ -94,8 +95,8 @@ export default function JoinPage() {
             </div>
             
             <div className="relative z-10 mt-12 pt-8 border-t border-white/10">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-primary mb-2">Member Benefit</p>
-                <p className="text-sm text-gray-400 font-light italic">
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-primary mb-2">Member Benefit</p>
+                <p className="text-sm text-gray-500 font-light italic">
                     "기술이라는 엔진에 맥락이라는 지도를 더하는 여정에 함께하세요."
                 </p>
             </div>
@@ -113,7 +114,7 @@ export default function JoinPage() {
                 {/* Basic Info */}
                 <div className="space-y-4">
                     <div className="relative">
-                        <User className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                        <User className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                         <input 
                             type="text" 
                             placeholder="Full Name" 
@@ -121,7 +122,7 @@ export default function JoinPage() {
                         />
                     </div>
                     <div className="relative">
-                        <Mail className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                        <Mail className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                         <input 
                             type="email" 
                             placeholder="Email address" 
@@ -129,7 +130,7 @@ export default function JoinPage() {
                         />
                     </div>
                     <div className="relative">
-                        <Lock className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                        <Lock className="absolute left-0 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                         <input 
                             type="password" 
                             placeholder="Password" 
@@ -140,9 +141,9 @@ export default function JoinPage() {
 
                 {/* Additional Info: Gender & Address */}
                 <div className="grid grid-cols-2 gap-6 pt-2">
-                    <Script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" strategy="lazyOnload" />
+                    <Script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" strategy="lazyOnload" />
                     <div>
-                        <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-3">Gender</p>
+                        <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-3">Gender</p>
                         <div className="flex gap-2">
                             {['Male', 'Female', 'Other'].map((g) => (
                                 <button key={g} type="button" className="flex-1 py-2 border border-gray-100 rounded-lg text-xs hover:border-primary hover:text-primary transition-all font-medium text-gray-500">
@@ -152,7 +153,7 @@ export default function JoinPage() {
                         </div>
                     </div>
                     <div>
-                        <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-3">Address</p>
+                        <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-3">Address</p>
                         <div className="flex gap-2 relative">
                             <input 
                                 type="text" 
@@ -165,7 +166,7 @@ export default function JoinPage() {
                             <button 
                                 type="button"
                                 onClick={handleAddressSearch}
-                                className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors"
+                                className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-500 hover:text-primary transition-colors"
                             >
                                 <Search size={14} />
                             </button>
@@ -175,7 +176,7 @@ export default function JoinPage() {
 
                 {/* Interest Topics */}
                 <div className="pt-4">
-                    <p className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 mb-4 flex items-center gap-2">
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-4 flex items-center gap-2">
                         <Sparkles size={10} className="text-primary" />
                         Select interests
                     </p>
@@ -199,7 +200,7 @@ export default function JoinPage() {
                 </div>
 
                 <div className="pt-6">
-                    <button className="w-full bg-dark text-white py-4 rounded-full font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-primary transition-all shadow-lg">
+                    <button className="w-full bg-dark text-white py-4 rounded-full font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-primary transition-all shadow-lg">
                         Create Account <ArrowRight size={14} />
                     </button>
                 </div>
@@ -209,22 +210,34 @@ export default function JoinPage() {
                     <div className="absolute inset-0 flex items-center">
                         <div className="w-full border-t border-gray-100"></div>
                     </div>
-                    <span className="relative px-4 bg-white text-[9px] font-black text-gray-400 uppercase tracking-widest">Or join with</span>
+                    <span className="relative px-4 bg-white text-xs font-black text-gray-500 uppercase tracking-widest">Or join with</span>
                 </div>
 
                 {/* Social Buttons */}
                 <div className="grid grid-cols-3 gap-3">
-                    <button type="button" className="flex items-center justify-center py-3 border border-gray-100 rounded-xl hover:bg-gray-50 transition-all">
+                    <button 
+                        type="button" 
+                        onClick={() => signIn('google')}
+                        className="flex items-center justify-center py-3 border border-gray-100 rounded-xl hover:bg-gray-50 transition-all"
+                    >
                         <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5 h-5" alt="Google" />
                     </button>
-                    <button type="button" className="flex items-center justify-center py-3 border border-[#03C75A]/20 bg-[#03C75A]/5 rounded-xl hover:bg-[#03C75A]/10 transition-all">
+                    <button 
+                        type="button" 
+                        onClick={() => signIn('naver')}
+                        className="flex items-center justify-center py-3 border border-[#03C75A]/20 bg-[#03C75A]/5 rounded-xl hover:bg-[#03C75A]/10 transition-all"
+                    >
                         <span className="text-[#03C75A] font-black text-xs">N</span>
                     </button>
-                    <button type="button" className="flex items-center justify-center py-3 border border-[#FEE500]/50 bg-[#FEE500]/10 rounded-xl hover:bg-[#FEE500]/20 transition-all">
+                    <button 
+                        type="button" 
+                        onClick={() => signIn('kakao')}
+                        className="flex items-center justify-center py-3 border border-[#FEE500]/50 bg-[#FEE500]/10 rounded-xl hover:bg-[#FEE500]/20 transition-all"
+                    >
                         <span className="text-[#3C1E1E] font-black text-xs">K</span>
                     </button>
                 </div>
-                <p className="mt-8 text-[11px] text-gray-400 leading-relaxed text-center font-light">
+                <p className="mt-8 text-xs text-gray-500 leading-relaxed text-center font-light">
                     By joining, you agree to our <Link href="/legal/terms" className="underline hover:text-gray-600">Terms of Service</Link> and <Link href="/legal/privacy" className="underline hover:text-gray-600">Privacy Policy</Link>.
                 </p>
             </form>

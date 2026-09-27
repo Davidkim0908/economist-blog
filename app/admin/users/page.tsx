@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from "react";
 import { 
   Users, 
   UserCheck, 
@@ -14,7 +13,6 @@ import {
   Download,
   CreditCard
 } from "lucide-react";
-import Link from "next/link";
 
 // Mock User Data
 const initialUsers = [
@@ -26,50 +24,7 @@ const initialUsers = [
 ];
 
 export default function AdminUsersPage() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === "david1234") { // 임시 관리자 비밀번호
-      setIsAuthenticated(true);
-      setError(false);
-    } else {
-      setError(true);
-      alert("관리자 비밀번호가 일치하지 않습니다.");
-    }
-  };
-
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-dark flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-[3rem] p-12 shadow-2xl text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-8">
-                <ShieldCheck size={32} />
-            </div>
-            <h1 className="text-2xl font-serif font-black text-gray-900 mb-2">Admin Access</h1>
-            <p className="text-gray-500 text-sm mb-8 font-light">관리자 계정으로 로그인이 필요합니다.</p>
-            
-            <form onSubmit={handleLogin} className="space-y-4">
-                <input 
-                    type="password" 
-                    placeholder="Enter Admin Password" 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className={`w-full px-6 py-4 bg-gray-50 border ${error ? 'border-primary' : 'border-gray-100'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 text-center text-lg`}
-                />
-                <button type="submit" className="w-full bg-dark text-white py-4 rounded-full font-black text-xs uppercase tracking-widest hover:bg-primary transition-all shadow-lg">
-                    Authorize
-                </button>
-            </form>
-            <Link href="/" className="inline-block mt-8 text-xs font-bold text-gray-400 hover:text-gray-600 transition-colors">
-                &larr; Back to Home
-            </Link>
-        </div>
-      </div>
-    );
-  }
+  // Access is enforced server-side in proxy.ts (ADMIN_PASSWORD).
 
   return (
     <div className="bg-[#F8F9FA] min-h-screen pt-24 pb-12">
@@ -80,7 +35,7 @@ export default function AdminUsersPage() {
             <div>
                 <div className="flex items-center gap-2 mb-2 text-primary">
                     <ShieldCheck size={16} />
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em]">Administrator</span>
+                    <span className="text-xs font-black uppercase tracking-[0.3em]">Administrator</span>
                 </div>
                 <h1 className="text-4xl font-serif font-black text-gray-900 tracking-tight">User Management</h1>
             </div>
@@ -104,7 +59,7 @@ export default function AdminUsersPage() {
             ].map((stat, i) => (
                 <div key={i} className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm flex items-center justify-between">
                     <div>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">{stat.label}</p>
+                        <p className="text-xs font-black uppercase tracking-widest text-gray-500 mb-1">{stat.label}</p>
                         <p className="text-3xl font-serif font-black text-gray-900">{stat.value}</p>
                     </div>
                     <div className={`${stat.bg} ${stat.color} p-4 rounded-2xl`}>
@@ -118,7 +73,7 @@ export default function AdminUsersPage() {
         <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm overflow-hidden">
             <div className="p-6 border-b border-gray-50 flex flex-col md:flex-row gap-4 items-center justify-between">
                 <div className="relative w-full md:w-96">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                     <input 
                         type="text" 
                         placeholder="Search by name, email or location..." 
@@ -137,13 +92,13 @@ export default function AdminUsersPage() {
                 <table className="w-full text-left border-collapse">
                     <thead>
                         <tr className="bg-gray-50/50">
-                            <th className="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50">User</th>
-                            <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50">Status</th>
-                            <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50">Monthly Fee</th>
-                            <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50">Location</th>
-                            <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50">Join Date</th>
-                            <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50">Interests</th>
-                            <th className="px-8 py-4 text-[10px] font-black uppercase tracking-widest text-gray-400 border-b border-gray-50 text-right">Actions</th>
+                            <th className="px-8 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50">User</th>
+                            <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50">Status</th>
+                            <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50">Monthly Fee</th>
+                            <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50">Location</th>
+                            <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50">Join Date</th>
+                            <th className="px-6 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50">Interests</th>
+                            <th className="px-8 py-4 text-xs font-black uppercase tracking-widest text-gray-500 border-b border-gray-50 text-right">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
@@ -156,7 +111,7 @@ export default function AdminUsersPage() {
                                         </div>
                                         <div>
                                             <p className="font-bold text-gray-900 text-sm">{user.name}</p>
-                                            <div className="flex items-center gap-1 text-gray-400 text-[11px]">
+                                            <div className="flex items-center gap-1 text-gray-500 text-xs">
                                                 <Mail size={10} />
                                                 {user.email}
                                             </div>
@@ -164,7 +119,7 @@ export default function AdminUsersPage() {
                                     </div>
                                 </td>
                                 <td className="px-6 py-6">
-                                    <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter ${
+                                    <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-tighter ${
                                         user.status === 'Premium' 
                                         ? 'bg-primary/10 text-primary border border-primary/20' 
                                         : 'bg-gray-100 text-gray-500 border border-gray-200'
@@ -185,14 +140,14 @@ export default function AdminUsersPage() {
                                 <td className="px-6 py-6">
                                     <div className="flex flex-wrap gap-1">
                                         {user.interests.map(interest => (
-                                            <span key={interest} className="bg-gray-50 text-gray-400 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-tight">
+                                            <span key={interest} className="bg-gray-50 text-gray-500 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-tight">
                                                 {interest}
                                             </span>
                                         ))}
                                     </div>
                                 </td>
                                 <td className="px-8 py-6 text-right">
-                                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-400">
+                                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-500">
                                         <MoreHorizontal size={18} />
                                     </button>
                                 </td>
@@ -203,7 +158,7 @@ export default function AdminUsersPage() {
             </div>
 
             {/* Pagination Placeholder */}
-            <div className="p-6 bg-gray-50/30 border-t border-gray-50 flex items-center justify-between text-xs font-bold text-gray-400 uppercase tracking-widest">
+            <div className="p-6 bg-gray-50/30 border-t border-gray-50 flex items-center justify-between text-xs font-bold text-gray-500 uppercase tracking-widest">
                 <span>Showing 1 to 5 of 1,248 users</span>
                 <div className="flex gap-2">
                     <button className="px-4 py-2 border border-gray-200 rounded-lg hover:bg-white disabled:opacity-50" disabled>Prev</button>

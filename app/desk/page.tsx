@@ -12,7 +12,7 @@ export default function DeskPage() {
             <div className="max-w-4xl mx-auto text-center mb-24">
                 <div className="flex items-center justify-center gap-3 mb-6">
                     <div className="h-[1px] w-12 bg-gray-200" />
-                    <span className="text-primary font-black tracking-[0.3em] uppercase text-[10px]">On My Desk</span>
+                    <span className="text-primary font-black tracking-[0.3em] uppercase text-xs">On My Desk</span>
                     <div className="h-[1px] w-12 bg-gray-200" />
                 </div>
                 <h1 className="text-5xl md:text-7xl font-serif font-black mb-8 text-gray-900 tracking-tighter">
@@ -33,7 +33,7 @@ export default function DeskPage() {
             ) : (
                 <div className="text-center py-40 bg-white rounded-[3rem] border border-dashed border-gray-200">
                     <Mic2 size={48} className="mx-auto text-gray-200 mb-6" />
-                    <p className="text-gray-400 font-serif italic text-xl tracking-tight">The desk is currently clear. <br/>Check back for new research soon.</p>
+                    <p className="text-gray-500 font-serif italic text-xl tracking-tight">The desk is currently clear. <br/>Check back for new research soon.</p>
                 </div>
             )}
         </div>

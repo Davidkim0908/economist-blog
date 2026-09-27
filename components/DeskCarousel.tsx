@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -33,12 +34,13 @@ export default function DeskCarousel({ posts }: DeskCarouselProps) {
         <div className="relative w-full h-full flex flex-col md:flex-row transition-opacity duration-500 ease-in-out">
             {/* Image Side */}
             <div className="md:w-1/2 h-64 md:h-auto md:min-h-[400px] relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
+                {posts[currentIndex].coverImage && (<Image 
                     src={posts[currentIndex].coverImage} 
-                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-opacity duration-500"
                     alt={posts[currentIndex].title} 
-                />
+                />)}
             </div>
             
             {/* Content Side */}
