@@ -34,7 +34,7 @@ export const categoryLabelEn = (category: string) => categoryLabelsEn[category] 
 // 제목이 대부분 로마자이면 영문 서체로 조판
 export const isLatinTitle = (text: string) => !/[가-힣]/.test(text);
 
-// 연재 번호 표지 스타일 (연재마다 바탕색으로 구분). bg는 반투명이라 아래 종이가 비친다.
+// 연재 번호 표지 스타일 (ongoing: 연재 중이면 true, 아니면 연재 완료로 표시) (연재마다 바탕색으로 구분). bg는 반투명이라 아래 종이가 비친다.
 export type SeriesStyle = { key: string; bg: string; ogBg: string; label: string; number: string; en: string; ongoing?: boolean };
 const seriesStyles: Record<string, SeriesStyle> = {
   "4차 산업혁명 이야기": { key: "4ir", bg: "rgba(148,153,160,0.32)", ogBg: "#D2D4D6", label: "#4B5563", number: "#1F2937", en: "The Fourth Industrial Revolution" },
