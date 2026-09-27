@@ -79,10 +79,10 @@ export default function Search() {
     <>
       <button 
         onClick={() => setIsOpen(true)} 
-        className="text-gray-900 hover:text-primary transition-colors p-2"
+        className="p-2.5 transition-opacity hover:opacity-70"
         aria-label="Search"
       >
-        <SearchIcon size={20} />
+        <SearchIcon size={24} strokeWidth={1.6} />
       </button>
 
       {isOpen && createPortal(
