@@ -21,6 +21,7 @@ export type Post = {
   heroImage?: string; // 홈 히어로·타일용 사진 (없으면 coverImage)
   heroCredit?: string; // 사진 출처 표기 (예: "Photo: 이름 / Unsplash")
   heroAlt?: string; // 사진 대체 텍스트
+  heroFocus?: string; // 사진 초점 (CSS object-position, 예: "70% 60%")
 };
 
 function getPostFiles(dir: string): string[] {
@@ -73,6 +74,7 @@ export function getAllPosts(): Post[] {
         heroImage: data.heroImage,
         heroCredit: data.heroCredit,
         heroAlt: data.heroAlt,
+        heroFocus: data.heroFocus,
         content,
       };
     } catch (e) {

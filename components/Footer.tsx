@@ -3,16 +3,16 @@ import { SHOW_NEWSLETTER, socialLinks } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 pt-16 pb-8 mt-20">
+    <footer className="bg-paper border-t border-[#D4D5D2] pt-16 pb-8 mt-20">
       <div className="container mx-auto px-4">
         <div className={`grid gap-12 mb-16 ${SHOW_NEWSLETTER ? "md:grid-cols-4" : "md:grid-cols-3"}`}>
           {/* 1. Brand & Description */}
           <div className="md:col-span-1">
             <h3 className="font-serif font-black text-2xl mb-6 tracking-tighter">David&apos;s Notes</h3>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
               경제학자 김동영의 블로그. AI와 모빌리티, 그리고 경제사가 만나는 지점을 탐구합니다.
             </p>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-gray-600">
               &copy; {new Date().getFullYear()} David Kim. <br/>모든 권리 보유.
             </div>
           </div>
@@ -48,7 +48,7 @@ export default function Footer() {
           {SHOW_NEWSLETTER && (
           <div className="md:col-span-1">
             <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-gray-900">Stay Updated</h4>
-            <p className="text-gray-500 text-xs mb-4">
+            <p className="text-gray-600 text-xs mb-4">
               Join the community and get the latest insights delivered to your inbox.
             </p>
             <div className="flex flex-col gap-2">
@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
         
         {/* Bottom Legal Line */}
-        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+        <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
             <div className="flex space-x-6">
                 <Link href="/legal/privacy" className="hover:text-gray-600">개인정보처리방침</Link>
                 <Link href="/legal/terms" className="hover:text-gray-600">이용약관</Link>

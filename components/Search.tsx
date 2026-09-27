@@ -98,8 +98,8 @@ export default function Search() {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Search David's Notes..."
-                className="w-full text-4xl md:text-5xl font-display font-bold bg-transparent border-b-2 border-gray-200 py-4 focus:outline-none focus:border-primary placeholder-gray-300 text-gray-900"
+                placeholder="검색어를 입력하세요"
+                className="w-full text-4xl md:text-5xl font-display font-bold bg-transparent border-b-2 border-gray-200 py-4 focus:outline-none focus:border-primary placeholder:text-gray-500 text-gray-900"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -112,7 +112,7 @@ export default function Search() {
                 )}
                 
                 {!isLoading && query !== '' && results.length === 0 && (
-                   <p className="text-center text-gray-500 text-lg">No results found for &quot;{query}&quot;</p>
+                   <p className="text-center text-gray-500 text-lg">&quot;{query}&quot;에 대한 검색 결과가 없습니다.</p>
                 )}
 
                 {results.map((post) => (

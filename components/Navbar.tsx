@@ -68,7 +68,7 @@ export default function Navbar() {
   const navbarBgClass = overHero
     ? 'bg-gradient-to-b from-black/55 via-black/20 to-transparent'
     : isHome
-    ? `bg-[#E8E9E8] border-b border-[#BEBEB6] ${isScrolled ? 'shadow-sm' : ''}`
+    ? `bg-paper border-b border-[#BEBEB6] ${isScrolled ? 'shadow-sm' : ''}`
     : `bg-white border-b border-gray-200/80 ${isScrolled ? 'shadow-[0_1px_12px_rgba(0,0,0,0.06)]' : ''}`;
 
   // Gates Notes 풍: 굵지 않은 큰 산세리프, 넓은 간격, 현재 위치는 얇은 밑줄
@@ -132,7 +132,7 @@ export default function Navbar() {
                                     경제학자의 시선으로 기술과 사회의 접점을 탐구합니다.<br/>
                                     데이터 뒤에 숨겨진 맥락을 읽어내고, 더 나은 미래를 위한 이정표를 제시합니다.
                                 </p>
-                                <Link href="/about" className="text-primary font-bold text-sm hover:underline">
+                                <Link href="/about" className="text-gray-900 font-bold text-sm underline-offset-4 hover:underline">
                                     View Full Profile &rarr;
                                 </Link>
                             </div>
@@ -217,7 +217,7 @@ export default function Navbar() {
 
           {/* Right: Search & Join */}
           <div className={`flex items-center space-x-4 md:space-x-6 z-50 relative transition-colors ${textColorClass}`}>
-            <div className="hidden sm:block">
+            <div>
                 <Search />
             </div>
             {SHOW_JOIN && <Link href="/join" className={`hidden md:block px-6 py-2 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-300 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white`}>
@@ -242,19 +242,19 @@ export default function Navbar() {
         <div className="container mx-auto px-6 py-32 flex flex-col space-y-8">
             <div className="border-b border-gray-100 pb-4">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Meet David</p>
-                <Link href="/about" className="block text-2xl font-display font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-                <Link href="/videos" className="block text-2xl font-display font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
-                <Link href="/news" className="block text-2xl font-display font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>In the News</Link>
+                <Link href="/about" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                <Link href="/videos" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
+                <Link href="/news" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>In the News</Link>
             </div>
             <div className="border-b border-gray-100 pb-4">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Focus</p>
-                <Link href="/topics/digital-transformation" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>AI Transformation</Link>
-                <Link href="/topics/mobility" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Mobility Transformation</Link>
-                <Link href="/topics/history" className="block text-xl font-bold text-gray-900 mb-2 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Growth Trajectory</Link>
+                <Link href="/topics/digital-transformation" className="block type-title-en text-[1.375rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>AI Transformation</Link>
+                <Link href="/topics/mobility" className="block type-title-en text-[1.375rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Mobility Transformation</Link>
+                <Link href="/topics/history" className="block type-title-en text-[1.375rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Growth Trajectory</Link>
             </div>
             <div className="flex flex-col space-y-4">
-                <Link href="/books" className="text-2xl font-display font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
-                <Link href="/desk" className="text-2xl font-display font-bold text-gray-900 hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
+                <Link href="/books" className="type-section-en text-[1.75rem] text-gray-900 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Books</Link>
+                <Link href="/desk" className="type-section-en text-[1.75rem] text-gray-900 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>On My Desk</Link>
                 {SHOW_JOIN && <Link href="/join" className="text-2xl font-display font-bold text-primary hover:text-red-800 pt-4" onClick={() => setIsMobileMenuOpen(false)}>Join the Community</Link>}
             </div>
         </div>
