@@ -2,7 +2,7 @@ export default function CookiePolicy() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-3xl">
       <h1 className="text-4xl font-display font-bold mb-8">Cookie Policy</h1>
-      <p className="text-gray-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+      <p className="text-gray-500 mb-8">Last updated: September 28, 2026</p>
       
       <div className="prose prose-lg text-gray-700">
         <p>
@@ -18,7 +18,7 @@ export default function CookiePolicy() {
         <p>We use cookies for the following purposes:</p>
         <ul>
           <li><strong>Essential Cookies:</strong> Necessary for the website to function properly.</li>
-          <li><strong>Analytics Cookies:</strong> To understand how visitors interact with our website (e.g., Google Analytics) so we can improve our content.</li>
+          <li><strong>Analytics:</strong> We measure visits with Vercel Web Analytics, which does not use cookies. It records only aggregated, anonymous statistics so we can improve our content.</li>
           <li><strong>Functionality Cookies:</strong> To remember your preferences and settings.</li>
         </ul>
 

@@ -3,6 +3,7 @@ import { Source_Sans_3, Source_Serif_4, Playfair_Display, Hahmlet, Noto_Serif_KR
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SiteAnalytics from "@/components/SiteAnalytics";
 
 const sourceSans = Source_Sans_3({ subsets: ["latin"], variable: "--font-source-sans" });
 const playfair = Playfair_Display({ 
@@ -45,6 +46,7 @@ export default function RootLayout({
             </main>
             <Footer />
         </div>
+        <SiteAnalytics />
       </body>
     </html>
   );

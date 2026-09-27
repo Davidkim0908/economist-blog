@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-3xl">
       <h1 className="text-4xl font-display font-bold mb-8">Privacy Policy</h1>
-      <p className="text-gray-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+      <p className="text-gray-500 mb-8">Last updated: September 28, 2026</p>
       
       <div className="prose prose-lg text-gray-700">
         <p>
@@ -12,8 +12,8 @@ export default function PrivacyPolicy() {
         <h3>1. Information We Collect</h3>
         <p>We collect minimal information necessary to provide our services:</p>
         <ul>
-          <li><strong>Email Address:</strong> When you subscribe to our newsletter.</li>
-          <li><strong>Usage Data:</strong> Information about how you interact with our website (e.g., pages visited, time spent), collected via cookies or analytics tools.</li>
+          <li><strong>Email Address:</strong> When you subscribe to our newsletter. It is stored with our email service provider and used only to send the newsletter.</li>
+          <li><strong>Usage Data:</strong> Aggregated, anonymous statistics about how the website is used (pages visited, referring site, country, device type), collected with Vercel Web Analytics. It does not use cookies and does not identify individual visitors.</li>
         </ul>
 
         <h3>2. How We Use Your Information</h3>
