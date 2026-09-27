@@ -154,7 +154,7 @@ export default function Navbar() {
                                 <Image src="/reading-book-clean.jpg" alt="David Kim Reading" fill sizes="400px" className="object-contain transition-transform duration-700 group-hover/card:scale-105" />
                                 <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 via-black/10 to-transparent p-6">
                                     <div className="text-white font-display font-bold text-lg">Deep Dive into Context</div>
-                                    <div className="text-white/90 text-xs font-bold uppercase tracking-widest">Scholar &amp; Strategist</div>
+                                    <div className="text-white/90 text-xs font-bold uppercase tracking-widest leading-relaxed">Economist · Policy Researcher · Mobility &amp; Regulation Specialist</div>
                                 </div>
                             </div>
                         </div>

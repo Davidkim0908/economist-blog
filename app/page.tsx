@@ -128,7 +128,7 @@ export default function Home() {
               한쪽 발은 자율주행과 AI가 지배할 &apos;가장 빠른 미래&apos;에, 다른 한쪽 발은 한국 경제가 숨 가쁘게 달려온 &apos;치열한 역사&apos;에 딛고 있습니다.
             </p>
             <Link href="/about" className="inline-flex items-center gap-2 bg-gray-900 text-white rounded-full px-7 py-3.5 text-base font-semibold hover:bg-primary transition-colors">
-              김동영 소개 <ArrowRight size={18} aria-hidden="true" />
+              김동영 박사 소개 <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </div>
         </section>

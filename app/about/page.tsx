@@ -30,8 +30,8 @@ export default function AboutPage() {
                   className="object-cover transition-transform duration-[2000ms] group-hover:scale-110"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-               <div className="absolute bottom-8 left-8">
-                  <span className="text-white text-xs font-black uppercase tracking-[0.3em] bg-primary px-4 py-2 rounded-full">경제학자 · 전략가</span>
+               <div className="absolute bottom-8 left-8 right-8">
+                  <span className="inline-block text-white text-xs font-bold tracking-[0.08em] leading-relaxed bg-primary px-4 py-2 rounded-2xl">경제학자 · 정책연구자 · 모빌리티 및 규제 전문가</span>
                </div>
             </div>
           </div>
