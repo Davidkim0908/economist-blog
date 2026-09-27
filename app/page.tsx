@@ -52,9 +52,9 @@ export default function Home() {
 
   return (
     <div className="bg-paper text-gray-900 pb-28 -mb-20">
-      {/* Cinematic hero: one photo, one card */}
+      {/* Cinematic hero: one photo, one card — 1440px 사이트 틀을 벗어나 화면 끝까지 (필자 결정 2026-09-27) */}
       {featured && (
-        <section className="relative min-h-[560px] h-[88svh] md:h-[92vh] max-h-[960px] overflow-hidden bg-black">
+        <section className="relative w-screen ml-[calc(50%-50vw)] min-h-[560px] h-[88svh] md:h-[92vh] max-h-[960px] overflow-hidden bg-black">
           {photo(featured) && (
             <Image src={photo(featured)!} alt={featured.heroAlt ?? ""} fill priority sizes="100vw" className="object-cover" style={{ objectPosition: featured.heroFocus ?? "center 70%" }} />
           )}

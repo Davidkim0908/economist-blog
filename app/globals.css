@@ -28,6 +28,10 @@
 }
 
 @layer base {
+  /* 홈 히어로가 화면 폭(100vw)으로 나갈 때 스크롤바 폭만큼 가로 스크롤이 생기지 않게 */
+  html, body {
+    overflow-x: clip;
+  }
   body {
     @apply bg-[#FBFBFA] text-gray-900 font-sans antialiased;
     word-break: keep-all;
