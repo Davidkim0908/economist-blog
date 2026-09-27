@@ -128,7 +128,8 @@ export default async function PostPage({ params }: Props) {
         </div>
       </header>
 
-      {/* 2. Full Bleed Featured Image Container */}
+      {/* 2. Full Bleed Featured Image Container — 연재 번호 표지 글은 본문 위 이미지 없이 */}
+      {!isSeriesCover(post) && (
       <div className="container mx-auto px-4 lg:px-8 mb-20">
         {category === 'books' ? (
           <div className="relative w-full min-h-[400px] md:min-h-[600px] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-900/5 flex items-center justify-center p-8 md:p-16">
@@ -167,6 +168,7 @@ export default async function PostPage({ params }: Props) {
           </figure>
         )}
       </div>
+      )}
 
       {/* 3. Main Content Grid */}
       <div className="container mx-auto px-4 max-w-6xl">
