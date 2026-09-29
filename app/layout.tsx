@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SiteAnalytics from "@/components/SiteAnalytics";
 import ChromeGate from "@/components/ChromeGate";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const sourceSans = Source_Sans_3({ subsets: ["latin"], variable: "--font-source-sans" });
 const playfair = Playfair_Display({ 
@@ -24,8 +25,10 @@ const notoSerif = Noto_Serif_KR({ subsets: ["latin"], variable: "--font-noto-ser
 const hahmlet = Hahmlet({ subsets: ["latin"], variable: "--font-hahmlet" });
 
 export const metadata: Metadata = {
-  title: "David's Notes",
-  description: "경제학자 김동영의 블로그 — AI 전환, 모빌리티, 경제사, 그리고 책.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  alternates: { types: { "application/rss+xml": [{ url: "/rss.xml", title: SITE_NAME }] } },
 };
 
 export default function RootLayout({

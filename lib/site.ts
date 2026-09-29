@@ -1,3 +1,8 @@
+// 사이트 기본 정보 (RSS·사이트맵·공유 이미지의 절대 주소에 쓴다)
+export const SITE_URL = "https://www.davidsnote.com";
+export const SITE_NAME = "David's Notes";
+export const SITE_DESCRIPTION = "경제학자 김동영의 블로그 — AI 전환, 모빌리티, 경제사, 그리고 책.";
+
 // Site-wide switches. Flip to true once a real newsletter provider is wired up.
 export const SHOW_NEWSLETTER = false;
 
