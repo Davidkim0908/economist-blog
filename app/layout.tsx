@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SiteAnalytics from "@/components/SiteAnalytics";
+import ChromeGate from "@/components/ChromeGate";
 
 const sourceSans = Source_Sans_3({ subsets: ["latin"], variable: "--font-source-sans" });
 const playfair = Playfair_Display({ 
@@ -40,11 +41,11 @@ export default function RootLayout({
       >
         <div className="flex-grow w-full max-w-[1440px] mx-auto bg-[#FBFBFA] shadow-[0_0_50px_rgba(0,0,0,0.02)] min-h-screen flex flex-col relative border-x border-gray-100/30">
             <a href="#main" className="skip-link">본문으로 건너뛰기</a>
-            <Navbar />
+            <ChromeGate><Navbar /></ChromeGate>
             <main id="main" tabIndex={-1} className="flex-grow outline-none">
             {children}
             </main>
-            <Footer />
+            <ChromeGate><Footer /></ChromeGate>
         </div>
         <SiteAnalytics />
       </body>
