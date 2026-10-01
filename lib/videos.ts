@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "korea-now-econ-insight-250908",
+    title: "[경제 인사이트] 자율주행 시대 성장하는 ‘로보택시’ 산업… 미래 모빌리티 산업 현황과 전망은?",
+    date: "2025-09-08",
+    description: "대한민국 NOW [경제 인사이트] 345회 출연분. 자율주행 시대에 성장하는 로보택시 산업과 미래 모빌리티 산업의 현황, 그리고 앞으로의 전망을 짚습니다. (27분 8초부터 재생)",
+    youtubeId: "eNC6JVR0m2o?start=1628"
+  },
+  {
     id: "cbs-econ-instinct-260516",
     title: "경제학자가 삼전·하이닉스·현대차를 냉정하게 봤더니... | 김동영 KDI 한국개발연구원 박사 풀버전 [경제적본능]",
     date: "2026-05-16",
