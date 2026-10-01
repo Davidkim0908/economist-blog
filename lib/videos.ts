@@ -16,16 +16,16 @@ export const videos: Video[] = [
   },
   {
     id: "kb-radio-260211",
-    title: "[성기영의 경제쇼] 김동영 박사 출연분 (26.02.11)",
+    title: "스페이스X, 인공지능 기업 X AI와 합병하는 이유는?",
     date: "2026-02-11",
-    description: "KBS 1라디오 성기영의 경제쇼 출연분. (33분 24초부터 재생)",
+    description: "KBS 1라디오 성기영의 경제쇼 출연분. 스페이스X가 인공지능 기업 xAI와 합병하는 배경과 그 의미를 짚습니다. (33분 24초부터 재생)",
     youtubeId: "thiVkZ8gEn0?start=2004"
   },
   {
     id: "kb-radio-251224",
-    title: "[성기영의 경제쇼] 김동영 박사 출연분 (25.12.24)",
+    title: "AI가 크리스마스의 모습도 바꾼다!",
     date: "2025-12-24",
-    description: "KBS 1라디오 성기영의 경제쇼 출연분. (34분 41초부터 재생)",
+    description: "KBS 1라디오 성기영의 경제쇼 출연분. AI가 바꾸는 크리스마스 풍경을 통해 일상 속으로 들어온 AI의 변화를 짚습니다. (34분 41초부터 재생)",
     youtubeId: "HnnH7PplV5E?start=2081"
   },
   {
