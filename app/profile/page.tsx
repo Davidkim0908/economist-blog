@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Mail, Rss } from "lucide-react";
 import CopyButton from "@/components/CopyButton";
+import SeriesCover from "@/components/SeriesCover";
+import YouTubeFacade from "@/components/YouTubeFacade";
+import { getAllPosts } from "@/lib/posts";
+import { newsItems } from "@/lib/news";
+import { formatDate } from "@/lib/desk";
+import { categoryLabelEn, socialLinks } from "@/lib/site";
 import {
   ADVISORY_CURRENT,
   ADVISORY_PAST,
@@ -32,6 +38,23 @@ export const metadata: Metadata = {
 const KDI = CAREER.filter((c) => c.org?.includes("KDI"));
 const GOV = CAREER.filter((c) => !c.org?.includes("KDI"));
 const projectYears = [...new Set(PROJECTS.map((p) => p.year))].sort((a, b) => b - a);
+const BROADCAST = MEDIA.filter((m) => !m.title.includes("연재"));
+
+const JUMP = [
+  { id: "bio", label: "약력" },
+  { id: "research", label: "연구" },
+  { id: "policy", label: "정책 자문" },
+  { id: "communicator", label: "방송·연재" },
+  { id: "projects", label: "연구 과제" },
+  { id: "press", label: "미디어 자료" },
+  { id: "contact", label: "문의" },
+];
+
+const SERIES = [
+  { name: "에이징 & 모빌리티", href: "/topics/mobility", outlet: "미래에셋투자와연금센터", period: "2025 ~ 연재 중" },
+  { name: "디지털 이코노미", href: "/topics/digital-transformation", outlet: "한국경제신문", period: "2021.3 ~ 2023.12" },
+  { name: "4차 산업혁명 이야기", href: "/topics/digital-transformation", outlet: "한국경제신문", period: "2017.11 ~ 2021.3" },
+];
 
 const STATS = [
   { value: "248편", label: "한국경제신문 주간 연재", sub: "2017 ~ 2023" },
@@ -66,7 +89,7 @@ function Rows({ items }: { items: Item[] }) {
 
 function Section({ id, en, ko, lead, children }: { id: string; en: string; ko: string; lead?: string; children: React.ReactNode }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-28 grid grid-cols-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] gap-x-12 gap-y-6 py-14 border-t border-[#D4D5D2]">
+    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-40 grid grid-cols-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] gap-x-12 gap-y-6 py-14 border-t border-[#D4D5D2]">
       <div>
         <p className="type-label-en text-gray-500 mb-3">{en}</p>
         <h2 id={`${id}-title`} className="type-display-ko text-[1.75rem] md:text-[2rem] text-balance">{ko}</h2>
@@ -87,6 +110,11 @@ function Sub({ title, children }: { title: string; children: React.ReactNode }) 
 }
 
 export default function ProfilePage() {
+  const posts = getAllPosts();
+  const columns = posts.filter((p) => !p.series && ["digital-transformation", "mobility", "history"].includes(p.category)).slice(0, 5);
+  const seriesCount = (name: string) => posts.filter((p) => p.series === name).length;
+  const news = newsItems.slice(0, 4);
+  const linkedin = socialLinks.find((x) => x.label === "LinkedIn");
   return (
     <div className="bg-paper text-gray-900 -mb-20 pb-24">
       <div className="container mx-auto px-4 lg:px-8 max-w-[1180px]">
@@ -99,7 +127,10 @@ export default function ProfilePage() {
             <p className="type-label-en text-gray-500 mb-4">Profile</p>
             <h1 className="type-article-ko mb-2">김동영</h1>
             <p className="type-title-en text-gray-500 text-[1.125rem] mb-6">Kim Dongyoung, Ph.D.</p>
-            <p className="type-sub-ko text-[1.0625rem] text-gray-900 mb-6">{PROFILE_TITLE}</p>
+            <p className="type-sub-ko text-[1.0625rem] text-gray-900 mb-5">{PROFILE_TITLE}</p>
+            <p className="type-display-ko text-[1.25rem] md:text-[1.4375rem] leading-[1.55] text-gray-900 mb-6 text-pretty">
+              기술이 경제와 제도를 어떻게 바꾸는지 연구하는 경제학자입니다.
+            </p>
             <ul className="space-y-1.5 text-[1.0625rem] text-gray-700 mb-6">
               {CURRENT_ROLES.map((r) => (
                 <li key={r}>{r}</li>
@@ -130,6 +161,17 @@ export default function ProfilePage() {
             </div>
           ))}
         </dl>
+
+        {/* 구역 바로가기 — 페이지가 길어 위에 붙여 둔다 */}
+        <nav aria-label="프로필 구역" className="sticky top-20 z-30 -mx-4 px-4 lg:-mx-8 lg:px-8 bg-paper/95 backdrop-blur border-b border-[#D4D5D2]">
+          <ul className="flex gap-5 overflow-x-auto py-3 text-sm font-semibold">
+            {JUMP.map((j) => (
+              <li key={j.id} className="shrink-0">
+                <a href={`#${j.id}`} className="text-gray-600 hover:text-gray-900">{j.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         {/* 약력 */}
         <Section id="bio" en="Biography" ko="약력" lead="행사·방송 소개에 그대로 쓰실 수 있도록 3인칭으로 정리했습니다.">
@@ -162,11 +204,55 @@ export default function ProfilePage() {
         </Section>
 
         <Section id="communicator" en="Communicator" ko="커뮤니케이터" lead="연구를 신문 연재와 방송, 강연으로 풀어 독자와 시청자, 기업 현장에 전합니다.">
-          <Sub title="방송·연재"><Rows items={MEDIA} /></Sub>
-          <Sub title="칼럼 기고 매체">
-            <p className="text-[1rem] leading-relaxed text-gray-700">{COLUMN_OUTLETS.join(" · ")}</p>
+          <Sub title="대표 영상">
+            <figure>
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-900">
+                <YouTubeFacade youtubeId="rTfH-SMPcng" title="경제학자가 삼전·하이닉스·현대차를 냉정하게 봤더니 | CBS 경제적본능" />
+              </div>
+              <figcaption className="text-sm text-gray-600 mt-3">
+                CBS 경제연구실 [경제적본능] 인터뷰 풀버전(2026.5). 더 많은 방송·강연은 <Link href="/videos" className="underline underline-offset-4 hover:text-gray-900">Videos</Link>에서 볼 수 있습니다.
+              </figcaption>
+            </figure>
+          </Sub>
+          <Sub title="방송"><Rows items={BROADCAST} /></Sub>
+          <Sub title="연재">
+            <ul className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {SERIES.map((x) => (
+                <li key={x.name}>
+                  <Link href={x.href} className="group block">
+                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-sheet shadow-[0_12px_30px_-16px_rgba(0,0,0,0.35)]" aria-hidden="true">
+                      <SeriesCover series={x.name} order={seriesCount(x.name)} />
+                    </div>
+                    <p className="type-title-ko text-[1rem] mt-3 group-hover:underline underline-offset-4">{x.name}</p>
+                    <p className="text-sm text-gray-600 mt-0.5">{x.outlet} · {seriesCount(x.name)}편</p>
+                    <p className="text-xs text-gray-500 tabular-nums">{x.period}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Sub>
+          <Sub title="최근 칼럼">
+            <ul className="divide-y divide-[#D4D5D2] border-y border-[#D4D5D2]">
+              {columns.map((c) => (
+                <li key={c.slug} className="py-3.5 grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1">
+                  <Link href={`/posts/${c.category}/${c.slug}`} className="text-[1rem] text-gray-900 leading-snug hover:underline underline-offset-4">{c.title}</Link>
+                  <span className="text-sm text-gray-500 whitespace-nowrap">{categoryLabelEn(c.category)} · {formatDate(c.date)}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-gray-600 mt-3">기고 매체: {COLUMN_OUTLETS.join(" · ")}</p>
+          </Sub>
+          <Sub title="최근 언론 보도">
+            <ul className="divide-y divide-[#D4D5D2] border-y border-[#D4D5D2]">
+              {news.map((n) => (
+                <li key={n.link} className="py-3.5">
+                  <a href={n.link} target="_blank" rel="noopener noreferrer" className="text-[1rem] text-gray-900 leading-snug hover:underline underline-offset-4">{n.title}</a>
+                  <p className="text-sm text-gray-500 mt-0.5"><span className="text-gray-700">{n.media}</span> · {n.date}</p>
+                </li>
+              ))}
+            </ul>
             <Link href="/news" className="inline-flex items-center gap-1.5 mt-3 text-sm font-semibold text-gray-900 hover:underline underline-offset-4">
-              언론에 소개된 글과 인터뷰 <ArrowRight size={15} aria-hidden="true" />
+              언론 보도 모두 보기 <ArrowRight size={15} aria-hidden="true" />
             </Link>
           </Sub>
           <Sub title="기업 강연·교육"><Rows items={LECTURES} /></Sub>
@@ -226,6 +312,20 @@ export default function ProfilePage() {
               <Mail size={17} aria-hidden="true" /> 메일 보내기
             </a>
           </div>
+          <ul className="flex flex-wrap gap-3">
+            {linkedin && (
+              <li>
+                <a href={linkedin.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 min-h-11 px-5 rounded-full border border-gray-300 text-gray-800 hover:border-gray-900 transition-colors">
+                  LinkedIn <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              </li>
+            )}
+            <li>
+              <a href="/rss.xml" className="inline-flex items-center gap-1.5 min-h-11 px-5 rounded-full border border-gray-300 text-gray-800 hover:border-gray-900 transition-colors">
+                <Rss size={15} aria-hidden="true" /> RSS로 새 글 받기
+              </a>
+            </li>
+          </ul>
           <p className="text-sm text-gray-600">
             필자의 생각과 글쓰기의 배경은 <Link href="/about" className="underline underline-offset-4 hover:text-gray-900">소개(Meet David)</Link>에서 읽으실 수 있습니다.
           </p>
