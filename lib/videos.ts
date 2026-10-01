@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "korea-now-humanoid-260522",
+    title: "정부 ‘K-AI 휴머노이드’ 개발 본격 착수…‘K-로봇’ 현주소와 전망은?",
+    date: "2026-05-22",
+    description: "대한민국 NOW 448회 출연분. 정부의 ‘K-AI 휴머노이드’ 개발 착수를 계기로 한국 로봇 산업의 현주소와 경쟁력, 앞으로의 전망을 짚습니다. (처음부터 24분 6초까지 재생)",
+    youtubeId: "jZsxbTU_b5s?end=1446"
+  },
+  {
     id: "korea-now-econ-insight-250908",
     title: "[경제 인사이트] 자율주행 시대 성장하는 ‘로보택시’ 산업… 미래 모빌리티 산업 현황과 전망은?",
     date: "2025-09-08",
