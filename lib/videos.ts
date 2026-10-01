@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "sbs-biz-marketmoney-260519",
+    title: "올해 韓 경제성장률 1.9%→2.5%…상향 배경은? [업종 따라잡기]",
+    date: "2026-05-19",
+    description: "SBS Biz 마켓 & 머니 [업종 따라잡기] 출연. 올해 한국 경제성장률 전망이 1.9%에서 2.5%로 상향된 배경과 그 의미를 짚습니다.",
+    youtubeId: "nq8qY9DGYck"
+  },
+  {
     id: "sbs-biz-260423",
     title: "[집중진단] SK하이닉스 '실적 신기록'…최고가 찍자 외국인·기관 \"팔자\" 그 이유는?",
     date: "2026-04-23",
