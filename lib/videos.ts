@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "kb-radio-260617",
+    title: "자율주행·로보틱스·피지컬 AI, 승자는?... 현대차 VS 테슬라?",
+    date: "2026-06-17",
+    description: "KBS 1라디오 채상욱의 경제쇼 ‘인간, 기술 그리고 미래!’ 코너 출연. 자율주행과 로보틱스, 피지컬 AI 경쟁에서 현대차와 테슬라가 택한 전략을 비교하고 승부처를 짚습니다.",
+    youtubeId: "SKgyDkLbX8U"
+  },
+  {
     id: "kb-radio-260211",
     title: "[성기영의 경제쇼] 김동영 박사 출연분 (26.02.11)",
     date: "2026-02-11",
