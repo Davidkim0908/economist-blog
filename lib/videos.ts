@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "ktv-policyk-260318",
+    title: "리사 수 AMD CEO 18일 방한...수출 1위 'K-반도체', 동맹 결성?",
+    date: "2026-03-18",
+    description: "KTV 정책 K 대담 출연. 역대 2월 최대를 기록한 수출 실적과 5년 만에 중국을 제친 메모리 반도체, 리사 수 AMD CEO 방한에 따른 반도체 협력 가능성, 테슬라의 AI 반도체 공장 '테라팹' 출범 소식을 짚습니다.",
+    youtubeId: "cbW4OiqagtM"
+  },
+  {
     id: "korea-now-humanoid-260522",
     title: "정부 ‘K-AI 휴머노이드’ 개발 본격 착수…‘K-로봇’ 현주소와 전망은?",
     date: "2026-05-22",
