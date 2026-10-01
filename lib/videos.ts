@@ -95,8 +95,8 @@ export const videos: Video[] = [
     id: "kb-radio-260401",
     title: "혁신의 성패 : 기술의 우위가 아닌 ‘과도기의 관리’",
     date: "2026-04-01",
-    description: "KBS 1라디오 성기영의 경제쇼 출연분. 기술적 우위보다 더 중요한 '혁신 과도기'의 사회적 합의와 제도적 관리 전략에 대해 심층 분석합니다. (34분 38초부터 재생)",
-    youtubeId: "mEXOm42jhe8?start=2078"
+    description: "KBS 1라디오 성기영의 경제쇼 출연분. 기술적 우위보다 더 중요한 '혁신 과도기'의 사회적 합의와 제도적 관리 전략에 대해 심층 분석합니다. (34분 37초부터 재생)",
+    youtubeId: "mEXOm42jhe8?start=2077"
   },
   {
     id: "sbs-moneyshort-260331",
