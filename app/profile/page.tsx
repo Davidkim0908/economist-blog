@@ -6,6 +6,7 @@ import CopyButton from "@/components/CopyButton";
 import SeriesCover from "@/components/SeriesCover";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import { getAllPosts } from "@/lib/posts";
+import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
 import { formatDate } from "@/lib/desk";
 import { categoryLabelEn, socialLinks } from "@/lib/site";
@@ -60,7 +61,7 @@ const STATS = [
   { value: "248편", label: "한국경제신문 주간 연재", sub: "2017 ~ 2023" },
   { value: `${ADVISORY_CURRENT.length}곳`, label: "현재 맡은 위원·이사", sub: "정부·지자체·학회 등" },
   { value: `${PROJECTS.length}건`, label: "연구 과제", sub: `${projectYears[projectYears.length - 1]} ~ ${projectYears[0]}` },
-  { value: "2023 ~", label: "KBS 1라디오 고정 출연", sub: "경제쇼 「디지털 이코노미」" },
+  { value: `${getAllVideos().length}편`, label: "방송·강연 영상", sub: "Videos에 정리" },
 ];
 
 function Rows({ items }: { items: Item[] }) {

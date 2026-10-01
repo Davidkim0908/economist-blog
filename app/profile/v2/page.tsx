@@ -218,7 +218,7 @@ export default function ProfileV2Page() {
             <div>
               <h3 className="type-title-ko text-[1.0625rem] mb-3">방송·강의</h3>
               <ul className="space-y-2 text-[0.975rem] text-gray-700">
-                <li className="flex justify-between gap-4"><span>KBS 1라디오 경제쇼 고정 출연</span><span className="text-sm text-gray-500 whitespace-nowrap">2023.11 ~</span></li>
+                <li className="flex justify-between gap-4"><span>KBS 1라디오 「성기영의 경제쇼」 고정 출연</span><span className="text-sm text-gray-500 whitespace-nowrap">2023.11 ~ 2026.3</span></li>
                 <li className="flex justify-between gap-4"><span>아리랑TV 「BizTech Korea」 진행</span><span className="text-sm text-gray-500 whitespace-nowrap">2020 ~ 2022.8</span></li>
                 {TEACHING.map((t) => (
                   <li key={t.org} className="flex justify-between gap-4"><span>{t.org} {t.title}</span><span className="text-sm text-gray-500 tabular-nums whitespace-nowrap">{t.period}</span></li>
