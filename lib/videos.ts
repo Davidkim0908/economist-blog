@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "sbs-biz-260423",
+    title: "[집중진단] SK하이닉스 '실적 신기록'…최고가 찍자 외국인·기관 \"팔자\" 그 이유는?",
+    date: "2026-04-23",
+    description: "SBS Biz 경제현장 오늘 [집중진단] 출연. SK하이닉스의 사상 최대 실적과 주가 최고가 이후 외국인·기관이 매도에 나선 배경, 그리고 반도체 업황의 흐름을 짚습니다.",
+    youtubeId: "bTpvzUUm5Vs"
+  },
+  {
     id: "kb-radio-260326",
     title: "AI 기술로 어떤 가치를 창출할 것인가? ‘기술의 목적’을 정의하는 ‘쓰임의 경제학’",
     date: "2026-03-26",
