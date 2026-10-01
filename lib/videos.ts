@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "kb-radio-260211",
+    title: "[성기영의 경제쇼] 김동영 박사 출연분 (26.02.11)",
+    date: "2026-02-11",
+    description: "KBS 1라디오 성기영의 경제쇼 출연분. (33분 24초부터 재생)",
+    youtubeId: "thiVkZ8gEn0?start=2004"
+  },
+  {
     id: "kb-radio-251224",
     title: "[성기영의 경제쇼] 김동영 박사 출연분 (25.12.24)",
     date: "2025-12-24",
