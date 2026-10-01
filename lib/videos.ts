@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "kb-radio-260326",
+    title: "AI 기술로 어떤 가치를 창출할 것인가? ‘기술의 목적’을 정의하는 ‘쓰임의 경제학’",
+    date: "2026-03-26",
+    description: "KBS 1라디오 성기영의 경제쇼 ‘디지털 이코노미’ 코너 출연분. AI 기술이 어떤 가치를 만들어야 하는지, 기술의 목적을 정의하는 ‘쓰임의 경제학’의 관점에서 짚습니다. (34분 35초부터 재생)",
+    youtubeId: "7sWxLyYOJR8?start=2075"
+  },
+  {
     id: "ktv-policyk-260318",
     title: "리사 수 AMD CEO 18일 방한...수출 1위 'K-반도체', 동맹 결성?",
     date: "2026-03-18",
