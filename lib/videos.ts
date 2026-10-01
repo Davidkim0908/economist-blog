@@ -8,6 +8,13 @@ export type Video = {
 
 export const videos: Video[] = [
   {
+    id: "ktv-policyk-260911",
+    title: "땅이 막히면 하늘로! 2028년, 한국에 '이것' 뜬다는데...?",
+    date: "2026-09-11",
+    description: "KTV 정책 K 출연. 2027년 예산안의 신규 100대 사업 속 신기술을 짚습니다. K-UAM 실증과 2028년 상용화 시범사업, 자율주행 예산 확대와 무인 DRT 도입, 돌봄로봇과 소방로봇 운영까지 다룹니다.",
+    youtubeId: "ylmhTnWCg9s"
+  },
+  {
     id: "sbs-biz-marketmoney-260519",
     title: "올해 韓 경제성장률 1.9%→2.5%…상향 배경은? [업종 따라잡기]",
     date: "2026-05-19",
