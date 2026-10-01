@@ -131,7 +131,7 @@ export default function Navbar() {
                                     경제학자의 시선으로 기술과 사회의 접점을 탐구합니다.<br/>
                                     데이터 뒤에 숨겨진 맥락을 읽어내고, 더 나은 미래를 위한 이정표를 제시합니다.
                                 </p>
-                                <Link href="/about" className="text-gray-900 font-bold text-sm underline-offset-4 hover:underline">
+                                <Link href="/profile" className="text-gray-900 font-bold text-sm underline-offset-4 hover:underline">
                                     View Full Profile &rarr;
                                 </Link>
                             </div>
@@ -239,6 +239,7 @@ export default function Navbar() {
             <div className="border-b border-gray-100 pb-4">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Meet David</p>
                 <Link href="/about" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                <Link href="/profile" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Profile</Link>
                 <Link href="/videos" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>Videos</Link>
                 <Link href="/news" className="block type-section-en text-[1.75rem] text-gray-900 mb-2 hover:underline underline-offset-4" onClick={() => setIsMobileMenuOpen(false)}>In the News</Link>
             </div>

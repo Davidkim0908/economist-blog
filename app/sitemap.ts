@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
   const latest = posts[0]?.date;
-  const staticPages = ["", "/about", "/books", "/desk", "/videos", "/news"].map((path) => ({
+  const staticPages = ["", "/about", "/profile", "/books", "/desk", "/videos", "/news"].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: latest,
     changeFrequency: "weekly" as const,
