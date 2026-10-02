@@ -6,7 +6,6 @@ import CopyButton from "@/components/CopyButton";
 import SeriesCover from "@/components/SeriesCover";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import { getAllPosts } from "@/lib/posts";
-import { getAllVideos } from "@/lib/videos";
 import { newsItems } from "@/lib/news";
 import { formatDate } from "@/lib/desk";
 import { categoryLabelEn, socialLinks } from "@/lib/site";
@@ -57,11 +56,12 @@ const SERIES = [
   { name: "4차 산업혁명 이야기", href: "/topics/digital-transformation", outlet: "한국경제신문", period: "2017.11 ~ 2021.3" },
 ];
 
+// 세 가지 역할과 방송을 하나씩 대표하는 숫자. 근거가 분명한 기간·횟수만 쓰고, 무엇을 셌는지 아래에 적는다.
 const STATS = [
-  { value: "248편", label: "한국경제신문 주간 연재", sub: "2017 ~ 2023" },
-  { value: `${ADVISORY_CURRENT.length}곳`, label: "현재 맡은 위원·이사", sub: "정부·지자체·학회 등" },
-  { value: `${PROJECTS.length}건`, label: "연구 과제", sub: `${projectYears[projectYears.length - 1]} ~ ${projectYears[0]}` },
-  { value: `${getAllVideos().length}편`, label: "방송·강연 영상", sub: "Videos에 정리" },
+  { value: "15년", label: "KDI 연구", sub: "2011 ~ 현재" },
+  { value: "4년", label: "정부 파견", sub: "대통령직속 위원회 · 국무총리실" },
+  { value: "248편", label: "신문 연재", sub: "한국경제신문, 2017 ~ 2023" },
+  { value: "100회+", label: "KBS 주간 고정 출연", sub: "「성기영의 경제쇼」, 2023.11 ~ 2026.3" },
 ];
 
 function Rows({ items }: { items: Item[] }) {
@@ -261,7 +261,7 @@ export default function ProfilePage() {
         </Section>
 
         {/* 연구 과제 전체 */}
-        <Section id="projects" en="Research Projects" ko="연구 과제" lead="수행한 연구 과제와 발주처를 모두 공개합니다. 공동연구는 연구진을 함께 적었습니다.">
+        <Section id="projects" en="Research Projects" ko="주요 연구 과제" lead="주요 연구 과제와 발주처를 공개합니다. 공동연구는 연구진을 함께 적었습니다.">
           {projectYears.map((y) => (
             <div key={y} className="grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4">
               <p className="type-title-en text-[1.0625rem] text-gray-500 tabular-nums pt-3.5">{y}</p>
