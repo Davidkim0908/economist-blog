@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { getPostBySlug, getAllPosts, postImage, isSeriesCover } from "@/lib/posts";
 import PostVisual from "@/components/PostVisual";
+import LectureDownload from "@/components/LectureDownload";
 import { seriesStyle } from "@/lib/site";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
@@ -35,6 +36,7 @@ const components = {
     <blockquote className="relative border-l-4 border-primary pl-8 my-12 text-2xl font-display text-gray-600 bg-gray-50/50 py-10 pr-8 rounded-r-[2rem]" {...props} />
   ),
   hr: () => <hr className="my-16 border-gray-100" />,
+  LectureDownload,
 };
 
 interface Props {
