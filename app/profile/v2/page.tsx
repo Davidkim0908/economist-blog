@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import SeriesCover from "@/components/SeriesCover";
 import { getAllPosts } from "@/lib/posts";
@@ -58,6 +59,8 @@ function SectionHead({ id, en, ko, more }: { id: string; en: string; ko: string;
 }
 
 export default function ProfileV2Page() {
+  // 비교용 시안: 운영 사이트에서는 열지 않는다(로컬에서만 확인)
+  if (process.env.NODE_ENV === "production") notFound();
   const posts = getAllPosts();
   const columns = posts.filter((p) => !p.series && ["digital-transformation", "mobility", "history"].includes(p.category)).slice(0, 10);
   const seriesCount = (name: string) => posts.filter((p) => p.series === name).length;

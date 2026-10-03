@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowUpRight, Mail, Rss } from "lucide-react";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import { socialLinks } from "@/lib/site";
@@ -21,6 +22,8 @@ const PARAGRAPHS = [
 ];
 
 export default function ProfileV3Page() {
+  // 비교용 시안: 운영 사이트에서는 열지 않는다(로컬에서만 확인)
+  if (process.env.NODE_ENV === "production") notFound();
   const linkedin = socialLinks.find((s) => s.label === "LinkedIn");
 
   return (
