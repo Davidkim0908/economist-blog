@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/lib/profile";
+
 export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-3xl">
@@ -36,7 +38,7 @@ export default function PrivacyPolicy() {
 
         <h3>5. Contact Us</h3>
         <p>
-          If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:contact@economist-david.com" className="text-primary underline">contact@economist-david.com</a>
+          If you have any questions about this Privacy Policy, please contact us at: <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline">{CONTACT_EMAIL}</a>
         </p>
       </div>
     </div>

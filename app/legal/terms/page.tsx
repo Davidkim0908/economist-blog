@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from "@/lib/profile";
+
 export default function TermsOfService() {
   return (
     <div className="container mx-auto px-4 py-16 max-w-3xl">
@@ -36,7 +38,7 @@ export default function TermsOfService() {
 
         <h3>6. Contact</h3>
         <p>
-          For any inquiries regarding these terms, please contact: <a href="mailto:contact@economist-david.com" className="text-primary underline">contact@economist-david.com</a>
+          For any inquiries regarding these terms, please contact: <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary underline">{CONTACT_EMAIL}</a>
         </p>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SHOW_NEWSLETTER, socialLinks } from "@/lib/site";
+import { CONTACT_EMAIL } from "@/lib/profile";
 
 export default function Footer() {
   return (
@@ -40,7 +41,7 @@ export default function Footer() {
               {socialLinks.map(link => (
                 <li key={link.href}><a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{link.label}</a></li>
               ))}
-              <li className="pt-4"><a href="mailto:contact@economist-david.com" className="hover:text-primary transition-colors">contact@economist-david.com</a></li>
+              <li className="pt-4"><a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-primary transition-colors">{CONTACT_EMAIL}</a></li>
             </ul>
           </div>
 

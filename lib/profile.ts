@@ -108,4 +108,5 @@ export const PROJECTS: Project[] = [
   { year: 2018, title: "개인정보 제도의 해외사례와 시사점 (Research Brief No.24)", client: "경제인문사회연구회" },
 ];
 
-export const CONTACT_EMAIL = "contact@economist-david.com";
+// 블로그 전체(프로필·꼬리말·약관)에서 쓰는 연락처 — Google Workspace(davidsnote.com)의 office@ 별칭, 보내는 이름 "김동영 연구실"
+export const CONTACT_EMAIL = "office@davidsnote.com";
