@@ -108,4 +108,4 @@ export const PROJECTS: Project[] = [
   { year: 2018, title: "개인정보 제도의 해외사례와 시사점 (Research Brief No.24)", client: "경제인문사회연구회" },
 ];
 
-export const CONTACT_EMAIL = "kimdy@mobilityplatform.kr";
+export const CONTACT_EMAIL = "contact@economist-david.com";
