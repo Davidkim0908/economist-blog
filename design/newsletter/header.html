@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=block" rel="stylesheet">
+<style>
+@font-face { font-family: "KPW Batang"; font-weight: 700; src: url("file:///Users/davidkim/Library/Fonts/KoPubWorld%20Batang%20Bold.ttf"); }
+@font-face { font-family: "KMono"; src: url("file:///Users/davidkim/Library/Fonts/NotoSansMonoCJKkr-Regular.otf"); }
+/* 호마다 바뀌는 값: --issue-color, 호수, 날짜, 제목, 사진, 한 줄 요약 */
+:root { --paper: #EFEEEA; --ink: #1B1B1D; --issue-color: #1D3FD8; --red: #B91C1C; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 600px; background: var(--paper); word-break: keep-all; }
+.card { position: relative; width: 600px; height: 800px; overflow: hidden; background: var(--paper); }
+.mono { font-family: "Courier New", "KMono", monospace; color: var(--ink); letter-spacing: .06em; }
+.num { position: absolute; left: -58px; top: 40px; font-family: "Playfair Display", serif; font-weight: 900; font-size: 330px; line-height: .86; width: 220px; text-align: center; color: var(--issue-color); opacity: .22; letter-spacing: -.04em; }
+.rule { position: absolute; height: 1px; background: #5C5C60; }
+.dmark { position: absolute; left: 50%; top: 92px; transform: translateX(-50%); width: 64px; height: 64px; border: 3px solid var(--ink); display: flex; align-items: center; justify-content: center; }
+.dmark b { font-family: "Playfair Display", serif; font-weight: 900; font-size: 36px; color: var(--ink); line-height: 1; }
+.dmark i { font-family: "Playfair Display", serif; font-weight: 900; font-style: normal; font-size: 32px; color: var(--red); line-height: 1; }
+.title { position: absolute; left: 150px; right: 150px; top: 170px; text-align: center; font-family: "KPW Batang", serif; font-weight: 700; font-size: 40px; line-height: 1.25; color: var(--ink); letter-spacing: -.02em; }
+.polaroid { position: absolute; left: 92px; top: 300px; width: 416px; padding: 20px 20px 86px; background: #FBFBF8; transform: rotate(-3.2deg); box-shadow: 0 14px 30px rgba(0,0,0,.18), 0 2px 4px rgba(0,0,0,.12); }
+.polaroid img { display: block; width: 376px; height: 376px; object-fit: cover; }
+.polaroid .cap { position: absolute; left: 24px; right: 16px; bottom: 16px; font-size: 17px; line-height: 1.5; letter-spacing: 0; }
+</style></head>
+<body>
+<div class="card">
+  <div class="num">0<br>1</div>
+  <div class="rule" style="left:56px; right:56px; top:28px;"></div>
+  <div class="mono" style="position:absolute; left:0; right:0; top:46px; text-align:center; font-size:16px; font-weight:700;">A WEEKLY LETTER FROM DAVID'S NOTES</div>
+
+  <div class="dmark"><b>D</b><i>.</i></div>
+
+  <div class="rule" style="left:56px; width:120px; top:188px;"></div>
+  <div class="mono" style="position:absolute; left:56px; top:197px; font-size:17px; line-height:1.35;">ISSUE 001</div>
+  <div class="rule" style="left:56px; width:120px; top:226px;"></div>
+
+  <div class="rule" style="right:56px; width:120px; top:188px;"></div>
+  <div class="mono" style="position:absolute; right:56px; top:197px; font-size:17px; text-align:right;">2026. 10. 6.</div>
+  <div class="rule" style="right:56px; width:120px; top:226px;"></div>
+
+  <div class="title">첫 번째<br>노트</div>
+
+  <div class="polaroid">
+    <img src="photo.jpg" alt="">
+    <div class="cap mono">경제학자 김동영이 매주 고른<br>기술, 모빌리티, 성장 이야기</div>
+  </div>
+</div>
+</body></html>
